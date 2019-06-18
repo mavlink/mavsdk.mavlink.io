@@ -1,0 +1,2716 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>class Telemetry · Dronecode SDK Guide</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-richquotes/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-footer-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-dronecode/theme_styles.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="structdronecode__sdk_1_1_telemetry_1_1_battery.html" />
+    
+    
+    <link rel="prev" href="structdronecode__sdk_1_1_info_1_1_identification.html" />
+    
+
+    </head>
+    <body>
+        
+    
+    <!-- ##HW Add dronecode menu -->
+    <div id="common_dronecode_menu">
+
+      <div class="common_menu_logo large_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png" alt="Dronecode logo (large)" />
+        </a>
+      </div>
+      <div class="common_menu_logo small_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png" alt="Dronecode logo (small)" />
+        </a>
+      </div>
+      
+      <div class="common_menu_options">
+        
+            <div class="common_dronecode_menu_item"><a href="http://px4.io/">PX4</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://qgroundcontrol.com/">QGroundControl</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://qgroundcontrol.com/">QGC</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://www.dronecode.org/sdk/">SDK</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://mavlink.io/en/">MAVLink</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="https://www.dronecode.org/documentation/">Documentation</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="https://www.dronecode.org/documentation/">Docs</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://discuss.px4.io/">Support</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://discuss.px4.io/">Help</a></div>
+        
+      </div>
+    </div>
+    
+<!-- ##HW END Add dronecode menu -->
+    
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../getting_started/faq.html">
+            
+                <a href="../getting_started/faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <a target="_blank" href="http://dronecode-sdk-swift.s3.eu-central-1.amazonaws.com/docs/master/index.html">
+            
+                    
+                    iOS/Swift
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <a target="_blank" href="https://github.com/dronecode/dronecodesdk-python#dronecodesdk-python">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../cpp/">
+            
+                <a href="../cpp/">
+            
+                    
+                    C++ (Dronecode Core)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../guide/">
+            
+                <a href="../guide/">
+            
+                    
+                    Guide
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../guide/general_usage.html">
+            
+                <a href="../guide/general_usage.html">
+            
+                    
+                    Usage/Paradigms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../guide/connections.html">
+            
+                <a href="../guide/connections.html">
+            
+                    
+                    Connecting to Systems (Vehicles)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" data-path="../guide/using_plugins.html">
+            
+                <a href="../guide/using_plugins.html">
+            
+                    
+                    Managing Systems
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4" data-path="../guide/system_information.html">
+            
+                <a href="../guide/system_information.html">
+            
+                    
+                    System Information
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.5" data-path="../guide/telemetry.html">
+            
+                <a href="../guide/telemetry.html">
+            
+                    
+                    Telemetry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.6" data-path="../guide/taking_off_landing.html">
+            
+                <a href="../guide/taking_off_landing.html">
+            
+                    
+                    Actions - Take Off, Arm, ...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.7" data-path="../guide/missions.html">
+            
+                <a href="../guide/missions.html">
+            
+                    
+                    Missions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.8" data-path="../guide/offboard.html">
+            
+                <a href="../guide/offboard.html">
+            
+                    
+                    Offboard Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.9" data-path="../guide/follow_me.html">
+            
+                <a href="../guide/follow_me.html">
+            
+                    
+                    Follow Me
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.10" data-path="../guide/vtol.html">
+            
+                <a href="../guide/vtol.html">
+            
+                    
+                    VTOL Support
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.11" data-path="../guide/toolchain.html">
+            
+                <a href="../guide/toolchain.html">
+            
+                    
+                    Building C++ Apps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.12" data-path="../guide/sdk_extensions.html">
+            
+                <a href="../guide/sdk_extensions.html">
+            
+                    
+                    SDK Extensions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../examples/">
+            
+                <a href="../examples/">
+            
+                    
+                    Examples
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="../examples/takeoff_and_land.html">
+            
+                <a href="../examples/takeoff_and_land.html">
+            
+                    
+                    Takeoff and Land
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="../examples/fly_mission.html">
+            
+                <a href="../examples/fly_mission.html">
+            
+                    
+                    Fly Mission
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3" data-path="../examples/fly_mission_qgc_plan.html">
+            
+                <a href="../examples/fly_mission_qgc_plan.html">
+            
+                    
+                    Fly QGC Plan Mission
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.4" data-path="../examples/offboard_velocity.html">
+            
+                <a href="../examples/offboard_velocity.html">
+            
+                    
+                    Offboard Mode - Velocity Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.5" data-path="../examples/follow_me.html">
+            
+                <a href="../examples/follow_me.html">
+            
+                    
+                    Follow Me Mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.6" data-path="../examples/transition_vtol_fixed_wing.html">
+            
+                <a href="../examples/transition_vtol_fixed_wing.html">
+            
+                    
+                    VTOL Transitions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    API Reference
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.1" data-path="classdronecode__sdk_1_1_dronecode_s_d_k.html">
+            
+                <a href="classdronecode__sdk_1_1_dronecode_s_d_k.html">
+            
+                    
+                    class DronecodeSDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.2" data-path="classdronecode__sdk_1_1_system.html">
+            
+                <a href="classdronecode__sdk_1_1_system.html">
+            
+                    
+                    class System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3" data-path="classdronecode__sdk_1_1_info.html">
+            
+                <a href="classdronecode__sdk_1_1_info.html">
+            
+                    
+                    class Info
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.3.1" data-path="structdronecode__sdk_1_1_info_1_1_version.html">
+            
+                <a href="structdronecode__sdk_1_1_info_1_1_version.html">
+            
+                    
+                    struct Version
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3.2" data-path="structdronecode__sdk_1_1_info_1_1_product.html">
+            
+                <a href="structdronecode__sdk_1_1_info_1_1_product.html">
+            
+                    
+                    struct Product
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3.3" data-path="structdronecode__sdk_1_1_info_1_1_identification.html">
+            
+                <a href="structdronecode__sdk_1_1_info_1_1_identification.html">
+            
+                    
+                    struct Identification
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.3.4" data-path="classdronecode__sdk_1_1_telemetry.html">
+            
+                <a href="classdronecode__sdk_1_1_telemetry.html">
+            
+                    
+                    class Telemetry
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.4.1" data-path="structdronecode__sdk_1_1_telemetry_1_1_battery.html">
+            
+                <a href="structdronecode__sdk_1_1_telemetry_1_1_battery.html">
+            
+                    
+                    struct Battery
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4.2" data-path="structdronecode__sdk_1_1_telemetry_1_1_euler_angle.html">
+            
+                <a href="structdronecode__sdk_1_1_telemetry_1_1_euler_angle.html">
+            
+                    
+                    struct EulerAngle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4.3" data-path="structdronecode__sdk_1_1_telemetry_1_1_g_p_s_info.html">
+            
+                <a href="structdronecode__sdk_1_1_telemetry_1_1_g_p_s_info.html">
+            
+                    
+                    struct GPSInfo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4.4" data-path="structdronecode__sdk_1_1_telemetry_1_1_ground_speed_n_e_d.html">
+            
+                <a href="structdronecode__sdk_1_1_telemetry_1_1_ground_speed_n_e_d.html">
+            
+                    
+                    struct GroundSpeedNED
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4.5" data-path="structdronecode__sdk_1_1_telemetry_1_1_health.html">
+            
+                <a href="structdronecode__sdk_1_1_telemetry_1_1_health.html">
+            
+                    
+                    struct Health
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4.6" data-path="structdronecode__sdk_1_1_telemetry_1_1_position.html">
+            
+                <a href="structdronecode__sdk_1_1_telemetry_1_1_position.html">
+            
+                    
+                    struct Position
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4.7" data-path="structdronecode__sdk_1_1_telemetry_1_1_position_n_e_d.html">
+            
+                <a href="structdronecode__sdk_1_1_telemetry_1_1_position_n_e_d.html">
+            
+                    
+                    struct PositionNED
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4.8" data-path="structdronecode__sdk_1_1_telemetry_1_1_velocity_n_e_d.html">
+            
+                <a href="structdronecode__sdk_1_1_telemetry_1_1_velocity_n_e_d.html">
+            
+                    
+                    struct VelocityNED
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4.9" data-path="structdronecode__sdk_1_1_telemetry_1_1_position_velocity_n_e_d.html">
+            
+                <a href="structdronecode__sdk_1_1_telemetry_1_1_position_velocity_n_e_d.html">
+            
+                    
+                    struct PositionVelocityNED
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4.10" data-path="structdronecode__sdk_1_1_telemetry_1_1_quaternion.html">
+            
+                <a href="structdronecode__sdk_1_1_telemetry_1_1_quaternion.html">
+            
+                    
+                    struct Quaternion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4.11" data-path="structdronecode__sdk_1_1_telemetry_1_1_r_c_status.html">
+            
+                <a href="structdronecode__sdk_1_1_telemetry_1_1_r_c_status.html">
+            
+                    
+                    struct RCStatus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4.12" data-path="structdronecode__sdk_1_1_telemetry_1_1_status_text.html">
+            
+                <a href="structdronecode__sdk_1_1_telemetry_1_1_status_text.html">
+            
+                    
+                    struct StatusText
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.5" data-path="classdronecode__sdk_1_1_action.html">
+            
+                <a href="classdronecode__sdk_1_1_action.html">
+            
+                    
+                    class Action
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.6" data-path="classdronecode__sdk_1_1_mission.html">
+            
+                <a href="classdronecode__sdk_1_1_mission.html">
+            
+                    
+                    class Mission
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.7" data-path="classdronecode__sdk_1_1_mission_item.html">
+            
+                <a href="classdronecode__sdk_1_1_mission_item.html">
+            
+                    
+                    class MissionItem
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.8" data-path="classdronecode__sdk_1_1_offboard.html">
+            
+                <a href="classdronecode__sdk_1_1_offboard.html">
+            
+                    
+                    class Offboard
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.8.1" data-path="structdronecode__sdk_1_1_offboard_1_1_attitude.html">
+            
+                <a href="structdronecode__sdk_1_1_offboard_1_1_attitude.html">
+            
+                    
+                    struct Attitude
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.8.2" data-path="structdronecode__sdk_1_1_offboard_1_1_attitude_rate.html">
+            
+                <a href="structdronecode__sdk_1_1_offboard_1_1_attitude_rate.html">
+            
+                    
+                    struct AltitudeRate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.8.3" data-path="structdronecode__sdk_1_1_offboard_1_1_velocity_body_yawspeed.html">
+            
+                <a href="structdronecode__sdk_1_1_offboard_1_1_velocity_body_yawspeed.html">
+            
+                    
+                    struct VelocityBodyYawspeed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.8.4" data-path="structdronecode__sdk_1_1_offboard_1_1_velocity_n_e_d_yaw.html">
+            
+                <a href="structdronecode__sdk_1_1_offboard_1_1_velocity_n_e_d_yaw.html">
+            
+                    
+                    struct VelocityNEDYaw
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.8.5" data-path="structdronecode__sdk_1_1_offboard_1_1_position_n_e_d_yaw.html">
+            
+                <a href="structdronecode__sdk_1_1_offboard_1_1_position_n_e_d_yaw.html">
+            
+                    
+                    struct PositionNEDYaw
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.9" data-path="classdronecode__sdk_1_1_gimbal.html">
+            
+                <a href="classdronecode__sdk_1_1_gimbal.html">
+            
+                    
+                    class Gimbal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.10" data-path="classdronecode__sdk_1_1_camera.html">
+            
+                <a href="classdronecode__sdk_1_1_camera.html">
+            
+                    
+                    class Camera
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.10.1" data-path="structdronecode__sdk_1_1_camera_1_1_information.html">
+            
+                <a href="structdronecode__sdk_1_1_camera_1_1_information.html">
+            
+                    
+                    struct Information
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.10.2" data-path="structdronecode__sdk_1_1_camera_1_1_capture_info.html">
+            
+                <a href="structdronecode__sdk_1_1_camera_1_1_capture_info.html">
+            
+                    
+                    struct CaptureInfo
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.10.2.1" data-path="structdronecode__sdk_1_1_camera_1_1_capture_info_1_1_position.html">
+            
+                <a href="structdronecode__sdk_1_1_camera_1_1_capture_info_1_1_position.html">
+            
+                    
+                    struct Position
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.10.2.2" data-path="structdronecode__sdk_1_1_camera_1_1_capture_info_1_1_quaternion.html">
+            
+                <a href="structdronecode__sdk_1_1_camera_1_1_capture_info_1_1_quaternion.html">
+            
+                    
+                    struct Quaternion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.10.2.3" data-path="structdronecode__sdk_1_1_camera_1_1_capture_info_1_1_euler_angle.html">
+            
+                <a href="structdronecode__sdk_1_1_camera_1_1_capture_info_1_1_euler_angle.html">
+            
+                    
+                    struct EulerAngle
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.10.3" data-path="structdronecode__sdk_1_1_camera_1_1_status.html">
+            
+                <a href="structdronecode__sdk_1_1_camera_1_1_status.html">
+            
+                    
+                    struct Status
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.10.4" data-path="structdronecode__sdk_1_1_camera_1_1_video_stream_info.html">
+            
+                <a href="structdronecode__sdk_1_1_camera_1_1_video_stream_info.html">
+            
+                    
+                    struct VideoStreamInfo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.10.5" data-path="structdronecode__sdk_1_1_camera_1_1_video_stream_settings.html">
+            
+                <a href="structdronecode__sdk_1_1_camera_1_1_video_stream_settings.html">
+            
+                    
+                    struct VideoStreamSettings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.10.6" data-path="structdronecode__sdk_1_1_camera_1_1_option.html">
+            
+                <a href="structdronecode__sdk_1_1_camera_1_1_option.html">
+            
+                    
+                    struct Option
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.10.7" data-path="structdronecode__sdk_1_1_camera_1_1_setting.html">
+            
+                <a href="structdronecode__sdk_1_1_camera_1_1_setting.html">
+            
+                    
+                    struct Setting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.10.8" data-path="structdronecode__sdk_1_1_camera_1_1_setting_options.html">
+            
+                <a href="structdronecode__sdk_1_1_camera_1_1_setting_options.html">
+            
+                    
+                    struct SettingOptions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.11" data-path="classdronecode__sdk_1_1_follow_me.html">
+            
+                <a href="classdronecode__sdk_1_1_follow_me.html">
+            
+                    
+                    class FollowMe
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.11.1" data-path="structdronecode__sdk_1_1_follow_me_1_1_config.html">
+            
+                <a href="structdronecode__sdk_1_1_follow_me_1_1_config.html">
+            
+                    
+                    struct Config
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.11.2" data-path="structdronecode__sdk_1_1_follow_me_1_1_target_location.html">
+            
+                <a href="structdronecode__sdk_1_1_follow_me_1_1_target_location.html">
+            
+                    
+                    struct TargetLocation 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.12" data-path="classdronecode__sdk_1_1_calibration.html">
+            
+                <a href="classdronecode__sdk_1_1_calibration.html">
+            
+                    
+                    class Calibration
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.12.1" data-path="structdronecode__sdk_1_1_calibration_1_1_progress_data.html">
+            
+                <a href="structdronecode__sdk_1_1_calibration_1_1_progress_data.html">
+            
+                    
+                    struct ProgressData
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.13" data-path="classdronecode__sdk_1_1_log_files.html">
+            
+                <a href="classdronecode__sdk_1_1_log_files.html">
+            
+                    
+                    class LogFiles
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.13.1" data-path="structdronecode__sdk_1_1_log_files_1_1_entry.html">
+            
+                <a href="structdronecode__sdk_1_1_log_files_1_1_entry.html">
+            
+                    
+                    struct Entry
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.14" data-path="classdronecode__sdk_1_1_param.html">
+            
+                <a href="classdronecode__sdk_1_1_param.html">
+            
+                    
+                    class Param
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.15" data-path="classdronecode__sdk_1_1_mission_raw.html">
+            
+                <a href="classdronecode__sdk_1_1_mission_raw.html">
+            
+                    
+                    class MissionRaw
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.15.1" data-path="structdronecode__sdk_1_1_mission_raw_1_1_mavlink_mission_item_int.html">
+            
+                <a href="structdronecode__sdk_1_1_mission_raw_1_1_mavlink_mission_item_int.html">
+            
+                    
+                    struct MavlinkMissionItemInt
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.16" data-path="classdronecode__sdk_1_1_mavlink_passthrough.html">
+            
+                <a href="classdronecode__sdk_1_1_mavlink_passthrough.html">
+            
+                    
+                    MavlinkPassthrough
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17" data-path="namespacedronecode__sdk.html">
+            
+                <a href="namespacedronecode__sdk.html">
+            
+                    
+                    namespace dronecode_sdk (globals)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../contributing/">
+            
+                <a href="../contributing/">
+            
+                    
+                    Contributing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.1" data-path="../contributing/build.html">
+            
+                <a href="../contributing/build.html">
+            
+                    
+                    Building Source
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.2" data-path="../contributing/test.html">
+            
+                <a href="../contributing/test.html">
+            
+                    
+                    Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.3" data-path="../contributing/plugins.html">
+            
+                <a href="../contributing/plugins.html">
+            
+                    
+                    Writing Plugins
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.4" data-path="../contributing/code_style.html">
+            
+                <a href="../contributing/code_style.html">
+            
+                    
+                    Coding Style
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.5" data-path="../contributing/dev_logging.html">
+            
+                <a href="../contributing/dev_logging.html">
+            
+                    
+                    Plugin/Test Logging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.6" data-path="../contributing/documentation.html">
+            
+                <a href="../contributing/documentation.html">
+            
+                    
+                    Documentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../releases/">
+            
+                <a href="../releases/">
+            
+                    
+                    Releases
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Dronecode Shortcuts</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <a target="_blank" href="https://dev.px4.io/en/">
+            
+                    
+                    PX4 Developer Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <a target="_blank" href="https://docs.px4.io/en/">
+            
+                    
+                    PX4 User Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <a target="_blank" href="https://docs.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl User Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <a target="_blank" href="https://dev.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl Developer Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" >
+            
+                <a target="_blank" href="https://mavlink.io/en/">
+            
+                    
+                    MAVLink Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" >
+            
+                <a target="_blank" href="https://camera-manager.dronecode.org/en/">
+            
+                    
+                    Dronecode Camera Manager
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >class Telemetry</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="dronecodesdktelemetry-class-reference">dronecode_sdk::Telemetry Class Reference</h1>
+<p><code>#include: telemetry.h</code></p>
+<hr>
+<p>This class allows users to get vehicle telemetry and state information (e.g. battery, GPS, RC connection, flight mode etc.) and set telemetry update rates. </p>
+<h2 id="data-structures">Data Structures</h2>
+<p>struct <a href="structdronecode__sdk_1_1_telemetry_1_1_battery.html">Battery</a></p>
+<p>struct <a href="structdronecode__sdk_1_1_telemetry_1_1_euler_angle.html">EulerAngle</a></p>
+<p>struct <a href="structdronecode__sdk_1_1_telemetry_1_1_g_p_s_info.html">GPSInfo</a></p>
+<p>struct <a href="structdronecode__sdk_1_1_telemetry_1_1_ground_speed_n_e_d.html">GroundSpeedNED</a></p>
+<p>struct <a href="structdronecode__sdk_1_1_telemetry_1_1_health.html">Health</a></p>
+<p>struct <a href="structdronecode__sdk_1_1_telemetry_1_1_position.html">Position</a></p>
+<p>struct <a href="structdronecode__sdk_1_1_telemetry_1_1_position_n_e_d.html">PositionNED</a></p>
+<p>struct <a href="structdronecode__sdk_1_1_telemetry_1_1_position_velocity_n_e_d.html">PositionVelocityNED</a></p>
+<p>struct <a href="structdronecode__sdk_1_1_telemetry_1_1_quaternion.html">Quaternion</a></p>
+<p>struct <a href="structdronecode__sdk_1_1_telemetry_1_1_r_c_status.html">RCStatus</a></p>
+<p>struct <a href="structdronecode__sdk_1_1_telemetry_1_1_status_text.html">StatusText</a></p>
+<p>struct <a href="structdronecode__sdk_1_1_telemetry_1_1_velocity_n_e_d.html">VelocityNED</a></p>
+<h2 id="public-types">Public Types</h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enum <a href="#classdronecode__sdk_1_1_telemetry_1a7e503d87f48fabb8549b4af7acb77f8f">FlightMode</a></td>
+<td>Flight modes.</td>
+</tr>
+<tr>
+<td>enum <a href="#classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">Result</a></td>
+<td>Results enum for telemetry requests.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">Result</a>)&gt; <a href="#classdronecode__sdk_1_1_telemetry_1af338eea395337c8940231ad690fe57e7">result_callback_t</a></td>
+<td>Callback type for telemetry requests.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(<a href="structdronecode__sdk_1_1_telemetry_1_1_position_velocity_n_e_d.html">PositionVelocityNED</a>)&gt; <a href="#classdronecode__sdk_1_1_telemetry_1a6a584ef033a162eb56cf8c45589a8ffd">position_velocity_ned_callback_t</a></td>
+<td>Callback type for kinematic (position and velocity) updates.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(<a href="structdronecode__sdk_1_1_telemetry_1_1_position.html">Position</a>)&gt; <a href="#classdronecode__sdk_1_1_telemetry_1a325501dc02e5c85cc7ad74ef233b3ff6">position_callback_t</a></td>
+<td>Callback type for position updates.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(bool <a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a2f22522ddfde00b97dbfad84864a1730">in_air</a>)&gt; <a href="#classdronecode__sdk_1_1_telemetry_1af64278aec30c32f4b8db9d427ba9c48c">in_air_callback_t</a></td>
+<td>Callback type for in-air updates.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(<a href="structdronecode__sdk_1_1_telemetry_1_1_status_text.html">StatusText</a> <a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ae97f81f4f564b02ffd2c0ef241f9feee">status_text</a>)&gt; <a href="#classdronecode__sdk_1_1_telemetry_1abd606e783a8ca44b9b87d7eb82a9b980">status_text_callback_t</a></td>
+<td>Callback for mavlink status text updates.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(bool <a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a76b05cc86c9152eabbda6b0051b8605d">armed</a>)&gt; <a href="#classdronecode__sdk_1_1_telemetry_1ad4be5f2c17988fa53b0c59affb64e9a2">armed_callback_t</a></td>
+<td>Callback type for armed updates (asynchronous).</td>
+</tr>
+<tr>
+<td>std::function&lt; void(<a href="structdronecode__sdk_1_1_telemetry_1_1_quaternion.html">Quaternion</a> quaternion)&gt; <a href="#classdronecode__sdk_1_1_telemetry_1a4fe1cb6af59d7ecabb26563f6c33079d">attitude_quaternion_callback_t</a></td>
+<td>Callback type for attitude updates in quaternion.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(<a href="structdronecode__sdk_1_1_telemetry_1_1_euler_angle.html">EulerAngle</a> euler_angle)&gt; <a href="#classdronecode__sdk_1_1_telemetry_1a0db7573bc74c00231c96cb87a5711e96">attitude_euler_angle_callback_t</a></td>
+<td>Callback type for attitude updates in Euler angles.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(<a href="structdronecode__sdk_1_1_telemetry_1_1_ground_speed_n_e_d.html">GroundSpeedNED</a> <a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a970b406d06b7ebd5f762e2d3b8d6021e">ground_speed_ned</a>)&gt; <a href="#classdronecode__sdk_1_1_telemetry_1a0ef2162b9ce267e0e59757712bbc8326">ground_speed_ned_callback_t</a></td>
+<td>Callback type for ground speed (NED) updates.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(<a href="structdronecode__sdk_1_1_telemetry_1_1_g_p_s_info.html">GPSInfo</a> <a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a22ca23272aa13e3cce9d4fabe025e467">gps_info</a>)&gt; <a href="#classdronecode__sdk_1_1_telemetry_1a2111571572b3898de7c1296eb3c8f547">gps_info_callback_t</a></td>
+<td>Callback type for GPS information updates.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(<a href="structdronecode__sdk_1_1_telemetry_1_1_battery.html">Battery</a> <a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a7c50637603fbde0f0ded0cbc24182d59">battery</a>)&gt; <a href="#classdronecode__sdk_1_1_telemetry_1ac13b14156d710aad87b113584a75af16">battery_callback_t</a></td>
+<td>Callback type for battery status updates.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a7e503d87f48fabb8549b4af7acb77f8f">FlightMode</a> <a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a8b108f9368e4f8f06b613d8571ad4e1e">flight_mode</a>)&gt; <a href="#classdronecode__sdk_1_1_telemetry_1a2d667183c1d2640c7248e9c438c01191">flight_mode_callback_t</a></td>
+<td>Callback type for flight mode updates.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(<a href="structdronecode__sdk_1_1_telemetry_1_1_health.html">Health</a> <a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a4f1b6620fa890b8ceb5599a9fc26a898">health</a>)&gt; <a href="#classdronecode__sdk_1_1_telemetry_1a58fdb6d9cb7dc8124182556630a0135c">health_callback_t</a></td>
+<td>Callback type for health status updates.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(bool <a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1acb0cdb02b7368179ca0193a111904a64">health_all_ok</a>)&gt; <a href="#classdronecode__sdk_1_1_telemetry_1aabf06480ae9a9ab85412b749030534df">health_all_ok_callback_t</a></td>
+<td>Callback type for health status updates.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(<a href="structdronecode__sdk_1_1_telemetry_1_1_r_c_status.html">RCStatus</a> <a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a0d7d1a6b8c73723c71ef3f147971d81d">rc_status</a>)&gt; <a href="#classdronecode__sdk_1_1_telemetry_1a1441a3aa4b0865ebb62f5e4f6d1cbdee">rc_status_callback_t</a></td>
+<td>Callback type for RC status updates.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-member-functions">Public Member Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Type</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">&#xA0;</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1aa75415e52318dd791c66a0b6c8ff2a14">Telemetry</a> (<a href="classdronecode__sdk_1_1_system.html">System</a> &amp; system)</td>
+<td>Constructor. Creates the plugin for a specific <a href="classdronecode__sdk_1_1_system.html">System</a>.</td>
+</tr>
+<tr>
+<td style="text-align:right">&#xA0;</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a9f730bedfb635985ca1807efe605564b">~Telemetry</a> ()</td>
+<td>Destructor (internal use only).</td>
+</tr>
+<tr>
+<td style="text-align:right">&#xA0;</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1ae813b39df956463080d31688138b96d4">Telemetry</a> (const <a href="classdronecode__sdk_1_1_telemetry.html">Telemetry</a> &amp;)=delete</td>
+<td>Copy constructor (object is not copyable).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">Result</a></td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1aa1e4ac8be67dd73f144ff2e404beb081">set_rate_position_velocity_ned</a> (double rate_hz)</td>
+<td>Set rate of kinematic (position and velocity) updates (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">Result</a></td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a84833a8b1b30347c9cd5b98bed889472">set_rate_position</a> (double rate_hz)</td>
+<td>Set rate of position updates (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">Result</a></td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1affff08e268b116a27280bedafc27df6a">set_rate_home_position</a> (double rate_hz)</td>
+<td>Set rate of home position updates (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">Result</a></td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1ac2f9fd9e44696b7af0a24669f2f140bb">set_rate_in_air</a> (double rate_hz)</td>
+<td>Set rate of in-air status updates (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">Result</a></td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a2005067a7b24f376be97bf562bbb4a8d">set_rate_attitude</a> (double rate_hz)</td>
+<td>Set rate of attitude updates (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">Result</a></td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a4ade0a9e9b6b80f35607e7944fbc0dc7">set_rate_camera_attitude</a> (double rate_hz)</td>
+<td>Set rate of camera attitude updates (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">Result</a></td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a02db719c2dfd8b035f59e0253bdb8be8">set_rate_ground_speed_ned</a> (double rate_hz)</td>
+<td>Set rate of ground speed (NED) updates (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">Result</a></td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1abca93bc1dca4bfb6b647ee4284cd3d60">set_rate_gps_info</a> (double rate_hz)</td>
+<td>Set rate of GPS information updates (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">Result</a></td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1aa100035f60c4c97eb4aa2b0a16239297">set_rate_battery</a> (double rate_hz)</td>
+<td>Set rate of battery status updates (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">Result</a></td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a0c68f4260c89ab51ab1d1dc0b9a47852">set_rate_rc_status</a> (double rate_hz)</td>
+<td>Set rate of RC status updates (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a4d4425908644763435a34ec72e9650e0">set_rate_position_velocity_ned_async</a> (double rate_hz, <a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1af338eea395337c8940231ad690fe57e7">result_callback_t</a> callback)</td>
+<td>Set rate of kinematic (position and velocity) updates (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a7dc380a3f7c653fe54561e5b48ff5995">set_rate_position_async</a> (double rate_hz, <a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1af338eea395337c8940231ad690fe57e7">result_callback_t</a> callback)</td>
+<td>Set rate of position updates (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1ade7ca559607ff70293f9bb955765abcf">set_rate_home_position_async</a> (double rate_hz, <a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1af338eea395337c8940231ad690fe57e7">result_callback_t</a> callback)</td>
+<td>Set rate of home position updates (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1af6d992febca0f79c7c4fb3e5fb97c06a">set_rate_in_air_async</a> (double rate_hz, <a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1af338eea395337c8940231ad690fe57e7">result_callback_t</a> callback)</td>
+<td>Set rate of in-air status updates (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a75fe9809222c9ac0bf6707037d6a5869">set_rate_attitude_async</a> (double rate_hz, <a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1af338eea395337c8940231ad690fe57e7">result_callback_t</a> callback)</td>
+<td>Set rate of attitude updates (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1ae1cd4b0135ed4ce0e1ecff3a60856d7b">set_rate_camera_attitude_async</a> (double rate_hz, <a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1af338eea395337c8940231ad690fe57e7">result_callback_t</a> callback)</td>
+<td>Set rate of camera attitude updates (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1af230d9fc89b5a3c833314fa953360b17">set_rate_ground_speed_ned_async</a> (double rate_hz, <a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1af338eea395337c8940231ad690fe57e7">result_callback_t</a> callback)</td>
+<td>Set rate of ground speed (NED) updates (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1ad459a78b1dfa0ef3a4d0d222267e1fbd">set_rate_gps_info_async</a> (double rate_hz, <a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1af338eea395337c8940231ad690fe57e7">result_callback_t</a> callback)</td>
+<td>Set rate of GPS information updates (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1aedc178582ac703bf467f4defc7efe450">set_rate_battery_async</a> (double rate_hz, <a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1af338eea395337c8940231ad690fe57e7">result_callback_t</a> callback)</td>
+<td>Set rate of battery status updates (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a3984dea260db91d37f8d99161aa2c3ba">set_rate_rc_status_async</a> (double rate_hz, <a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1af338eea395337c8940231ad690fe57e7">result_callback_t</a> callback)</td>
+<td>Set rate of RC status updates (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="structdronecode__sdk_1_1_telemetry_1_1_position_velocity_n_e_d.html">PositionVelocityNED</a></td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a21b0683af83e65884fdd460a45eb85d8">position_velocity_ned</a> () const</td>
+<td>Get the current kinematic (position and velocity) in NED frame (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="structdronecode__sdk_1_1_telemetry_1_1_position.html">Position</a></td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1ae1d845b0f461a5e50f425939c1efccd2">position</a> () const</td>
+<td>Get the current position (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="structdronecode__sdk_1_1_telemetry_1_1_position.html">Position</a></td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a76ad20dab72e02523b5637900aaab9da">home_position</a> () const</td>
+<td>Get the home position (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="structdronecode__sdk_1_1_telemetry_1_1_status_text.html">StatusText</a></td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1ae97f81f4f564b02ffd2c0ef241f9feee">status_text</a> () const</td>
+<td>Get status text (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">bool</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a2f22522ddfde00b97dbfad84864a1730">in_air</a> () const</td>
+<td>Get the in-air status (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">bool</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a76b05cc86c9152eabbda6b0051b8605d">armed</a> () const</td>
+<td>Get the arming status (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="structdronecode__sdk_1_1_telemetry_1_1_quaternion.html">Quaternion</a></td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a2e05a480489c3b5a9b1f825b62d3434b">attitude_quaternion</a> () const</td>
+<td>Get the current attitude in quaternions (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="structdronecode__sdk_1_1_telemetry_1_1_euler_angle.html">EulerAngle</a></td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a7044fd16df994d84791f0a2434cf0060">attitude_euler_angle</a> () const</td>
+<td>Get the current attitude in Euler angles (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="structdronecode__sdk_1_1_telemetry_1_1_quaternion.html">Quaternion</a></td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a60695c414ae2e520fc69932db272c646">camera_attitude_quaternion</a> () const</td>
+<td>Get the camera&apos;s attitude in quaternions (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="structdronecode__sdk_1_1_telemetry_1_1_euler_angle.html">EulerAngle</a></td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a513fe94561cbf33d3d20db2a513c7ae3">camera_attitude_euler_angle</a> () const</td>
+<td>Get the camera&apos;s attitude in Euler angles (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="structdronecode__sdk_1_1_telemetry_1_1_ground_speed_n_e_d.html">GroundSpeedNED</a></td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a970b406d06b7ebd5f762e2d3b8d6021e">ground_speed_ned</a> () const</td>
+<td>Get the current ground speed (NED) (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="structdronecode__sdk_1_1_telemetry_1_1_g_p_s_info.html">GPSInfo</a></td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a22ca23272aa13e3cce9d4fabe025e467">gps_info</a> () const</td>
+<td>Get the current GPS information (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="structdronecode__sdk_1_1_telemetry_1_1_battery.html">Battery</a></td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a7c50637603fbde0f0ded0cbc24182d59">battery</a> () const</td>
+<td>Get the current battery status (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a7e503d87f48fabb8549b4af7acb77f8f">FlightMode</a></td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a8b108f9368e4f8f06b613d8571ad4e1e">flight_mode</a> () const</td>
+<td>Get the current flight mode (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="structdronecode__sdk_1_1_telemetry_1_1_health.html">Health</a></td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a4f1b6620fa890b8ceb5599a9fc26a898">health</a> () const</td>
+<td>Get the current health status (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">bool</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1acb0cdb02b7368179ca0193a111904a64">health_all_ok</a> () const</td>
+<td>Returns true if the overall health is ok (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="structdronecode__sdk_1_1_telemetry_1_1_r_c_status.html">RCStatus</a></td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a0d7d1a6b8c73723c71ef3f147971d81d">rc_status</a> () const</td>
+<td>Get the RC status (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a2d910e16336263522afa871ab01ee555">position_velocity_ned_async</a> (<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a6a584ef033a162eb56cf8c45589a8ffd">position_velocity_ned_callback_t</a> callback)</td>
+<td>Subscribe to kinematic (position and velocity) updates (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a2a19fb93315e33a2dad6720b36ec9389">position_async</a> (<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a325501dc02e5c85cc7ad74ef233b3ff6">position_callback_t</a> callback)</td>
+<td>Subscribe to position updates (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1ad94dbcc5ed4ebb8f377d11a2ea72f6fc">home_position_async</a> (<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a325501dc02e5c85cc7ad74ef233b3ff6">position_callback_t</a> callback)</td>
+<td>Subscribe to home position updates (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a1027180f38628306ddfd1d6e66ae067b">in_air_async</a> (<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1af64278aec30c32f4b8db9d427ba9c48c">in_air_callback_t</a> callback)</td>
+<td>Subscribe to in-air updates (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1aecc39d5aab5500a94c6516c9fcc6bc9a">status_text_async</a> (<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1abd606e783a8ca44b9b87d7eb82a9b980">status_text_callback_t</a> callback)</td>
+<td>Subscribe to status text updates (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a9382a19ea66f1d99f3780fa88abea3fd">armed_async</a> (<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ad4be5f2c17988fa53b0c59affb64e9a2">armed_callback_t</a> callback)</td>
+<td>Subscribe to armed updates (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1ac9633b72e0a38f5d5ec7f98d63ff1944">attitude_quaternion_async</a> (<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a4fe1cb6af59d7ecabb26563f6c33079d">attitude_quaternion_callback_t</a> callback)</td>
+<td>Subscribe to attitude updates in quaternion (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a6da4a219d31fffcbf2223f80bfa063f4">attitude_euler_angle_async</a> (<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a0db7573bc74c00231c96cb87a5711e96">attitude_euler_angle_callback_t</a> callback)</td>
+<td>Subscribe to attitude updates in Euler angles (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a8188574203ab3f916bfece2feaee62e2">camera_attitude_quaternion_async</a> (<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a4fe1cb6af59d7ecabb26563f6c33079d">attitude_quaternion_callback_t</a> callback)</td>
+<td>Subscribe to camera attitude updates in quaternion (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1aa40c2f8da4cdbe812187854d23a31e6a">camera_attitude_euler_angle_async</a> (<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a0db7573bc74c00231c96cb87a5711e96">attitude_euler_angle_callback_t</a> callback)</td>
+<td>Subscribe to camera attitude updates in Euler angles (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a652cf6fcec470ae65c39d22f934f6bc3">ground_speed_ned_async</a> (<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a0ef2162b9ce267e0e59757712bbc8326">ground_speed_ned_callback_t</a> callback)</td>
+<td>Subscribe to ground speed (NED) updates (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1afbc16838d115ca2bc43901be1e5637ff">gps_info_async</a> (<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a2111571572b3898de7c1296eb3c8f547">gps_info_callback_t</a> callback)</td>
+<td>Subscribe to GPS information updates (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a7988874d093cc514c31ec737568010b1">battery_async</a> (<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ac13b14156d710aad87b113584a75af16">battery_callback_t</a> callback)</td>
+<td>Subscribe to battery status updates (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a29494b6f0ed34be913e3f5c4bbfdf4cd">flight_mode_async</a> (<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a2d667183c1d2640c7248e9c438c01191">flight_mode_callback_t</a> callback)</td>
+<td>Subscribe to flight mode updates (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1ad6f8b300630350000db7c44ce6976ab0">health_async</a> (<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a58fdb6d9cb7dc8124182556630a0135c">health_callback_t</a> callback)</td>
+<td>Subscribe to health status updates (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1ad3eb60db8b4dc72fd55d8689d849c9ae">health_all_ok_async</a> (<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1aabf06480ae9a9ab85412b749030534df">health_all_ok_callback_t</a> callback)</td>
+<td>Subscribe to overall health status updates (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a9c08927e8693588dfc7a8d33d3df2423">rc_status_async</a> (<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a1441a3aa4b0865ebb62f5e4f6d1cbdee">rc_status_callback_t</a> callback)</td>
+<td>Subscribe to RC status updates (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">const <a href="classdronecode__sdk_1_1_telemetry.html">Telemetry</a> &amp;</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a029b8fc4c241e4c20d26ff1a4e601ef7">operator=</a> (const <a href="classdronecode__sdk_1_1_telemetry.html">Telemetry</a> &amp;)=delete</td>
+<td>Equality operator (object is not copyable).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="static-public-member-functions">Static Public Member Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Type</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">std::string</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1ac35c44d286d50e649b5e192730a756e7">flight_mode_str</a> (<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a7e503d87f48fabb8549b4af7acb77f8f">FlightMode</a> flight_mode)</td>
+<td>Get a human readable English string for a flight mode.</td>
+</tr>
+<tr>
+<td style="text-align:right">const char *</td>
+<td><a href="#classdronecode__sdk_1_1_telemetry_1a046457e28886493a677fe7d35627bacc">result_str</a> (<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">Result</a> result)</td>
+<td>Get human-readable English string for <a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">Telemetry::Result</a>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="constructor--destructor-documentation">Constructor &amp; Destructor Documentation</h2>
+<h3 id="classdronecode__sdk_1_1_telemetry_1aa75415e52318dd791c66a0b6c8ff2a14">Telemetry() </h3>
+<pre><code class="lang-cpp">dronecode_sdk::Telemetry::Telemetry(System &amp;system)
+</code></pre>
+<p>Constructor. Creates the plugin for a specific <a href="classdronecode__sdk_1_1_system.html">System</a>.</p>
+<p>The plugin is typically created as shown below: </p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">auto</span> telemetry = <span class="hljs-built_in">std</span>::make_shared&lt;Telemetry&gt;(system);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classdronecode__sdk_1_1_system.html">System</a>&amp; <strong>system</strong> - The specific system associated with this plugin.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a9f730bedfb635985ca1807efe605564b">~Telemetry() </h3>
+<pre><code class="lang-cpp">dronecode_sdk::Telemetry::~Telemetry()
+</code></pre>
+<p>Destructor (internal use only).</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1ae813b39df956463080d31688138b96d4">Telemetry() </h3>
+<pre><code class="lang-cpp">dronecode_sdk::Telemetry::Telemetry(<span class="hljs-keyword">const</span> Telemetry &amp;)=<span class="hljs-keyword">delete</span>
+</code></pre>
+<p>Copy constructor (object is not copyable).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classdronecode__sdk_1_1_telemetry.html">Telemetry</a>&amp;  - </li>
+</ul>
+<h2 id="member-typdef-documentation">Member Typdef Documentation</h2>
+<h3 id="classdronecode__sdk_1_1_telemetry_1af338eea395337c8940231ad690fe57e7">typedef result_callback_t </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(Result)&gt; dronecode_sdk::Telemetry::<span class="hljs-keyword">result_callback_t</span>
+</code></pre>
+<p>Callback type for telemetry requests.</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a6a584ef033a162eb56cf8c45589a8ffd">typedef position_velocity_ned_callback_t </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(PositionVelocityNED)&gt; dronecode_sdk::Telemetry::<span class="hljs-keyword">position_velocity_ned_callback_t</span>
+</code></pre>
+<p>Callback type for kinematic (position and velocity) updates.</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a325501dc02e5c85cc7ad74ef233b3ff6">typedef position_callback_t </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(Position)&gt; dronecode_sdk::Telemetry::<span class="hljs-keyword">position_callback_t</span>
+</code></pre>
+<p>Callback type for position updates.</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1af64278aec30c32f4b8db9d427ba9c48c">typedef in_air_callback_t </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(<span class="hljs-keyword">bool</span> in_air)&gt; dronecode_sdk::Telemetry::<span class="hljs-keyword">in_air_callback_t</span>
+</code></pre>
+<p>Callback type for in-air updates.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>in_air</strong> - true if in-air (flying) and not on-ground (landed).</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1abd606e783a8ca44b9b87d7eb82a9b980">typedef status_text_callback_t </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(StatusText status_text)&gt; dronecode_sdk::Telemetry::<span class="hljs-keyword">status_text_callback_t</span>
+</code></pre>
+<p>Callback for mavlink status text updates.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>status</strong> - text with message type and text.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1ad4be5f2c17988fa53b0c59affb64e9a2">typedef armed_callback_t </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(<span class="hljs-keyword">bool</span> armed)&gt; dronecode_sdk::Telemetry::<span class="hljs-keyword">armed_callback_t</span>
+</code></pre>
+<p>Callback type for armed updates (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>armed</strong> - true if armed (motors spinning).</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a4fe1cb6af59d7ecabb26563f6c33079d">typedef attitude_quaternion_callback_t </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(Quaternion quaternion)&gt; dronecode_sdk::Telemetry::<span class="hljs-keyword">attitude_quaternion_callback_t</span>
+</code></pre>
+<p>Callback type for attitude updates in quaternion.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>quaternion</strong> - Attitude quaternion.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a0db7573bc74c00231c96cb87a5711e96">typedef attitude_euler_angle_callback_t </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(EulerAngle euler_angle)&gt; dronecode_sdk::Telemetry::<span class="hljs-keyword">attitude_euler_angle_callback_t</span>
+</code></pre>
+<p>Callback type for attitude updates in Euler angles.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>euler_angle</strong> - Attitude Euler angle.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a0ef2162b9ce267e0e59757712bbc8326">typedef ground_speed_ned_callback_t </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(GroundSpeedNED ground_speed_ned)&gt; dronecode_sdk::Telemetry::<span class="hljs-keyword">ground_speed_ned_callback_t</span>
+</code></pre>
+<p>Callback type for ground speed (NED) updates.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>ground_speed_ned</strong> - Ground speed (NED).</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a2111571572b3898de7c1296eb3c8f547">typedef gps_info_callback_t </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(GPSInfo gps_info)&gt; dronecode_sdk::Telemetry::<span class="hljs-keyword">gps_info_callback_t</span>
+</code></pre>
+<p>Callback type for GPS information updates.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>gps_info</strong> - GPS information.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1ac13b14156d710aad87b113584a75af16">typedef battery_callback_t </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(Battery battery)&gt; dronecode_sdk::Telemetry::<span class="hljs-keyword">battery_callback_t</span>
+</code></pre>
+<p>Callback type for battery status updates.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>battery</strong> - <a href="structdronecode__sdk_1_1_telemetry_1_1_battery.html">Battery</a> status.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a2d667183c1d2640c7248e9c438c01191">typedef flight_mode_callback_t </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(FlightMode flight_mode)&gt; dronecode_sdk::Telemetry::<span class="hljs-keyword">flight_mode_callback_t</span>
+</code></pre>
+<p>Callback type for flight mode updates.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>flight_mode</strong> - Flight mode.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a58fdb6d9cb7dc8124182556630a0135c">typedef health_callback_t </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(Health health)&gt; dronecode_sdk::Telemetry::<span class="hljs-keyword">health_callback_t</span>
+</code></pre>
+<p>Callback type for health status updates.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>health</strong> - health flags.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1aabf06480ae9a9ab85412b749030534df">typedef health_all_ok_callback_t </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(<span class="hljs-keyword">bool</span> health_all_ok)&gt; dronecode_sdk::Telemetry::<span class="hljs-keyword">health_all_ok_callback_t</span>
+</code></pre>
+<p>Callback type for health status updates.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>health_all_ok</strong> - If all health flags are ok.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a1441a3aa4b0865ebb62f5e4f6d1cbdee">typedef rc_status_callback_t </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(RCStatus rc_status)&gt; dronecode_sdk::Telemetry::<span class="hljs-keyword">rc_status_callback_t</span>
+</code></pre>
+<p>Callback type for RC status updates.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>rc_status</strong> - RC status.</li>
+</ul>
+<h2 id="member-enumeration-documentation">Member Enumeration Documentation</h2>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a7e503d87f48fabb8549b4af7acb77f8f">enum FlightMode </h3>
+<p>Flight modes.</p>
+<p>For more information about flight modes, check out <a href="https://docs.px4.io/en/config/flight_mode.html" target="_blank">https://docs.px4.io/en/config/flight_mode.html</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span id="classdronecode__sdk_1_1_telemetry_1a7e503d87f48fabb8549b4af7acb77f8fa2baa69eafc7204f3bd8648eba580c489"></span> <code>READY</code></td>
+<td>Armed and ready to take off. </td>
+</tr>
+<tr>
+<td><span id="classdronecode__sdk_1_1_telemetry_1a7e503d87f48fabb8549b4af7acb77f8fa8fabc74a4ed0781d663336cbf8c9c53d"></span> <code>TAKEOFF</code></td>
+<td>Taking off. </td>
+</tr>
+<tr>
+<td><span id="classdronecode__sdk_1_1_telemetry_1a7e503d87f48fabb8549b4af7acb77f8fa0c6d9dfb485b43c6fba87439f9f73ac4"></span> <code>HOLD</code></td>
+<td>Hold mode (hovering in place (or circling for fixed-wing vehicles). </td>
+</tr>
+<tr>
+<td><span id="classdronecode__sdk_1_1_telemetry_1a7e503d87f48fabb8549b4af7acb77f8faa46075d70b9612df685b11436d195196"></span> <code>MISSION</code></td>
+<td><a href="classdronecode__sdk_1_1_mission.html">Mission</a> mode. </td>
+</tr>
+<tr>
+<td><span id="classdronecode__sdk_1_1_telemetry_1a7e503d87f48fabb8549b4af7acb77f8fa0d4a147a2cf60f0761f239bf3ee2745e"></span> <code>RETURN_TO_LAUNCH</code></td>
+<td>Returning to launch position (then landing). </td>
+</tr>
+<tr>
+<td><span id="classdronecode__sdk_1_1_telemetry_1a7e503d87f48fabb8549b4af7acb77f8fa479a809c0b6eaaefd3b1df16f976df06"></span> <code>LAND</code></td>
+<td>Landing. </td>
+</tr>
+<tr>
+<td><span id="classdronecode__sdk_1_1_telemetry_1a7e503d87f48fabb8549b4af7acb77f8fa6687898e86a83f245901f96d313930b1"></span> <code>OFFBOARD</code></td>
+<td><a href="classdronecode__sdk_1_1_offboard.html">Offboard</a> mode. </td>
+</tr>
+<tr>
+<td><span id="classdronecode__sdk_1_1_telemetry_1a7e503d87f48fabb8549b4af7acb77f8fac4099cf323b2f571c3d4917db6b1a20d"></span> <code>FOLLOW_ME</code></td>
+<td><a href="classdronecode__sdk_1_1_follow_me.html">FollowMe</a> mode. </td>
+</tr>
+<tr>
+<td><span id="classdronecode__sdk_1_1_telemetry_1a7e503d87f48fabb8549b4af7acb77f8fa696b031073e74bf2cb98e5ef201d4aa3"></span> <code>UNKNOWN</code></td>
+<td>Mode not known. </td>
+</tr>
+</tbody>
+</table>
+<h3 id="classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">enum Result </h3>
+<p>Results enum for telemetry requests.</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span id="classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3ead0749aaba8b833466dfcbb0428e4f89c"></span> <code>SUCCESS</code></td>
+<td>Request succeeded. </td>
+</tr>
+<tr>
+<td><span id="classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3eafeae72a3a2feec3c92c2a79a30d31186"></span> <code>NO_SYSTEM</code></td>
+<td>No system connected. </td>
+</tr>
+<tr>
+<td><span id="classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3eac77f1f09dab2c0c9980fca7cfae02518"></span> <code>CONNECTION_ERROR</code></td>
+<td>Connection error. </td>
+</tr>
+<tr>
+<td><span id="classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3ea802706a9238e2928077f97736854bad4"></span> <code>BUSY</code></td>
+<td><a href="classdronecode__sdk_1_1_system.html">System</a> busy. </td>
+</tr>
+<tr>
+<td><span id="classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3ea6fa4dbf368cea972db8d9156799d5dbe"></span> <code>COMMAND_DENIED</code></td>
+<td>Command denied. </td>
+</tr>
+<tr>
+<td><span id="classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3ea070a0fb40f6c308ab544b227660aadff"></span> <code>TIMEOUT</code></td>
+<td>Request timeout. </td>
+</tr>
+<tr>
+<td><span id="classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3ea696b031073e74bf2cb98e5ef201d4aa3"></span> <code>UNKNOWN</code></td>
+<td>Unknown error. </td>
+</tr>
+</tbody>
+</table>
+<h2 id="member-function-documentation">Member Function Documentation</h2>
+<h3 id="classdronecode__sdk_1_1_telemetry_1aa1e4ac8be67dd73f144ff2e404beb081">set_rate_position_velocity_ned() </h3>
+<pre><code class="lang-cpp">Result dronecode_sdk::Telemetry::set_rate_position_velocity_ned(<span class="hljs-keyword">double</span> rate_hz)
+</code></pre>
+<p>Set rate of kinematic (position and velocity) updates (synchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>double <strong>rate_hz</strong> - Rate in Hz.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">Result</a> - Result of request.</p>
+<p><strong>See Also:</strong></p>
+<ul>
+<li><a href="structdronecode__sdk_1_1_telemetry_1_1_position_velocity_n_e_d.html">PositionVelocityNED</a></li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a84833a8b1b30347c9cd5b98bed889472">set_rate_position() </h3>
+<pre><code class="lang-cpp">Result dronecode_sdk::Telemetry::set_rate_position(<span class="hljs-keyword">double</span> rate_hz)
+</code></pre>
+<p>Set rate of position updates (synchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>double <strong>rate_hz</strong> - Rate in Hz.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">Result</a> - Result of request.</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1affff08e268b116a27280bedafc27df6a">set_rate_home_position() </h3>
+<pre><code class="lang-cpp">Result dronecode_sdk::Telemetry::set_rate_home_position(<span class="hljs-keyword">double</span> rate_hz)
+</code></pre>
+<p>Set rate of home position updates (synchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>double <strong>rate_hz</strong> - Rate in Hz.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">Result</a> - Result of request.</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1ac2f9fd9e44696b7af0a24669f2f140bb">set_rate_in_air() </h3>
+<pre><code class="lang-cpp">Result dronecode_sdk::Telemetry::set_rate_in_air(<span class="hljs-keyword">double</span> rate_hz)
+</code></pre>
+<p>Set rate of in-air status updates (synchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>double <strong>rate_hz</strong> - Rate in Hz.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">Result</a> - Result of request.</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a2005067a7b24f376be97bf562bbb4a8d">set_rate_attitude() </h3>
+<pre><code class="lang-cpp">Result dronecode_sdk::Telemetry::set_rate_attitude(<span class="hljs-keyword">double</span> rate_hz)
+</code></pre>
+<p>Set rate of attitude updates (synchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>double <strong>rate_hz</strong> - Rate in Hz.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">Result</a> - Result of request.</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a4ade0a9e9b6b80f35607e7944fbc0dc7">set_rate_camera_attitude() </h3>
+<pre><code class="lang-cpp">Result dronecode_sdk::Telemetry::set_rate_camera_attitude(<span class="hljs-keyword">double</span> rate_hz)
+</code></pre>
+<p>Set rate of camera attitude updates (synchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>double <strong>rate_hz</strong> - Rate in Hz.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">Result</a> - Result of request.</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a02db719c2dfd8b035f59e0253bdb8be8">set_rate_ground_speed_ned() </h3>
+<pre><code class="lang-cpp">Result dronecode_sdk::Telemetry::set_rate_ground_speed_ned(<span class="hljs-keyword">double</span> rate_hz)
+</code></pre>
+<p>Set rate of ground speed (NED) updates (synchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>double <strong>rate_hz</strong> - Rate in Hz.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">Result</a> - Result of request.</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1abca93bc1dca4bfb6b647ee4284cd3d60">set_rate_gps_info() </h3>
+<pre><code class="lang-cpp">Result dronecode_sdk::Telemetry::set_rate_gps_info(<span class="hljs-keyword">double</span> rate_hz)
+</code></pre>
+<p>Set rate of GPS information updates (synchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>double <strong>rate_hz</strong> - Rate in Hz.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">Result</a> - Result of request.</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1aa100035f60c4c97eb4aa2b0a16239297">set_rate_battery() </h3>
+<pre><code class="lang-cpp">Result dronecode_sdk::Telemetry::set_rate_battery(<span class="hljs-keyword">double</span> rate_hz)
+</code></pre>
+<p>Set rate of battery status updates (synchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>double <strong>rate_hz</strong> - Rate in Hz.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">Result</a> - Result of request.</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a0c68f4260c89ab51ab1d1dc0b9a47852">set_rate_rc_status() </h3>
+<pre><code class="lang-cpp">Result dronecode_sdk::Telemetry::set_rate_rc_status(<span class="hljs-keyword">double</span> rate_hz)
+</code></pre>
+<p>Set rate of RC status updates (synchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>double <strong>rate_hz</strong> - Rate in Hz.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">Result</a> - Result of request.</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a4d4425908644763435a34ec72e9650e0">set_rate_position_velocity_ned_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> dronecode_sdk::Telemetry::set_rate_position_velocity_ned_async(<span class="hljs-keyword">double</span> rate_hz, <span class="hljs-keyword">result_callback_t</span> callback)
+</code></pre>
+<p>Set rate of kinematic (position and velocity) updates (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>double <strong>rate_hz</strong> - Rate in Hz.</li>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1af338eea395337c8940231ad690fe57e7">result_callback_t</a> <strong>callback</strong> - Callback to receive request result.</li>
+</ul>
+<p><strong>See Also:</strong></p>
+<ul>
+<li><a href="structdronecode__sdk_1_1_telemetry_1_1_position_velocity_n_e_d.html">PositionVelocityNED</a></li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a7dc380a3f7c653fe54561e5b48ff5995">set_rate_position_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> dronecode_sdk::Telemetry::set_rate_position_async(<span class="hljs-keyword">double</span> rate_hz, <span class="hljs-keyword">result_callback_t</span> callback)
+</code></pre>
+<p>Set rate of position updates (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>double <strong>rate_hz</strong> - Rate in Hz.</li>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1af338eea395337c8940231ad690fe57e7">result_callback_t</a> <strong>callback</strong> - Callback to receive request result.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1ade7ca559607ff70293f9bb955765abcf">set_rate_home_position_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> dronecode_sdk::Telemetry::set_rate_home_position_async(<span class="hljs-keyword">double</span> rate_hz, <span class="hljs-keyword">result_callback_t</span> callback)
+</code></pre>
+<p>Set rate of home position updates (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>double <strong>rate_hz</strong> - Rate in Hz.</li>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1af338eea395337c8940231ad690fe57e7">result_callback_t</a> <strong>callback</strong> - Callback to receive request result.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1af6d992febca0f79c7c4fb3e5fb97c06a">set_rate_in_air_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> dronecode_sdk::Telemetry::set_rate_in_air_async(<span class="hljs-keyword">double</span> rate_hz, <span class="hljs-keyword">result_callback_t</span> callback)
+</code></pre>
+<p>Set rate of in-air status updates (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>double <strong>rate_hz</strong> - Rate in Hz.</li>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1af338eea395337c8940231ad690fe57e7">result_callback_t</a> <strong>callback</strong> - Callback to receive request result.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a75fe9809222c9ac0bf6707037d6a5869">set_rate_attitude_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> dronecode_sdk::Telemetry::set_rate_attitude_async(<span class="hljs-keyword">double</span> rate_hz, <span class="hljs-keyword">result_callback_t</span> callback)
+</code></pre>
+<p>Set rate of attitude updates (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>double <strong>rate_hz</strong> - Rate in Hz.</li>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1af338eea395337c8940231ad690fe57e7">result_callback_t</a> <strong>callback</strong> - Callback to receive request result.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1ae1cd4b0135ed4ce0e1ecff3a60856d7b">set_rate_camera_attitude_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> dronecode_sdk::Telemetry::set_rate_camera_attitude_async(<span class="hljs-keyword">double</span> rate_hz, <span class="hljs-keyword">result_callback_t</span> callback)
+</code></pre>
+<p>Set rate of camera attitude updates (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>double <strong>rate_hz</strong> - Rate in Hz.</li>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1af338eea395337c8940231ad690fe57e7">result_callback_t</a> <strong>callback</strong> - Callback to receive request result.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1af230d9fc89b5a3c833314fa953360b17">set_rate_ground_speed_ned_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> dronecode_sdk::Telemetry::set_rate_ground_speed_ned_async(<span class="hljs-keyword">double</span> rate_hz, <span class="hljs-keyword">result_callback_t</span> callback)
+</code></pre>
+<p>Set rate of ground speed (NED) updates (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>double <strong>rate_hz</strong> - Rate in Hz.</li>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1af338eea395337c8940231ad690fe57e7">result_callback_t</a> <strong>callback</strong> - Callback to receive request result.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1ad459a78b1dfa0ef3a4d0d222267e1fbd">set_rate_gps_info_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> dronecode_sdk::Telemetry::set_rate_gps_info_async(<span class="hljs-keyword">double</span> rate_hz, <span class="hljs-keyword">result_callback_t</span> callback)
+</code></pre>
+<p>Set rate of GPS information updates (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>double <strong>rate_hz</strong> - Rate in Hz.</li>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1af338eea395337c8940231ad690fe57e7">result_callback_t</a> <strong>callback</strong> - Callback to receive request result.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1aedc178582ac703bf467f4defc7efe450">set_rate_battery_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> dronecode_sdk::Telemetry::set_rate_battery_async(<span class="hljs-keyword">double</span> rate_hz, <span class="hljs-keyword">result_callback_t</span> callback)
+</code></pre>
+<p>Set rate of battery status updates (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>double <strong>rate_hz</strong> - Rate in Hz.</li>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1af338eea395337c8940231ad690fe57e7">result_callback_t</a> <strong>callback</strong> - Callback to receive request result.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a3984dea260db91d37f8d99161aa2c3ba">set_rate_rc_status_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> dronecode_sdk::Telemetry::set_rate_rc_status_async(<span class="hljs-keyword">double</span> rate_hz, <span class="hljs-keyword">result_callback_t</span> callback)
+</code></pre>
+<p>Set rate of RC status updates (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>double <strong>rate_hz</strong> - Rate in Hz.</li>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1af338eea395337c8940231ad690fe57e7">result_callback_t</a> <strong>callback</strong> - Callback to receive request result.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a21b0683af83e65884fdd460a45eb85d8">position_velocity_ned() </h3>
+<pre><code class="lang-cpp">PositionVelocityNED dronecode_sdk::Telemetry::position_velocity_ned() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Get the current kinematic (position and velocity) in NED frame (synchronous).</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="structdronecode__sdk_1_1_telemetry_1_1_position_velocity_n_e_d.html">PositionVelocityNED</a> - <a href="structdronecode__sdk_1_1_telemetry_1_1_position_velocity_n_e_d.html">PositionVelocityNED</a>.</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1ae1d845b0f461a5e50f425939c1efccd2">position() </h3>
+<pre><code class="lang-cpp">Position dronecode_sdk::Telemetry::position() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Get the current position (synchronous).</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="structdronecode__sdk_1_1_telemetry_1_1_position.html">Position</a> - <a href="structdronecode__sdk_1_1_telemetry_1_1_position.html">Position</a>.</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a76ad20dab72e02523b5637900aaab9da">home_position() </h3>
+<pre><code class="lang-cpp">Position dronecode_sdk::Telemetry::home_position() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Get the home position (synchronous).</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="structdronecode__sdk_1_1_telemetry_1_1_position.html">Position</a> - Home position.</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1ae97f81f4f564b02ffd2c0ef241f9feee">status_text() </h3>
+<pre><code class="lang-cpp">StatusText dronecode_sdk::Telemetry::status_text() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Get status text (synchronous).</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="structdronecode__sdk_1_1_telemetry_1_1_status_text.html">StatusText</a> - Status text.</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a2f22522ddfde00b97dbfad84864a1730">in_air() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">bool</span> dronecode_sdk::Telemetry::in_air() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Get the in-air status (synchronous).</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;bool - true if in-air (flying) and not on-ground (landed).</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a76b05cc86c9152eabbda6b0051b8605d">armed() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">bool</span> dronecode_sdk::Telemetry::armed() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Get the arming status (synchronous).</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;bool - true if armed (propellers spinning).</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a2e05a480489c3b5a9b1f825b62d3434b">attitude_quaternion() </h3>
+<pre><code class="lang-cpp">Quaternion dronecode_sdk::Telemetry::attitude_quaternion() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Get the current attitude in quaternions (synchronous).</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="structdronecode__sdk_1_1_telemetry_1_1_quaternion.html">Quaternion</a> - Attitude as quaternion.</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a7044fd16df994d84791f0a2434cf0060">attitude_euler_angle() </h3>
+<pre><code class="lang-cpp">EulerAngle dronecode_sdk::Telemetry::attitude_euler_angle() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Get the current attitude in Euler angles (synchronous).</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="structdronecode__sdk_1_1_telemetry_1_1_euler_angle.html">EulerAngle</a> - Attitude as Euler angle.</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a60695c414ae2e520fc69932db272c646">camera_attitude_quaternion() </h3>
+<pre><code class="lang-cpp">Quaternion dronecode_sdk::Telemetry::camera_attitude_quaternion() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Get the camera&apos;s attitude in quaternions (synchronous).</p>
+<p>Note that the yaw component of attitude is relative to North (absolute frame).</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="structdronecode__sdk_1_1_telemetry_1_1_quaternion.html">Quaternion</a> - <a href="classdronecode__sdk_1_1_camera.html">Camera</a>&apos;s attitude as quaternion.</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a513fe94561cbf33d3d20db2a513c7ae3">camera_attitude_euler_angle() </h3>
+<pre><code class="lang-cpp">EulerAngle dronecode_sdk::Telemetry::camera_attitude_euler_angle() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Get the camera&apos;s attitude in Euler angles (synchronous).</p>
+<p>Note that the yaw component of attitude is relative to North (absolute frame).</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="structdronecode__sdk_1_1_telemetry_1_1_euler_angle.html">EulerAngle</a> - <a href="classdronecode__sdk_1_1_camera.html">Camera</a>&apos;s attitude as Euler angle.</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a970b406d06b7ebd5f762e2d3b8d6021e">ground_speed_ned() </h3>
+<pre><code class="lang-cpp">GroundSpeedNED dronecode_sdk::Telemetry::ground_speed_ned() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Get the current ground speed (NED) (synchronous).</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="structdronecode__sdk_1_1_telemetry_1_1_ground_speed_n_e_d.html">GroundSpeedNED</a> - Ground speed in NED.</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a22ca23272aa13e3cce9d4fabe025e467">gps_info() </h3>
+<pre><code class="lang-cpp">GPSInfo dronecode_sdk::Telemetry::gps_info() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Get the current GPS information (synchronous).</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="structdronecode__sdk_1_1_telemetry_1_1_g_p_s_info.html">GPSInfo</a> - GPS information.</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a7c50637603fbde0f0ded0cbc24182d59">battery() </h3>
+<pre><code class="lang-cpp">Battery dronecode_sdk::Telemetry::battery() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Get the current battery status (synchronous).</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="structdronecode__sdk_1_1_telemetry_1_1_battery.html">Battery</a> - </p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a8b108f9368e4f8f06b613d8571ad4e1e">flight_mode() </h3>
+<pre><code class="lang-cpp">FlightMode dronecode_sdk::Telemetry::flight_mode() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Get the current flight mode (synchronous).</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a7e503d87f48fabb8549b4af7acb77f8f">FlightMode</a> - Flight mode.</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a4f1b6620fa890b8ceb5599a9fc26a898">health() </h3>
+<pre><code class="lang-cpp">Health dronecode_sdk::Telemetry::health() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Get the current health status (synchronous).</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="structdronecode__sdk_1_1_telemetry_1_1_health.html">Health</a> - <a href="structdronecode__sdk_1_1_telemetry_1_1_health.html">Health</a> status.</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1acb0cdb02b7368179ca0193a111904a64">health_all_ok() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">bool</span> dronecode_sdk::Telemetry::health_all_ok() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Returns true if the overall health is ok (synchronous).</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;bool - True if all health flags are OK.</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a0d7d1a6b8c73723c71ef3f147971d81d">rc_status() </h3>
+<pre><code class="lang-cpp">RCStatus dronecode_sdk::Telemetry::rc_status() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Get the RC status (synchronous).</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="structdronecode__sdk_1_1_telemetry_1_1_r_c_status.html">RCStatus</a> - RC status.</p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a2d910e16336263522afa871ab01ee555">position_velocity_ned_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> dronecode_sdk::Telemetry::position_velocity_ned_async(<span class="hljs-keyword">position_velocity_ned_callback_t</span> callback)
+</code></pre>
+<p>Subscribe to kinematic (position and velocity) updates (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a6a584ef033a162eb56cf8c45589a8ffd">position_velocity_ned_callback_t</a> <strong>callback</strong> - Function to call with updates.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a2a19fb93315e33a2dad6720b36ec9389">position_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> dronecode_sdk::Telemetry::position_async(<span class="hljs-keyword">position_callback_t</span> callback)
+</code></pre>
+<p>Subscribe to position updates (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a325501dc02e5c85cc7ad74ef233b3ff6">position_callback_t</a> <strong>callback</strong> - Function to call with updates.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1ad94dbcc5ed4ebb8f377d11a2ea72f6fc">home_position_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> dronecode_sdk::Telemetry::home_position_async(<span class="hljs-keyword">position_callback_t</span> callback)
+</code></pre>
+<p>Subscribe to home position updates (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a325501dc02e5c85cc7ad74ef233b3ff6">position_callback_t</a> <strong>callback</strong> - Function to call with updates.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a1027180f38628306ddfd1d6e66ae067b">in_air_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> dronecode_sdk::Telemetry::in_air_async(<span class="hljs-keyword">in_air_callback_t</span> callback)
+</code></pre>
+<p>Subscribe to in-air updates (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1af64278aec30c32f4b8db9d427ba9c48c">in_air_callback_t</a> <strong>callback</strong> - Function to call with updates.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1aecc39d5aab5500a94c6516c9fcc6bc9a">status_text_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> dronecode_sdk::Telemetry::status_text_async(<span class="hljs-keyword">status_text_callback_t</span> callback)
+</code></pre>
+<p>Subscribe to status text updates (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1abd606e783a8ca44b9b87d7eb82a9b980">status_text_callback_t</a> <strong>callback</strong> - Function to call with updates.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a9382a19ea66f1d99f3780fa88abea3fd">armed_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> dronecode_sdk::Telemetry::armed_async(<span class="hljs-keyword">armed_callback_t</span> callback)
+</code></pre>
+<p>Subscribe to armed updates (asynchronous).</p>
+<p>Note that armed updates are limited to 1Hz.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ad4be5f2c17988fa53b0c59affb64e9a2">armed_callback_t</a> <strong>callback</strong> - Function to call with updates.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1ac9633b72e0a38f5d5ec7f98d63ff1944">attitude_quaternion_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> dronecode_sdk::Telemetry::attitude_quaternion_async(<span class="hljs-keyword">attitude_quaternion_callback_t</span> callback)
+</code></pre>
+<p>Subscribe to attitude updates in quaternion (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a4fe1cb6af59d7ecabb26563f6c33079d">attitude_quaternion_callback_t</a> <strong>callback</strong> - Function to call with updates.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a6da4a219d31fffcbf2223f80bfa063f4">attitude_euler_angle_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> dronecode_sdk::Telemetry::attitude_euler_angle_async(<span class="hljs-keyword">attitude_euler_angle_callback_t</span> callback)
+</code></pre>
+<p>Subscribe to attitude updates in Euler angles (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a0db7573bc74c00231c96cb87a5711e96">attitude_euler_angle_callback_t</a> <strong>callback</strong> - Function to call with updates.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a8188574203ab3f916bfece2feaee62e2">camera_attitude_quaternion_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> dronecode_sdk::Telemetry::camera_attitude_quaternion_async(<span class="hljs-keyword">attitude_quaternion_callback_t</span> callback)
+</code></pre>
+<p>Subscribe to camera attitude updates in quaternion (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a4fe1cb6af59d7ecabb26563f6c33079d">attitude_quaternion_callback_t</a> <strong>callback</strong> - Function to call with updates.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1aa40c2f8da4cdbe812187854d23a31e6a">camera_attitude_euler_angle_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> dronecode_sdk::Telemetry::camera_attitude_euler_angle_async(<span class="hljs-keyword">attitude_euler_angle_callback_t</span> callback)
+</code></pre>
+<p>Subscribe to camera attitude updates in Euler angles (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a0db7573bc74c00231c96cb87a5711e96">attitude_euler_angle_callback_t</a> <strong>callback</strong> - Function to call with updates.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a652cf6fcec470ae65c39d22f934f6bc3">ground_speed_ned_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> dronecode_sdk::Telemetry::ground_speed_ned_async(<span class="hljs-keyword">ground_speed_ned_callback_t</span> callback)
+</code></pre>
+<p>Subscribe to ground speed (NED) updates (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a0ef2162b9ce267e0e59757712bbc8326">ground_speed_ned_callback_t</a> <strong>callback</strong> - Function to call with updates.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1afbc16838d115ca2bc43901be1e5637ff">gps_info_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> dronecode_sdk::Telemetry::gps_info_async(<span class="hljs-keyword">gps_info_callback_t</span> callback)
+</code></pre>
+<p>Subscribe to GPS information updates (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a2111571572b3898de7c1296eb3c8f547">gps_info_callback_t</a> <strong>callback</strong> - Function to call with updates.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a7988874d093cc514c31ec737568010b1">battery_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> dronecode_sdk::Telemetry::battery_async(<span class="hljs-keyword">battery_callback_t</span> callback)
+</code></pre>
+<p>Subscribe to battery status updates (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ac13b14156d710aad87b113584a75af16">battery_callback_t</a> <strong>callback</strong> - Function to call with updates.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a29494b6f0ed34be913e3f5c4bbfdf4cd">flight_mode_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> dronecode_sdk::Telemetry::flight_mode_async(<span class="hljs-keyword">flight_mode_callback_t</span> callback)
+</code></pre>
+<p>Subscribe to flight mode updates (asynchronous).</p>
+<p>Note that flight mode updates are limited to 1Hz.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a2d667183c1d2640c7248e9c438c01191">flight_mode_callback_t</a> <strong>callback</strong> - Function to call with updates.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1ad6f8b300630350000db7c44ce6976ab0">health_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> dronecode_sdk::Telemetry::health_async(<span class="hljs-keyword">health_callback_t</span> callback)
+</code></pre>
+<p>Subscribe to health status updates (asynchronous).</p>
+<p>Note that health status updates are limited to 1Hz.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a58fdb6d9cb7dc8124182556630a0135c">health_callback_t</a> <strong>callback</strong> - Function to call with updates.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1ad3eb60db8b4dc72fd55d8689d849c9ae">health_all_ok_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> dronecode_sdk::Telemetry::health_all_ok_async(<span class="hljs-keyword">health_all_ok_callback_t</span> callback)
+</code></pre>
+<p>Subscribe to overall health status updates (asynchronous).</p>
+<p>Note that overall health status updates are limited to 1Hz.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1aabf06480ae9a9ab85412b749030534df">health_all_ok_callback_t</a> <strong>callback</strong> - Function to call with updates.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a9c08927e8693588dfc7a8d33d3df2423">rc_status_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> dronecode_sdk::Telemetry::rc_status_async(<span class="hljs-keyword">rc_status_callback_t</span> callback)
+</code></pre>
+<p>Subscribe to RC status updates (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a1441a3aa4b0865ebb62f5e4f6d1cbdee">rc_status_callback_t</a> <strong>callback</strong> - Function to call with updates.</li>
+</ul>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a029b8fc4c241e4c20d26ff1a4e601ef7">operator=() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">const</span> Telemetry&amp; dronecode_sdk::Telemetry::<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> Telemetry &amp;)=<span class="hljs-keyword">delete</span>
+</code></pre>
+<p>Equality operator (object is not copyable).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classdronecode__sdk_1_1_telemetry.html">Telemetry</a>&amp;  - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;const <a href="classdronecode__sdk_1_1_telemetry.html">Telemetry</a> &amp; - </p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1ac35c44d286d50e649b5e192730a756e7">flight_mode_str() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">static</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> dronecode_sdk::Telemetry::flight_mode_str(FlightMode flight_mode)
+</code></pre>
+<p>Get a human readable English string for a flight mode.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1a7e503d87f48fabb8549b4af7acb77f8f">FlightMode</a> <strong>flight_mode</strong> - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;std::string - </p>
+<h3 id="classdronecode__sdk_1_1_telemetry_1a046457e28886493a677fe7d35627bacc">result_str() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">static</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* dronecode_sdk::Telemetry::result_str(Result result)
+</code></pre>
+<p>Get human-readable English string for <a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">Telemetry::Result</a>.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">Result</a> <strong>result</strong> - The enum value for which string is needed.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;const char * - Human readable string for the <a href="classdronecode__sdk_1_1_telemetry.html#classdronecode__sdk_1_1_telemetry_1ae5e3509344edb0faea3d44b786c16b3e">Telemetry::Result</a>.</p>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2019-06-18 00:35:56 </span> </footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="structdronecode__sdk_1_1_info_1_1_identification.html" class="navigation navigation-prev " aria-label="Previous page: struct Identification">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="structdronecode__sdk_1_1_telemetry_1_1_battery.html" class="navigation navigation-next " aria-label="Next page: struct Battery">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"class Telemetry","level":"1.4.3.4","depth":3,"next":{"title":"struct Battery","level":"1.4.3.4.1","depth":4,"path":"api_reference/structdronecode__sdk_1_1_telemetry_1_1_battery.md","ref":"api_reference/structdronecode__sdk_1_1_telemetry_1_1_battery.md","articles":[]},"previous":{"title":"struct Identification","level":"1.4.3.3.3","depth":4,"path":"api_reference/structdronecode__sdk_1_1_info_1_1_identification.md","ref":"api_reference/structdronecode__sdk_1_1_info_1_1_identification.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"type":"branches"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/dronecore/sdk_docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/dronecore/sdk_docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/dronecore/sdk_docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.jpg","github_branch":"develop"},"title":"Dronecode SDK Guide","language":"en","gitbook":"*"},"file":{"path":"api_reference/classdronecode__sdk_1_1_telemetry.md","mtime":"2019-06-18T00:35:56.768Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-18T01:16:23.901Z"},"basePath":"..","book":{"language":"en"}});
+        });
+    </script>
+</div>
+
+    
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-language-picker/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
