@@ -1,0 +1,1886 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Missions · Dronecode SDK Guide</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-richquotes/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-footer-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-dronecode/theme_styles.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="offboard.html" />
+    
+    
+    <link rel="prev" href="taking_off_landing.html" />
+    
+
+    </head>
+    <body>
+        
+    
+    <!-- ##HW Add dronecode menu -->
+    <div id="common_dronecode_menu">
+
+      <div class="common_menu_logo large_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png" alt="Dronecode logo (large)" />
+        </a>
+      </div>
+      <div class="common_menu_logo small_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png" alt="Dronecode logo (small)" />
+        </a>
+      </div>
+      
+      <div class="common_menu_options">
+        
+            <div class="common_dronecode_menu_item"><a href="http://px4.io/">PX4</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://qgroundcontrol.com/">QGroundControl</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://qgroundcontrol.com/">QGC</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://www.dronecode.org/sdk/">SDK</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://mavlink.io/en/">MAVLink</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="https://www.dronecode.org/documentation/">Documentation</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="https://www.dronecode.org/documentation/">Docs</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://discuss.px4.io/">Support</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://discuss.px4.io/">Help</a></div>
+        
+      </div>
+    </div>
+    
+<!-- ##HW END Add dronecode menu -->
+    
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../getting_started/faq.html">
+            
+                <a href="../getting_started/faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <a target="_blank" href="http://dronecode-sdk-swift.s3.eu-central-1.amazonaws.com/docs/master/index.html">
+            
+                    
+                    iOS/Swift
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <a target="_blank" href="https://github.com/dronecode/dronecodesdk-python#dronecodesdk-python">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../cpp/">
+            
+                <a href="../cpp/">
+            
+                    
+                    C++ (Dronecode Core)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Guide
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="general_usage.html">
+            
+                <a href="general_usage.html">
+            
+                    
+                    Usage/Paradigms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="connections.html">
+            
+                <a href="connections.html">
+            
+                    
+                    Connecting to Systems (Vehicles)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" data-path="using_plugins.html">
+            
+                <a href="using_plugins.html">
+            
+                    
+                    Managing Systems
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4" data-path="system_information.html">
+            
+                <a href="system_information.html">
+            
+                    
+                    System Information
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.5" data-path="telemetry.html">
+            
+                <a href="telemetry.html">
+            
+                    
+                    Telemetry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.6" data-path="taking_off_landing.html">
+            
+                <a href="taking_off_landing.html">
+            
+                    
+                    Actions - Take Off, Arm, ...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.1.7" data-path="missions.html">
+            
+                <a href="missions.html">
+            
+                    
+                    Missions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.8" data-path="offboard.html">
+            
+                <a href="offboard.html">
+            
+                    
+                    Offboard Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.9" data-path="follow_me.html">
+            
+                <a href="follow_me.html">
+            
+                    
+                    Follow Me
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.10" data-path="vtol.html">
+            
+                <a href="vtol.html">
+            
+                    
+                    VTOL Support
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.11" data-path="toolchain.html">
+            
+                <a href="toolchain.html">
+            
+                    
+                    Building C++ Apps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.12" data-path="sdk_extensions.html">
+            
+                <a href="sdk_extensions.html">
+            
+                    
+                    SDK Extensions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../examples/">
+            
+                <a href="../examples/">
+            
+                    
+                    Examples
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="../examples/takeoff_and_land.html">
+            
+                <a href="../examples/takeoff_and_land.html">
+            
+                    
+                    Takeoff and Land
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="../examples/fly_mission.html">
+            
+                <a href="../examples/fly_mission.html">
+            
+                    
+                    Fly Mission
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3" data-path="../examples/fly_mission_qgc_plan.html">
+            
+                <a href="../examples/fly_mission_qgc_plan.html">
+            
+                    
+                    Fly QGC Plan Mission
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.4" data-path="../examples/offboard_velocity.html">
+            
+                <a href="../examples/offboard_velocity.html">
+            
+                    
+                    Offboard Mode - Velocity Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.5" data-path="../examples/follow_me.html">
+            
+                <a href="../examples/follow_me.html">
+            
+                    
+                    Follow Me Mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.6" data-path="../examples/transition_vtol_fixed_wing.html">
+            
+                <a href="../examples/transition_vtol_fixed_wing.html">
+            
+                    
+                    VTOL Transitions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../api_reference/">
+            
+                <a href="../api_reference/">
+            
+                    
+                    API Reference
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.1" data-path="../api_reference/classdronecode__sdk_1_1_dronecode_s_d_k.html">
+            
+                <a href="../api_reference/classdronecode__sdk_1_1_dronecode_s_d_k.html">
+            
+                    
+                    class DronecodeSDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.2" data-path="../api_reference/classdronecode__sdk_1_1_system.html">
+            
+                <a href="../api_reference/classdronecode__sdk_1_1_system.html">
+            
+                    
+                    class System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3" data-path="../api_reference/classdronecode__sdk_1_1_info.html">
+            
+                <a href="../api_reference/classdronecode__sdk_1_1_info.html">
+            
+                    
+                    class Info
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.3.1" data-path="../api_reference/structdronecode__sdk_1_1_info_1_1_version.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_info_1_1_version.html">
+            
+                    
+                    struct Version
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3.2" data-path="../api_reference/structdronecode__sdk_1_1_info_1_1_product.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_info_1_1_product.html">
+            
+                    
+                    struct Product
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3.3" data-path="../api_reference/structdronecode__sdk_1_1_info_1_1_identification.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_info_1_1_identification.html">
+            
+                    
+                    struct Identification
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4" data-path="../api_reference/classdronecode__sdk_1_1_telemetry.html">
+            
+                <a href="../api_reference/classdronecode__sdk_1_1_telemetry.html">
+            
+                    
+                    class Telemetry
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.4.1" data-path="../api_reference/structdronecode__sdk_1_1_telemetry_1_1_battery.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_telemetry_1_1_battery.html">
+            
+                    
+                    struct Battery
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4.2" data-path="../api_reference/structdronecode__sdk_1_1_telemetry_1_1_euler_angle.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_telemetry_1_1_euler_angle.html">
+            
+                    
+                    struct EulerAngle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4.3" data-path="../api_reference/structdronecode__sdk_1_1_telemetry_1_1_g_p_s_info.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_telemetry_1_1_g_p_s_info.html">
+            
+                    
+                    struct GPSInfo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4.4" data-path="../api_reference/structdronecode__sdk_1_1_telemetry_1_1_ground_speed_n_e_d.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_telemetry_1_1_ground_speed_n_e_d.html">
+            
+                    
+                    struct GroundSpeedNED
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4.5" data-path="../api_reference/structdronecode__sdk_1_1_telemetry_1_1_health.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_telemetry_1_1_health.html">
+            
+                    
+                    struct Health
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4.6" data-path="../api_reference/structdronecode__sdk_1_1_telemetry_1_1_position.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_telemetry_1_1_position.html">
+            
+                    
+                    struct Position
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4.7" data-path="../api_reference/structdronecode__sdk_1_1_telemetry_1_1_position_n_e_d.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_telemetry_1_1_position_n_e_d.html">
+            
+                    
+                    struct PositionNED
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4.8" data-path="../api_reference/structdronecode__sdk_1_1_telemetry_1_1_velocity_n_e_d.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_telemetry_1_1_velocity_n_e_d.html">
+            
+                    
+                    struct VelocityNED
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4.9" data-path="../api_reference/structdronecode__sdk_1_1_telemetry_1_1_position_velocity_n_e_d.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_telemetry_1_1_position_velocity_n_e_d.html">
+            
+                    
+                    struct PositionVelocityNED
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4.10" data-path="../api_reference/structdronecode__sdk_1_1_telemetry_1_1_quaternion.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_telemetry_1_1_quaternion.html">
+            
+                    
+                    struct Quaternion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4.11" data-path="../api_reference/structdronecode__sdk_1_1_telemetry_1_1_r_c_status.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_telemetry_1_1_r_c_status.html">
+            
+                    
+                    struct RCStatus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4.12" data-path="../api_reference/structdronecode__sdk_1_1_telemetry_1_1_status_text.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_telemetry_1_1_status_text.html">
+            
+                    
+                    struct StatusText
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.5" data-path="../api_reference/classdronecode__sdk_1_1_action.html">
+            
+                <a href="../api_reference/classdronecode__sdk_1_1_action.html">
+            
+                    
+                    class Action
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.6" data-path="../api_reference/classdronecode__sdk_1_1_mission.html">
+            
+                <a href="../api_reference/classdronecode__sdk_1_1_mission.html">
+            
+                    
+                    class Mission
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.7" data-path="../api_reference/classdronecode__sdk_1_1_mission_item.html">
+            
+                <a href="../api_reference/classdronecode__sdk_1_1_mission_item.html">
+            
+                    
+                    class MissionItem
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.8" data-path="../api_reference/classdronecode__sdk_1_1_offboard.html">
+            
+                <a href="../api_reference/classdronecode__sdk_1_1_offboard.html">
+            
+                    
+                    class Offboard
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.8.1" data-path="../api_reference/structdronecode__sdk_1_1_offboard_1_1_attitude.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_offboard_1_1_attitude.html">
+            
+                    
+                    struct Attitude
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.8.2" data-path="../api_reference/structdronecode__sdk_1_1_offboard_1_1_attitude_rate.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_offboard_1_1_attitude_rate.html">
+            
+                    
+                    struct AltitudeRate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.8.3" data-path="../api_reference/structdronecode__sdk_1_1_offboard_1_1_velocity_body_yawspeed.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_offboard_1_1_velocity_body_yawspeed.html">
+            
+                    
+                    struct VelocityBodyYawspeed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.8.4" data-path="../api_reference/structdronecode__sdk_1_1_offboard_1_1_velocity_n_e_d_yaw.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_offboard_1_1_velocity_n_e_d_yaw.html">
+            
+                    
+                    struct VelocityNEDYaw
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.8.5" data-path="../api_reference/structdronecode__sdk_1_1_offboard_1_1_position_n_e_d_yaw.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_offboard_1_1_position_n_e_d_yaw.html">
+            
+                    
+                    struct PositionNEDYaw
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.9" data-path="../api_reference/classdronecode__sdk_1_1_gimbal.html">
+            
+                <a href="../api_reference/classdronecode__sdk_1_1_gimbal.html">
+            
+                    
+                    class Gimbal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.10" data-path="../api_reference/classdronecode__sdk_1_1_camera.html">
+            
+                <a href="../api_reference/classdronecode__sdk_1_1_camera.html">
+            
+                    
+                    class Camera
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.10.1" data-path="../api_reference/structdronecode__sdk_1_1_camera_1_1_information.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_camera_1_1_information.html">
+            
+                    
+                    struct Information
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.10.2" data-path="../api_reference/structdronecode__sdk_1_1_camera_1_1_capture_info.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_camera_1_1_capture_info.html">
+            
+                    
+                    struct CaptureInfo
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.10.2.1" data-path="../api_reference/structdronecode__sdk_1_1_camera_1_1_capture_info_1_1_position.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_camera_1_1_capture_info_1_1_position.html">
+            
+                    
+                    struct Position
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.10.2.2" data-path="../api_reference/structdronecode__sdk_1_1_camera_1_1_capture_info_1_1_quaternion.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_camera_1_1_capture_info_1_1_quaternion.html">
+            
+                    
+                    struct Quaternion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.10.2.3" data-path="../api_reference/structdronecode__sdk_1_1_camera_1_1_capture_info_1_1_euler_angle.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_camera_1_1_capture_info_1_1_euler_angle.html">
+            
+                    
+                    struct EulerAngle
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.10.3" data-path="../api_reference/structdronecode__sdk_1_1_camera_1_1_status.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_camera_1_1_status.html">
+            
+                    
+                    struct Status
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.10.4" data-path="../api_reference/structdronecode__sdk_1_1_camera_1_1_video_stream_info.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_camera_1_1_video_stream_info.html">
+            
+                    
+                    struct VideoStreamInfo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.10.5" data-path="../api_reference/structdronecode__sdk_1_1_camera_1_1_video_stream_settings.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_camera_1_1_video_stream_settings.html">
+            
+                    
+                    struct VideoStreamSettings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.10.6" data-path="../api_reference/structdronecode__sdk_1_1_camera_1_1_option.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_camera_1_1_option.html">
+            
+                    
+                    struct Option
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.10.7" data-path="../api_reference/structdronecode__sdk_1_1_camera_1_1_setting.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_camera_1_1_setting.html">
+            
+                    
+                    struct Setting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.10.8" data-path="../api_reference/structdronecode__sdk_1_1_camera_1_1_setting_options.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_camera_1_1_setting_options.html">
+            
+                    
+                    struct SettingOptions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.11" data-path="../api_reference/classdronecode__sdk_1_1_follow_me.html">
+            
+                <a href="../api_reference/classdronecode__sdk_1_1_follow_me.html">
+            
+                    
+                    class FollowMe
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.11.1" data-path="../api_reference/structdronecode__sdk_1_1_follow_me_1_1_config.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_follow_me_1_1_config.html">
+            
+                    
+                    struct Config
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.11.2" data-path="../api_reference/structdronecode__sdk_1_1_follow_me_1_1_target_location.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_follow_me_1_1_target_location.html">
+            
+                    
+                    struct TargetLocation 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.12" data-path="../api_reference/classdronecode__sdk_1_1_calibration.html">
+            
+                <a href="../api_reference/classdronecode__sdk_1_1_calibration.html">
+            
+                    
+                    class Calibration
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.12.1" data-path="../api_reference/structdronecode__sdk_1_1_calibration_1_1_progress_data.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_calibration_1_1_progress_data.html">
+            
+                    
+                    struct ProgressData
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.13" data-path="../api_reference/classdronecode__sdk_1_1_log_files.html">
+            
+                <a href="../api_reference/classdronecode__sdk_1_1_log_files.html">
+            
+                    
+                    class LogFiles
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.13.1" data-path="../api_reference/structdronecode__sdk_1_1_log_files_1_1_entry.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_log_files_1_1_entry.html">
+            
+                    
+                    struct Entry
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.14" data-path="../api_reference/classdronecode__sdk_1_1_param.html">
+            
+                <a href="../api_reference/classdronecode__sdk_1_1_param.html">
+            
+                    
+                    class Param
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.15" data-path="../api_reference/classdronecode__sdk_1_1_mission_raw.html">
+            
+                <a href="../api_reference/classdronecode__sdk_1_1_mission_raw.html">
+            
+                    
+                    class MissionRaw
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.15.1" data-path="../api_reference/structdronecode__sdk_1_1_mission_raw_1_1_mavlink_mission_item_int.html">
+            
+                <a href="../api_reference/structdronecode__sdk_1_1_mission_raw_1_1_mavlink_mission_item_int.html">
+            
+                    
+                    struct MavlinkMissionItemInt
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.16" data-path="../api_reference/classdronecode__sdk_1_1_mavlink_passthrough.html">
+            
+                <a href="../api_reference/classdronecode__sdk_1_1_mavlink_passthrough.html">
+            
+                    
+                    MavlinkPassthrough
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17" data-path="../api_reference/namespacedronecode__sdk.html">
+            
+                <a href="../api_reference/namespacedronecode__sdk.html">
+            
+                    
+                    namespace dronecode_sdk (globals)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../contributing/">
+            
+                <a href="../contributing/">
+            
+                    
+                    Contributing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.1" data-path="../contributing/build.html">
+            
+                <a href="../contributing/build.html">
+            
+                    
+                    Building Source
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.2" data-path="../contributing/test.html">
+            
+                <a href="../contributing/test.html">
+            
+                    
+                    Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.3" data-path="../contributing/plugins.html">
+            
+                <a href="../contributing/plugins.html">
+            
+                    
+                    Writing Plugins
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.4" data-path="../contributing/code_style.html">
+            
+                <a href="../contributing/code_style.html">
+            
+                    
+                    Coding Style
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.5" data-path="../contributing/dev_logging.html">
+            
+                <a href="../contributing/dev_logging.html">
+            
+                    
+                    Plugin/Test Logging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.6" data-path="../contributing/documentation.html">
+            
+                <a href="../contributing/documentation.html">
+            
+                    
+                    Documentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../releases/">
+            
+                <a href="../releases/">
+            
+                    
+                    Releases
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Dronecode Shortcuts</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <a target="_blank" href="https://dev.px4.io/en/">
+            
+                    
+                    PX4 Developer Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <a target="_blank" href="https://docs.px4.io/en/">
+            
+                    
+                    PX4 User Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <a target="_blank" href="https://docs.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl User Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <a target="_blank" href="https://dev.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl Developer Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" >
+            
+                <a target="_blank" href="https://mavlink.io/en/">
+            
+                    
+                    MAVLink Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" >
+            
+                <a target="_blank" href="https://camera-manager.dronecode.org/en/">
+            
+                    
+                    Dronecode Camera Manager
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Missions</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="missions">Missions</h1>
+<p>The Mission API (plugin) allows you to create, upload, download, import from <em>QGroundControl</em>, run, pause, restart, jump to item in, and track missions. 
+Missions can have multiple &quot;mission items&quot;, each which may specify a position, altitude, fly-through behaviour, camera action, gimbal position, and the speed to use when traveling to the next position.</p>
+<p>Missions are <em>managed</em> though the <a href="../api_reference/classdronecode__sdk_1_1_mission.html">Mission</a> class, which communicates with the vehicle to upload mission information and run, pause, track the mission progress etc. 
+The mission that is uploaded to the vehicle is defined as a vector of <a href="../api_reference/classdronecode__sdk_1_1_mission_item.html">MissionItem</a> objects.</p>
+<h2 id="supported_mission_commands">Supported Mission Commands </h2>
+<p>The <a href="../api_reference/classdronecode__sdk_1_1_mission_item.html">MissionItem</a> class abstracts a small but useful subset of the mission commands supported by PX4 (and the MAVLink specification):</p>
+<p>The supported set is:</p>
+<ul>
+<li><a href="https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT" target="_blank">MAV_CMD_NAV_WAYPOINT</a></li>
+<li><a href="https://mavlink.io/en/messages/common.html#MAV_CMD_DO_CHANGE_SPEED" target="_blank">MAV_CMD_DO_CHANGE_SPEED</a></li>
+<li><a href="https://mavlink.io/en/messages/common.html#MAV_CMD_DO_MOUNT_CONTROL" target="_blank">MAV_CMD_DO_MOUNT_CONTROL</a></li>
+<li><a href="https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_START_CAPTURE" target="_blank">MAV_CMD_IMAGE_START_CAPTURE</a></li>
+<li><a href="https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_STOP_CAPTURE" target="_blank">MAV_CMD_IMAGE_STOP_CAPTURE</a></li>
+<li><a href="https://mavlink.io/en/messages/common.html#MAV_CMD_VIDEO_START_CAPTURE" target="_blank">MAV_CMD_VIDEO_START_CAPTURE</a></li>
+<li><a href="https://mavlink.io/en/messages/common.html#MAV_CMD_VIDEO_STOP_CAPTURE" target="_blank">MAV_CMD_VIDEO_STOP_CAPTURE</a></li>
+<li><a href="https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LOITER_TIME" target="_blank">MAV_CMD_NAV_LOITER_TIME</a></li>
+</ul>
+<p>Additionally, the following commands are supported only for mission import/download (there are no corresponding <code>MissionItem</code> methods):</p>
+<ul>
+<li><a href="https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND" target="_blank">MAV_CMD_NAV_LAND</a></li>
+<li><a href="https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF" target="_blank">MAV_CMD_NAV_TAKEOFF</a></li>
+</ul>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> The Mission API does not (at time of writing) provide explicit functionality to &quot;repeat&quot;, takeoff, return to land etc. 
+The SDK provides some omitted functionality through the <a href="taking_off_landing.html">Action</a> API.</p>
+</blockquote>
+<h2 id="create-the-plugin">Create the Plugin</h2>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> <code>Mission</code> objects are created in the same way as other Dronecode SDK plugins. 
+  General instructions are provided in the topic: <a href="using_plugins.html">Using Plugins</a>.</p>
+</blockquote>
+<p>The main steps are:</p>
+<ol>
+<li><p>Link the plugin library into your application. 
+Do this by adding <code>dronecode_sdk_mission</code> to the <code>target_link_libraries</code> section of the app&apos;s <em>cmake</em> build definition file</p>
+<pre><code class="lang-cmake"><span class="hljs-keyword">target_link_libraries</span>(your_application_name
+  dronecode_sdk
+  ...
+ dronecode_sdk_mission
+  ...
+)
+</code></pre>
+</li>
+<li><a href="connections.html">Create a connection</a> to a <code>system</code>. 
+For example (basic code without error checking):<pre><code>#include &lt;dronecode_sdk/dronecode_sdk.h&gt;
+DronecodeSDK dc;
+ConnectionResult conn_result = dc.add_udp_connection();
+// Wait for the system to connect via heartbeat
+while (!dc.is_connected()) {
+   sleep_for(seconds(1));
+}
+// System got discovered.
+System &amp;system = dc.system();
+</code></pre></li>
+<li>Create a shared pointer to an instance of <code>Mission</code> instantiated with the <code>system</code>: <pre><code>#include &lt;dronecode_sdk/mission.h&gt;
+auto mission = std::make_shared&lt;Mission&gt;(system);
+</code></pre></li>
+</ol>
+<p>The <code>mission</code> pointer can then used to access the plugin API (as shown in the following sections).</p>
+<h2 id="defining-a-mission">Defining a Mission</h2>
+<p>A mission must be defined as a vector of <a href="../api_reference/classdronecode__sdk_1_1_mission_item.html">MissionItem</a> objects as shown below:</p>
+<pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;MissionItem&gt;&gt; mission_items;
+</code></pre>
+<p>You can create as many <code>MissionItem</code> objects as you like and use <code>std_vector::push_back()</code> to add them to the back of the mission item vector. 
+The example below shows how to create and add a <code>MissionItem</code>, that just sets the target position (using <a href="../api_reference/classdronecode__sdk_1_1_mission_item.html#classdronecode__sdk_1_1_mission_item_1ab5897670c8830fc3514036d6ee99b582">set_position()</a>). </p>
+<pre><code class="lang-cpp"><span class="hljs-comment">// Create MissionItem and set its position</span>
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;MissionItem&gt; new_item(<span class="hljs-keyword">new</span> MissionItem());
+new_item-&gt;set_position(<span class="hljs-number">47.40</span> <span class="hljs-comment">/*latitude_deg*/</span>, <span class="hljs-number">8.5455360114574432</span> <span class="hljs-comment">/*longitude_deg*/</span>);
+
+<span class="hljs-comment">// Add new_item to the vector</span>
+mission_items.push_back(new_item);
+</code></pre>
+<p>The example below shows how you might set the other options on a second <code>MissionItem</code> (and add it to the mission).</p>
+<pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;MissionItem&gt; new_item2(<span class="hljs-keyword">new</span> MissionItem());
+new_item2-&gt;set_position(<span class="hljs-number">47.50</span> <span class="hljs-comment">/*latitude_deg*/</span>, <span class="hljs-number">8.5455360114574432</span> <span class="hljs-comment">/*longitude_deg*/</span>);
+new_item2-&gt;set_relative_altitude(<span class="hljs-number">2.0f</span>);
+new_item2-&gt;set_speed(<span class="hljs-number">5.0f</span> <span class="hljs-comment">/* m/s */</span>);
+new_item2-&gt;set_fly_through(<span class="hljs-literal">true</span>);
+new_item2-&gt;set_gimbal_pitch_and_yaw(<span class="hljs-number">20.0f</span> <span class="hljs-comment">/*pitch*/</span>, <span class="hljs-number">60.0f</span> <span class="hljs-comment">/*yaw degrees*/</span>);
+new_item2-&gt;set_camera_action(MissionItem::CameraAction::TAKE_PHOTO);
+
+<span class="hljs-comment">//Add new_item2 to the vector</span>
+mission_items.push_back(new_item2);
+</code></pre>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> The autopilot has sensible default values for the attributes. 
+  If you do set a value (e.g. the desired speed) then it will be the default for the remainder of the mission.</p>
+</blockquote>
+<p><span></span></p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> There are also getter methods for querying the current value of <code>MissionItem</code> attributes. 
+  The default values of most fields are <code>NaN</code> (which means they are ignored/not sent).</p>
+</blockquote>
+<p>The mission (<code>mission_items</code>) can then be uploaded as shown in the section <a href="#uploading_mission">Uploading a Mission</a> below.</p>
+<h3 id="convenience-function">Convenience Function</h3>
+<p>The <a href="../examples/fly_mission.html">Fly Mission</a> uses a convenience function to create <code>MissionItem</code> objects. 
+Using this approach you have to specify every attribute for every mission item, whether or not the value is actually used.</p>
+<p>The definition and use of this function is shown below:</p>
+<pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;MissionItem&gt; make_mission_item(<span class="hljs-keyword">double</span> latitude_deg,
+                                               <span class="hljs-keyword">double</span> longitude_deg,
+                                               <span class="hljs-keyword">float</span> relative_altitude_m,
+                                               <span class="hljs-keyword">float</span> speed_m_s,
+                                               <span class="hljs-keyword">bool</span> is_fly_through,
+                                               <span class="hljs-keyword">float</span> gimbal_pitch_deg,
+                                               <span class="hljs-keyword">float</span> gimbal_yaw_deg,
+                                               MissionItem::CameraAction camera_action)
+{
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;MissionItem&gt; new_item(<span class="hljs-keyword">new</span> MissionItem());
+    new_item-&gt;set_position(latitude_deg, longitude_deg);
+    new_item-&gt;set_relative_altitude(relative_altitude_m);
+    new_item-&gt;set_speed(speed_m_s);
+    new_item-&gt;set_fly_through(is_fly_through);
+    new_item-&gt;set_gimbal_pitch_and_yaw(gimbal_pitch_deg, gimbal_yaw_deg);
+    new_item-&gt;set_camera_action(camera_action);
+    <span class="hljs-keyword">return</span> new_item;
+}
+
+
+mission_items.push_back(
+    make_mission_item(<span class="hljs-number">47.398170327054473</span>,
+                      <span class="hljs-number">8.5456490218639658</span>,
+                      <span class="hljs-number">10.0f</span>, <span class="hljs-number">5.0f</span>, <span class="hljs-literal">false</span>,
+                      <span class="hljs-number">20.0f</span>, <span class="hljs-number">60.0f</span>,
+                      MissionItem::CameraAction::NONE));
+</code></pre>
+<h2 id="import_qgc_plan">Import a Mission from a QGC Plan </h2>
+<p><code>Mission</code> allows you to import a mission from a <em>QGroundControl</em> plan (the imported mission can then be uploaded to a vehicle).</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To export a mission plan from the <em>QGroundControl</em> use the <a href="https://docs.qgroundcontrol.com/en/PlanView/PlanView.html#sync" target="_blank">Sync Tool</a> (<strong>Plan View &gt; Sync Tool</strong>, and then select <strong>Save to File</strong>).</p>
+</blockquote>
+<p>The mission is imported using the static <a href="../api_reference/classdronecode__sdk_1_1_mission.html#classdronecode__sdk_1_1_mission_1a7c73e97e5c1395a7451bb659d03e5f57">import_qgroundcontrol_mission</a> method. 
+The method will fail with an error if the plan file cannot be found, cannot be parsed, or if it contains mission items that are <a href="#supported_mission_commands">not supported</a>.</p>
+<p>The code fragment below shows how to import mission items from a plan:</p>
+<pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> qgc_plan = <span class="hljs-string">&quot;file_path_to_some_qgroundcontrol.plan&quot;</span>
+Mission::<span class="hljs-keyword">mission_items_t</span> mission_items;
+Mission::Result import_res = Mission::import_qgroundcontrol_mission(mission_items, qgc_plan);
+</code></pre>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> <a href="../examples/fly_mission_qgc_plan.html">Example:Fly QGC Plan Mission</a> provides a working example with error checking.</p>
+</blockquote>
+<p>The mission (<code>mission_items</code>) can then be uploaded as shown in the section <a href="#uploading_mission">Uploading a Mission</a> below.</p>
+<h2 id="uploading_mission">Uploading a Mission </h2>
+<p>Use <a href="../api_reference/classdronecode__sdk_1_1_mission.html#classdronecode__sdk_1_1_mission_1a414b5b6d0c66af695a725e92003872b5">Mission::upload_mission_async()</a> to upload the mission defined in the previous section.</p>
+<p>The example below shows how this is done, using promises to wait on the result.</p>
+<pre><code class="lang-cpp"><span class="hljs-comment">// ... declare and populate the mission vector: mission_items</span>
+
+{
+    <span class="hljs-keyword">auto</span> prom = <span class="hljs-built_in">std</span>::make_shared&lt;<span class="hljs-built_in">std</span>::promise&lt;Mission::Result&gt;&gt;();
+    <span class="hljs-keyword">auto</span> future_result = prom-&gt;get_future();
+    mission-&gt;upload_mission_async(
+    mission_items, [prom](Mission::Result result) {
+        prom-&gt;set_value(result);
+    });
+
+    <span class="hljs-keyword">const</span> Mission::Result result = future_result.get();
+    <span class="hljs-keyword">if</span> (result != Mission::Result::SUCCESS) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission upload failed (&quot;</span> &lt;&lt; Mission::result_str(result) &lt;&lt; <span class="hljs-string">&quot;), exiting.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    }
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission uploaded.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+}
+</code></pre>
+<h2 id="startingpausing-missions">Starting/Pausing Missions</h2>
+<p>Start or resume a paused mission using <a href="../api_reference/classdronecode__sdk_1_1_mission.html#classdronecode__sdk_1_1_mission_1a9e032c6b2bc35cf6e7e19e07747fb0d3">Mission::start_mission_async()</a>. 
+The vehicle must already have a mission (the mission need not have been uploaded using the SDK).</p>
+<p>The code fragment below shows how this is done, using promises to wait on the result.</p>
+<pre><code class="lang-cpp">{
+    <span class="hljs-keyword">auto</span> prom = <span class="hljs-built_in">std</span>::make_shared&lt;<span class="hljs-built_in">std</span>::promise&lt;Mission::Result&gt;&gt;();
+    <span class="hljs-keyword">auto</span> future_result = prom-&gt;get_future();
+    mission-&gt;start_mission_async(
+    [prom](Mission::Result result) {
+        prom-&gt;set_value(result);
+    });
+
+    <span class="hljs-keyword">const</span> Mission::Result result = future_result.get(); <span class="hljs-comment">//Wait on result</span>
+    <span class="hljs-keyword">if</span> (result != Mission::Result::SUCCESS) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission start failed (&quot;</span> &lt;&lt; Mission::result_str(result) &lt;&lt; <span class="hljs-string">&quot;), exiting.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    }
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Started mission.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+}
+</code></pre>
+<p>To pause a mission use <a href="../api_reference/classdronecode__sdk_1_1_mission.html#classdronecode__sdk_1_1_mission_1a65f729cf954586507ecd8dc07a510dd1">Mission::pause_mission_async()</a>. 
+The code is almost exactly the same as for starting a mission:</p>
+<pre><code class="lang-cpp">{
+    <span class="hljs-keyword">auto</span> prom = <span class="hljs-built_in">std</span>::make_shared&lt;<span class="hljs-built_in">std</span>::promise&lt;Mission::Result&gt;&gt;();
+    <span class="hljs-keyword">auto</span> future_result = prom-&gt;get_future();
+
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Pausing mission...&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    mission-&gt;pause_mission_async(
+    [prom](Mission::Result result) {
+        prom-&gt;set_value(result);
+    });
+
+    <span class="hljs-keyword">const</span> Mission::Result result = future_result.get();
+    <span class="hljs-keyword">if</span> (result != Mission::Result::SUCCESS) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Failed to pause mission (&quot;</span> &lt;&lt; Mission::result_str(result) &lt;&lt; <span class="hljs-string">&quot;)&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission paused.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    }
+}
+</code></pre>
+<h2 id="monitoring-progress">Monitoring Progress</h2>
+<p>Asynchronously monitor progress using <a href="../api_reference/classdronecode__sdk_1_1_mission.html#classdronecode__sdk_1_1_mission_1a3290fc79eb22f899528328adfca48a61">Mission::subscribe_progress()</a>, 
+which receives a regular callback with the current <code>MissionItem</code> number and the total number of items.</p>
+<p>The code fragment just takes a lambda function that reports the current status. </p>
+<pre><code class="lang-cpp">mission-&gt;subscribe_progress( [](<span class="hljs-keyword">int</span> current, <span class="hljs-keyword">int</span> total) {
+       <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission status update: &quot;</span> &lt;&lt; current &lt;&lt; <span class="hljs-string">&quot; / &quot;</span> &lt;&lt; total &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    });
+</code></pre>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> The mission is complete when <code>current == total</code>.</p>
+</blockquote>
+<p>The following synchronous methods are also available for checking mission progress:</p>
+<ul>
+<li><a href="../api_reference/classdronecode__sdk_1_1_mission.html#classdronecode__sdk_1_1_mission_1abf3463efaa18147a1c179e7449503829">mission_finished()</a> - Checks if mission has been finished.</li>
+<li><a href="../api_reference/classdronecode__sdk_1_1_mission.html#classdronecode__sdk_1_1_mission_1a1faa448b32cd0028923b22de0cc78e9c">current_mission_item()</a> - Returns the current mission item index.</li>
+<li><a href="../api_reference/classdronecode__sdk_1_1_mission.html#classdronecode__sdk_1_1_mission_1a9d2195ec1af301c51002f8cb99aa22e9">total_mission_items()</a> - Gets the total number of items.</li>
+</ul>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> The mission is (also) complete when <code>current_mission_item()</code> == <code>total_mission_items()</code>.</p>
+</blockquote>
+<h2 id="taking-off-landing-returning">Taking Off, Landing, Returning</h2>
+<p>If using a copter or VTOL vehicle then PX4 will automatically takeoff when it is armed and a mission is started (even without a takeoff mission item). 
+For Fixed Wing vehicles the vehicle must be launched before starting a mission.</p>
+<p>At time of writing the Mission API does not provide takeoff, land or &quot;return to launch&quot; <code>MissionItems</code>. 
+If required you can instead use the appropriate commands in the <a href="taking_off_landing.html">Action</a> class.</p>
+<!-- Update if we get new mission items -->
+<h2 id="downloading-missions">Downloading Missions</h2>
+<p>Use <a href="../api_reference/classdronecode__sdk_1_1_mission.html#classdronecode__sdk_1_1_mission_1a1bd15f508fe7da39b587a8e4d5e59ae2">Mission::download_mission_async()</a> to download a mission from the vehicle. 
+The mission is downloaded as a vector of <a href="../api_reference/classdronecode__sdk_1_1_mission_item.html">MissionItem</a> objects, that you can then view or manipulate as required.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> Mission download will fail if the mission contains a command that is outside the <a href="#supported_mission_commands">supported set</a>. 
+Missions created using <em>QGroundControl</em> are not guaranteed to successfully download! </p>
+</blockquote>
+<p>The code fragment below shows how to download a mission:</p>
+<pre><code class="lang-cpp">{
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Downloading mission.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// Wrap download_mission_async() function using std::future.</span>
+    <span class="hljs-keyword">struct</span> PromiseResult {
+        Mission::Result mission_result;
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;MissionItem&gt;&gt; mission_items;
+    };
+
+    <span class="hljs-keyword">auto</span> prom = <span class="hljs-built_in">std</span>::make_shared&lt;<span class="hljs-built_in">std</span>::promise&lt;PromiseResult&gt;&gt;();
+    <span class="hljs-keyword">auto</span> future = prom-&gt;get_future();
+
+    mission-&gt;download_mission_async(
+        [prom](Mission::Result result, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;MissionItem&gt;&gt; mission_items_downloaded) {
+            PromiseResult promise_result {};
+            promise_result.mission_result = result;
+            promise_result.mission_items = mission_items_downloaded;
+            prom-&gt;set_value(promise_result);
+    });
+
+    PromiseResult promise_result = future.get();
+
+    <span class="hljs-keyword">if</span> (promise_result.mission_result != Mission::Result::SUCCESS) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission download failed (&quot;</span> &lt;&lt; Mission::result_str(promise_result.mission_result) 
+            &lt;&lt; <span class="hljs-string">&quot;), exiting.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    }
+
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission downloaded (MissionItems: &quot;</span> 
+        &lt;&lt; promise_result.mission_items.size() 
+        &lt;&lt; <span class="hljs-string">&quot;)&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+}
+</code></pre>
+<h2 id="further-information">Further Information</h2>
+<ul>
+<li><a href="https://docs.px4.io/en/flight_modes/mission.html" target="_blank">Mission Flight Mode</a> (PX4 User Guide)</li>
+<li><a href="../examples/fly_mission.html">Example:Fly Mission</a></li>
+<li><a href="../examples/fly_mission_qgc_plan.html">Example:Fly QGC Plan Mission</a></li>
+<li>Integration tests:<ul>
+<li><a href="https://github.com/Dronecode/DronecodeSDK/blob/develop/integration_tests/mission.cpp" target="_blank">mission.cpp</a></li>
+<li><a href="https://github.com/Dronecode/DronecodeSDK/blob/develop/integration_tests/mission_change_speed.cpp" target="_blank">mission_change_speed.cpp</a></li>
+<li><a href="https://github.com/Dronecode/DronecodeSDK/blob/develop/integration_tests/mission_survey.cpp" target="_blank">mission_survey.cpp</a></li>
+</ul>
+</li>
+<li>Unit Tests:<ul>
+<li><a href="https://github.com/Dronecode/DronecodeSDK/blob/develop/plugins/mission/mission_import_qgc_test.cpp" target="_blank">mission_import_qgc_test.cpp</a></li>
+</ul>
+</li>
+</ul>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2019-06-18 00:50:39 </span> </footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="taking_off_landing.html" class="navigation navigation-prev " aria-label="Previous page: Actions - Take Off, Arm, ...">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="offboard.html" class="navigation navigation-next " aria-label="Next page: Offboard Control">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Missions","level":"1.4.1.7","depth":3,"next":{"title":"Offboard Control","level":"1.4.1.8","depth":3,"path":"guide/offboard.md","ref":"guide/offboard.md","articles":[]},"previous":{"title":"Actions - Take Off, Arm, ...","level":"1.4.1.6","depth":3,"path":"guide/taking_off_landing.md","ref":"guide/taking_off_landing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"type":"branches"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/dronecore/sdk_docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/dronecore/sdk_docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/dronecore/sdk_docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.jpg","github_branch":"develop"},"title":"Dronecode SDK Guide","language":"en","gitbook":"*"},"file":{"path":"guide/missions.md","mtime":"2019-06-18T00:50:39.348Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-18T00:51:34.014Z"},"basePath":"..","book":{"language":"en"}});
+        });
+    </script>
+</div>
+
+    
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-language-picker/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
