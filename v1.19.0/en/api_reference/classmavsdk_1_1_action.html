@@ -1,0 +1,2288 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>class Action · MAVSDK Guide</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-richquotes/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-footer-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions-select/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-dronecode/theme_styles.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="classmavsdk_1_1_calibration.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+    
+    <!-- ##HW Add dronecode menu -->
+    <div id="common_dronecode_menu">
+
+      <div class="common_menu_logo large_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png" alt="Dronecode logo (large)" />
+        </a>
+      </div>
+      <div class="common_menu_logo small_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png" alt="Dronecode logo (small)" />
+        </a>
+      </div>
+      
+      <div class="common_menu_options">
+        
+            <div class="common_dronecode_menu_item"><a href="http://px4.io/">PX4</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://qgroundcontrol.com/">QGroundControl</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://qgroundcontrol.com/">QGC</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://www.dronecode.org/sdk/">SDK</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://mavlink.io/en/">MAVLink</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="https://www.dronecode.org/documentation/">Documentation</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="https://www.dronecode.org/documentation/">Docs</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://discuss.px4.io/">Support</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://discuss.px4.io/">Help</a></div>
+        
+      </div>
+    </div>
+    
+<!-- ##HW END Add dronecode menu -->
+    
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../getting_started/faq.html">
+            
+                <a href="../getting_started/faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <a target="_blank" href="http://dronecode-sdk-swift.s3.eu-central-1.amazonaws.com/docs/master/index.html">
+            
+                    
+                    iOS/Swift
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <a target="_blank" href="https://github.com/mavlink/MAVSDK-Python#mavsdk-python">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../cpp/">
+            
+                <a href="../cpp/">
+            
+                    
+                    C++ (MAVSDK Core)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../guide/">
+            
+                <a href="../guide/">
+            
+                    
+                    Guide
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../guide/general_usage.html">
+            
+                <a href="../guide/general_usage.html">
+            
+                    
+                    Usage/Paradigms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../guide/connections.html">
+            
+                <a href="../guide/connections.html">
+            
+                    
+                    Connecting to Systems (Vehicles)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" data-path="../guide/using_plugins.html">
+            
+                <a href="../guide/using_plugins.html">
+            
+                    
+                    Managing Systems
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4" data-path="../guide/system_information.html">
+            
+                <a href="../guide/system_information.html">
+            
+                    
+                    System Information
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.5" data-path="../guide/telemetry.html">
+            
+                <a href="../guide/telemetry.html">
+            
+                    
+                    Telemetry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.6" data-path="../guide/taking_off_landing.html">
+            
+                <a href="../guide/taking_off_landing.html">
+            
+                    
+                    Actions - Take Off, Arm, ...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.7" data-path="../guide/missions.html">
+            
+                <a href="../guide/missions.html">
+            
+                    
+                    Missions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.8" data-path="../guide/offboard.html">
+            
+                <a href="../guide/offboard.html">
+            
+                    
+                    Offboard Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.9" data-path="../guide/follow_me.html">
+            
+                <a href="../guide/follow_me.html">
+            
+                    
+                    Follow Me
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.10" data-path="../guide/vtol.html">
+            
+                <a href="../guide/vtol.html">
+            
+                    
+                    VTOL Support
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.11" data-path="../guide/toolchain.html">
+            
+                <a href="../guide/toolchain.html">
+            
+                    
+                    Building C++ Apps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.12" data-path="../guide/sdk_extensions.html">
+            
+                <a href="../guide/sdk_extensions.html">
+            
+                    
+                    SDK Extensions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../examples/">
+            
+                <a href="../examples/">
+            
+                    
+                    Examples
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="../examples/takeoff_and_land.html">
+            
+                <a href="../examples/takeoff_and_land.html">
+            
+                    
+                    Takeoff and Land
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="../examples/fly_mission.html">
+            
+                <a href="../examples/fly_mission.html">
+            
+                    
+                    Fly Mission
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3" data-path="../examples/fly_mission_qgc_plan.html">
+            
+                <a href="../examples/fly_mission_qgc_plan.html">
+            
+                    
+                    Fly QGC Plan Mission
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.4" data-path="../examples/offboard_velocity.html">
+            
+                <a href="../examples/offboard_velocity.html">
+            
+                    
+                    Offboard Mode - Velocity Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.5" data-path="../examples/follow_me.html">
+            
+                <a href="../examples/follow_me.html">
+            
+                    
+                    Follow Me Mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.6" data-path="../examples/transition_vtol_fixed_wing.html">
+            
+                <a href="../examples/transition_vtol_fixed_wing.html">
+            
+                    
+                    VTOL Transitions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    API Reference
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.4.3.1" data-path="classmavsdk_1_1_action.html">
+            
+                <a href="classmavsdk_1_1_action.html">
+            
+                    
+                    class Action
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.2" data-path="classmavsdk_1_1_calibration.html">
+            
+                <a href="classmavsdk_1_1_calibration.html">
+            
+                    
+                    class Calibration
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.2.1" data-path="structmavsdk_1_1_calibration_1_1_progress_data.html">
+            
+                <a href="structmavsdk_1_1_calibration_1_1_progress_data.html">
+            
+                    
+                    struct ProgressData
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3" data-path="classmavsdk_1_1_camera.html">
+            
+                <a href="classmavsdk_1_1_camera.html">
+            
+                    
+                    class Camera
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.3.1" data-path="structmavsdk_1_1_camera_1_1_capture_info.html">
+            
+                <a href="structmavsdk_1_1_camera_1_1_capture_info.html">
+            
+                    
+                    struct CaptureInfo
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.3.1.1" data-path="structmavsdk_1_1_camera_1_1_capture_info_1_1_euler_angle.html">
+            
+                <a href="structmavsdk_1_1_camera_1_1_capture_info_1_1_euler_angle.html">
+            
+                    
+                    struct EulerAngle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3.1.2" data-path="structmavsdk_1_1_camera_1_1_capture_info_1_1_position.html">
+            
+                <a href="structmavsdk_1_1_camera_1_1_capture_info_1_1_position.html">
+            
+                    
+                    struct Position
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3.1.3" data-path="structmavsdk_1_1_camera_1_1_capture_info_1_1_quaternion.html">
+            
+                <a href="structmavsdk_1_1_camera_1_1_capture_info_1_1_quaternion.html">
+            
+                    
+                    struct Quaternion
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3.2" data-path="structmavsdk_1_1_camera_1_1_information.html">
+            
+                <a href="structmavsdk_1_1_camera_1_1_information.html">
+            
+                    
+                    struct Information
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3.3" data-path="structmavsdk_1_1_camera_1_1_option.html">
+            
+                <a href="structmavsdk_1_1_camera_1_1_option.html">
+            
+                    
+                    struct Option
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3.4" data-path="structmavsdk_1_1_camera_1_1_setting.html">
+            
+                <a href="structmavsdk_1_1_camera_1_1_setting.html">
+            
+                    
+                    struct Setting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3.5" data-path="structmavsdk_1_1_camera_1_1_setting_options.html">
+            
+                <a href="structmavsdk_1_1_camera_1_1_setting_options.html">
+            
+                    
+                    struct SettingOptions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3.6" data-path="structmavsdk_1_1_camera_1_1_status.html">
+            
+                <a href="structmavsdk_1_1_camera_1_1_status.html">
+            
+                    
+                    struct Status
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3.7" data-path="structmavsdk_1_1_camera_1_1_video_stream_info.html">
+            
+                <a href="structmavsdk_1_1_camera_1_1_video_stream_info.html">
+            
+                    
+                    struct VideoStreamInfo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3.8" data-path="structmavsdk_1_1_camera_1_1_video_stream_settings.html">
+            
+                <a href="structmavsdk_1_1_camera_1_1_video_stream_settings.html">
+            
+                    
+                    struct VideoStreamSettings
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4" data-path="classmavsdk_1_1_follow_me.html">
+            
+                <a href="classmavsdk_1_1_follow_me.html">
+            
+                    
+                    class FollowMe
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.4.1" data-path="structmavsdk_1_1_follow_me_1_1_config.html">
+            
+                <a href="structmavsdk_1_1_follow_me_1_1_config.html">
+            
+                    
+                    struct Config
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4.2" data-path="structmavsdk_1_1_follow_me_1_1_target_location.html">
+            
+                <a href="structmavsdk_1_1_follow_me_1_1_target_location.html">
+            
+                    
+                    struct TargetLocation 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.5" data-path="classmavsdk_1_1_geofence.html">
+            
+                <a href="classmavsdk_1_1_geofence.html">
+            
+                    
+                    class Geofence
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.5.1" data-path="structmavsdk_1_1_geofence_1_1_polygon.html">
+            
+                <a href="structmavsdk_1_1_geofence_1_1_polygon.html">
+            
+                    
+                    struct Polygon
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.5.1.1" data-path="structmavsdk_1_1_geofence_1_1_polygon_1_1_point.html">
+            
+                <a href="structmavsdk_1_1_geofence_1_1_polygon_1_1_point.html">
+            
+                    
+                    struct Point
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.6" data-path="classmavsdk_1_1_gimbal.html">
+            
+                <a href="classmavsdk_1_1_gimbal.html">
+            
+                    
+                    class Gimbal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.7" data-path="classmavsdk_1_1_info.html">
+            
+                <a href="classmavsdk_1_1_info.html">
+            
+                    
+                    class Info
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.7.1" data-path="structmavsdk_1_1_info_1_1_identification.html">
+            
+                <a href="structmavsdk_1_1_info_1_1_identification.html">
+            
+                    
+                    struct Identification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.7.2" data-path="structmavsdk_1_1_info_1_1_product.html">
+            
+                <a href="structmavsdk_1_1_info_1_1_product.html">
+            
+                    
+                    struct Product
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.7.3" data-path="structmavsdk_1_1_info_1_1_version.html">
+            
+                <a href="structmavsdk_1_1_info_1_1_version.html">
+            
+                    
+                    struct Version
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.8" data-path="classmavsdk_1_1_log_files.html">
+            
+                <a href="classmavsdk_1_1_log_files.html">
+            
+                    
+                    class LogFiles
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.8.1" data-path="structmavsdk_1_1_log_files_1_1_entry.html">
+            
+                <a href="structmavsdk_1_1_log_files_1_1_entry.html">
+            
+                    
+                    struct Entry
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.9" data-path="classmavsdk_1_1_mavlink_passthrough.html">
+            
+                <a href="classmavsdk_1_1_mavlink_passthrough.html">
+            
+                    
+                    class MavlinkPassthrough
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.10" data-path="classmavsdk_1_1_mavsdk.html">
+            
+                <a href="classmavsdk_1_1_mavsdk.html">
+            
+                    
+                    class Mavsdk
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.11" data-path="classmavsdk_1_1_mission.html">
+            
+                <a href="classmavsdk_1_1_mission.html">
+            
+                    
+                    class Mission
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.12" data-path="classmavsdk_1_1_mission_item.html">
+            
+                <a href="classmavsdk_1_1_mission_item.html">
+            
+                    
+                    class MissionItem
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.13" data-path="classmavsdk_1_1_mission_raw.html">
+            
+                <a href="classmavsdk_1_1_mission_raw.html">
+            
+                    
+                    class MissionRaw
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.13.1" data-path="structmavsdk_1_1_mission_raw_1_1_mavlink_mission_item_int.html">
+            
+                <a href="structmavsdk_1_1_mission_raw_1_1_mavlink_mission_item_int.html">
+            
+                    
+                    struct MavlinkMissionItemInt
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.14" data-path="classmavsdk_1_1_offboard.html">
+            
+                <a href="classmavsdk_1_1_offboard.html">
+            
+                    
+                    class Offboard
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.14.1" data-path="structmavsdk_1_1_offboard_1_1_actuator_control.html">
+            
+                <a href="structmavsdk_1_1_offboard_1_1_actuator_control.html">
+            
+                    
+                    struct ActuatorControl
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.14.1.1" data-path="structmavsdk_1_1_offboard_1_1_actuator_control_1_1_group.html">
+            
+                <a href="structmavsdk_1_1_offboard_1_1_actuator_control_1_1_group.html">
+            
+                    
+                    struct Group
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.14.2" data-path="structmavsdk_1_1_offboard_1_1_attitude.html">
+            
+                <a href="structmavsdk_1_1_offboard_1_1_attitude.html">
+            
+                    
+                    struct Attitude
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.14.3" data-path="structmavsdk_1_1_offboard_1_1_attitude_rate.html">
+            
+                <a href="structmavsdk_1_1_offboard_1_1_attitude_rate.html">
+            
+                    
+                    struct AltitudeRate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.14.4" data-path="structmavsdk_1_1_offboard_1_1_position_n_e_d_yaw.html">
+            
+                <a href="structmavsdk_1_1_offboard_1_1_position_n_e_d_yaw.html">
+            
+                    
+                    struct PositionNEDYaw
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.14.5" data-path="structmavsdk_1_1_offboard_1_1_velocity_body_yawspeed.html">
+            
+                <a href="structmavsdk_1_1_offboard_1_1_velocity_body_yawspeed.html">
+            
+                    
+                    struct VelocityBodyYawspeed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.14.6" data-path="structmavsdk_1_1_offboard_1_1_velocity_n_e_d_yaw.html">
+            
+                <a href="structmavsdk_1_1_offboard_1_1_velocity_n_e_d_yaw.html">
+            
+                    
+                    struct VelocityNEDYaw
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.15" data-path="classmavsdk_1_1_param.html">
+            
+                <a href="classmavsdk_1_1_param.html">
+            
+                    
+                    class Param
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.16" data-path="classmavsdk_1_1_system.html">
+            
+                <a href="classmavsdk_1_1_system.html">
+            
+                    
+                    class System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17" data-path="classmavsdk_1_1_telemetry.html">
+            
+                <a href="classmavsdk_1_1_telemetry.html">
+            
+                    
+                    class Telemetry
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.17.1" data-path="structmavsdk_1_1_telemetry_1_1_acceleration_n_e_d.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_acceleration_n_e_d.html">
+            
+                    
+                    struct AccelerationNED
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.2" data-path="structmavsdk_1_1_telemetry_1_1_actuator_control_target.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_actuator_control_target.html">
+            
+                    
+                    struct ActuatorControlTarget
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.3" data-path="structmavsdk_1_1_telemetry_1_1_actuator_output_status.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_actuator_output_status.html">
+            
+                    
+                    struct ActuatorOutputStatus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.4" data-path="structmavsdk_1_1_telemetry_1_1_angular_velocity_body.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_angular_velocity_body.html">
+            
+                    
+                    struct AngularVelocityBody
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.5" data-path="structmavsdk_1_1_telemetry_1_1_angular_velocity_n_e_d.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_angular_velocity_n_e_d.html">
+            
+                    
+                    struct AngularVelocityNED
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.6" data-path="structmavsdk_1_1_telemetry_1_1_battery.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_battery.html">
+            
+                    
+                    struct Battery
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.7" data-path="structmavsdk_1_1_telemetry_1_1_euler_angle.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_euler_angle.html">
+            
+                    
+                    struct EulerAngle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.8" data-path="structmavsdk_1_1_telemetry_1_1_g_p_s_info.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_g_p_s_info.html">
+            
+                    
+                    struct GPSInfo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.9" data-path="structmavsdk_1_1_telemetry_1_1_ground_speed_n_e_d.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_ground_speed_n_e_d.html">
+            
+                    
+                    struct GroundSpeedNED
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.10" data-path="structmavsdk_1_1_telemetry_1_1_health.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_health.html">
+            
+                    
+                    struct Health
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.11" data-path="structmavsdk_1_1_telemetry_1_1_i_m_u_reading_n_e_d.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_i_m_u_reading_n_e_d.html">
+            
+                    
+                    struct IMUReadingNED
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.12" data-path="structmavsdk_1_1_telemetry_1_1_magnetic_field_n_e_d.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_magnetic_field_n_e_d.html">
+            
+                    
+                    struct MagneticFieldNED
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.13" data-path="structmavsdk_1_1_telemetry_1_1_position.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_position.html">
+            
+                    
+                    struct Position
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.14" data-path="structmavsdk_1_1_telemetry_1_1_position_n_e_d.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_position_n_e_d.html">
+            
+                    
+                    struct PositionNED
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.15" data-path="structmavsdk_1_1_telemetry_1_1_position_velocity_n_e_d.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_position_velocity_n_e_d.html">
+            
+                    
+                    struct PositionVelocityNED
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.16" data-path="structmavsdk_1_1_telemetry_1_1_velocity_n_e_d.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_velocity_n_e_d.html">
+            
+                    
+                    struct VelocityNED
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.17" data-path="structmavsdk_1_1_telemetry_1_1_quaternion.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_quaternion.html">
+            
+                    
+                    struct Quaternion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.18" data-path="structmavsdk_1_1_telemetry_1_1_r_c_status.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_r_c_status.html">
+            
+                    
+                    struct RCStatus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.19" data-path="structmavsdk_1_1_telemetry_1_1_status_text.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_status_text.html">
+            
+                    
+                    struct StatusText
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.18" data-path="namespacemavsdk.html">
+            
+                <a href="namespacemavsdk.html">
+            
+                    
+                    namespace mavsdk (globals)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../contributing/">
+            
+                <a href="../contributing/">
+            
+                    
+                    Contributing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.1" data-path="../contributing/build.html">
+            
+                <a href="../contributing/build.html">
+            
+                    
+                    Building Source
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.2" data-path="../contributing/test.html">
+            
+                <a href="../contributing/test.html">
+            
+                    
+                    Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.3" data-path="../contributing/plugins.html">
+            
+                <a href="../contributing/plugins.html">
+            
+                    
+                    Writing Plugins
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.4" data-path="../contributing/code_style.html">
+            
+                <a href="../contributing/code_style.html">
+            
+                    
+                    Coding Style
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.5" data-path="../contributing/dev_logging.html">
+            
+                <a href="../contributing/dev_logging.html">
+            
+                    
+                    Plugin/Test Logging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.6" data-path="../contributing/documentation.html">
+            
+                <a href="../contributing/documentation.html">
+            
+                    
+                    Documentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../releases/">
+            
+                <a href="../releases/">
+            
+                    
+                    Releases
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Dronecode Shortcuts</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <a target="_blank" href="https://dev.px4.io/en/">
+            
+                    
+                    PX4 Developer Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <a target="_blank" href="https://docs.px4.io/en/">
+            
+                    
+                    PX4 User Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <a target="_blank" href="https://docs.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl User Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <a target="_blank" href="https://dev.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl Developer Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" >
+            
+                <a target="_blank" href="https://mavlink.io/en/">
+            
+                    
+                    MAVLink Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" >
+            
+                <a target="_blank" href="https://camera-manager.dronecode.org/en/">
+            
+                    
+                    Dronecode Camera Manager
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >class Action</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="mavsdkaction-class-reference">mavsdk::Action Class Reference</h1>
+<p><code>#include: action.h</code></p>
+<hr>
+<p>The <a href="classmavsdk_1_1_action.html">Action</a> class enables simple actions for a drone such as arming, taking off, and landing. </p>
+<p>Synchronous and asynchronous variants of the action methods are supplied.</p>
+<p>The action methods send their associated MAVLink commands to the vehicle and complete (return synchronously or callback asynchronously) with an <a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Action::Result</a> value indicating whether the vehicle has accepted or rejected the command, or that there has been some error. If the command is accepted, the vehicle will then start to perform the associated action. </p>
+<h2 id="public-types">Public Types</h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enum <a href="#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a></td>
+<td>Possible results returned for commanded actions.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(<a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a>)&gt; <a href="#classmavsdk_1_1_action_1a11dc8f4beffb082ced5aa4da1f16a2a8">result_callback_t</a></td>
+<td>Callback type for asynchronous <a href="classmavsdk_1_1_action.html">Action</a> calls.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-member-functions">Public Member Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Type</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">&#xA0;</td>
+<td><a href="#classmavsdk_1_1_action_1a5e2a4d65f85d821be691a837453e56ee">Action</a> (<a href="classmavsdk_1_1_system.html">System</a> &amp; system)</td>
+<td>Constructor. Creates the plugin for a specific <a href="classmavsdk_1_1_system.html">System</a>.</td>
+</tr>
+<tr>
+<td style="text-align:right">&#xA0;</td>
+<td><a href="#classmavsdk_1_1_action_1a20428abedfcd9fe413e16d2398ff99b4">~Action</a> ()</td>
+<td>Destructor (internal use only).</td>
+</tr>
+<tr>
+<td style="text-align:right">&#xA0;</td>
+<td><a href="#classmavsdk_1_1_action_1a890855f6b3350166a9b0d191e322526b">Action</a> (const <a href="classmavsdk_1_1_action.html">Action</a> &amp;)=delete</td>
+<td>Copy constructor (object is not copyable).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a></td>
+<td><a href="#classmavsdk_1_1_action_1ad1e15dd77bd359c05256e5a5ab83726f">arm</a> () const</td>
+<td>Send command to <em>arm</em> the drone (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a></td>
+<td><a href="#classmavsdk_1_1_action_1a6c759e461902d8c427026554e439774f">disarm</a> () const</td>
+<td>Send command to <em>disarm</em> the drone (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a></td>
+<td><a href="#classmavsdk_1_1_action_1a029f49ba496b23424095b47f73300d3a">kill</a> () const</td>
+<td>Send command to <em>kill</em> the drone (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Action::Result</a></td>
+<td><a href="#classmavsdk_1_1_action_1a8399ec8cfce871acb7617d35a683dec2">reboot</a> () const</td>
+<td>Send command to <em>reboot</em> the drone components.</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a></td>
+<td><a href="#classmavsdk_1_1_action_1a9c1df1ac24144286d8b0d05b119787d1">takeoff</a> () const</td>
+<td>Send command to <em>take off and hover</em> (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a></td>
+<td><a href="#classmavsdk_1_1_action_1a0383185c4f9a1afecd3da58b8158b079">land</a> () const</td>
+<td>Send command to <em>land</em> at the current position (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a></td>
+<td><a href="#classmavsdk_1_1_action_1a699c3488106efc02d0f912f7b58db98a">return_to_launch</a> () const</td>
+<td>Send command to <em>return to the launch</em> (takeoff) position and <em>land</em> (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a></td>
+<td><a href="#classmavsdk_1_1_action_1ac6a2496c569f02c1475a375e90a50550">goto_location</a> (double latitude_deg, double longitude_deg, float altitude_amsl_m, float yaw_deg)</td>
+<td>Send command to move the vehicle to a specific global position.</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a></td>
+<td><a href="#classmavsdk_1_1_action_1af69cb37e52db442532fe82edcf479871">transition_to_fixedwing</a> () const</td>
+<td>Send command to transition the drone to fixedwing.</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a></td>
+<td><a href="#classmavsdk_1_1_action_1a9be72a826ce1d0fbce501b07023ea6ce">transition_to_multicopter</a> () const</td>
+<td>Send command to transition the drone to multicopter.</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_action_1a64ac2dec2c36107f78df8b3dffa2bece">arm_async</a> (<a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a11dc8f4beffb082ced5aa4da1f16a2a8">result_callback_t</a> callback)</td>
+<td>Send command to <em>arm</em> the drone (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_action_1a63576bca2b437db3951c3fa1c0b2e534">disarm_async</a> (<a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a11dc8f4beffb082ced5aa4da1f16a2a8">result_callback_t</a> callback)</td>
+<td>Send command to <em>disarm</em> the drone (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_action_1a3527b7ff2de7bbc4cf2fce6836dd54b6">kill_async</a> (<a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a11dc8f4beffb082ced5aa4da1f16a2a8">result_callback_t</a> callback)</td>
+<td>Send command to <em>kill</em> the drone (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_action_1ae11d1410938a7083a8f765ca9196a1ef">takeoff_async</a> (<a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a11dc8f4beffb082ced5aa4da1f16a2a8">result_callback_t</a> callback)</td>
+<td>Send command to <em>take off and hover</em> (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_action_1a504b80b6b482c717b7f9ec88f7fced13">land_async</a> (<a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a11dc8f4beffb082ced5aa4da1f16a2a8">result_callback_t</a> callback)</td>
+<td>Send command to <em>land</em> at the current position (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_action_1a2c840742bcfbc0d977e2897d068cda04">return_to_launch_async</a> (<a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a11dc8f4beffb082ced5aa4da1f16a2a8">result_callback_t</a> callback)</td>
+<td>Send command to <em>return to the launch</em> (takeoff) position and <em>land</em> (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_action_1a862865ff6acfcfeed6f5a0d0936d0667">transition_to_fixedwing_async</a> (<a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a11dc8f4beffb082ced5aa4da1f16a2a8">result_callback_t</a> callback)</td>
+<td>Send command to transition the drone to fixedwing (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_action_1afb60f1d37112f88140d359a9e5e87043">transition_to_multicopter_async</a> (<a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a11dc8f4beffb082ced5aa4da1f16a2a8">result_callback_t</a> callback)</td>
+<td>Send command to transition the drone to multicopter (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a></td>
+<td><a href="#classmavsdk_1_1_action_1a784da0b31be4515636fb93302a8f58c2">set_takeoff_altitude</a> (float relative_altitude_m)</td>
+<td>Set takeoff altitude above ground.</td>
+</tr>
+<tr>
+<td style="text-align:right">std::pair&lt; <a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a>, float &gt;</td>
+<td><a href="#classmavsdk_1_1_action_1ae35fc7237cb28597471bb40479fa3fba">get_takeoff_altitude</a> () const</td>
+<td>Get the takeoff altitude.</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a></td>
+<td><a href="#classmavsdk_1_1_action_1aa2ea0a257043f75b7332606162aa20c2">set_max_speed</a> (float speed_m_s)</td>
+<td>Set vehicle maximum speed.</td>
+</tr>
+<tr>
+<td style="text-align:right">std::pair&lt; <a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a>, float &gt;</td>
+<td><a href="#classmavsdk_1_1_action_1a8f4b8b486492b87bd4fa61b747ba674f">get_max_speed</a> () const</td>
+<td>Get the vehicle maximum speed.</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a></td>
+<td><a href="#classmavsdk_1_1_action_1ad992f1d8eb4184d22289560c031a6ed4">set_return_to_launch_return_altitude</a> (float relative_altitude_m)</td>
+<td>Set the return to launch minimum return altitude.</td>
+</tr>
+<tr>
+<td style="text-align:right">std::pair&lt; <a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a>, float &gt;</td>
+<td><a href="#classmavsdk_1_1_action_1aa6d5f759f9d966fab465ce979e70f78d">get_return_to_launch_return_altitude</a> () const</td>
+<td>Get the return to launch minimum return altitude.</td>
+</tr>
+<tr>
+<td style="text-align:right">const <a href="classmavsdk_1_1_action.html">Action</a> &amp;</td>
+<td><a href="#classmavsdk_1_1_action_1a1ff7e178b7ededc41bd9ccab0ca07457">operator=</a> (const <a href="classmavsdk_1_1_action.html">Action</a> &amp;)=delete</td>
+<td>Equality operator (object is not copyable).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="static-public-member-functions">Static Public Member Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Type</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">const char *</td>
+<td><a href="#classmavsdk_1_1_action_1a0c6e1120f26f1921ee14caab9099d07b">result_str</a> (<a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a> result)</td>
+<td>Returns a human-readable English string for an Result.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="constructor--destructor-documentation">Constructor &amp; Destructor Documentation</h2>
+<h3 id="classmavsdk_1_1_action_1a5e2a4d65f85d821be691a837453e56ee">Action() </h3>
+<pre><code class="lang-cpp">mavsdk::Action::Action(System &amp;system)
+</code></pre>
+<p>Constructor. Creates the plugin for a specific <a href="classmavsdk_1_1_system.html">System</a>.</p>
+<p>The plugin is typically created as shown below: </p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">auto</span> action = <span class="hljs-built_in">std</span>::make_shared&lt;Action&gt;(system);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_system.html">System</a>&amp; <strong>system</strong> - The specific system associated with this plugin.</li>
+</ul>
+<h3 id="classmavsdk_1_1_action_1a20428abedfcd9fe413e16d2398ff99b4">~Action() </h3>
+<pre><code class="lang-cpp">mavsdk::Action::~Action()
+</code></pre>
+<p>Destructor (internal use only).</p>
+<h3 id="classmavsdk_1_1_action_1a890855f6b3350166a9b0d191e322526b">Action() </h3>
+<pre><code class="lang-cpp">mavsdk::Action::Action(<span class="hljs-keyword">const</span> Action &amp;)=<span class="hljs-keyword">delete</span>
+</code></pre>
+<p>Copy constructor (object is not copyable).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classmavsdk_1_1_action.html">Action</a>&amp;  - </li>
+</ul>
+<h2 id="member-typdef-documentation">Member Typdef Documentation</h2>
+<h3 id="classmavsdk_1_1_action_1a11dc8f4beffb082ced5aa4da1f16a2a8">typedef result_callback_t </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(Result)&gt; mavsdk::Action::<span class="hljs-keyword">result_callback_t</span>
+</code></pre>
+<p>Callback type for asynchronous <a href="classmavsdk_1_1_action.html">Action</a> calls.</p>
+<h2 id="member-enumeration-documentation">Member Enumeration Documentation</h2>
+<h3 id="classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">enum Result </h3>
+<p>Possible results returned for commanded actions.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> <a href="classmavsdk_1_1_mavsdk.html">Mavsdk</a> does not throw exceptions. Instead a result of this type will be returned when you execute actions.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span id="classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51a696b031073e74bf2cb98e5ef201d4aa3"></span> <code>UNKNOWN</code></td>
+<td>Unspecified error. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51ad0749aaba8b833466dfcbb0428e4f89c"></span> <code>SUCCESS</code></td>
+<td>Success. The action command was accepted by the vehicle. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51afeae72a3a2feec3c92c2a79a30d31186"></span> <code>NO_SYSTEM</code></td>
+<td>No system is connected error. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51ac77f1f09dab2c0c9980fca7cfae02518"></span> <code>CONNECTION_ERROR</code></td>
+<td>Connection error. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51a802706a9238e2928077f97736854bad4"></span> <code>BUSY</code></td>
+<td>Vehicle busy error. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51a6fa4dbf368cea972db8d9156799d5dbe"></span> <code>COMMAND_DENIED</code></td>
+<td>Command refused by vehicle. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51a939d986bd1af6a2e1db07a61a60f7ae2"></span> <code>COMMAND_DENIED_LANDED_STATE_UNKNOWN</code></td>
+<td>Command refused because landed state is unknown. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51ad7e95e2842caf0baff502fbd1290fd69"></span> <code>COMMAND_DENIED_NOT_LANDED</code></td>
+<td>Command refused because vehicle not landed. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51a070a0fb40f6c308ab544b227660aadff"></span> <code>TIMEOUT</code></td>
+<td>Timeout waiting for command acknowledgement from vehicle. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51a59e19d623bfb3a7a60195410afcbe31f"></span> <code>VTOL_TRANSITION_SUPPORT_UNKNOWN</code></td>
+<td>hybrid/VTOL transition refused because VTOL support is unknown. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51af3712e88cb2a09f0d5b72e8e493b53be"></span> <code>NO_VTOL_TRANSITION_SUPPORT</code></td>
+<td>Vehicle does not support hybrid/VTOL transitions. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51a637905cbbdef76bf168f9a036968526a"></span> <code>PARAMETER_ERROR</code></td>
+<td>Error getting or setting parameter. </td>
+</tr>
+</tbody>
+</table>
+<h2 id="member-function-documentation">Member Function Documentation</h2>
+<h3 id="classmavsdk_1_1_action_1ad1e15dd77bd359c05256e5a5ab83726f">arm() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Action::arm() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Send command to <em>arm</em> the drone (synchronous).</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> Arming a drone normally causes motors to spin at idle. Before arming take all safety precautions and stand clear of the drone!</p>
+</blockquote>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_action_1a6c759e461902d8c427026554e439774f">disarm() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Action::disarm() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Send command to <em>disarm</em> the drone (synchronous).</p>
+<p>This will disarm a drone that considers itself landed. If flying, the drone should reject the disarm command. Disarming means that all motors will stop.</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_action_1a029f49ba496b23424095b47f73300d3a">kill() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Action::kill() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Send command to <em>kill</em> the drone (synchronous).</p>
+<p>This will disarm a drone irrespective of whether it is landed or flying. Note that the drone will fall out of the sky if this command is used while flying.</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_action_1a8399ec8cfce871acb7617d35a683dec2">reboot() </h3>
+<pre><code class="lang-cpp">Action::Result mavsdk::Action::reboot() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Send command to <em>reboot</em> the drone components.</p>
+<p>This will reboot the autopilot, onboard computer, camera and gimbal.</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Action::Result</a> - <a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Action::Result</a> of request.</p>
+<h3 id="classmavsdk_1_1_action_1a9c1df1ac24144286d8b0d05b119787d1">takeoff() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Action::takeoff() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Send command to <em>take off and hover</em> (synchronous).</p>
+<p>This switches the drone into position control mode and commands it to take off and hover at the takeoff altitude (set using <a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a784da0b31be4515636fb93302a8f58c2">set_takeoff_altitude()</a>).</p>
+<p>Note that the vehicle must be armed before it can take off.</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_action_1a0383185c4f9a1afecd3da58b8158b079">land() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Action::land() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Send command to <em>land</em> at the current position (synchronous).</p>
+<p>This switches the drone to <a href="https://docs.px4.io/en/flight_modes/land.html" target="_blank">Land mode</a>.</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_action_1a699c3488106efc02d0f912f7b58db98a">return_to_launch() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Action::return_to_launch() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Send command to <em>return to the launch</em> (takeoff) position and <em>land</em> (asynchronous).</p>
+<p>This switches the drone into <a href="https://docs.px4.io/en/flight_modes/rtl.html" target="_blank">RTL mode</a> which generally means it will rise up to a certain altitude to clear any obstacles before heading back to the launch (takeoff) position and land there.</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_action_1ac6a2496c569f02c1475a375e90a50550">goto_location() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Action::goto_location(<span class="hljs-keyword">double</span> latitude_deg, <span class="hljs-keyword">double</span> longitude_deg, <span class="hljs-keyword">float</span> altitude_amsl_m, <span class="hljs-keyword">float</span> yaw_deg)
+</code></pre>
+<p>Send command to move the vehicle to a specific global position.</p>
+<p>The latitude and longitude are given in degrees (WGS84 frame) and the altitude in meters AMSL (above mean sea level).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>double <strong>latitude_deg</strong> - Latitude in degrees.</li>
+<li>double <strong>longitude_deg</strong> - Longitude in degrees.</li>
+<li>float <strong>altitude_amsl_m</strong> - Altitude AMSL in meters.</li>
+<li>float <strong>yaw_deg</strong> - Yaw angle in degrees (Frame is NED, 0 is North, positive is clockwise).</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_action_1af69cb37e52db442532fe82edcf479871">transition_to_fixedwing() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Action::transition_to_fixedwing() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Send command to transition the drone to fixedwing.</p>
+<p>The associated action will only be executed for VTOL vehicles (on other vehicle types the command will fail with an Result). The command will succeed if called when the vehicle is already in fixedwing mode.</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_action_1a9be72a826ce1d0fbce501b07023ea6ce">transition_to_multicopter() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Action::transition_to_multicopter() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Send command to transition the drone to multicopter.</p>
+<p>The associated action will only be executed for VTOL vehicles (on other vehicle types the command will fail with an Result). The command will succeed if called when the vehicle is already in multicopter mode.</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_action_1a64ac2dec2c36107f78df8b3dffa2bece">arm_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Action::arm_async(<span class="hljs-keyword">result_callback_t</span> callback)
+</code></pre>
+<p>Send command to <em>arm</em> the drone (asynchronous).</p>
+<p>Note that arming a drone normally means that the motors will spin at idle. Therefore, before arming take all safety precautions and stand clear of the drone.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a11dc8f4beffb082ced5aa4da1f16a2a8">result_callback_t</a> <strong>callback</strong> - Function to call with result of request.</li>
+</ul>
+<h3 id="classmavsdk_1_1_action_1a63576bca2b437db3951c3fa1c0b2e534">disarm_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Action::disarm_async(<span class="hljs-keyword">result_callback_t</span> callback)
+</code></pre>
+<p>Send command to <em>disarm</em> the drone (asynchronous).</p>
+<p>This will disarm a drone that considers itself landed. If flying, the drone should reject the disarm command. Disarming means that all motors will stop.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a11dc8f4beffb082ced5aa4da1f16a2a8">result_callback_t</a> <strong>callback</strong> - Function to call with result of request.</li>
+</ul>
+<h3 id="classmavsdk_1_1_action_1a3527b7ff2de7bbc4cf2fce6836dd54b6">kill_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Action::kill_async(<span class="hljs-keyword">result_callback_t</span> callback)
+</code></pre>
+<p>Send command to <em>kill</em> the drone (asynchronous).</p>
+<p>This will disarm a drone irrespective of whether it is landed or flying. Note that the drone will fall out of the sky if you use this command while flying.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a11dc8f4beffb082ced5aa4da1f16a2a8">result_callback_t</a> <strong>callback</strong> - Function to call with result of request.</li>
+</ul>
+<h3 id="classmavsdk_1_1_action_1ae11d1410938a7083a8f765ca9196a1ef">takeoff_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Action::takeoff_async(<span class="hljs-keyword">result_callback_t</span> callback)
+</code></pre>
+<p>Send command to <em>take off and hover</em> (asynchronous).</p>
+<p>This switches the drone into position control mode and commands it to take off and hover at the takeoff altitude set using <a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a784da0b31be4515636fb93302a8f58c2">set_takeoff_altitude()</a>.</p>
+<p>Note that the vehicle must be armed before it can take off.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a11dc8f4beffb082ced5aa4da1f16a2a8">result_callback_t</a> <strong>callback</strong> - Function to call with result of request</li>
+</ul>
+<h3 id="classmavsdk_1_1_action_1a504b80b6b482c717b7f9ec88f7fced13">land_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Action::land_async(<span class="hljs-keyword">result_callback_t</span> callback)
+</code></pre>
+<p>Send command to <em>land</em> at the current position (asynchronous).</p>
+<p>This switches the drone to <a href="https://docs.px4.io/en/flight_modes/land.html" target="_blank">Land mode</a>.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a11dc8f4beffb082ced5aa4da1f16a2a8">result_callback_t</a> <strong>callback</strong> - Function to call with result of request.</li>
+</ul>
+<h3 id="classmavsdk_1_1_action_1a2c840742bcfbc0d977e2897d068cda04">return_to_launch_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Action::return_to_launch_async(<span class="hljs-keyword">result_callback_t</span> callback)
+</code></pre>
+<p>Send command to <em>return to the launch</em> (takeoff) position and <em>land</em> (asynchronous).</p>
+<p>This switches the drone into <a href="https://docs.px4.io/en/flight_modes/rtl.html" target="_blank">RTL mode</a> which generally means it will rise up to a certain altitude to clear any obstacles before heading back to the launch (takeoff) position and land there.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a11dc8f4beffb082ced5aa4da1f16a2a8">result_callback_t</a> <strong>callback</strong> - Function to call with result of request.</li>
+</ul>
+<h3 id="classmavsdk_1_1_action_1a862865ff6acfcfeed6f5a0d0936d0667">transition_to_fixedwing_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Action::transition_to_fixedwing_async(<span class="hljs-keyword">result_callback_t</span> callback)
+</code></pre>
+<p>Send command to transition the drone to fixedwing (asynchronous).</p>
+<p>The associated action will only be executed for VTOL vehicles (on other vehicle types the command will fail with an Result). The command will succeed if called when the vehicle is already in fixedwing mode.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a11dc8f4beffb082ced5aa4da1f16a2a8">result_callback_t</a> <strong>callback</strong> - Function to call with result of request.</li>
+</ul>
+<h3 id="classmavsdk_1_1_action_1afb60f1d37112f88140d359a9e5e87043">transition_to_multicopter_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Action::transition_to_multicopter_async(<span class="hljs-keyword">result_callback_t</span> callback)
+</code></pre>
+<p>Send command to transition the drone to multicopter (asynchronous).</p>
+<p>The associated action will only be executed for VTOL vehicles (on other vehicle types the command will fail with an Result). The command will succeed if called when the vehicle is already in multicopter mode.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a11dc8f4beffb082ced5aa4da1f16a2a8">result_callback_t</a> <strong>callback</strong> - Function to call with result of request.</li>
+</ul>
+<h3 id="classmavsdk_1_1_action_1a784da0b31be4515636fb93302a8f58c2">set_takeoff_altitude() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Action::set_takeoff_altitude(<span class="hljs-keyword">float</span> relative_altitude_m)
+</code></pre>
+<p>Set takeoff altitude above ground.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>float <strong>relative_altitude_m</strong> - Takeoff altitude relative to takeoff location, in meters.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_action_1ae35fc7237cb28597471bb40479fa3fba">get_takeoff_altitude() </h3>
+<pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::pair&lt;Result, <span class="hljs-keyword">float</span>&gt; mavsdk::Action::get_takeoff_altitude() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Get the takeoff altitude.</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;std::pair&lt; <a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a>, float &gt; - A pair containing the result of request and if successful, the takeoff altitude relative to ground/takeoff location, in meters.</p>
+<h3 id="classmavsdk_1_1_action_1aa2ea0a257043f75b7332606162aa20c2">set_max_speed() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Action::set_max_speed(<span class="hljs-keyword">float</span> speed_m_s)
+</code></pre>
+<p>Set vehicle maximum speed.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>float <strong>speed_m_s</strong> - Maximum speed in metres/second.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_action_1a8f4b8b486492b87bd4fa61b747ba674f">get_max_speed() </h3>
+<pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::pair&lt;Result, <span class="hljs-keyword">float</span>&gt; mavsdk::Action::get_max_speed() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Get the vehicle maximum speed.</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;std::pair&lt; <a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a>, float &gt; - A pair containing the result of the request and if successful, the maximum speed in metres/second.</p>
+<h3 id="classmavsdk_1_1_action_1ad992f1d8eb4184d22289560c031a6ed4">set_return_to_launch_return_altitude() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Action::set_return_to_launch_return_altitude(<span class="hljs-keyword">float</span> relative_altitude_m)
+</code></pre>
+<p>Set the return to launch minimum return altitude.</p>
+<p>When return to launch is initiated, the vehicle climbs to the return altitude if it is lower and stays at the current altitude if higher than the return altitude. Then it returns to the home location and lands there.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>float <strong>relative_altitude_m</strong> - Return altitude relative to takeoff location, in meters.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_action_1aa6d5f759f9d966fab465ce979e70f78d">get_return_to_launch_return_altitude() </h3>
+<pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::pair&lt;Result, <span class="hljs-keyword">float</span>&gt; mavsdk::Action::get_return_to_launch_return_altitude() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Get the return to launch minimum return altitude.</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;std::pair&lt; <a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a>, float &gt; - A pair containing the result of the request and if successful, the return altitude relative to takeoff location, in meters.</p>
+<p><strong>See Also:</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1ad992f1d8eb4184d22289560c031a6ed4">set_return_to_launch_return_altitude</a>.</li>
+</ul>
+<h3 id="classmavsdk_1_1_action_1a1ff7e178b7ededc41bd9ccab0ca07457">operator=() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">const</span> Action&amp; mavsdk::Action::<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> Action &amp;)=<span class="hljs-keyword">delete</span>
+</code></pre>
+<p>Equality operator (object is not copyable).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classmavsdk_1_1_action.html">Action</a>&amp;  - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;const <a href="classmavsdk_1_1_action.html">Action</a> &amp; - </p>
+<h3 id="classmavsdk_1_1_action_1a0c6e1120f26f1921ee14caab9099d07b">result_str() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">static</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* mavsdk::Action::result_str(Result result)
+</code></pre>
+<p>Returns a human-readable English string for an Result.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_action.html#classmavsdk_1_1_action_1adc2e13257ef13de0e7610cf879a0ec51">Result</a> <strong>result</strong> - The enum value for which a human readable string is required.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;const char * - Human readable string for the Result.</p>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2019-09-19 00:34:54 </span> </footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: API Reference">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="classmavsdk_1_1_calibration.html" class="navigation navigation-next " aria-label="Next page: class Calibration">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"class Action","level":"1.4.3.1","depth":3,"next":{"title":"class Calibration","level":"1.4.3.2","depth":3,"path":"api_reference/classmavsdk_1_1_calibration.md","ref":"api_reference/classmavsdk_1_1_calibration.md","articles":[{"title":"struct ProgressData","level":"1.4.3.2.1","depth":4,"path":"api_reference/structmavsdk_1_1_calibration_1_1_progress_data.md","ref":"api_reference/structmavsdk_1_1_calibration_1_1_progress_data.md","articles":[]}]},"previous":{"title":"API Reference","level":"1.4.3","depth":2,"path":"api_reference/README.md","ref":"api_reference/README.md","articles":[{"title":"class Action","level":"1.4.3.1","depth":3,"path":"api_reference/classmavsdk_1_1_action.md","ref":"api_reference/classmavsdk_1_1_action.md","articles":[]},{"title":"class Calibration","level":"1.4.3.2","depth":3,"path":"api_reference/classmavsdk_1_1_calibration.md","ref":"api_reference/classmavsdk_1_1_calibration.md","articles":[{"title":"struct ProgressData","level":"1.4.3.2.1","depth":4,"path":"api_reference/structmavsdk_1_1_calibration_1_1_progress_data.md","ref":"api_reference/structmavsdk_1_1_calibration_1_1_progress_data.md","articles":[]}]},{"title":"class Camera","level":"1.4.3.3","depth":3,"path":"api_reference/classmavsdk_1_1_camera.md","ref":"api_reference/classmavsdk_1_1_camera.md","articles":[{"title":"struct CaptureInfo","level":"1.4.3.3.1","depth":4,"path":"api_reference/structmavsdk_1_1_camera_1_1_capture_info.md","ref":"api_reference/structmavsdk_1_1_camera_1_1_capture_info.md","articles":[{"title":"struct EulerAngle","level":"1.4.3.3.1.1","depth":5,"path":"api_reference/structmavsdk_1_1_camera_1_1_capture_info_1_1_euler_angle.md","ref":"api_reference/structmavsdk_1_1_camera_1_1_capture_info_1_1_euler_angle.md","articles":[]},{"title":"struct Position","level":"1.4.3.3.1.2","depth":5,"path":"api_reference/structmavsdk_1_1_camera_1_1_capture_info_1_1_position.md","ref":"api_reference/structmavsdk_1_1_camera_1_1_capture_info_1_1_position.md","articles":[]},{"title":"struct Quaternion","level":"1.4.3.3.1.3","depth":5,"path":"api_reference/structmavsdk_1_1_camera_1_1_capture_info_1_1_quaternion.md","ref":"api_reference/structmavsdk_1_1_camera_1_1_capture_info_1_1_quaternion.md","articles":[]}]},{"title":"struct Information","level":"1.4.3.3.2","depth":4,"path":"api_reference/structmavsdk_1_1_camera_1_1_information.md","ref":"api_reference/structmavsdk_1_1_camera_1_1_information.md","articles":[]},{"title":"struct Option","level":"1.4.3.3.3","depth":4,"path":"api_reference/structmavsdk_1_1_camera_1_1_option.md","ref":"api_reference/structmavsdk_1_1_camera_1_1_option.md","articles":[]},{"title":"struct Setting","level":"1.4.3.3.4","depth":4,"path":"api_reference/structmavsdk_1_1_camera_1_1_setting.md","ref":"api_reference/structmavsdk_1_1_camera_1_1_setting.md","articles":[]},{"title":"struct SettingOptions","level":"1.4.3.3.5","depth":4,"path":"api_reference/structmavsdk_1_1_camera_1_1_setting_options.md","ref":"api_reference/structmavsdk_1_1_camera_1_1_setting_options.md","articles":[]},{"title":"struct Status","level":"1.4.3.3.6","depth":4,"path":"api_reference/structmavsdk_1_1_camera_1_1_status.md","ref":"api_reference/structmavsdk_1_1_camera_1_1_status.md","articles":[]},{"title":"struct VideoStreamInfo","level":"1.4.3.3.7","depth":4,"path":"api_reference/structmavsdk_1_1_camera_1_1_video_stream_info.md","ref":"api_reference/structmavsdk_1_1_camera_1_1_video_stream_info.md","articles":[]},{"title":"struct VideoStreamSettings","level":"1.4.3.3.8","depth":4,"path":"api_reference/structmavsdk_1_1_camera_1_1_video_stream_settings.md","ref":"api_reference/structmavsdk_1_1_camera_1_1_video_stream_settings.md","articles":[]}]},{"title":"class FollowMe","level":"1.4.3.4","depth":3,"path":"api_reference/classmavsdk_1_1_follow_me.md","ref":"api_reference/classmavsdk_1_1_follow_me.md","articles":[{"title":"struct Config","level":"1.4.3.4.1","depth":4,"path":"api_reference/structmavsdk_1_1_follow_me_1_1_config.md","ref":"api_reference/structmavsdk_1_1_follow_me_1_1_config.md","articles":[]},{"title":"struct TargetLocation ","level":"1.4.3.4.2","depth":4,"path":"api_reference/structmavsdk_1_1_follow_me_1_1_target_location.md","ref":"api_reference/structmavsdk_1_1_follow_me_1_1_target_location.md","articles":[]}]},{"title":"class Geofence","level":"1.4.3.5","depth":3,"path":"api_reference/classmavsdk_1_1_geofence.md","ref":"api_reference/classmavsdk_1_1_geofence.md","articles":[{"title":"struct Polygon","level":"1.4.3.5.1","depth":4,"path":"api_reference/structmavsdk_1_1_geofence_1_1_polygon.md","ref":"api_reference/structmavsdk_1_1_geofence_1_1_polygon.md","articles":[{"title":"struct Point","level":"1.4.3.5.1.1","depth":5,"path":"api_reference/structmavsdk_1_1_geofence_1_1_polygon_1_1_point.md","ref":"api_reference/structmavsdk_1_1_geofence_1_1_polygon_1_1_point.md","articles":[]}]}]},{"title":"class Gimbal","level":"1.4.3.6","depth":3,"path":"api_reference/classmavsdk_1_1_gimbal.md","ref":"api_reference/classmavsdk_1_1_gimbal.md","articles":[]},{"title":"class Info","level":"1.4.3.7","depth":3,"path":"api_reference/classmavsdk_1_1_info.md","ref":"api_reference/classmavsdk_1_1_info.md","articles":[{"title":"struct Identification","level":"1.4.3.7.1","depth":4,"path":"api_reference/structmavsdk_1_1_info_1_1_identification.md","ref":"api_reference/structmavsdk_1_1_info_1_1_identification.md","articles":[]},{"title":"struct Product","level":"1.4.3.7.2","depth":4,"path":"api_reference/structmavsdk_1_1_info_1_1_product.md","ref":"api_reference/structmavsdk_1_1_info_1_1_product.md","articles":[]},{"title":"struct Version","level":"1.4.3.7.3","depth":4,"path":"api_reference/structmavsdk_1_1_info_1_1_version.md","ref":"api_reference/structmavsdk_1_1_info_1_1_version.md","articles":[]}]},{"title":"class LogFiles","level":"1.4.3.8","depth":3,"path":"api_reference/classmavsdk_1_1_log_files.md","ref":"api_reference/classmavsdk_1_1_log_files.md","articles":[{"title":"struct Entry","level":"1.4.3.8.1","depth":4,"path":"api_reference/structmavsdk_1_1_log_files_1_1_entry.md","ref":"api_reference/structmavsdk_1_1_log_files_1_1_entry.md","articles":[]}]},{"title":"class MavlinkPassthrough","level":"1.4.3.9","depth":3,"path":"api_reference/classmavsdk_1_1_mavlink_passthrough.md","ref":"api_reference/classmavsdk_1_1_mavlink_passthrough.md","articles":[]},{"title":"class Mavsdk","level":"1.4.3.10","depth":3,"path":"api_reference/classmavsdk_1_1_mavsdk.md","ref":"api_reference/classmavsdk_1_1_mavsdk.md","articles":[]},{"title":"class Mission","level":"1.4.3.11","depth":3,"path":"api_reference/classmavsdk_1_1_mission.md","ref":"api_reference/classmavsdk_1_1_mission.md","articles":[]},{"title":"class MissionItem","level":"1.4.3.12","depth":3,"path":"api_reference/classmavsdk_1_1_mission_item.md","ref":"api_reference/classmavsdk_1_1_mission_item.md","articles":[]},{"title":"class MissionRaw","level":"1.4.3.13","depth":3,"path":"api_reference/classmavsdk_1_1_mission_raw.md","ref":"api_reference/classmavsdk_1_1_mission_raw.md","articles":[{"title":"struct MavlinkMissionItemInt","level":"1.4.3.13.1","depth":4,"path":"api_reference/structmavsdk_1_1_mission_raw_1_1_mavlink_mission_item_int.md","ref":"api_reference/structmavsdk_1_1_mission_raw_1_1_mavlink_mission_item_int.md","articles":[]}]},{"title":"class Offboard","level":"1.4.3.14","depth":3,"path":"api_reference/classmavsdk_1_1_offboard.md","ref":"api_reference/classmavsdk_1_1_offboard.md","articles":[{"title":"struct ActuatorControl","level":"1.4.3.14.1","depth":4,"path":"api_reference/structmavsdk_1_1_offboard_1_1_actuator_control.md","ref":"api_reference/structmavsdk_1_1_offboard_1_1_actuator_control.md","articles":[{"title":"struct Group","level":"1.4.3.14.1.1","depth":5,"path":"api_reference/structmavsdk_1_1_offboard_1_1_actuator_control_1_1_group.md","ref":"api_reference/structmavsdk_1_1_offboard_1_1_actuator_control_1_1_group.md","articles":[]}]},{"title":"struct Attitude","level":"1.4.3.14.2","depth":4,"path":"api_reference/structmavsdk_1_1_offboard_1_1_attitude.md","ref":"api_reference/structmavsdk_1_1_offboard_1_1_attitude.md","articles":[]},{"title":"struct AltitudeRate","level":"1.4.3.14.3","depth":4,"path":"api_reference/structmavsdk_1_1_offboard_1_1_attitude_rate.md","ref":"api_reference/structmavsdk_1_1_offboard_1_1_attitude_rate.md","articles":[]},{"title":"struct PositionNEDYaw","level":"1.4.3.14.4","depth":4,"path":"api_reference/structmavsdk_1_1_offboard_1_1_position_n_e_d_yaw.md","ref":"api_reference/structmavsdk_1_1_offboard_1_1_position_n_e_d_yaw.md","articles":[]},{"title":"struct VelocityBodyYawspeed","level":"1.4.3.14.5","depth":4,"path":"api_reference/structmavsdk_1_1_offboard_1_1_velocity_body_yawspeed.md","ref":"api_reference/structmavsdk_1_1_offboard_1_1_velocity_body_yawspeed.md","articles":[]},{"title":"struct VelocityNEDYaw","level":"1.4.3.14.6","depth":4,"path":"api_reference/structmavsdk_1_1_offboard_1_1_velocity_n_e_d_yaw.md","ref":"api_reference/structmavsdk_1_1_offboard_1_1_velocity_n_e_d_yaw.md","articles":[]}]},{"title":"class Param","level":"1.4.3.15","depth":3,"path":"api_reference/classmavsdk_1_1_param.md","ref":"api_reference/classmavsdk_1_1_param.md","articles":[]},{"title":"class System","level":"1.4.3.16","depth":3,"path":"api_reference/classmavsdk_1_1_system.md","ref":"api_reference/classmavsdk_1_1_system.md","articles":[]},{"title":"class Telemetry","level":"1.4.3.17","depth":3,"path":"api_reference/classmavsdk_1_1_telemetry.md","ref":"api_reference/classmavsdk_1_1_telemetry.md","articles":[{"title":"struct AccelerationNED","level":"1.4.3.17.1","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_acceleration_n_e_d.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_acceleration_n_e_d.md","articles":[]},{"title":"struct ActuatorControlTarget","level":"1.4.3.17.2","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_actuator_control_target.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_actuator_control_target.md","articles":[]},{"title":"struct ActuatorOutputStatus","level":"1.4.3.17.3","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_actuator_output_status.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_actuator_output_status.md","articles":[]},{"title":"struct AngularVelocityBody","level":"1.4.3.17.4","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_angular_velocity_body.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_angular_velocity_body.md","articles":[]},{"title":"struct AngularVelocityNED","level":"1.4.3.17.5","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_angular_velocity_n_e_d.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_angular_velocity_n_e_d.md","articles":[]},{"title":"struct Battery","level":"1.4.3.17.6","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_battery.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_battery.md","articles":[]},{"title":"struct EulerAngle","level":"1.4.3.17.7","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_euler_angle.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_euler_angle.md","articles":[]},{"title":"struct GPSInfo","level":"1.4.3.17.8","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_g_p_s_info.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_g_p_s_info.md","articles":[]},{"title":"struct GroundSpeedNED","level":"1.4.3.17.9","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_ground_speed_n_e_d.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_ground_speed_n_e_d.md","articles":[]},{"title":"struct Health","level":"1.4.3.17.10","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_health.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_health.md","articles":[]},{"title":"struct IMUReadingNED","level":"1.4.3.17.11","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_i_m_u_reading_n_e_d.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_i_m_u_reading_n_e_d.md","articles":[]},{"title":"struct MagneticFieldNED","level":"1.4.3.17.12","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_magnetic_field_n_e_d.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_magnetic_field_n_e_d.md","articles":[]},{"title":"struct Position","level":"1.4.3.17.13","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_position.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_position.md","articles":[]},{"title":"struct PositionNED","level":"1.4.3.17.14","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_position_n_e_d.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_position_n_e_d.md","articles":[]},{"title":"struct PositionVelocityNED","level":"1.4.3.17.15","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_position_velocity_n_e_d.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_position_velocity_n_e_d.md","articles":[]},{"title":"struct VelocityNED","level":"1.4.3.17.16","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_velocity_n_e_d.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_velocity_n_e_d.md","articles":[]},{"title":"struct Quaternion","level":"1.4.3.17.17","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_quaternion.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_quaternion.md","articles":[]},{"title":"struct RCStatus","level":"1.4.3.17.18","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_r_c_status.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_r_c_status.md","articles":[]},{"title":"struct StatusText","level":"1.4.3.17.19","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_status_text.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_status_text.md","articles":[]}]},{"title":"namespace mavsdk (globals)","level":"1.4.3.18","depth":3,"path":"api_reference/namespacemavsdk.md","ref":"api_reference/namespacemavsdk.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"v0.19.0"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"api_reference/classmavsdk_1_1_action.md","mtime":"2019-09-19T00:34:54.871Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-19T00:35:54.198Z"},"basePath":"..","book":{"language":"en"}});
+        });
+    </script>
+</div>
+
+    
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-language-picker/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions-select/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
