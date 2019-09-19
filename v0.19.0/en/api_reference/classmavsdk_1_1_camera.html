@@ -1,0 +1,2546 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>class Camera · MAVSDK Guide</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-richquotes/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-footer-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions-select/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-dronecode/theme_styles.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="structmavsdk_1_1_camera_1_1_capture_info.html" />
+    
+    
+    <link rel="prev" href="structmavsdk_1_1_calibration_1_1_progress_data.html" />
+    
+
+    </head>
+    <body>
+        
+    
+    <!-- ##HW Add dronecode menu -->
+    <div id="common_dronecode_menu">
+
+      <div class="common_menu_logo large_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png" alt="Dronecode logo (large)" />
+        </a>
+      </div>
+      <div class="common_menu_logo small_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png" alt="Dronecode logo (small)" />
+        </a>
+      </div>
+      
+      <div class="common_menu_options">
+        
+            <div class="common_dronecode_menu_item"><a href="http://px4.io/">PX4</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://qgroundcontrol.com/">QGroundControl</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://qgroundcontrol.com/">QGC</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://www.dronecode.org/sdk/">SDK</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://mavlink.io/en/">MAVLink</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="https://www.dronecode.org/documentation/">Documentation</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="https://www.dronecode.org/documentation/">Docs</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://discuss.px4.io/">Support</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://discuss.px4.io/">Help</a></div>
+        
+      </div>
+    </div>
+    
+<!-- ##HW END Add dronecode menu -->
+    
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../getting_started/faq.html">
+            
+                <a href="../getting_started/faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <a target="_blank" href="http://dronecode-sdk-swift.s3.eu-central-1.amazonaws.com/docs/master/index.html">
+            
+                    
+                    iOS/Swift
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <a target="_blank" href="https://github.com/mavlink/MAVSDK-Python#mavsdk-python">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../cpp/">
+            
+                <a href="../cpp/">
+            
+                    
+                    C++ (MAVSDK Core)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../guide/">
+            
+                <a href="../guide/">
+            
+                    
+                    Guide
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../guide/general_usage.html">
+            
+                <a href="../guide/general_usage.html">
+            
+                    
+                    Usage/Paradigms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../guide/connections.html">
+            
+                <a href="../guide/connections.html">
+            
+                    
+                    Connecting to Systems (Vehicles)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" data-path="../guide/using_plugins.html">
+            
+                <a href="../guide/using_plugins.html">
+            
+                    
+                    Managing Systems
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4" data-path="../guide/system_information.html">
+            
+                <a href="../guide/system_information.html">
+            
+                    
+                    System Information
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.5" data-path="../guide/telemetry.html">
+            
+                <a href="../guide/telemetry.html">
+            
+                    
+                    Telemetry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.6" data-path="../guide/taking_off_landing.html">
+            
+                <a href="../guide/taking_off_landing.html">
+            
+                    
+                    Actions - Take Off, Arm, ...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.7" data-path="../guide/missions.html">
+            
+                <a href="../guide/missions.html">
+            
+                    
+                    Missions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.8" data-path="../guide/offboard.html">
+            
+                <a href="../guide/offboard.html">
+            
+                    
+                    Offboard Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.9" data-path="../guide/follow_me.html">
+            
+                <a href="../guide/follow_me.html">
+            
+                    
+                    Follow Me
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.10" data-path="../guide/vtol.html">
+            
+                <a href="../guide/vtol.html">
+            
+                    
+                    VTOL Support
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.11" data-path="../guide/toolchain.html">
+            
+                <a href="../guide/toolchain.html">
+            
+                    
+                    Building C++ Apps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.12" data-path="../guide/sdk_extensions.html">
+            
+                <a href="../guide/sdk_extensions.html">
+            
+                    
+                    SDK Extensions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../examples/">
+            
+                <a href="../examples/">
+            
+                    
+                    Examples
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="../examples/takeoff_and_land.html">
+            
+                <a href="../examples/takeoff_and_land.html">
+            
+                    
+                    Takeoff and Land
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="../examples/fly_mission.html">
+            
+                <a href="../examples/fly_mission.html">
+            
+                    
+                    Fly Mission
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3" data-path="../examples/fly_mission_qgc_plan.html">
+            
+                <a href="../examples/fly_mission_qgc_plan.html">
+            
+                    
+                    Fly QGC Plan Mission
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.4" data-path="../examples/offboard_velocity.html">
+            
+                <a href="../examples/offboard_velocity.html">
+            
+                    
+                    Offboard Mode - Velocity Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.5" data-path="../examples/follow_me.html">
+            
+                <a href="../examples/follow_me.html">
+            
+                    
+                    Follow Me Mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.6" data-path="../examples/transition_vtol_fixed_wing.html">
+            
+                <a href="../examples/transition_vtol_fixed_wing.html">
+            
+                    
+                    VTOL Transitions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    API Reference
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.1" data-path="classmavsdk_1_1_action.html">
+            
+                <a href="classmavsdk_1_1_action.html">
+            
+                    
+                    class Action
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.2" data-path="classmavsdk_1_1_calibration.html">
+            
+                <a href="classmavsdk_1_1_calibration.html">
+            
+                    
+                    class Calibration
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.2.1" data-path="structmavsdk_1_1_calibration_1_1_progress_data.html">
+            
+                <a href="structmavsdk_1_1_calibration_1_1_progress_data.html">
+            
+                    
+                    struct ProgressData
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.3.3" data-path="classmavsdk_1_1_camera.html">
+            
+                <a href="classmavsdk_1_1_camera.html">
+            
+                    
+                    class Camera
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.3.1" data-path="structmavsdk_1_1_camera_1_1_capture_info.html">
+            
+                <a href="structmavsdk_1_1_camera_1_1_capture_info.html">
+            
+                    
+                    struct CaptureInfo
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.3.1.1" data-path="structmavsdk_1_1_camera_1_1_capture_info_1_1_euler_angle.html">
+            
+                <a href="structmavsdk_1_1_camera_1_1_capture_info_1_1_euler_angle.html">
+            
+                    
+                    struct EulerAngle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3.1.2" data-path="structmavsdk_1_1_camera_1_1_capture_info_1_1_position.html">
+            
+                <a href="structmavsdk_1_1_camera_1_1_capture_info_1_1_position.html">
+            
+                    
+                    struct Position
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3.1.3" data-path="structmavsdk_1_1_camera_1_1_capture_info_1_1_quaternion.html">
+            
+                <a href="structmavsdk_1_1_camera_1_1_capture_info_1_1_quaternion.html">
+            
+                    
+                    struct Quaternion
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3.2" data-path="structmavsdk_1_1_camera_1_1_information.html">
+            
+                <a href="structmavsdk_1_1_camera_1_1_information.html">
+            
+                    
+                    struct Information
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3.3" data-path="structmavsdk_1_1_camera_1_1_option.html">
+            
+                <a href="structmavsdk_1_1_camera_1_1_option.html">
+            
+                    
+                    struct Option
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3.4" data-path="structmavsdk_1_1_camera_1_1_setting.html">
+            
+                <a href="structmavsdk_1_1_camera_1_1_setting.html">
+            
+                    
+                    struct Setting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3.5" data-path="structmavsdk_1_1_camera_1_1_setting_options.html">
+            
+                <a href="structmavsdk_1_1_camera_1_1_setting_options.html">
+            
+                    
+                    struct SettingOptions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3.6" data-path="structmavsdk_1_1_camera_1_1_status.html">
+            
+                <a href="structmavsdk_1_1_camera_1_1_status.html">
+            
+                    
+                    struct Status
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3.7" data-path="structmavsdk_1_1_camera_1_1_video_stream_info.html">
+            
+                <a href="structmavsdk_1_1_camera_1_1_video_stream_info.html">
+            
+                    
+                    struct VideoStreamInfo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3.8" data-path="structmavsdk_1_1_camera_1_1_video_stream_settings.html">
+            
+                <a href="structmavsdk_1_1_camera_1_1_video_stream_settings.html">
+            
+                    
+                    struct VideoStreamSettings
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4" data-path="classmavsdk_1_1_follow_me.html">
+            
+                <a href="classmavsdk_1_1_follow_me.html">
+            
+                    
+                    class FollowMe
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.4.1" data-path="structmavsdk_1_1_follow_me_1_1_config.html">
+            
+                <a href="structmavsdk_1_1_follow_me_1_1_config.html">
+            
+                    
+                    struct Config
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4.2" data-path="structmavsdk_1_1_follow_me_1_1_target_location.html">
+            
+                <a href="structmavsdk_1_1_follow_me_1_1_target_location.html">
+            
+                    
+                    struct TargetLocation 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.5" data-path="classmavsdk_1_1_geofence.html">
+            
+                <a href="classmavsdk_1_1_geofence.html">
+            
+                    
+                    class Geofence
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.5.1" data-path="structmavsdk_1_1_geofence_1_1_polygon.html">
+            
+                <a href="structmavsdk_1_1_geofence_1_1_polygon.html">
+            
+                    
+                    struct Polygon
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.5.1.1" data-path="structmavsdk_1_1_geofence_1_1_polygon_1_1_point.html">
+            
+                <a href="structmavsdk_1_1_geofence_1_1_polygon_1_1_point.html">
+            
+                    
+                    struct Point
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.6" data-path="classmavsdk_1_1_gimbal.html">
+            
+                <a href="classmavsdk_1_1_gimbal.html">
+            
+                    
+                    class Gimbal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.7" data-path="classmavsdk_1_1_info.html">
+            
+                <a href="classmavsdk_1_1_info.html">
+            
+                    
+                    class Info
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.7.1" data-path="structmavsdk_1_1_info_1_1_identification.html">
+            
+                <a href="structmavsdk_1_1_info_1_1_identification.html">
+            
+                    
+                    struct Identification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.7.2" data-path="structmavsdk_1_1_info_1_1_product.html">
+            
+                <a href="structmavsdk_1_1_info_1_1_product.html">
+            
+                    
+                    struct Product
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.7.3" data-path="structmavsdk_1_1_info_1_1_version.html">
+            
+                <a href="structmavsdk_1_1_info_1_1_version.html">
+            
+                    
+                    struct Version
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.8" data-path="classmavsdk_1_1_log_files.html">
+            
+                <a href="classmavsdk_1_1_log_files.html">
+            
+                    
+                    class LogFiles
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.8.1" data-path="structmavsdk_1_1_log_files_1_1_entry.html">
+            
+                <a href="structmavsdk_1_1_log_files_1_1_entry.html">
+            
+                    
+                    struct Entry
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.9" data-path="classmavsdk_1_1_mavlink_passthrough.html">
+            
+                <a href="classmavsdk_1_1_mavlink_passthrough.html">
+            
+                    
+                    class MavlinkPassthrough
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.10" data-path="classmavsdk_1_1_mavsdk.html">
+            
+                <a href="classmavsdk_1_1_mavsdk.html">
+            
+                    
+                    class Mavsdk
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.11" data-path="classmavsdk_1_1_mission.html">
+            
+                <a href="classmavsdk_1_1_mission.html">
+            
+                    
+                    class Mission
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.12" data-path="classmavsdk_1_1_mission_item.html">
+            
+                <a href="classmavsdk_1_1_mission_item.html">
+            
+                    
+                    class MissionItem
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.13" data-path="classmavsdk_1_1_mission_raw.html">
+            
+                <a href="classmavsdk_1_1_mission_raw.html">
+            
+                    
+                    class MissionRaw
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.13.1" data-path="structmavsdk_1_1_mission_raw_1_1_mavlink_mission_item_int.html">
+            
+                <a href="structmavsdk_1_1_mission_raw_1_1_mavlink_mission_item_int.html">
+            
+                    
+                    struct MavlinkMissionItemInt
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.14" data-path="classmavsdk_1_1_offboard.html">
+            
+                <a href="classmavsdk_1_1_offboard.html">
+            
+                    
+                    class Offboard
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.14.1" data-path="structmavsdk_1_1_offboard_1_1_actuator_control.html">
+            
+                <a href="structmavsdk_1_1_offboard_1_1_actuator_control.html">
+            
+                    
+                    struct ActuatorControl
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.14.1.1" data-path="structmavsdk_1_1_offboard_1_1_actuator_control_1_1_group.html">
+            
+                <a href="structmavsdk_1_1_offboard_1_1_actuator_control_1_1_group.html">
+            
+                    
+                    struct Group
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.14.2" data-path="structmavsdk_1_1_offboard_1_1_attitude.html">
+            
+                <a href="structmavsdk_1_1_offboard_1_1_attitude.html">
+            
+                    
+                    struct Attitude
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.14.3" data-path="structmavsdk_1_1_offboard_1_1_attitude_rate.html">
+            
+                <a href="structmavsdk_1_1_offboard_1_1_attitude_rate.html">
+            
+                    
+                    struct AltitudeRate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.14.4" data-path="structmavsdk_1_1_offboard_1_1_position_n_e_d_yaw.html">
+            
+                <a href="structmavsdk_1_1_offboard_1_1_position_n_e_d_yaw.html">
+            
+                    
+                    struct PositionNEDYaw
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.14.5" data-path="structmavsdk_1_1_offboard_1_1_velocity_body_yawspeed.html">
+            
+                <a href="structmavsdk_1_1_offboard_1_1_velocity_body_yawspeed.html">
+            
+                    
+                    struct VelocityBodyYawspeed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.14.6" data-path="structmavsdk_1_1_offboard_1_1_velocity_n_e_d_yaw.html">
+            
+                <a href="structmavsdk_1_1_offboard_1_1_velocity_n_e_d_yaw.html">
+            
+                    
+                    struct VelocityNEDYaw
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.15" data-path="classmavsdk_1_1_param.html">
+            
+                <a href="classmavsdk_1_1_param.html">
+            
+                    
+                    class Param
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.16" data-path="classmavsdk_1_1_system.html">
+            
+                <a href="classmavsdk_1_1_system.html">
+            
+                    
+                    class System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17" data-path="classmavsdk_1_1_telemetry.html">
+            
+                <a href="classmavsdk_1_1_telemetry.html">
+            
+                    
+                    class Telemetry
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.17.1" data-path="structmavsdk_1_1_telemetry_1_1_acceleration_n_e_d.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_acceleration_n_e_d.html">
+            
+                    
+                    struct AccelerationNED
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.2" data-path="structmavsdk_1_1_telemetry_1_1_actuator_control_target.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_actuator_control_target.html">
+            
+                    
+                    struct ActuatorControlTarget
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.3" data-path="structmavsdk_1_1_telemetry_1_1_actuator_output_status.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_actuator_output_status.html">
+            
+                    
+                    struct ActuatorOutputStatus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.4" data-path="structmavsdk_1_1_telemetry_1_1_angular_velocity_body.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_angular_velocity_body.html">
+            
+                    
+                    struct AngularVelocityBody
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.5" data-path="structmavsdk_1_1_telemetry_1_1_angular_velocity_n_e_d.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_angular_velocity_n_e_d.html">
+            
+                    
+                    struct AngularVelocityNED
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.6" data-path="structmavsdk_1_1_telemetry_1_1_battery.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_battery.html">
+            
+                    
+                    struct Battery
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.7" data-path="structmavsdk_1_1_telemetry_1_1_euler_angle.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_euler_angle.html">
+            
+                    
+                    struct EulerAngle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.8" data-path="structmavsdk_1_1_telemetry_1_1_g_p_s_info.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_g_p_s_info.html">
+            
+                    
+                    struct GPSInfo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.9" data-path="structmavsdk_1_1_telemetry_1_1_ground_speed_n_e_d.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_ground_speed_n_e_d.html">
+            
+                    
+                    struct GroundSpeedNED
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.10" data-path="structmavsdk_1_1_telemetry_1_1_health.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_health.html">
+            
+                    
+                    struct Health
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.11" data-path="structmavsdk_1_1_telemetry_1_1_i_m_u_reading_n_e_d.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_i_m_u_reading_n_e_d.html">
+            
+                    
+                    struct IMUReadingNED
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.12" data-path="structmavsdk_1_1_telemetry_1_1_magnetic_field_n_e_d.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_magnetic_field_n_e_d.html">
+            
+                    
+                    struct MagneticFieldNED
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.13" data-path="structmavsdk_1_1_telemetry_1_1_position.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_position.html">
+            
+                    
+                    struct Position
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.14" data-path="structmavsdk_1_1_telemetry_1_1_position_n_e_d.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_position_n_e_d.html">
+            
+                    
+                    struct PositionNED
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.15" data-path="structmavsdk_1_1_telemetry_1_1_position_velocity_n_e_d.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_position_velocity_n_e_d.html">
+            
+                    
+                    struct PositionVelocityNED
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.16" data-path="structmavsdk_1_1_telemetry_1_1_velocity_n_e_d.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_velocity_n_e_d.html">
+            
+                    
+                    struct VelocityNED
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.17" data-path="structmavsdk_1_1_telemetry_1_1_quaternion.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_quaternion.html">
+            
+                    
+                    struct Quaternion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.18" data-path="structmavsdk_1_1_telemetry_1_1_r_c_status.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_r_c_status.html">
+            
+                    
+                    struct RCStatus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.17.19" data-path="structmavsdk_1_1_telemetry_1_1_status_text.html">
+            
+                <a href="structmavsdk_1_1_telemetry_1_1_status_text.html">
+            
+                    
+                    struct StatusText
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.18" data-path="namespacemavsdk.html">
+            
+                <a href="namespacemavsdk.html">
+            
+                    
+                    namespace mavsdk (globals)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../contributing/">
+            
+                <a href="../contributing/">
+            
+                    
+                    Contributing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.1" data-path="../contributing/build.html">
+            
+                <a href="../contributing/build.html">
+            
+                    
+                    Building Source
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.2" data-path="../contributing/test.html">
+            
+                <a href="../contributing/test.html">
+            
+                    
+                    Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.3" data-path="../contributing/plugins.html">
+            
+                <a href="../contributing/plugins.html">
+            
+                    
+                    Writing Plugins
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.4" data-path="../contributing/code_style.html">
+            
+                <a href="../contributing/code_style.html">
+            
+                    
+                    Coding Style
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.5" data-path="../contributing/dev_logging.html">
+            
+                <a href="../contributing/dev_logging.html">
+            
+                    
+                    Plugin/Test Logging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.6" data-path="../contributing/documentation.html">
+            
+                <a href="../contributing/documentation.html">
+            
+                    
+                    Documentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../releases/">
+            
+                <a href="../releases/">
+            
+                    
+                    Releases
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Dronecode Shortcuts</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <a target="_blank" href="https://dev.px4.io/en/">
+            
+                    
+                    PX4 Developer Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <a target="_blank" href="https://docs.px4.io/en/">
+            
+                    
+                    PX4 User Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <a target="_blank" href="https://docs.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl User Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <a target="_blank" href="https://dev.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl Developer Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" >
+            
+                <a target="_blank" href="https://mavlink.io/en/">
+            
+                    
+                    MAVLink Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" >
+            
+                <a target="_blank" href="https://camera-manager.dronecode.org/en/">
+            
+                    
+                    Dronecode Camera Manager
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >class Camera</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="mavsdkcamera-class-reference">mavsdk::Camera Class Reference</h1>
+<p><code>#include: camera.h</code></p>
+<hr>
+<p>The <a href="classmavsdk_1_1_camera.html">Camera</a> class can be used to manage cameras that implement the MAVLink <a href="classmavsdk_1_1_camera.html">Camera</a> Protocol: <a href="https://mavlink.io/en/protocol/camera.html" target="_blank">https://mavlink.io/en/protocol/camera.html</a>. </p>
+<p>Currently only a single camera is supported. When multiple cameras are supported the plugin will need to be instantiated separately for every camera and the camera selected using <code>select_camera</code>.</p>
+<p>Synchronous and asynchronous variants of the camera methods are supplied. </p>
+<h2 id="data-structures">Data Structures</h2>
+<p>struct <a href="structmavsdk_1_1_camera_1_1_capture_info.html">CaptureInfo</a></p>
+<p>struct <a href="structmavsdk_1_1_camera_1_1_information.html">Information</a></p>
+<p>struct <a href="structmavsdk_1_1_camera_1_1_option.html">Option</a></p>
+<p>struct <a href="structmavsdk_1_1_camera_1_1_setting.html">Setting</a></p>
+<p>struct <a href="structmavsdk_1_1_camera_1_1_setting_options.html">SettingOptions</a></p>
+<p>struct <a href="structmavsdk_1_1_camera_1_1_status.html">Status</a></p>
+<p>struct <a href="structmavsdk_1_1_camera_1_1_video_stream_info.html">VideoStreamInfo</a></p>
+<p>struct <a href="structmavsdk_1_1_camera_1_1_video_stream_settings.html">VideoStreamSettings</a></p>
+<h2 id="public-types">Public Types</h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enum <a href="#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a></td>
+<td>Possible results returned for camera commands.</td>
+</tr>
+<tr>
+<td>enum <a href="#classmavsdk_1_1_camera_1a02bb5ce37d125ba4c65d43f172cc2d65">Mode</a></td>
+<td><a href="classmavsdk_1_1_camera.html">Camera</a> mode type.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a>)&gt; <a href="#classmavsdk_1_1_camera_1af685f3246e2c9e909acd34eede604a78">result_callback_t</a></td>
+<td>Callback type for asynchronous <a href="classmavsdk_1_1_camera.html">Camera</a> calls.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a>, const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a02bb5ce37d125ba4c65d43f172cc2d65">Mode</a> &amp;)&gt; <a href="#classmavsdk_1_1_camera_1a80ac6809a31a1fef9e398396f48c230b">mode_callback_t</a></td>
+<td>Callback type for asynchronous camera mode calls.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a02bb5ce37d125ba4c65d43f172cc2d65">Mode</a>)&gt; <a href="#classmavsdk_1_1_camera_1a2e192f7058babf50350ca67b4e182311">subscribe_mode_callback_t</a></td>
+<td>Callback type for camera mode subscription.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a>, <a href="structmavsdk_1_1_camera_1_1_video_stream_info.html">VideoStreamInfo</a>)&gt; <a href="#classmavsdk_1_1_camera_1aee360f2b81c01de025e09822c9f4fefb">get_video_stream_info_callback_t</a></td>
+<td>Callback type for asynchronous video stream info call.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(<a href="structmavsdk_1_1_camera_1_1_video_stream_info.html">VideoStreamInfo</a>)&gt; <a href="#classmavsdk_1_1_camera_1acf186b5a738ceae773680300c25b8963">subscribe_video_stream_info_callback_t</a></td>
+<td>Callback type for video stream info.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(<a href="structmavsdk_1_1_camera_1_1_capture_info.html">CaptureInfo</a>)&gt; <a href="#classmavsdk_1_1_camera_1aa3e2d58e59d03e02d9ddcdb8979a9d9f">capture_info_callback_t</a></td>
+<td>Callback type for capture info updates.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a>, <a href="structmavsdk_1_1_camera_1_1_status.html">Status</a>)&gt; <a href="#classmavsdk_1_1_camera_1a032cddeed41b596da72cadd488967f81">get_status_callback_t</a></td>
+<td>Callback type to get status.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(<a href="structmavsdk_1_1_camera_1_1_status.html">Status</a>)&gt; <a href="#classmavsdk_1_1_camera_1a46daf718ef0b20ef7d3dcdb92edd9107">subscribe_status_callback_t</a></td>
+<td>Callback type to subscribe to status updates.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a>, const <a href="structmavsdk_1_1_camera_1_1_option.html">Option</a> &amp;)&gt; <a href="#classmavsdk_1_1_camera_1a30144e05163adff09295188dcf854a8c">get_option_callback_t</a></td>
+<td>Callback type to get an option.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(const std::vector&lt; <a href="structmavsdk_1_1_camera_1_1_setting.html">Setting</a> &gt;)&gt; <a href="#classmavsdk_1_1_camera_1aec89b50d9d7aacd3999025e6af9a4537">subscribe_current_settings_callback_t</a></td>
+<td>Callback type to get the currently selected settings.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(const std::vector&lt; <a href="structmavsdk_1_1_camera_1_1_setting_options.html">SettingOptions</a> &gt;)&gt; <a href="#classmavsdk_1_1_camera_1a8e6d20f6aead2fdd7ef4f5eea87afc0b">subscribe_possible_setting_options_callback_t</a></td>
+<td>Callback type to get possible setting options.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-member-functions">Public Member Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Type</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">&#xA0;</td>
+<td><a href="#classmavsdk_1_1_camera_1a186a2853440c879b99ed7e4a726969e9">Camera</a> (<a href="classmavsdk_1_1_system.html">System</a> &amp; system)</td>
+<td>Constructor. Creates the plugin for a specific <a href="classmavsdk_1_1_system.html">System</a>.</td>
+</tr>
+<tr>
+<td style="text-align:right">&#xA0;</td>
+<td><a href="#classmavsdk_1_1_camera_1abd845e6fb2adc386dba7c8860a67f761">~Camera</a> ()</td>
+<td>Destructor (internal use only).</td>
+</tr>
+<tr>
+<td style="text-align:right">&#xA0;</td>
+<td><a href="#classmavsdk_1_1_camera_1a3af73f81cf8cd051fe9d7af6f2df6945">Camera</a> (const <a href="classmavsdk_1_1_camera.html">Camera</a> &amp;)=delete</td>
+<td>Copy constructor (object is not copyable).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a></td>
+<td><a href="#classmavsdk_1_1_camera_1a0727be2c56a75d8eabc77c0e72bf6ab4">select_camera</a> (unsigned id)</td>
+<td>Select camera to interact with.</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a></td>
+<td><a href="#classmavsdk_1_1_camera_1a138180f7193a3f49722511b45a81b434">take_photo</a> ()</td>
+<td>Take photo (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a></td>
+<td><a href="#classmavsdk_1_1_camera_1a4a4e2724bb7dcff499173b97f99df14b">start_photo_interval</a> (float interval_s)</td>
+<td>Start photo interval (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a></td>
+<td><a href="#classmavsdk_1_1_camera_1a4d1a2e4794e01c95b77b2bf13912a62b">stop_photo_interval</a> ()</td>
+<td>Stop photo interval (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a></td>
+<td><a href="#classmavsdk_1_1_camera_1ab3de7ff32dd8b87c081d6b35f5960d08">start_video</a> ()</td>
+<td>Start video capture (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a></td>
+<td><a href="#classmavsdk_1_1_camera_1afaac17787c6c4b32368f0e928fa1bc26">stop_video</a> ()</td>
+<td>Stop video capture (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_camera_1ae959fc926fc5ce4f21ee81e1b9ae7e81">take_photo_async</a> (const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1af685f3246e2c9e909acd34eede604a78">result_callback_t</a> &amp; callback)</td>
+<td>Take photo (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_camera_1a732ceb505de508eb091f0b2c57e364c4">start_photo_interval_async</a> (float interval_s, const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1af685f3246e2c9e909acd34eede604a78">result_callback_t</a> &amp; callback)</td>
+<td>Start photo interval (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_camera_1ac421c8b59b2da667436ee735d31b5c8e">stop_photo_interval_async</a> (const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1af685f3246e2c9e909acd34eede604a78">result_callback_t</a> &amp; callback)</td>
+<td>Stop photo interval (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_camera_1a59500409cb9b6b375e2fb95c4e65981e">start_video_async</a> (const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1af685f3246e2c9e909acd34eede604a78">result_callback_t</a> &amp; callback)</td>
+<td>Start video capture (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_camera_1a2af00a4739fda46a97699a5445244934">stop_video_async</a> (const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1af685f3246e2c9e909acd34eede604a78">result_callback_t</a> &amp; callback)</td>
+<td>Stop video capture (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="structmavsdk_1_1_camera_1_1_information.html">Information</a></td>
+<td><a href="#classmavsdk_1_1_camera_1a4f53cc13faad6d1e7232881f0cdd4e8f">get_information</a> ()</td>
+<td>Get general camera information.</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a></td>
+<td><a href="#classmavsdk_1_1_camera_1a557241d62d86433781fe86c0c039ada3">set_mode</a> (const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a02bb5ce37d125ba4c65d43f172cc2d65">Mode</a> mode)</td>
+<td>Setter for camera mode (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_camera_1ab8baf90189d997be33689444af28d299">set_mode_async</a> (const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a02bb5ce37d125ba4c65d43f172cc2d65">Mode</a> mode, const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a80ac6809a31a1fef9e398396f48c230b">mode_callback_t</a> &amp; callback)</td>
+<td>Setter for camera mode (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_camera_1a8c6ea001c393a0d49d19be54d5195a44">get_mode_async</a> (const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a80ac6809a31a1fef9e398396f48c230b">mode_callback_t</a> &amp; callback)</td>
+<td>Getter for camera mode (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_camera_1aa366c1ac76c8083996a97d86cb1769e7">subscribe_mode</a> (const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2e192f7058babf50350ca67b4e182311">subscribe_mode_callback_t</a> callback)</td>
+<td>Async subscription for camera mode updates (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a></td>
+<td><a href="#classmavsdk_1_1_camera_1a6e099070d34896daffae871b5def94e3">get_video_stream_info</a> (<a href="structmavsdk_1_1_camera_1_1_video_stream_info.html">VideoStreamInfo</a> &amp; info)</td>
+<td>Get video stream information (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_camera_1ad98bdefee6ea01c7e251fcd33dbb19bf">get_video_stream_info_async</a> (const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1aee360f2b81c01de025e09822c9f4fefb">get_video_stream_info_callback_t</a> callback)</td>
+<td>Get video stream information (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_camera_1aedb09a2fd502ff7f5cea812d025766b7">subscribe_video_stream_info</a> (const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1acf186b5a738ceae773680300c25b8963">subscribe_video_stream_info_callback_t</a> callback)</td>
+<td>Async subscription for video stream info updates (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a></td>
+<td><a href="#classmavsdk_1_1_camera_1a6a65321f94db6dd31b91acd399dbbf32">start_video_streaming</a> ()</td>
+<td>Starts video streaming (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a></td>
+<td><a href="#classmavsdk_1_1_camera_1a0464441361a1930495857c21812e70df">stop_video_streaming</a> ()</td>
+<td>Stop the current video streaming (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_camera_1a63762d5a5fc0f3cdb4c51d75080bb9cd">subscribe_capture_info</a> (<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1aa3e2d58e59d03e02d9ddcdb8979a9d9f">capture_info_callback_t</a> callback)</td>
+<td>Subscribe to capture info updates (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_camera_1a12c606c914924700ec3290dfbb375f35">get_status_async</a> (<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a032cddeed41b596da72cadd488967f81">get_status_callback_t</a> callback)</td>
+<td>Get camera status (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_camera_1a3823140cea0f7e145f99cb18a34b48ad">subscribe_status</a> (const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a46daf718ef0b20ef7d3dcdb92edd9107">subscribe_status_callback_t</a> callback)</td>
+<td>Subscribe to status updates (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">bool</td>
+<td><a href="#classmavsdk_1_1_camera_1a4d9ef3283a3fde980b7a0d864f4a3d02">get_possible_setting_options</a> (std::vector&lt; std::string &gt; &amp; settings)</td>
+<td>Get settings that can be changed.</td>
+</tr>
+<tr>
+<td style="text-align:right">bool</td>
+<td><a href="#classmavsdk_1_1_camera_1a62e79ba028ca57540c10e544737bfc34">get_possible_options</a> (const std::string &amp; setting_id, std::vector&lt; <a href="structmavsdk_1_1_camera_1_1_option.html">Camera::Option</a> &gt; &amp; options)</td>
+<td>Get possible options for a setting that can be selected.</td>
+</tr>
+<tr>
+<td style="text-align:right">bool</td>
+<td><a href="#classmavsdk_1_1_camera_1ad1337a07240b1c9192170b4a265bad7b">is_setting_range</a> (const std::string &amp; setting_id)</td>
+<td>Query if setting is a range setting.</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Camera::Result</a></td>
+<td><a href="#classmavsdk_1_1_camera_1a32787e97209786b50811ef2a04954560">get_option</a> (const std::string &amp; setting_id, <a href="structmavsdk_1_1_camera_1_1_option.html">Option</a> &amp; option)</td>
+<td>Get an option of a setting (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_camera_1a766d2406904f1a06e7668bb0c2d8dd38">get_option_async</a> (const std::string &amp; setting_id, const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a30144e05163adff09295188dcf854a8c">get_option_callback_t</a> &amp; callback)</td>
+<td>Get an option of a setting (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_camera_1ad36497ef20292f8b719cd3f66844abf1">set_option_async</a> (const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1af685f3246e2c9e909acd34eede604a78">result_callback_t</a> &amp; callback, const std::string &amp; setting_id, const <a href="structmavsdk_1_1_camera_1_1_option.html">Camera::Option</a> &amp; option)</td>
+<td>Set an option of a setting (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_camera_1a86c3b93eff94958893f2a2eaf7b0af02">subscribe_current_settings</a> (const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1aec89b50d9d7aacd3999025e6af9a4537">subscribe_current_settings_callback_t</a> &amp; callback)</td>
+<td>Subscribe to currently selected settings (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_camera_1a1f36ef38920baf86bd2943f09cbb0f00">subscribe_possible_setting_options</a> (const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a8e6d20f6aead2fdd7ef4f5eea87afc0b">subscribe_possible_setting_options_callback_t</a> &amp; callback)</td>
+<td>Subscribe to all possible setting options (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_camera_1a00390c325bdbf78461a5e59b786903f2">format_storage_async</a> (<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1af685f3246e2c9e909acd34eede604a78">result_callback_t</a> callback)</td>
+<td>Format storage (e.g. SD card) in camera (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a></td>
+<td><a href="#classmavsdk_1_1_camera_1a347509c9f099f79b562786b6aac56f34">format_storage</a> ()</td>
+<td>Format storage (e.g. SD card) in camera (synchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">const <a href="classmavsdk_1_1_camera.html">Camera</a> &amp;</td>
+<td><a href="#classmavsdk_1_1_camera_1aeff295155b6a665f5c942e473f1fe894">operator=</a> (const <a href="classmavsdk_1_1_camera.html">Camera</a> &amp;)=delete</td>
+<td>Equality operator (object is not copyable).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="static-public-member-functions">Static Public Member Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Type</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">std::string</td>
+<td><a href="#classmavsdk_1_1_camera_1a1b768bb0af672b634a902a9e481c1327">result_str</a> (<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a> result)</td>
+<td>Returns a human-readable English string for <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Camera::Result</a>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="constructor--destructor-documentation">Constructor &amp; Destructor Documentation</h2>
+<h3 id="classmavsdk_1_1_camera_1a186a2853440c879b99ed7e4a726969e9">Camera() </h3>
+<pre><code class="lang-cpp">mavsdk::Camera::Camera(System &amp;system)
+</code></pre>
+<p>Constructor. Creates the plugin for a specific <a href="classmavsdk_1_1_system.html">System</a>.</p>
+<p>The plugin is typically created as shown below: </p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">auto</span> camera = <span class="hljs-built_in">std</span>::make_shared&lt;Camera&gt;(system);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_system.html">System</a>&amp; <strong>system</strong> - The specific system associated with this plugin.</li>
+</ul>
+<h3 id="classmavsdk_1_1_camera_1abd845e6fb2adc386dba7c8860a67f761">~Camera() </h3>
+<pre><code class="lang-cpp">mavsdk::Camera::~Camera()
+</code></pre>
+<p>Destructor (internal use only).</p>
+<h3 id="classmavsdk_1_1_camera_1a3af73f81cf8cd051fe9d7af6f2df6945">Camera() </h3>
+<pre><code class="lang-cpp">mavsdk::Camera::Camera(<span class="hljs-keyword">const</span> Camera &amp;)=<span class="hljs-keyword">delete</span>
+</code></pre>
+<p>Copy constructor (object is not copyable).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classmavsdk_1_1_camera.html">Camera</a>&amp;  - </li>
+</ul>
+<h2 id="member-typdef-documentation">Member Typdef Documentation</h2>
+<h3 id="classmavsdk_1_1_camera_1af685f3246e2c9e909acd34eede604a78">typedef result_callback_t </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(Result)&gt; mavsdk::Camera::<span class="hljs-keyword">result_callback_t</span>
+</code></pre>
+<p>Callback type for asynchronous <a href="classmavsdk_1_1_camera.html">Camera</a> calls.</p>
+<h3 id="classmavsdk_1_1_camera_1a80ac6809a31a1fef9e398396f48c230b">typedef mode_callback_t </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(Result, <span class="hljs-keyword">const</span> Mode&amp;)&gt; mavsdk::Camera::<span class="hljs-keyword">mode_callback_t</span>
+</code></pre>
+<p>Callback type for asynchronous camera mode calls.</p>
+<h3 id="classmavsdk_1_1_camera_1a2e192f7058babf50350ca67b4e182311">typedef subscribe_mode_callback_t </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(Mode)&gt; mavsdk::Camera::<span class="hljs-keyword">subscribe_mode_callback_t</span>
+</code></pre>
+<p>Callback type for camera mode subscription.</p>
+<h3 id="classmavsdk_1_1_camera_1aee360f2b81c01de025e09822c9f4fefb">typedef get_video_stream_info_callback_t </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(Result, VideoStreamInfo)&gt; mavsdk::Camera::<span class="hljs-keyword">get_video_stream_info_callback_t</span>
+</code></pre>
+<p>Callback type for asynchronous video stream info call.</p>
+<h3 id="classmavsdk_1_1_camera_1acf186b5a738ceae773680300c25b8963">typedef subscribe_video_stream_info_callback_t </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(VideoStreamInfo)&gt; mavsdk::Camera::<span class="hljs-keyword">subscribe_video_stream_info_callback_t</span>
+</code></pre>
+<p>Callback type for video stream info.</p>
+<h3 id="classmavsdk_1_1_camera_1aa3e2d58e59d03e02d9ddcdb8979a9d9f">typedef capture_info_callback_t </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(CaptureInfo)&gt; mavsdk::Camera::<span class="hljs-keyword">capture_info_callback_t</span>
+</code></pre>
+<p>Callback type for capture info updates.</p>
+<h3 id="classmavsdk_1_1_camera_1a032cddeed41b596da72cadd488967f81">typedef get_status_callback_t </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(Result, Status)&gt; mavsdk::Camera::<span class="hljs-keyword">get_status_callback_t</span>
+</code></pre>
+<p>Callback type to get status.</p>
+<h3 id="classmavsdk_1_1_camera_1a46daf718ef0b20ef7d3dcdb92edd9107">typedef subscribe_status_callback_t </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(Status)&gt; mavsdk::Camera::<span class="hljs-keyword">subscribe_status_callback_t</span>
+</code></pre>
+<p>Callback type to subscribe to status updates.</p>
+<h3 id="classmavsdk_1_1_camera_1a30144e05163adff09295188dcf854a8c">typedef get_option_callback_t </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(Result, <span class="hljs-keyword">const</span> Option&amp;)&gt; mavsdk::Camera::<span class="hljs-keyword">get_option_callback_t</span>
+</code></pre>
+<p>Callback type to get an option.</p>
+<h3 id="classmavsdk_1_1_camera_1aec89b50d9d7aacd3999025e6af9a4537">typedef subscribe_current_settings_callback_t </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;Setting&gt;)&gt; mavsdk::Camera::<span class="hljs-keyword">subscribe_current_settings_callback_t</span>
+</code></pre>
+<p>Callback type to get the currently selected settings.</p>
+<h3 id="classmavsdk_1_1_camera_1a8e6d20f6aead2fdd7ef4f5eea87afc0b">typedef subscribe_possible_setting_options_callback_t </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;SettingOptions&gt;)&gt; mavsdk::Camera::<span class="hljs-keyword">subscribe_possible_setting_options_callback_t</span>
+</code></pre>
+<p>Callback type to get possible setting options.</p>
+<h2 id="member-enumeration-documentation">Member Enumeration Documentation</h2>
+<h3 id="classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">enum Result </h3>
+<p>Possible results returned for camera commands.</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span id="classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcfa696b031073e74bf2cb98e5ef201d4aa3"></span> <code>UNKNOWN</code></td>
+<td>The result is unknown. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcfad0749aaba8b833466dfcbb0428e4f89c"></span> <code>SUCCESS</code></td>
+<td><a href="classmavsdk_1_1_camera.html">Camera</a> command executed successfully. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcfaca69f96c768067fbff6c911ca87bccc9"></span> <code>IN_PROGRESS</code></td>
+<td><a href="classmavsdk_1_1_camera.html">Camera</a> command is in progress. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcfa802706a9238e2928077f97736854bad4"></span> <code>BUSY</code></td>
+<td><a href="classmavsdk_1_1_camera.html">Camera</a> is busy and rejected command. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcfa66d5e0b0ce726b4aeb4ddf6c25b6c12b"></span> <code>DENIED</code></td>
+<td><a href="classmavsdk_1_1_camera.html">Camera</a> has denied the command. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcfabb1ca97ec761fc37101737ba0aa2e7c5"></span> <code>ERROR</code></td>
+<td>An error has occurred while executing the command. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcfa070a0fb40f6c308ab544b227660aadff"></span> <code>TIMEOUT</code></td>
+<td><a href="classmavsdk_1_1_camera.html">Camera</a> has not responded in time and the command has timed out. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcfa817407ec3b637cb00de7413fd38429a1"></span> <code>WRONG_ARGUMENT</code></td>
+<td>The command has wrong arguments. </td>
+</tr>
+</tbody>
+</table>
+<h3 id="classmavsdk_1_1_camera_1a02bb5ce37d125ba4c65d43f172cc2d65">enum Mode </h3>
+<p><a href="classmavsdk_1_1_camera.html">Camera</a> mode type.</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span id="classmavsdk_1_1_camera_1a02bb5ce37d125ba4c65d43f172cc2d65ac6c7e64f7c3b7e4c031d022f232298bf"></span> <code>PHOTO</code></td>
+<td>Photo mode. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_camera_1a02bb5ce37d125ba4c65d43f172cc2d65ae60ae31f67ab883c746bb71c7a145c18"></span> <code>VIDEO</code></td>
+<td>Video mode. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_camera_1a02bb5ce37d125ba4c65d43f172cc2d65a696b031073e74bf2cb98e5ef201d4aa3"></span> <code>UNKNOWN</code></td>
+<td>Unknown mode. </td>
+</tr>
+</tbody>
+</table>
+<h2 id="member-function-documentation">Member Function Documentation</h2>
+<h3 id="classmavsdk_1_1_camera_1a0727be2c56a75d8eabc77c0e72bf6ab4">select_camera() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Camera::select_camera(<span class="hljs-keyword">unsigned</span> id)
+</code></pre>
+<p>Select camera to interact with.</p>
+<p>It is recommended to instantiate multiple camera plugins to deal with multiple cameras and to select the camera once right after creating the plugin.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>unsigned <strong>id</strong> - The camera ID from 0 to 5.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_camera_1a138180f7193a3f49722511b45a81b434">take_photo() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Camera::take_photo()
+</code></pre>
+<p>Take photo (synchronous).</p>
+<p>This takes one photo.</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_camera_1a4a4e2724bb7dcff499173b97f99df14b">start_photo_interval() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Camera::start_photo_interval(<span class="hljs-keyword">float</span> interval_s)
+</code></pre>
+<p>Start photo interval (synchronous).</p>
+<p>Starts a photo timelapse with a given interval.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>float <strong>interval_s</strong> - The interval between photos in seconds.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a> - Result of request.</p>
+<p><strong>See Also:</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a4d1a2e4794e01c95b77b2bf13912a62b">stop_photo_interval()</a></li>
+</ul>
+<h3 id="classmavsdk_1_1_camera_1a4d1a2e4794e01c95b77b2bf13912a62b">stop_photo_interval() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Camera::stop_photo_interval()
+</code></pre>
+<p>Stop photo interval (synchronous).</p>
+<p>Stops a photo timelapse, previously started with <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a4a4e2724bb7dcff499173b97f99df14b">start_photo_interval()</a>.</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_camera_1ab3de7ff32dd8b87c081d6b35f5960d08">start_video() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Camera::start_video()
+</code></pre>
+<p>Start video capture (synchronous).</p>
+<p>This starts a video recording.</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_camera_1afaac17787c6c4b32368f0e928fa1bc26">stop_video() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Camera::stop_video()
+</code></pre>
+<p>Stop video capture (synchronous).</p>
+<p>This stops a video recording, previously started with <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1ab3de7ff32dd8b87c081d6b35f5960d08">start_video()</a>.</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_camera_1ae959fc926fc5ce4f21ee81e1b9ae7e81">take_photo_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::take_photo_async(<span class="hljs-keyword">const</span> <span class="hljs-keyword">result_callback_t</span> &amp;callback)
+</code></pre>
+<p>Take photo (asynchronous).</p>
+<p>This takes one photo.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1af685f3246e2c9e909acd34eede604a78">result_callback_t</a>&amp; <strong>callback</strong> - Function to call with result of request.</li>
+</ul>
+<h3 id="classmavsdk_1_1_camera_1a732ceb505de508eb091f0b2c57e364c4">start_photo_interval_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::start_photo_interval_async(<span class="hljs-keyword">float</span> interval_s, <span class="hljs-keyword">const</span> <span class="hljs-keyword">result_callback_t</span> &amp;callback)
+</code></pre>
+<p>Start photo interval (asynchronous).</p>
+<p>Starts a photo timelapse with a given interval.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>float <strong>interval_s</strong> - The interval between photos in seconds.</li>
+<li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1af685f3246e2c9e909acd34eede604a78">result_callback_t</a>&amp; <strong>callback</strong> - Function to call with result of request.</li>
+</ul>
+<p><strong>See Also:</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1ac421c8b59b2da667436ee735d31b5c8e">stop_photo_interval_async</a></li>
+</ul>
+<h3 id="classmavsdk_1_1_camera_1ac421c8b59b2da667436ee735d31b5c8e">stop_photo_interval_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::stop_photo_interval_async(<span class="hljs-keyword">const</span> <span class="hljs-keyword">result_callback_t</span> &amp;callback)
+</code></pre>
+<p>Stop photo interval (asynchronous).</p>
+<p>Stops a photo timelapse, previously started with <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a732ceb505de508eb091f0b2c57e364c4">start_photo_interval_async()</a>.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1af685f3246e2c9e909acd34eede604a78">result_callback_t</a>&amp; <strong>callback</strong> - Function to call with result of request.</li>
+</ul>
+<h3 id="classmavsdk_1_1_camera_1a59500409cb9b6b375e2fb95c4e65981e">start_video_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::start_video_async(<span class="hljs-keyword">const</span> <span class="hljs-keyword">result_callback_t</span> &amp;callback)
+</code></pre>
+<p>Start video capture (asynchronous).</p>
+<p>This starts a video recording.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1af685f3246e2c9e909acd34eede604a78">result_callback_t</a>&amp; <strong>callback</strong> - Function to call with result of request.</li>
+</ul>
+<h3 id="classmavsdk_1_1_camera_1a2af00a4739fda46a97699a5445244934">stop_video_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::stop_video_async(<span class="hljs-keyword">const</span> <span class="hljs-keyword">result_callback_t</span> &amp;callback)
+</code></pre>
+<p>Stop video capture (asynchronous).</p>
+<p>This stops a video recording, previously started with <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a59500409cb9b6b375e2fb95c4e65981e">start_video_async()</a>.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1af685f3246e2c9e909acd34eede604a78">result_callback_t</a>&amp; <strong>callback</strong> - Function to call with result of request.</li>
+</ul>
+<h3 id="classmavsdk_1_1_camera_1a4f53cc13faad6d1e7232881f0cdd4e8f">get_information() </h3>
+<pre><code class="lang-cpp">Information mavsdk::Camera::get_information()
+</code></pre>
+<p>Get general camera information.</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="structmavsdk_1_1_camera_1_1_information.html">Information</a> - The camera information struct.</p>
+<h3 id="classmavsdk_1_1_camera_1a557241d62d86433781fe86c0c039ada3">set_mode() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Camera::set_mode(<span class="hljs-keyword">const</span> Mode mode)
+</code></pre>
+<p>Setter for camera mode (synchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a02bb5ce37d125ba4c65d43f172cc2d65">Mode</a> <strong>mode</strong> - <a href="classmavsdk_1_1_camera.html">Camera</a> mode to set</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a> - SUCCESS if mode is set, error otherwise.</p>
+<h3 id="classmavsdk_1_1_camera_1ab8baf90189d997be33689444af28d299">set_mode_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::set_mode_async(<span class="hljs-keyword">const</span> Mode mode, <span class="hljs-keyword">const</span> <span class="hljs-keyword">mode_callback_t</span> &amp;callback)
+</code></pre>
+<p>Setter for camera mode (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a02bb5ce37d125ba4c65d43f172cc2d65">Mode</a> <strong>mode</strong> - <a href="classmavsdk_1_1_camera.html">Camera</a> mode to set.</li>
+<li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a80ac6809a31a1fef9e398396f48c230b">mode_callback_t</a>&amp; <strong>callback</strong> - Function to call with result of request.</li>
+</ul>
+<h3 id="classmavsdk_1_1_camera_1a8c6ea001c393a0d49d19be54d5195a44">get_mode_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::get_mode_async(<span class="hljs-keyword">const</span> <span class="hljs-keyword">mode_callback_t</span> &amp;callback)
+</code></pre>
+<p>Getter for camera mode (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a80ac6809a31a1fef9e398396f48c230b">mode_callback_t</a>&amp; <strong>callback</strong> - Function to call with result of request.</li>
+</ul>
+<h3 id="classmavsdk_1_1_camera_1aa366c1ac76c8083996a97d86cb1769e7">subscribe_mode() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::subscribe_mode(<span class="hljs-keyword">const</span> <span class="hljs-keyword">subscribe_mode_callback_t</span> callback)
+</code></pre>
+<p>Async subscription for camera mode updates (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2e192f7058babf50350ca67b4e182311">subscribe_mode_callback_t</a> <strong>callback</strong> - Function to call with camera mode updates.</li>
+</ul>
+<h3 id="classmavsdk_1_1_camera_1a6e099070d34896daffae871b5def94e3">get_video_stream_info() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Camera::get_video_stream_info(VideoStreamInfo &amp;info)
+</code></pre>
+<p>Get video stream information (synchronous).</p>
+<p>Application may use media player like VLC and feed <code>uri</code> to play the ongoing video streaming.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="structmavsdk_1_1_camera_1_1_video_stream_info.html">VideoStreamInfo</a>&amp; <strong>info</strong> - Video stream information will be filled.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a> - SUCCESS if video stream info is received, error otherwise.</p>
+<h3 id="classmavsdk_1_1_camera_1ad98bdefee6ea01c7e251fcd33dbb19bf">get_video_stream_info_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::get_video_stream_info_async(<span class="hljs-keyword">const</span> <span class="hljs-keyword">get_video_stream_info_callback_t</span> callback)
+</code></pre>
+<p>Get video stream information (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1aee360f2b81c01de025e09822c9f4fefb">get_video_stream_info_callback_t</a> <strong>callback</strong> - Function to call with video stream info.</li>
+</ul>
+<h3 id="classmavsdk_1_1_camera_1aedb09a2fd502ff7f5cea812d025766b7">subscribe_video_stream_info() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::subscribe_video_stream_info(<span class="hljs-keyword">const</span> <span class="hljs-keyword">subscribe_video_stream_info_callback_t</span> callback)
+</code></pre>
+<p>Async subscription for video stream info updates (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1acf186b5a738ceae773680300c25b8963">subscribe_video_stream_info_callback_t</a> <strong>callback</strong> - Function to call with video stream updates.</li>
+</ul>
+<h3 id="classmavsdk_1_1_camera_1a6a65321f94db6dd31b91acd399dbbf32">start_video_streaming() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Camera::start_video_streaming()
+</code></pre>
+<p>Starts video streaming (synchronous).</p>
+<p>Sends a request to start video streaming.</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a> - SUCCESS if video streaming is started, error otherwise.</p>
+<p><strong>See Also:</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a0464441361a1930495857c21812e70df">stop_video_streaming()</a></li>
+</ul>
+<h3 id="classmavsdk_1_1_camera_1a0464441361a1930495857c21812e70df">stop_video_streaming() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Camera::stop_video_streaming()
+</code></pre>
+<p>Stop the current video streaming (synchronous).</p>
+<p>Sends a request to stop ongoing video streaming.</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a> - SUCCESS if video streaming is stopped, error otherwise.</p>
+<p><strong>See Also:</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a6a65321f94db6dd31b91acd399dbbf32">start_video_streaming()</a></li>
+</ul>
+<h3 id="classmavsdk_1_1_camera_1a63762d5a5fc0f3cdb4c51d75080bb9cd">subscribe_capture_info() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::subscribe_capture_info(<span class="hljs-keyword">capture_info_callback_t</span> callback)
+</code></pre>
+<p>Subscribe to capture info updates (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1aa3e2d58e59d03e02d9ddcdb8979a9d9f">capture_info_callback_t</a> <strong>callback</strong> - Function to call with updates.</li>
+</ul>
+<h3 id="classmavsdk_1_1_camera_1a12c606c914924700ec3290dfbb375f35">get_status_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::get_status_async(<span class="hljs-keyword">get_status_callback_t</span> callback)
+</code></pre>
+<p>Get camera status (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a032cddeed41b596da72cadd488967f81">get_status_callback_t</a> <strong>callback</strong> - Function to call with camera status.</li>
+</ul>
+<h3 id="classmavsdk_1_1_camera_1a3823140cea0f7e145f99cb18a34b48ad">subscribe_status() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::subscribe_status(<span class="hljs-keyword">const</span> <span class="hljs-keyword">subscribe_status_callback_t</span> callback)
+</code></pre>
+<p>Subscribe to status updates (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a46daf718ef0b20ef7d3dcdb92edd9107">subscribe_status_callback_t</a> <strong>callback</strong> - Function to call with status update.</li>
+</ul>
+<h3 id="classmavsdk_1_1_camera_1a4d9ef3283a3fde980b7a0d864f4a3d02">get_possible_setting_options() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">bool</span> mavsdk::Camera::get_possible_setting_options(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &gt; &amp;settings)
+</code></pre>
+<p>Get settings that can be changed.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>std::vector&lt; std::string &gt;&amp; <strong>settings</strong> - List of settings that can be changed.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;bool - true request was successful.</p>
+<h3 id="classmavsdk_1_1_camera_1a62e79ba028ca57540c10e544737bfc34">get_possible_options() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">bool</span> mavsdk::Camera::get_possible_options(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;setting_id, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt; Camera::Option &gt; &amp;options)
+</code></pre>
+<p>Get possible options for a setting that can be selected.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const std::string&amp; <strong>setting_id</strong> - Name of setting (machine readable).</li>
+<li>std::vector&lt; <a href="structmavsdk_1_1_camera_1_1_option.html">Camera::Option</a> &gt;&amp; <strong>options</strong> - List of <a href="structmavsdk_1_1_camera_1_1_option.html">Option</a> objects to select from.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;bool - true if request was successful.</p>
+<h3 id="classmavsdk_1_1_camera_1ad1337a07240b1c9192170b4a265bad7b">is_setting_range() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">bool</span> mavsdk::Camera::is_setting_range(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;setting_id)
+</code></pre>
+<p>Query if setting is a range setting.</p>
+<p>A range setting is not given by possible options but rather by [min, max] or [min, max, interval].</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const std::string&amp; <strong>setting_id</strong> - Name of setting (machine readable).</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;bool - true if it is a range setting.</p>
+<h3 id="classmavsdk_1_1_camera_1a32787e97209786b50811ef2a04954560">get_option() </h3>
+<pre><code class="lang-cpp">Camera::Result mavsdk::Camera::get_option(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;setting_id, Option &amp;option)
+</code></pre>
+<p>Get an option of a setting (synchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const std::string&amp; <strong>setting_id</strong> - The machine readable name of the setting.</li>
+<li><a href="structmavsdk_1_1_camera_1_1_option.html">Option</a>&amp; <strong>option</strong> - A reference to the option to set.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Camera::Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_camera_1a766d2406904f1a06e7668bb0c2d8dd38">get_option_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::get_option_async(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;setting_id, <span class="hljs-keyword">const</span> <span class="hljs-keyword">get_option_callback_t</span> &amp;callback)
+</code></pre>
+<p>Get an option of a setting (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const std::string&amp; <strong>setting_id</strong> - The machine readable name of the setting.</li>
+<li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a30144e05163adff09295188dcf854a8c">get_option_callback_t</a>&amp; <strong>callback</strong> - The callback to get the result and selected option.</li>
+</ul>
+<h3 id="classmavsdk_1_1_camera_1ad36497ef20292f8b719cd3f66844abf1">set_option_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::set_option_async(<span class="hljs-keyword">const</span> <span class="hljs-keyword">result_callback_t</span> &amp;callback, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;setting_id, <span class="hljs-keyword">const</span> Camera::Option &amp;option)
+</code></pre>
+<p>Set an option of a setting (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1af685f3246e2c9e909acd34eede604a78">result_callback_t</a>&amp; <strong>callback</strong> - The callback to get the result.</li>
+<li>const std::string&amp; <strong>setting_id</strong> - The machine readable name of the setting.</li>
+<li>const <a href="structmavsdk_1_1_camera_1_1_option.html">Camera::Option</a>&amp; <strong>option</strong> - The machine readable name of the option value.</li>
+</ul>
+<h3 id="classmavsdk_1_1_camera_1a86c3b93eff94958893f2a2eaf7b0af02">subscribe_current_settings() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::subscribe_current_settings(<span class="hljs-keyword">const</span> <span class="hljs-keyword">subscribe_current_settings_callback_t</span> &amp;callback)
+</code></pre>
+<p>Subscribe to currently selected settings (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1aec89b50d9d7aacd3999025e6af9a4537">subscribe_current_settings_callback_t</a>&amp; <strong>callback</strong> - Function to call when current options have been updated.</li>
+</ul>
+<h3 id="classmavsdk_1_1_camera_1a1f36ef38920baf86bd2943f09cbb0f00">subscribe_possible_setting_options() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::subscribe_possible_setting_options(<span class="hljs-keyword">const</span> <span class="hljs-keyword">subscribe_possible_setting_options_callback_t</span> &amp;callback)
+</code></pre>
+<p>Subscribe to all possible setting options (asynchronous).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a8e6d20f6aead2fdd7ef4f5eea87afc0b">subscribe_possible_setting_options_callback_t</a>&amp; <strong>callback</strong> - Function to call when possible options have been updated.</li>
+</ul>
+<h3 id="classmavsdk_1_1_camera_1a00390c325bdbf78461a5e59b786903f2">format_storage_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::format_storage_async(<span class="hljs-keyword">result_callback_t</span> callback)
+</code></pre>
+<p>Format storage (e.g. SD card) in camera (asynchronous).</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> This will delete all content of the camera storage (e.g. SD card).</p>
+</blockquote>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1af685f3246e2c9e909acd34eede604a78">result_callback_t</a> <strong>callback</strong> - Callback to get result.</li>
+</ul>
+<h3 id="classmavsdk_1_1_camera_1a347509c9f099f79b562786b6aac56f34">format_storage() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Camera::format_storage()
+</code></pre>
+<p>Format storage (e.g. SD card) in camera (synchronous).</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> This will delete all content of the camera storage (e.g. SD card).</p>
+</blockquote>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a> - result of request.</p>
+<h3 id="classmavsdk_1_1_camera_1aeff295155b6a665f5c942e473f1fe894">operator=() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">const</span> Camera&amp; mavsdk::Camera::<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> Camera &amp;)=<span class="hljs-keyword">delete</span>
+</code></pre>
+<p>Equality operator (object is not copyable).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classmavsdk_1_1_camera.html">Camera</a>&amp;  - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;const <a href="classmavsdk_1_1_camera.html">Camera</a> &amp; - </p>
+<h3 id="classmavsdk_1_1_camera_1a1b768bb0af672b634a902a9e481c1327">result_str() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">static</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> mavsdk::Camera::result_str(Result result)
+</code></pre>
+<p>Returns a human-readable English string for <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Camera::Result</a>.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a> <strong>result</strong> - The enum value for which a human readable string is required.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;std::string - Human readable string for the <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Camera::Result</a>.</p>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2019-09-19 04:49:32 </span> </footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="structmavsdk_1_1_calibration_1_1_progress_data.html" class="navigation navigation-prev " aria-label="Previous page: struct ProgressData">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="structmavsdk_1_1_camera_1_1_capture_info.html" class="navigation navigation-next " aria-label="Next page: struct CaptureInfo">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"class Camera","level":"1.4.3.3","depth":3,"next":{"title":"struct CaptureInfo","level":"1.4.3.3.1","depth":4,"path":"api_reference/structmavsdk_1_1_camera_1_1_capture_info.md","ref":"api_reference/structmavsdk_1_1_camera_1_1_capture_info.md","articles":[{"title":"struct EulerAngle","level":"1.4.3.3.1.1","depth":5,"path":"api_reference/structmavsdk_1_1_camera_1_1_capture_info_1_1_euler_angle.md","ref":"api_reference/structmavsdk_1_1_camera_1_1_capture_info_1_1_euler_angle.md","articles":[]},{"title":"struct Position","level":"1.4.3.3.1.2","depth":5,"path":"api_reference/structmavsdk_1_1_camera_1_1_capture_info_1_1_position.md","ref":"api_reference/structmavsdk_1_1_camera_1_1_capture_info_1_1_position.md","articles":[]},{"title":"struct Quaternion","level":"1.4.3.3.1.3","depth":5,"path":"api_reference/structmavsdk_1_1_camera_1_1_capture_info_1_1_quaternion.md","ref":"api_reference/structmavsdk_1_1_camera_1_1_capture_info_1_1_quaternion.md","articles":[]}]},"previous":{"title":"struct ProgressData","level":"1.4.3.2.1","depth":4,"path":"api_reference/structmavsdk_1_1_calibration_1_1_progress_data.md","ref":"api_reference/structmavsdk_1_1_calibration_1_1_progress_data.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"v0.19.0"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"api_reference/classmavsdk_1_1_camera.md","mtime":"2019-09-19T04:49:32.107Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-19T04:50:36.582Z"},"basePath":"..","book":{"language":"en"}});
+        });
+    </script>
+</div>
+
+    
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-language-picker/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions-select/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
