@@ -33,6 +33,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions-select/plugin.css">
                 
             
@@ -1935,24 +1939,24 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="testing">Testing</h1>
+                                <h1 id="testing"><a name="testing" class="plugin-anchor" href="#testing"><i class="fa fa-link" aria-hidden="true"></i></a>Testing</h1>
 <p>The SDK has both unit and integration tests, written using the <a href="https://github.com/google/googletest/blob/master/googletest/docs/Primer.md" target="_blank">Google C++ Test Framework</a> (<code>gtest</code>).
 The unit tests are run every time new code is committed to the SDK codelines, and must pass before the code can be merged.</p>
 <p>This topic shows how to run the existing tests.</p>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> For information on <em>writing</em> tests see: <a href="plugins.html#testing">Writing Plugins &gt; Test Code</a>.</p>
+<blockquote>
+<p><strong>Tip</strong> For information on <em>writing</em> tests see: <a href="plugins.html#testing">Writing Plugins &gt; Test Code</a>.</p>
 </blockquote>
-<h2 id="running-unit-tests">Running Unit Tests</h2>
+<h2 id="running-unit-tests"><a name="running-unit-tests" class="plugin-anchor" href="#running-unit-tests"><i class="fa fa-link" aria-hidden="true"></i></a>Running Unit Tests</h2>
 <p>To run all unit tests:</p>
 <pre><code>./build/default/src/unit_tests_runner
-</code></pre><h2 id="running-integration-tests">Running Integration Tests</h2>
+</code></pre><h2 id="running-integration-tests"><a name="running-integration-tests" class="plugin-anchor" href="#running-integration-tests"><i class="fa fa-link" aria-hidden="true"></i></a>Running Integration Tests</h2>
 <p>Tests can be run against the simulator (either manually starting PX4 SITL or letting the tests start it automatically) or against a real vehicle.</p>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> To run SITL you will need to install the <em>Gazebo</em> simulator.
+<blockquote>
+<p><strong>Tip</strong> To run SITL you will need to install the <em>Gazebo</em> simulator.
 This is included as part of the standard PX4 installation for <a href="https://dev.px4.io/en/setup/dev_env_mac.html" target="_blank">macOS</a>
 and <a href="https://dev.px4.io/en/setup/dev_env_linux.html#development-toolchain" target="_blank">Linux</a>. It does not run on Windows.</p>
 </blockquote>
-<h3 id="autostart-px4-sitl">Autostart PX4 SITL</h3>
+<h3 id="autostart-px4-sitl"><a name="autostart-px4-sitl" class="plugin-anchor" href="#autostart-px4-sitl"><i class="fa fa-link" aria-hidden="true"></i></a>Autostart PX4 SITL</h3>
 <p>Make sure that the <a href="https://dev.px4.io/en/simulation/gazebo.html" target="_blank">PX4 Gazebo simulation</a> is built and works:</p>
 <pre><code>cd path/to/Firmware/
 make px4_sitl gazebo
@@ -1961,24 +1965,24 @@ make px4_sitl gazebo
 AUTOSTART_SITL=1 ./build/debug/src/integration_tests/integration_tests_runner
 </code></pre><p>To run the tests without the 3D viewer (<em>gzclient</em>), use:</p>
 <pre><code>AUTOSTART_SITL=1 HEADLESS=1 ./build/debug/src/integration_tests/integration_tests_runner
-</code></pre><h3 id="run-px4-sitl-manually">Run PX4 SITL Manually</h3>
+</code></pre><h3 id="run-px4-sitl-manually"><a name="run-px4-sitl-manually" class="plugin-anchor" href="#run-px4-sitl-manually"><i class="fa fa-link" aria-hidden="true"></i></a>Run PX4 SITL Manually</h3>
 <p>Build and run the PX4 simulation manually:</p>
 <pre><code>cd path/to/Firmware/
 make px4_sitl gazebo
 </code></pre><p>Then run the tests as shown:</p>
 <pre><code>cd path/to/MAVSDK/
 ./build/debug/src/integration_tests/integration_tests_runner
-</code></pre><blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> The tests are designed to run in simulation, and may not be safe if run on a real vehicle.</p>
+</code></pre><blockquote>
+<p><strong>Tip</strong> The tests are designed to run in simulation, and may not be safe if run on a real vehicle.</p>
 </blockquote>
-<h3 id="gtest-tricks">Gtest Tricks</h3>
+<h3 id="gtest-tricks"><a name="gtest-tricks" class="plugin-anchor" href="#gtest-tricks"><i class="fa fa-link" aria-hidden="true"></i></a>Gtest Tricks</h3>
 <p>To list all integration tests:</p>
 <pre><code>./build/default/integration_tests/integration_tests_runner --gtest_list_tests
 </code></pre><p>To run a single integration test:</p>
 <pre><code>./build/default/integration_tests/integration_tests_runner --gtest_filter=&quot;SitlTest.TelemetryAsync&quot;
 </code></pre><p>To run all telemetry tests:</p>
 <pre><code>./build/default/integration_tests/integration_tests_runner --gtest_filter=&quot;SitlTest.Telemetry*&quot;
-</code></pre><footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2019-12-03 23:24:06 </span> </footer>
+</code></pre><footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-01-05 23:46:57 </span> </footer>
                                 
                                 </section>
                             
@@ -2021,7 +2025,7 @@ make px4_sitl gazebo
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Testing","level":"1.4.4.2","depth":3,"next":{"title":"Writing Plugins","level":"1.4.4.3","depth":3,"path":"contributing/plugins.md","ref":"contributing/plugins.md","articles":[]},"previous":{"title":"Building Source","level":"1.4.4.1","depth":3,"path":"contributing/build.md","ref":"contributing/build.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"contributing/test.md","mtime":"2019-12-03T23:24:06.588Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-03T23:24:55.258Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Testing","level":"1.4.4.2","depth":3,"next":{"title":"Writing Plugins","level":"1.4.4.3","depth":3,"path":"contributing/plugins.md","ref":"contributing/plugins.md","articles":[]},"previous":{"title":"Building Source","level":"1.4.4.1","depth":3,"path":"contributing/build.md","ref":"contributing/build.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"contributing/test.md","mtime":"2020-01-05T23:46:57.940Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-05T23:47:52.785Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

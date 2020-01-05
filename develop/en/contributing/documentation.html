@@ -33,6 +33,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions-select/plugin.css">
                 
             
@@ -1935,19 +1939,19 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="contributing-to-documentation">Contributing to Documentation</h1>
+                                <h1 id="contributing-to-documentation"><a name="contributing-to-documentation" class="plugin-anchor" href="#contributing-to-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Contributing to Documentation</h1>
 <p>Making quick fixes to existing text or raising issues is very easy. More complicated changes will require you to set up the <a href="https://toolchain.gitbook.com/setup.html" target="_blank">Gitbook toolchain</a>. If you want to help, <a href="../#getting-help">get in touch</a>.</p>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> You will need a <a href="https://github.com/" target="_blank">Github</a> login to make and submit changes to this guide.</p>
+<blockquote>
+<p><strong>Tip</strong> You will need a <a href="https://github.com/" target="_blank">Github</a> login to make and submit changes to this guide.</p>
 </blockquote>
-<h2 id="overview">Overview</h2>
+<h2 id="overview"><a name="overview" class="plugin-anchor" href="#overview"><i class="fa fa-link" aria-hidden="true"></i></a>Overview</h2>
 <p>This guide is written in <a href="https://toolchain.gitbook.com/syntax/markdown.html" target="_blank">markdown</a> wiki syntax and stored in the Github <a href="https://github.com/dronecore/sdk_docs" target="_blank">dronecore/sdk_docs</a> repo. 
 The book is hosted on <a href="https://www.gitbook.com/" target="_blank">Gitbook.com</a> and is automatically rebuilt whenever the master branch of the repo is updated. 
 You can also rebuild it locally using the <a href="https://toolchain.gitbook.com/" target="_blank">Gitbook toolchain</a>.</p>
 <p>The <a href="../api_reference/">API Reference</a> section is compiled from source code into markdown using a <a href="#api-reference">separate toolchain</a> and then copied into Github. 
 Updates to the reference should be made in the <a href="https://github.com/mavlink/MAVSDK" target="_blank">source code repository</a> (see <a href="#api-reference">API Reference</a> below for more information).</p>
 <p>The guide is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> - if you make any changes then they will be made available under the same license. </p>
-<h2 id="making-a-quick-fix">Making a Quick Fix</h2>
+<h2 id="making-a-quick-fix"><a name="making-a-quick-fix" class="plugin-anchor" href="#making-a-quick-fix"><i class="fa fa-link" aria-hidden="true"></i></a>Making a Quick Fix</h2>
 <p>Simple fixes to an existing page can be made directly on Github:</p>
 <ol>
 <li><p>Click the <strong>Edit</strong> button in the top toolbar to open the page</p>
@@ -1961,7 +1965,7 @@ Updates to the reference should be made in the <a href="https://github.com/mavli
 <li><p>Follow the on-screen instructions to create a pull request with your change.</p>
 </li>
 </ol>
-<h2 id="raising-an-issue">Raising an Issue</h2>
+<h2 id="raising-an-issue"><a name="raising-an-issue" class="plugin-anchor" href="#raising-an-issue"><i class="fa fa-link" aria-hidden="true"></i></a>Raising an Issue</h2>
 <p>To raise an issue against the documentation:</p>
 <ol>
 <li>Open the page with problem content.</li>
@@ -1971,10 +1975,10 @@ Updates to the reference should be made in the <a href="https://github.com/mavli
 </li>
 <li>Enter enough information for someone to understand the problem, and ideally to fix it. </li>
 </ol>
-<h2 id="making-a-big-change">Making a Big Change</h2>
+<h2 id="making-a-big-change"><a name="making-a-big-change" class="plugin-anchor" href="#making-a-big-change"><i class="fa fa-link" aria-hidden="true"></i></a>Making a Big Change</h2>
 <p>If you want to make more significant changes or additions to the documentation you will need to set up <em>Git</em> and the <em>Gitbook</em> toolchain (this allows you to render the documentation and check that links work). </p>
 <p>For setup information see: <a href="https://toolchain.gitbook.com/setup.html" target="_blank">Gitbook toolchain</a>.</p>
-<h2 id="api-reference">API Reference</h2>
+<h2 id="api-reference"><a name="api-reference" class="plugin-anchor" href="#api-reference"><i class="fa fa-link" aria-hidden="true"></i></a>API Reference</h2>
 <p>The C++ source code is annotated using comments using <a href="http://doxygen.nl/manual/index.html" target="_blank">Doxygen</a> syntax. 
 You can extract the documentation to markdown files (one per class) on macOS or Linux using the instructions in <a href="build.html#build_api_reference">Building SDK from Source &gt; Build API Reference Documentation</a>.</p>
 <p>In order to include new API reference in the <em>SDK Documentation</em> it must be manually added to the <a href="https://github.com/dronecore/sdk_docs/" target="_blank">Github repository</a>:</p>
@@ -1982,7 +1986,7 @@ You can extract the documentation to markdown files (one per class) on macOS or 
 <li>Copy the files into the <a href="https://github.com/dronecore/sdk_docs/tree/develop/en/api_reference" target="_blank">docs/en/api_reference</a> folder</li>
 <li><em>New</em> APIs should be added to appropriate sections in the <a href="https://github.com/dronecore/sdk_docs/blob/develop/en/SUMMARY.md" target="_blank">sdk_docs/en/SUMMARY.md</a>, <a href="https://github.com/dronecore/docs/blob/develop/en/api_reference/README.md" target="_blank">sdk_docs/en/api_reference/README.md</a> and overview <a href="https://github.com/dronecore/sdk_docs/blob/develop/en/README.md#api-overview" target="_blank">sdk_docs/en/README.md</a>.</li>
 </ul>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2019-12-03 23:24:06 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-01-05 23:46:57 </span> </footer>
                                 
                                 </section>
                             
@@ -2025,7 +2029,7 @@ You can extract the documentation to markdown files (one per class) on macOS or 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Documentation","level":"1.4.4.6","depth":3,"next":{"title":"Releases","level":"1.5","depth":1,"path":"releases/README.md","ref":"releases/README.md","articles":[]},"previous":{"title":"Plugin/Test Logging","level":"1.4.4.5","depth":3,"path":"contributing/dev_logging.md","ref":"contributing/dev_logging.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"contributing/documentation.md","mtime":"2019-12-03T23:24:06.588Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-03T23:24:55.258Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Documentation","level":"1.4.4.6","depth":3,"next":{"title":"Releases","level":"1.5","depth":1,"path":"releases/README.md","ref":"releases/README.md","articles":[]},"previous":{"title":"Plugin/Test Logging","level":"1.4.4.5","depth":3,"path":"contributing/dev_logging.md","ref":"contributing/dev_logging.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"contributing/documentation.md","mtime":"2020-01-05T23:46:57.940Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-05T23:47:52.785Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

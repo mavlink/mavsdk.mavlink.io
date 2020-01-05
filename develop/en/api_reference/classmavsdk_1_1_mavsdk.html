@@ -33,6 +33,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions-select/plugin.css">
                 
             
@@ -1935,13 +1939,13 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="mavsdkmavsdk-class-reference">mavsdk::Mavsdk Class Reference</h1>
+                                <h1 id="mavsdkmavsdk-class-reference"><a name="mavsdkmavsdk-class-reference" class="plugin-anchor" href="#mavsdkmavsdk-class-reference"><i class="fa fa-link" aria-hidden="true"></i></a>mavsdk::Mavsdk Class Reference</h1>
 <p><code>#include: mavsdk.h</code></p>
 <hr>
 <p>This is the main class of MAVSDK (a MAVLink API Library). </p>
 <p>It is used to discover vehicles and manage active connections.</p>
 <p>An instance of this class must be created (first) in order to use the library. The instance must be destroyed after use in order to break connections and release all resources. </p>
-<h2 id="public-types">Public Types</h2>
+<h2 id="public-types"><a name="public-types" class="plugin-anchor" href="#public-types"><i class="fa fa-link" aria-hidden="true"></i></a>Public Types</h2>
 <table>
 <thead>
 <tr>
@@ -1960,7 +1964,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="public-member-functions">Public Member Functions</h2>
+<h2 id="public-member-functions"><a name="public-member-functions" class="plugin-anchor" href="#public-member-functions"><i class="fa fa-link" aria-hidden="true"></i></a>Public Member Functions</h2>
 <table>
 <thead>
 <tr>
@@ -2062,24 +2066,24 @@
 </tr>
 </tbody>
 </table>
-<h2 id="static-public-attributes">Static Public Attributes</h2>
+<h2 id="static-public-attributes"><a name="static-public-attributes" class="plugin-anchor" href="#static-public-attributes"><i class="fa fa-link" aria-hidden="true"></i></a>Static Public Attributes</h2>
 <p>static constexpr auto <a href="#classmavsdk_1_1_mavsdk_1ac46b2c27d9c428ec46092f10774482fa">DEFAULT_UDP_BIND_IP</a> = &quot;0.0.0.0&quot; - Default UDP bind IP (accepts any incoming connections).</p>
 <p>static constexpr int <a href="#classmavsdk_1_1_mavsdk_1affddcc7c7849ed86a0c7dab1166e657a">DEFAULT_UDP_PORT</a> = 14540 - Default UDP bind port (same port as used by MAVROS).</p>
 <p>static constexpr auto <a href="#classmavsdk_1_1_mavsdk_1a0154aac9d933fa212a50dc687816fbad">DEFAULT_TCP_REMOTE_IP</a> = &quot;127.0.0.1&quot; - Default TCP remote IP (localhost).</p>
 <p>static constexpr int <a href="#classmavsdk_1_1_mavsdk_1a52a6a9e0acd6c0ade566208d253427bd">DEFAULT_TCP_REMOTE_PORT</a> = 5760 - Default TCP remote port.</p>
 <p>static constexpr int <a href="#classmavsdk_1_1_mavsdk_1a870d15142914f1db564c12f385d5489b">DEFAULT_SERIAL_BAUDRATE</a> = 57600 - Default serial baudrate.</p>
-<h2 id="constructor--destructor-documentation">Constructor &amp; Destructor Documentation</h2>
-<h3 id="classmavsdk_1_1_mavsdk_1aad81f6df52096ea28d4e646ad7339461">Mavsdk() </h3>
+<h2 id="constructor--destructor-documentation"><a name="constructor--destructor-documentation" class="plugin-anchor" href="#constructor--destructor-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Constructor &amp; Destructor Documentation</h2>
+<h3 id="classmavsdk_1_1_mavsdk_1aad81f6df52096ea28d4e646ad7339461"><a name="classmavsdk_1_1_mavsdk_1aad81f6df52096ea28d4e646ad7339461" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1aad81f6df52096ea28d4e646ad7339461"><i class="fa fa-link" aria-hidden="true"></i></a>Mavsdk() </h3>
 <pre><code class="lang-cpp">mavsdk::Mavsdk::Mavsdk()
 </code></pre>
 <p>Constructor.</p>
-<h3 id="classmavsdk_1_1_mavsdk_1ac1549f715d6857711b9b9e364a4ca351">~Mavsdk() </h3>
+<h3 id="classmavsdk_1_1_mavsdk_1ac1549f715d6857711b9b9e364a4ca351"><a name="classmavsdk_1_1_mavsdk_1ac1549f715d6857711b9b9e364a4ca351" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1ac1549f715d6857711b9b9e364a4ca351"><i class="fa fa-link" aria-hidden="true"></i></a>~Mavsdk() </h3>
 <pre><code class="lang-cpp">mavsdk::Mavsdk::~Mavsdk()
 </code></pre>
 <p>Destructor.</p>
 <p>Disconnects all connected vehicles and releases all resources.</p>
-<h2 id="member-typdef-documentation">Member Typdef Documentation</h2>
-<h3 id="classmavsdk_1_1_mavsdk_1a827a58394300cac929670ab592de8818">typedef event_callback_t </h3>
+<h2 id="member-typdef-documentation"><a name="member-typdef-documentation" class="plugin-anchor" href="#member-typdef-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Member Typdef Documentation</h2>
+<h3 id="classmavsdk_1_1_mavsdk_1a827a58394300cac929670ab592de8818"><a name="classmavsdk_1_1_mavsdk_1a827a58394300cac929670ab592de8818" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1a827a58394300cac929670ab592de8818"><i class="fa fa-link" aria-hidden="true"></i></a>typedef event_callback_t </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(<span class="hljs-keyword">uint64_t</span> uuid)&gt; mavsdk::Mavsdk::<span class="hljs-keyword">event_callback_t</span>
 </code></pre>
 <p>Callback type for discover and timeout notifications.</p>
@@ -2087,8 +2091,8 @@
 <ul>
 <li><strong>uuid</strong> - UUID of system (or MAVLink system ID for systems that don&apos;t have a UUID).</li>
 </ul>
-<h2 id="member-enumeration-documentation">Member Enumeration Documentation</h2>
-<h3 id="classmavsdk_1_1_mavsdk_1ad93b5e6dbb9e7577b6260bc740ac413c">enum Configuration </h3>
+<h2 id="member-enumeration-documentation"><a name="member-enumeration-documentation" class="plugin-anchor" href="#member-enumeration-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Member Enumeration Documentation</h2>
+<h3 id="classmavsdk_1_1_mavsdk_1ad93b5e6dbb9e7577b6260bc740ac413c"><a name="classmavsdk_1_1_mavsdk_1ad93b5e6dbb9e7577b6260bc740ac413c" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1ad93b5e6dbb9e7577b6260bc740ac413c"><i class="fa fa-link" aria-hidden="true"></i></a>enum Configuration </h3>
 <p>Possible configurations.</p>
 <table>
 <thead>
@@ -2108,15 +2112,15 @@
 </tr>
 </tbody>
 </table>
-<h2 id="member-function-documentation">Member Function Documentation</h2>
-<h3 id="classmavsdk_1_1_mavsdk_1a576c6c3213f38948a5ae1a14bc4c5b57">version() </h3>
+<h2 id="member-function-documentation"><a name="member-function-documentation" class="plugin-anchor" href="#member-function-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Member Function Documentation</h2>
+<h3 id="classmavsdk_1_1_mavsdk_1a576c6c3213f38948a5ae1a14bc4c5b57"><a name="classmavsdk_1_1_mavsdk_1a576c6c3213f38948a5ae1a14bc4c5b57" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1a576c6c3213f38948a5ae1a14bc4c5b57"><i class="fa fa-link" aria-hidden="true"></i></a>version() </h3>
 <pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> mavsdk::Mavsdk::version() <span class="hljs-keyword">const</span>
 </code></pre>
 <p>Returns the version of MAVSDK.</p>
 <p>Note, you&apos;re not supposed to request the version too many times.</p>
 <p><strong>Returns</strong></p>
 <p>&#x2003;std::string - A string containing the version.</p>
-<h3 id="classmavsdk_1_1_mavsdk_1a229888e2931c16d11edbed07b03174d4">add_any_connection() </h3>
+<h3 id="classmavsdk_1_1_mavsdk_1a229888e2931c16d11edbed07b03174d4"><a name="classmavsdk_1_1_mavsdk_1a229888e2931c16d11edbed07b03174d4" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1a229888e2931c16d11edbed07b03174d4"><i class="fa fa-link" aria-hidden="true"></i></a>add_any_connection() </h3>
 <pre><code class="lang-cpp">ConnectionResult mavsdk::Mavsdk::add_any_connection(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;connection_url)
 </code></pre>
 <p>Adds Connection via URL.</p>
@@ -2133,7 +2137,7 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="namespacemavsdk.html#namespacemavsdk_1a0bad93f6d037051ac3906a0bcc09f992">ConnectionResult</a> - The result of adding the connection.</p>
-<h3 id="classmavsdk_1_1_mavsdk_1a605d3a89cd527222bf131b2c036dc899">add_udp_connection() </h3>
+<h3 id="classmavsdk_1_1_mavsdk_1a605d3a89cd527222bf131b2c036dc899"><a name="classmavsdk_1_1_mavsdk_1a605d3a89cd527222bf131b2c036dc899" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1a605d3a89cd527222bf131b2c036dc899"><i class="fa fa-link" aria-hidden="true"></i></a>add_udp_connection() </h3>
 <pre><code class="lang-cpp">ConnectionResult mavsdk::Mavsdk::add_udp_connection(<span class="hljs-keyword">int</span> local_port=DEFAULT_UDP_PORT)
 </code></pre>
 <p>Adds a UDP connection to the specified port number.</p>
@@ -2144,7 +2148,7 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="namespacemavsdk.html#namespacemavsdk_1a0bad93f6d037051ac3906a0bcc09f992">ConnectionResult</a> - The result of adding the connection.</p>
-<h3 id="classmavsdk_1_1_mavsdk_1a20b51cc972876eef5101e35a5c289c13">add_udp_connection() </h3>
+<h3 id="classmavsdk_1_1_mavsdk_1a20b51cc972876eef5101e35a5c289c13"><a name="classmavsdk_1_1_mavsdk_1a20b51cc972876eef5101e35a5c289c13" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1a20b51cc972876eef5101e35a5c289c13"><i class="fa fa-link" aria-hidden="true"></i></a>add_udp_connection() </h3>
 <pre><code class="lang-cpp">ConnectionResult mavsdk::Mavsdk::add_udp_connection(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;local_ip, <span class="hljs-keyword">int</span> local_port=DEFAULT_UDP_PORT)
 </code></pre>
 <p>Adds a UDP connection to the specified port number and local interface.</p>
@@ -2156,7 +2160,7 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="namespacemavsdk.html#namespacemavsdk_1a0bad93f6d037051ac3906a0bcc09f992">ConnectionResult</a> - The result of adding the connection.</p>
-<h3 id="classmavsdk_1_1_mavsdk_1a438b86fab92fa85cd8bc5dff90991eed">setup_udp_remote() </h3>
+<h3 id="classmavsdk_1_1_mavsdk_1a438b86fab92fa85cd8bc5dff90991eed"><a name="classmavsdk_1_1_mavsdk_1a438b86fab92fa85cd8bc5dff90991eed" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1a438b86fab92fa85cd8bc5dff90991eed"><i class="fa fa-link" aria-hidden="true"></i></a>setup_udp_remote() </h3>
 <pre><code class="lang-cpp">ConnectionResult mavsdk::Mavsdk::setup_udp_remote(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;remote_ip, <span class="hljs-keyword">int</span> remote_port)
 </code></pre>
 <p>Sets up instance to send heartbeats to the specified remote interface and port number.</p>
@@ -2167,7 +2171,7 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="namespacemavsdk.html#namespacemavsdk_1a0bad93f6d037051ac3906a0bcc09f992">ConnectionResult</a> - The result of operation.</p>
-<h3 id="classmavsdk_1_1_mavsdk_1a868d224223d2f4e8de7d5e00863b6ceb">add_tcp_connection() </h3>
+<h3 id="classmavsdk_1_1_mavsdk_1a868d224223d2f4e8de7d5e00863b6ceb"><a name="classmavsdk_1_1_mavsdk_1a868d224223d2f4e8de7d5e00863b6ceb" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1a868d224223d2f4e8de7d5e00863b6ceb"><i class="fa fa-link" aria-hidden="true"></i></a>add_tcp_connection() </h3>
 <pre><code class="lang-cpp">ConnectionResult mavsdk::Mavsdk::add_tcp_connection(<span class="hljs-keyword">int</span> remote_port=DEFAULT_TCP_REMOTE_PORT)
 </code></pre>
 <p>Adds a TCP connection with a specific port number on localhost.</p>
@@ -2177,7 +2181,7 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="namespacemavsdk.html#namespacemavsdk_1a0bad93f6d037051ac3906a0bcc09f992">ConnectionResult</a> - The result of adding the connection.</p>
-<h3 id="classmavsdk_1_1_mavsdk_1a950038afdd201f89e97a3e60e227869a">add_tcp_connection() </h3>
+<h3 id="classmavsdk_1_1_mavsdk_1a950038afdd201f89e97a3e60e227869a"><a name="classmavsdk_1_1_mavsdk_1a950038afdd201f89e97a3e60e227869a" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1a950038afdd201f89e97a3e60e227869a"><i class="fa fa-link" aria-hidden="true"></i></a>add_tcp_connection() </h3>
 <pre><code class="lang-cpp">ConnectionResult mavsdk::Mavsdk::add_tcp_connection(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;remote_ip, <span class="hljs-keyword">int</span> remote_port=DEFAULT_TCP_REMOTE_PORT)
 </code></pre>
 <p>Adds a TCP connection with a specific IP address and port number.</p>
@@ -2188,7 +2192,7 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="namespacemavsdk.html#namespacemavsdk_1a0bad93f6d037051ac3906a0bcc09f992">ConnectionResult</a> - The result of adding the connection.</p>
-<h3 id="classmavsdk_1_1_mavsdk_1a8f27dd954d74b0afdfa4348ce49a10a1">add_serial_connection() </h3>
+<h3 id="classmavsdk_1_1_mavsdk_1a8f27dd954d74b0afdfa4348ce49a10a1"><a name="classmavsdk_1_1_mavsdk_1a8f27dd954d74b0afdfa4348ce49a10a1" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1a8f27dd954d74b0afdfa4348ce49a10a1"><i class="fa fa-link" aria-hidden="true"></i></a>add_serial_connection() </h3>
 <pre><code class="lang-cpp">ConnectionResult mavsdk::Mavsdk::add_serial_connection(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;dev_path, <span class="hljs-keyword">int</span> baudrate=DEFAULT_SERIAL_BAUDRATE)
 </code></pre>
 <p>Adds a serial connection with a specific port (COM or UART dev node) and baudrate as specified.</p>
@@ -2199,7 +2203,7 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="namespacemavsdk.html#namespacemavsdk_1a0bad93f6d037051ac3906a0bcc09f992">ConnectionResult</a> - The result of adding the connection.</p>
-<h3 id="classmavsdk_1_1_mavsdk_1acaeea86253493dc15b6540d2100a1b86">set_configuration() </h3>
+<h3 id="classmavsdk_1_1_mavsdk_1acaeea86253493dc15b6540d2100a1b86"><a name="classmavsdk_1_1_mavsdk_1acaeea86253493dc15b6540d2100a1b86" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1acaeea86253493dc15b6540d2100a1b86"><i class="fa fa-link" aria-hidden="true"></i></a>set_configuration() </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Mavsdk::set_configuration(Configuration configuration)
 </code></pre>
 <p>Set <code>Configuration</code> of SDK.</p>
@@ -2208,21 +2212,21 @@
 <ul>
 <li><a href="classmavsdk_1_1_mavsdk.html#classmavsdk_1_1_mavsdk_1ad93b5e6dbb9e7577b6260bc740ac413c">Configuration</a> <strong>configuration</strong> - Configuration chosen.</li>
 </ul>
-<h3 id="classmavsdk_1_1_mavsdk_1adadb5c30e0397bc5a05d8dcad4903beb">system_uuids() </h3>
+<h3 id="classmavsdk_1_1_mavsdk_1adadb5c30e0397bc5a05d8dcad4903beb"><a name="classmavsdk_1_1_mavsdk_1adadb5c30e0397bc5a05d8dcad4903beb" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1adadb5c30e0397bc5a05d8dcad4903beb"><i class="fa fa-link" aria-hidden="true"></i></a>system_uuids() </h3>
 <pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">uint64_t</span>&gt; mavsdk::Mavsdk::system_uuids() <span class="hljs-keyword">const</span>
 </code></pre>
 <p>Get vector of system UUIDs.</p>
 <p>This returns a vector of the UUIDs of all systems that have been discovered. If a system doesn&apos;t have a UUID then <a href="classmavsdk_1_1_mavsdk.html">Mavsdk</a> will instead use its MAVLink system ID (range: 0..255).</p>
 <p><strong>Returns</strong></p>
 <p>&#x2003;std::vector&lt; uint64_t &gt; - A vector containing the UUIDs.</p>
-<h3 id="classmavsdk_1_1_mavsdk_1a2a9b6f33eef4c610174d541d32cb16bb">system() </h3>
+<h3 id="classmavsdk_1_1_mavsdk_1a2a9b6f33eef4c610174d541d32cb16bb"><a name="classmavsdk_1_1_mavsdk_1a2a9b6f33eef4c610174d541d32cb16bb" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1a2a9b6f33eef4c610174d541d32cb16bb"><i class="fa fa-link" aria-hidden="true"></i></a>system() </h3>
 <pre><code class="lang-cpp">System&amp; mavsdk::Mavsdk::system() <span class="hljs-keyword">const</span>
 </code></pre>
 <p>Get the first discovered system.</p>
 <p>This returns the first discovered system or a null system if no system has yet been found.</p>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="classmavsdk_1_1_system.html">System</a> &amp; - A reference to a system.</p>
-<h3 id="classmavsdk_1_1_mavsdk_1a3816fb199b4e3a32e36ef730d2abc1ba">system() </h3>
+<h3 id="classmavsdk_1_1_mavsdk_1a3816fb199b4e3a32e36ef730d2abc1ba"><a name="classmavsdk_1_1_mavsdk_1a3816fb199b4e3a32e36ef730d2abc1ba" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1a3816fb199b4e3a32e36ef730d2abc1ba"><i class="fa fa-link" aria-hidden="true"></i></a>system() </h3>
 <pre><code class="lang-cpp">System&amp; mavsdk::Mavsdk::system(<span class="hljs-keyword">uint64_t</span> uuid) <span class="hljs-keyword">const</span>
 </code></pre>
 <p>Get the system with the specified UUID.</p>
@@ -2233,7 +2237,7 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="classmavsdk_1_1_system.html">System</a> &amp; - A reference to the specified system.</p>
-<h3 id="classmavsdk_1_1_mavsdk_1a40c4d9acef4da2a491a4c391b78486e3">is_connected() </h3>
+<h3 id="classmavsdk_1_1_mavsdk_1a40c4d9acef4da2a491a4c391b78486e3"><a name="classmavsdk_1_1_mavsdk_1a40c4d9acef4da2a491a4c391b78486e3" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1a40c4d9acef4da2a491a4c391b78486e3"><i class="fa fa-link" aria-hidden="true"></i></a>is_connected() </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">bool</span> mavsdk::Mavsdk::is_connected() <span class="hljs-keyword">const</span>
 </code></pre>
 <p>Returns <code>true</code> if exactly one system is currently connected.</p>
@@ -2241,7 +2245,7 @@
 <p>If multiple systems have connected, this will return <code>false</code>.</p>
 <p><strong>Returns</strong></p>
 <p>&#x2003;bool - <code>true</code> if exactly one system is connected.</p>
-<h3 id="classmavsdk_1_1_mavsdk_1a408b61bc1daf12daf8f8ac292f8ff552">is_connected() </h3>
+<h3 id="classmavsdk_1_1_mavsdk_1a408b61bc1daf12daf8f8ac292f8ff552"><a name="classmavsdk_1_1_mavsdk_1a408b61bc1daf12daf8f8ac292f8ff552" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1a408b61bc1daf12daf8f8ac292f8ff552"><i class="fa fa-link" aria-hidden="true"></i></a>is_connected() </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">bool</span> mavsdk::Mavsdk::is_connected(<span class="hljs-keyword">uint64_t</span> uuid) <span class="hljs-keyword">const</span>
 </code></pre>
 <p>Returns <code>true</code> if a system is currently connected.</p>
@@ -2252,53 +2256,53 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;bool - <code>true</code> if system is connected.</p>
-<h3 id="classmavsdk_1_1_mavsdk_1aa8d55ab10da8f1b868003b44e99c2ecc">register_on_discover() </h3>
+<h3 id="classmavsdk_1_1_mavsdk_1aa8d55ab10da8f1b868003b44e99c2ecc"><a name="classmavsdk_1_1_mavsdk_1aa8d55ab10da8f1b868003b44e99c2ecc" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1aa8d55ab10da8f1b868003b44e99c2ecc"><i class="fa fa-link" aria-hidden="true"></i></a>register_on_discover() </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Mavsdk::register_on_discover(<span class="hljs-keyword">event_callback_t</span> callback)
 </code></pre>
 <p>Register callback for system discovery.</p>
 <p>This sets a callback that will be notified if a new system is discovered.</p>
 <p>If systems have been discovered before this callback is registered, they will be notified at the time this callback is registered.</p>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> Only one callback can be registered at a time. If this function is called several times, previous callbacks will be overwritten.</p>
+<blockquote>
+<p><strong>Note</strong> Only one callback can be registered at a time. If this function is called several times, previous callbacks will be overwritten.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
 <li><a href="classmavsdk_1_1_mavsdk.html#classmavsdk_1_1_mavsdk_1a827a58394300cac929670ab592de8818">event_callback_t</a> <strong>callback</strong> - Callback to register.</li>
 </ul>
-<h3 id="classmavsdk_1_1_mavsdk_1a4baa7d2dd487e9cff12f5dda11ba3262">register_on_timeout() </h3>
+<h3 id="classmavsdk_1_1_mavsdk_1a4baa7d2dd487e9cff12f5dda11ba3262"><a name="classmavsdk_1_1_mavsdk_1a4baa7d2dd487e9cff12f5dda11ba3262" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1a4baa7d2dd487e9cff12f5dda11ba3262"><i class="fa fa-link" aria-hidden="true"></i></a>register_on_timeout() </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Mavsdk::register_on_timeout(<span class="hljs-keyword">event_callback_t</span> callback)
 </code></pre>
 <p>Register callback for system timeout.</p>
 <p>This sets a callback that will be notified if no heartbeat of the system has been received in 3 seconds.</p>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> Only one callback can be registered at a time. If this function is called several times, previous callbacks will be overwritten.</p>
+<blockquote>
+<p><strong>Note</strong> Only one callback can be registered at a time. If this function is called several times, previous callbacks will be overwritten.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
 <li><a href="classmavsdk_1_1_mavsdk.html#classmavsdk_1_1_mavsdk_1a827a58394300cac929670ab592de8818">event_callback_t</a> <strong>callback</strong> - Callback to register.</li>
 </ul>
-<h2 id="field-documentation">Field Documentation</h2>
-<h3 id="classmavsdk_1_1_mavsdk_1ac46b2c27d9c428ec46092f10774482fa">DEFAULT_UDP_BIND_IP </h3>
+<h2 id="field-documentation"><a name="field-documentation" class="plugin-anchor" href="#field-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Field Documentation</h2>
+<h3 id="classmavsdk_1_1_mavsdk_1ac46b2c27d9c428ec46092f10774482fa"><a name="classmavsdk_1_1_mavsdk_1ac46b2c27d9c428ec46092f10774482fa" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1ac46b2c27d9c428ec46092f10774482fa"><i class="fa fa-link" aria-hidden="true"></i></a>DEFAULT_UDP_BIND_IP </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">auto</span> mavsdk::Mavsdk::DEFAULT_UDP_BIND_IP = <span class="hljs-string">&quot;0.0.0.0&quot;</span>
 </code></pre>
 <p>Default UDP bind IP (accepts any incoming connections).</p>
-<h3 id="classmavsdk_1_1_mavsdk_1affddcc7c7849ed86a0c7dab1166e657a">DEFAULT_UDP_PORT </h3>
+<h3 id="classmavsdk_1_1_mavsdk_1affddcc7c7849ed86a0c7dab1166e657a"><a name="classmavsdk_1_1_mavsdk_1affddcc7c7849ed86a0c7dab1166e657a" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1affddcc7c7849ed86a0c7dab1166e657a"><i class="fa fa-link" aria-hidden="true"></i></a>DEFAULT_UDP_PORT </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">int</span> mavsdk::Mavsdk::DEFAULT_UDP_PORT = <span class="hljs-number">14540</span>
 </code></pre>
 <p>Default UDP bind port (same port as used by MAVROS).</p>
-<h3 id="classmavsdk_1_1_mavsdk_1a0154aac9d933fa212a50dc687816fbad">DEFAULT_TCP_REMOTE_IP </h3>
+<h3 id="classmavsdk_1_1_mavsdk_1a0154aac9d933fa212a50dc687816fbad"><a name="classmavsdk_1_1_mavsdk_1a0154aac9d933fa212a50dc687816fbad" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1a0154aac9d933fa212a50dc687816fbad"><i class="fa fa-link" aria-hidden="true"></i></a>DEFAULT_TCP_REMOTE_IP </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">auto</span> mavsdk::Mavsdk::DEFAULT_TCP_REMOTE_IP = <span class="hljs-string">&quot;127.0.0.1&quot;</span>
 </code></pre>
 <p>Default TCP remote IP (localhost).</p>
-<h3 id="classmavsdk_1_1_mavsdk_1a52a6a9e0acd6c0ade566208d253427bd">DEFAULT_TCP_REMOTE_PORT </h3>
+<h3 id="classmavsdk_1_1_mavsdk_1a52a6a9e0acd6c0ade566208d253427bd"><a name="classmavsdk_1_1_mavsdk_1a52a6a9e0acd6c0ade566208d253427bd" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1a52a6a9e0acd6c0ade566208d253427bd"><i class="fa fa-link" aria-hidden="true"></i></a>DEFAULT_TCP_REMOTE_PORT </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">int</span> mavsdk::Mavsdk::DEFAULT_TCP_REMOTE_PORT = <span class="hljs-number">5760</span>
 </code></pre>
 <p>Default TCP remote port.</p>
-<h3 id="classmavsdk_1_1_mavsdk_1a870d15142914f1db564c12f385d5489b">DEFAULT_SERIAL_BAUDRATE </h3>
+<h3 id="classmavsdk_1_1_mavsdk_1a870d15142914f1db564c12f385d5489b"><a name="classmavsdk_1_1_mavsdk_1a870d15142914f1db564c12f385d5489b" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1a870d15142914f1db564c12f385d5489b"><i class="fa fa-link" aria-hidden="true"></i></a>DEFAULT_SERIAL_BAUDRATE </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">int</span> mavsdk::Mavsdk::DEFAULT_SERIAL_BAUDRATE = <span class="hljs-number">57600</span>
 </code></pre>
 <p>Default serial baudrate.</p>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2019-12-03 23:24:06 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-01-05 23:46:57 </span> </footer>
                                 
                                 </section>
                             
@@ -2341,7 +2345,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"class Mavsdk","level":"1.4.3.12","depth":3,"next":{"title":"class Mission","level":"1.4.3.13","depth":3,"path":"api_reference/classmavsdk_1_1_mission.md","ref":"api_reference/classmavsdk_1_1_mission.md","articles":[]},"previous":{"title":"class MavlinkPassthrough","level":"1.4.3.11","depth":3,"path":"api_reference/classmavsdk_1_1_mavlink_passthrough.md","ref":"api_reference/classmavsdk_1_1_mavlink_passthrough.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"api_reference/classmavsdk_1_1_mavsdk.md","mtime":"2019-12-03T23:24:06.580Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-03T23:24:55.258Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"class Mavsdk","level":"1.4.3.12","depth":3,"next":{"title":"class Mission","level":"1.4.3.13","depth":3,"path":"api_reference/classmavsdk_1_1_mission.md","ref":"api_reference/classmavsdk_1_1_mission.md","articles":[]},"previous":{"title":"class MavlinkPassthrough","level":"1.4.3.11","depth":3,"path":"api_reference/classmavsdk_1_1_mavlink_passthrough.md","ref":"api_reference/classmavsdk_1_1_mavlink_passthrough.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"api_reference/classmavsdk_1_1_mavsdk.md","mtime":"2020-01-05T23:46:57.932Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-05T23:47:52.785Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

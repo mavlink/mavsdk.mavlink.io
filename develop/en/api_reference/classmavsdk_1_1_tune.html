@@ -33,6 +33,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions-select/plugin.css">
                 
             
@@ -1935,11 +1939,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="mavsdktune-class-reference">mavsdk::Tune Class Reference</h1>
+                                <h1 id="mavsdktune-class-reference"><a name="mavsdktune-class-reference" class="plugin-anchor" href="#mavsdktune-class-reference"><i class="fa fa-link" aria-hidden="true"></i></a>mavsdk::Tune Class Reference</h1>
 <p><code>#include: tune.h</code></p>
 <hr>
 <p>The <a href="classmavsdk_1_1_tune.html">Tune</a> class allows to send a tune to be played by the autopilot. </p>
-<h2 id="public-types">Public Types</h2>
+<h2 id="public-types"><a name="public-types" class="plugin-anchor" href="#public-types"><i class="fa fa-link" aria-hidden="true"></i></a>Public Types</h2>
 <table>
 <thead>
 <tr>
@@ -1962,7 +1966,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="public-member-functions">Public Member Functions</h2>
+<h2 id="public-member-functions"><a name="public-member-functions" class="plugin-anchor" href="#public-member-functions"><i class="fa fa-link" aria-hidden="true"></i></a>Public Member Functions</h2>
 <table>
 <thead>
 <tr>
@@ -1999,7 +2003,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="static-public-member-functions">Static Public Member Functions</h2>
+<h2 id="static-public-member-functions"><a name="static-public-member-functions" class="plugin-anchor" href="#static-public-member-functions"><i class="fa fa-link" aria-hidden="true"></i></a>Static Public Member Functions</h2>
 <table>
 <thead>
 <tr>
@@ -2016,8 +2020,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="constructor--destructor-documentation">Constructor &amp; Destructor Documentation</h2>
-<h3 id="classmavsdk_1_1_tune_1a1f60ea360006940e2bbae055733cc40a">Tune() </h3>
+<h2 id="constructor--destructor-documentation"><a name="constructor--destructor-documentation" class="plugin-anchor" href="#constructor--destructor-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Constructor &amp; Destructor Documentation</h2>
+<h3 id="classmavsdk_1_1_tune_1a1f60ea360006940e2bbae055733cc40a"><a name="classmavsdk_1_1_tune_1a1f60ea360006940e2bbae055733cc40a" class="plugin-anchor" href="#classmavsdk_1_1_tune_1a1f60ea360006940e2bbae055733cc40a"><i class="fa fa-link" aria-hidden="true"></i></a>Tune() </h3>
 <pre><code class="lang-cpp">mavsdk::Tune::Tune(System &amp;system)
 </code></pre>
 <p>Constructor. Creates the plugin for a specific <a href="classmavsdk_1_1_system.html">System</a>.</p>
@@ -2028,11 +2032,11 @@
 <ul>
 <li><a href="classmavsdk_1_1_system.html">System</a>&amp; <strong>system</strong> - The specific system associated with this plugin.</li>
 </ul>
-<h3 id="classmavsdk_1_1_tune_1a3b6b1ce61b620ad8e4d82227257151c7">~Tune() </h3>
+<h3 id="classmavsdk_1_1_tune_1a3b6b1ce61b620ad8e4d82227257151c7"><a name="classmavsdk_1_1_tune_1a3b6b1ce61b620ad8e4d82227257151c7" class="plugin-anchor" href="#classmavsdk_1_1_tune_1a3b6b1ce61b620ad8e4d82227257151c7"><i class="fa fa-link" aria-hidden="true"></i></a>~Tune() </h3>
 <pre><code class="lang-cpp">mavsdk::Tune::~Tune()
 </code></pre>
 <p>Destructor (internal use only).</p>
-<h3 id="classmavsdk_1_1_tune_1acea13c8927ff72394235c282289bcebc">Tune() </h3>
+<h3 id="classmavsdk_1_1_tune_1acea13c8927ff72394235c282289bcebc"><a name="classmavsdk_1_1_tune_1acea13c8927ff72394235c282289bcebc" class="plugin-anchor" href="#classmavsdk_1_1_tune_1acea13c8927ff72394235c282289bcebc"><i class="fa fa-link" aria-hidden="true"></i></a>Tune() </h3>
 <pre><code class="lang-cpp">mavsdk::Tune::Tune(<span class="hljs-keyword">const</span> Tune &amp;)=<span class="hljs-keyword">delete</span>
 </code></pre>
 <p>Copy constructor (object is not copyable).</p>
@@ -2040,13 +2044,13 @@
 <ul>
 <li>const <a href="classmavsdk_1_1_tune.html">Tune</a>&amp;  - </li>
 </ul>
-<h2 id="member-typdef-documentation">Member Typdef Documentation</h2>
-<h3 id="classmavsdk_1_1_tune_1ac303631c82b5a6b41ad1122b9a84652c">typedef result_callback_t </h3>
+<h2 id="member-typdef-documentation"><a name="member-typdef-documentation" class="plugin-anchor" href="#member-typdef-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Member Typdef Documentation</h2>
+<h3 id="classmavsdk_1_1_tune_1ac303631c82b5a6b41ad1122b9a84652c"><a name="classmavsdk_1_1_tune_1ac303631c82b5a6b41ad1122b9a84652c" class="plugin-anchor" href="#classmavsdk_1_1_tune_1ac303631c82b5a6b41ad1122b9a84652c"><i class="fa fa-link" aria-hidden="true"></i></a>typedef result_callback_t </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(Result)&gt; mavsdk::Tune::<span class="hljs-keyword">result_callback_t</span>
 </code></pre>
 <p>Callback type for async tune calls.</p>
-<h2 id="member-enumeration-documentation">Member Enumeration Documentation</h2>
-<h3 id="classmavsdk_1_1_tune_1aed2b008974298098cedd69b7e95e909d">enum Result </h3>
+<h2 id="member-enumeration-documentation"><a name="member-enumeration-documentation" class="plugin-anchor" href="#member-enumeration-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Member Enumeration Documentation</h2>
+<h3 id="classmavsdk_1_1_tune_1aed2b008974298098cedd69b7e95e909d"><a name="classmavsdk_1_1_tune_1aed2b008974298098cedd69b7e95e909d" class="plugin-anchor" href="#classmavsdk_1_1_tune_1aed2b008974298098cedd69b7e95e909d"><i class="fa fa-link" aria-hidden="true"></i></a>enum Result </h3>
 <p>Possible results returned for tune requests.</p>
 <table>
 <thead>
@@ -2074,7 +2078,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="classmavsdk_1_1_tune_1a97d85b5d578c74edc82a4337fc7bed57">enum SongElement </h3>
+<h3 id="classmavsdk_1_1_tune_1a97d85b5d578c74edc82a4337fc7bed57"><a name="classmavsdk_1_1_tune_1a97d85b5d578c74edc82a4337fc7bed57" class="plugin-anchor" href="#classmavsdk_1_1_tune_1a97d85b5d578c74edc82a4337fc7bed57"><i class="fa fa-link" aria-hidden="true"></i></a>enum SongElement </h3>
 <p>Enum representing a song element.</p>
 <table>
 <thead>
@@ -2170,8 +2174,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="member-function-documentation">Member Function Documentation</h2>
-<h3 id="classmavsdk_1_1_tune_1a363ab79e7d4a9798494a47add5d6587a">play_tune_async() </h3>
+<h2 id="member-function-documentation"><a name="member-function-documentation" class="plugin-anchor" href="#member-function-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Member Function Documentation</h2>
+<h3 id="classmavsdk_1_1_tune_1a363ab79e7d4a9798494a47add5d6587a"><a name="classmavsdk_1_1_tune_1a363ab79e7d4a9798494a47add5d6587a" class="plugin-anchor" href="#classmavsdk_1_1_tune_1a363ab79e7d4a9798494a47add5d6587a"><i class="fa fa-link" aria-hidden="true"></i></a>play_tune_async() </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Tune::play_tune_async(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt; SongElement &gt; &amp;tune, <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> tempo, <span class="hljs-keyword">result_callback_t</span> callback)
 </code></pre>
 <p>Send a tune to be played by the system (asynchronous).</p>
@@ -2181,7 +2185,7 @@
 <li>const int <strong>tempo</strong> - Tempo in quarter notes per minute (32 - 255).</li>
 <li><a href="classmavsdk_1_1_tune.html#classmavsdk_1_1_tune_1ac303631c82b5a6b41ad1122b9a84652c">result_callback_t</a> <strong>callback</strong> - Callback to receive result of this request.</li>
 </ul>
-<h3 id="classmavsdk_1_1_tune_1ae4a076da0417c6858df6fb59fa5110b5">operator=() </h3>
+<h3 id="classmavsdk_1_1_tune_1ae4a076da0417c6858df6fb59fa5110b5"><a name="classmavsdk_1_1_tune_1ae4a076da0417c6858df6fb59fa5110b5" class="plugin-anchor" href="#classmavsdk_1_1_tune_1ae4a076da0417c6858df6fb59fa5110b5"><i class="fa fa-link" aria-hidden="true"></i></a>operator=() </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">const</span> Tune&amp; mavsdk::Tune::<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> Tune &amp;)=<span class="hljs-keyword">delete</span>
 </code></pre>
 <p>Equality operator (object is not copyable).</p>
@@ -2191,7 +2195,7 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;const <a href="classmavsdk_1_1_tune.html">Tune</a> &amp; - </p>
-<h3 id="classmavsdk_1_1_tune_1a2311af1d0523317c61e11ac9f3146530">result_str() </h3>
+<h3 id="classmavsdk_1_1_tune_1a2311af1d0523317c61e11ac9f3146530"><a name="classmavsdk_1_1_tune_1a2311af1d0523317c61e11ac9f3146530" class="plugin-anchor" href="#classmavsdk_1_1_tune_1a2311af1d0523317c61e11ac9f3146530"><i class="fa fa-link" aria-hidden="true"></i></a>result_str() </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">static</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* mavsdk::Tune::result_str(Result result)
 </code></pre>
 <p>Gets a human-readable English string for an <a href="classmavsdk_1_1_tune.html#classmavsdk_1_1_tune_1aed2b008974298098cedd69b7e95e909d">Tune::Result</a>.</p>
@@ -2201,7 +2205,7 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;const char * - Human readable string for the <a href="classmavsdk_1_1_tune.html#classmavsdk_1_1_tune_1aed2b008974298098cedd69b7e95e909d">Tune::Result</a>.</p>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2019-12-03 23:24:06 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-01-05 23:46:57 </span> </footer>
                                 
                                 </section>
                             
@@ -2244,7 +2248,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"class Tune","level":"1.4.3.22","depth":3,"next":{"title":"namespace mavsdk (globals)","level":"1.4.3.23","depth":3,"path":"api_reference/namespacemavsdk.md","ref":"api_reference/namespacemavsdk.md","articles":[]},"previous":{"title":"struct StatusText","level":"1.4.3.21.22","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_status_text.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_status_text.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"api_reference/classmavsdk_1_1_tune.md","mtime":"2019-12-03T23:24:06.584Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-03T23:24:55.258Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"class Tune","level":"1.4.3.22","depth":3,"next":{"title":"namespace mavsdk (globals)","level":"1.4.3.23","depth":3,"path":"api_reference/namespacemavsdk.md","ref":"api_reference/namespacemavsdk.md","articles":[]},"previous":{"title":"struct StatusText","level":"1.4.3.21.22","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_status_text.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_status_text.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"api_reference/classmavsdk_1_1_tune.md","mtime":"2020-01-05T23:46:57.936Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-05T23:47:52.785Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

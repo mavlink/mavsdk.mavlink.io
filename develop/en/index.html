@@ -33,6 +33,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-versions-select/plugin.css">
                 
             
@@ -1934,13 +1938,13 @@
                                 <section class="normal markdown-section">
                                 
                                 <p><img src="../assets/site/sdk_logo_full.png" title="MAVSDK Logo" width="400px"></p>
-<h1 id="mavsdk-develop">MAVSDK (develop)</h1>
+<h1 id="mavsdk-develop"><a name="mavsdk-develop" class="plugin-anchor" href="#mavsdk-develop"><i class="fa fa-link" aria-hidden="true"></i></a>MAVSDK (develop)</h1>
 <p><a href="http://slack.px4.io" target="_blank"><img src="https://px4-slack.herokuapp.com/badge.svg" alt="Slack"></a>&#xA0;<a href="https://discuss.px4.io/c/sdk" target="_blank"><img src="https://img.shields.io/badge/discuss-MAVSDK-ff69b4.svg" alt="Discuss"></a> <a href="https://travis-ci.org/mavlink/MAVSDK" target="_blank"><img src="https://travis-ci.org/mavlink/MAVSDK.svg?branch=develop" alt="travis-ci build status"></a>
 <a href="https://ci.appveyor.com/project/Dronecode/dronecore/branch/develop" target="_blank"><img src="https://ci.appveyor.com/api/projects/status/1ntjvooywpxmoir8/branch/develop?svg=true" alt="Build status"></a>
 <a href="https://coveralls.io/github/mavlink/MAVSDK?branch=develop" target="_blank"><img src="https://coveralls.io/repos/github/mavlink/MAVSDK/badge.svg?branch=develop" alt="Coverage Status"></a></p>
 <p>The <em>MAVSDK</em> is a <a href="https://mavlink.io/en/" target="_blank">MAVLink</a> Library with APIs for <a href="cpp/">C++</a>, <a href="http://dronecode-sdk-swift.s3.eu-central-1.amazonaws.com/docs/master/index.html" target="_blank">iOS</a>, Python and Android.</p>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> The SDK is the best way to integrate with a flight stack over MAVLink!
+<blockquote>
+<p><strong>Tip</strong> The SDK is the best way to integrate with a flight stack over MAVLink!
   It is supported by <a href="https://www.dronecode.org/" target="_blank">Dronecode</a>, ensuring that it is robust, well tested, and maintained.</p>
 </blockquote>
 <p>The library provides a simple API for managing one or more vehicles, providing programmatic access to vehicle information and telemetry, and control over missions, movement and other operations.</p>
@@ -1948,10 +1952,10 @@
 <p>Developers can extend the core C++ SDK using plugins in order to add any other required MAVLink API (for example, to integrate a flight controller with custom cameras, gimbals, or other hardware over MAVLink).</p>
 <p>Cross-platform wrappers for the core library are actively being developed.
 These (primarily) use <a href="https://grpc.io/" target="_blank">gRPC</a> and <a href="http://reactivex.io/" target="_blank">Reactive Extensions</a>.</p>
-<h2 id="project-status">Project Status</h2>
+<h2 id="project-status"><a name="project-status" class="plugin-anchor" href="#project-status"><i class="fa fa-link" aria-hidden="true"></i></a>Project Status</h2>
 <p>The MAVSDK is a robust and well-tested library that is already being used in production environments.</p>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> Future compatibility is not guaranteed (the API is not &quot;stable&quot;).</p>
+<blockquote>
+<p><strong>Note</strong> Future compatibility is not guaranteed (the API is not &quot;stable&quot;).</p>
 </blockquote>
 <p>The current status is:</p>
 <ul>
@@ -1964,7 +1968,7 @@ These (primarily) use <a href="https://grpc.io/" target="_blank">gRPC</a> and <a
 <li>MAVSDK-Rust (2019): Proof of concept.</li>
 <li>Other cross-platform wrappers are actively being developed.</li>
 </ul>
-<h2 id="getting-started">Getting Started</h2>
+<h2 id="getting-started"><a name="getting-started" class="plugin-anchor" href="#getting-started"><i class="fa fa-link" aria-hidden="true"></i></a>Getting Started</h2>
 <ul>
 <li>Python 3 developers install and use <a href="https://github.com/mavlink/MAVSDK-Python#mavsdk-python" target="_blank">MAVSDK-Python</a> from PyPi (<code>pip3 install mavsdk</code>). 
 There is no further setup, so you can then immediately run the <a href="https://github.com/mavlink/MAVSDK-Python/tree/master/examples" target="_blank">examples</a> in the normal way. 
@@ -1972,7 +1976,7 @@ The drone API is essentially the same as for the <a href="api_reference/">C++ AP
 <li>iOS developers should start from the <a href="http://dronecode-sdk-swift.s3.eu-central-1.amazonaws.com/docs/master/index.html" target="_blank">Dronecode-SDK-Swift</a> reference.</li>
 <li>C++ Developers should start at the <a href="cpp/">C++ Library</a>.</li>
 </ul>
-<h2 id="getting-help">Getting Help</h2>
+<h2 id="getting-help"><a name="getting-help" class="plugin-anchor" href="#getting-help"><i class="fa fa-link" aria-hidden="true"></i></a>Getting Help</h2>
 <p>This guide contains information and examples showing how to use the SDK.
 If you have specific questions that are not answered by the documentation, these can be raised on:</p>
 <ul>
@@ -1986,7 +1990,7 @@ If you have specific questions that are not answered by the documentation, these
 <li><a href="https://github.com/mavlink/MAVSDK-Swift/issues" target="_blank">Swift API and Docs</a><!-- Add info about where Python etc API issues are reported). -->
 </li>
 </ul>
-<h2 id="library-features">Library Features</h2>
+<h2 id="library-features"><a name="library-features" class="plugin-anchor" href="#library-features"><i class="fa fa-link" aria-hidden="true"></i></a>Library Features</h2>
 <p>The core library is written in C++, with auto-generated bindings for other supported programming languages.</p>
 <p>The library is:</p>
 <ul>
@@ -2007,22 +2011,22 @@ If you have specific questions that are not answered by the documentation, these
 <li>Send commands to start sensor calibration.</li>
 </ul>
 <p>See the <a href="getting_started/faq.html">FAQ</a> for answers to common questions about the library. </p>
-<h2 id="contributing">Contributing</h2>
+<h2 id="contributing"><a name="contributing" class="plugin-anchor" href="#contributing"><i class="fa fa-link" aria-hidden="true"></i></a>Contributing</h2>
 <p>We welcome contributions! If you want to help or have suggestions/bug reports <a href="#getting-help">please get in touch with the development team</a>. </p>
 <p>The <a href="contributing/">Contributing</a> (C++) section contains everything you need to contribute, including topics about building the SDK from source code, running our integration and unit tests, and all other aspects of core development. </p>
-<h2 id="license">License</h2>
+<h2 id="license"><a name="license" class="plugin-anchor" href="#license"><i class="fa fa-link" aria-hidden="true"></i></a>License</h2>
 <ul>
 <li>The <em>MAVSDK</em> is licensed under the permissive <a href="https://github.com/mavlink/MAVSDK/blob/develop/LICENSE.md" target="_blank">BSD 3-clause</a>.</li>
 <li>This documentation is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> license.</li>
 </ul>
-<h2 id="governance">Governance</h2>
+<h2 id="governance"><a name="governance" class="plugin-anchor" href="#governance"><i class="fa fa-link" aria-hidden="true"></i></a>Governance</h2>
 <p>The MAVSDK project is hosted under the governance of the <a href="https://www.dronecode.org/" target="_blank">Dronecode Foundation</a>.</p>
 <p><a href="https://www.dronecode.org/" style="padding:20px" target="_blank"><img src="../assets/site/logo_dronecode.png" alt="Dronecode Logo" width="110px"></a>
 <a href="https://www.linuxfoundation.org/projects" style="padding:20px;" target="_blank"><img src="../assets/site/logo_linux_foundation.png" alt="Linux Foundation Logo" width="80px"></a></p>
 <div style="padding:10px">&#xA0;</div>
 
 
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2019-12-03 23:24:06 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-01-05 23:46:57 </span> </footer>
                                 
                                 </section>
                             
@@ -2061,7 +2065,7 @@ If you have specific questions that are not answered by the documentation, these
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"FAQ","level":"1.1.1","depth":2,"path":"getting_started/faq.md","ref":"getting_started/faq.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"README.md","mtime":"2019-12-03T23:24:06.580Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-03T23:24:55.258Z"},"basePath":".","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"FAQ","level":"1.1.1","depth":2,"path":"getting_started/faq.md","ref":"getting_started/faq.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"README.md","mtime":"2020-01-05T23:46:57.932Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-05T23:47:52.785Z"},"basePath":".","book":{"language":"en"}});
         });
     </script>
 </div>

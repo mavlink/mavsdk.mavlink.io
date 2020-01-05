@@ -33,6 +33,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions-select/plugin.css">
                 
             
@@ -1935,11 +1939,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="telemetry">Telemetry</h1>
+                                <h1 id="telemetry"><a name="telemetry" class="plugin-anchor" href="#telemetry"><i class="fa fa-link" aria-hidden="true"></i></a>Telemetry</h1>
 <p>The <a href="../api_reference/classmavsdk_1_1_telemetry.html">Telemetry</a> class is used to get vehicle telemetry, including state and flight mode information.</p>
 <p>All the methods have both synchronous and asynchronous versions, and users can set the rate at which the vehicle provides updates for each type of information. 
 All the methods of a particular type (synchronous, asynchronous, and set_rate methods) are used in the same way.</p>
-<h2 id="api-overview">API Overview</h2>
+<h2 id="api-overview"><a name="api-overview" class="plugin-anchor" href="#api-overview"><i class="fa fa-link" aria-hidden="true"></i></a>API Overview</h2>
 <p>The <code>Telemetry</code> API provides methods to return the following types of information:</p>
 <ul>
 <li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_position.html">Position</a> - latitude and longitude in degrees, and altitude relative to sea level and to the takeoff altitude.</li>
@@ -1957,9 +1961,9 @@ All the methods of a particular type (synchronous, asynchronous, and set_rate me
 <li>Whether the vehicle is armed/disarmed.</li>
 <li>Whether the vehicle is flying/in air.</li>
 </ul>
-<h2 id="create-the-plugin">Create the Plugin</h2>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> <code>Telemetry</code> objects are created in the same way as objects in other SDK plugins. 
+<h2 id="create-the-plugin"><a name="create-the-plugin" class="plugin-anchor" href="#create-the-plugin"><i class="fa fa-link" aria-hidden="true"></i></a>Create the Plugin</h2>
+<blockquote>
+<p><strong>Tip</strong> <code>Telemetry</code> objects are created in the same way as objects in other SDK plugins. 
 General instructions are provided in the topic: <a href="using_plugins.html">Using Plugins</a>.</p>
 </blockquote>
 <p>The main steps are:</p>
@@ -1989,10 +1993,10 @@ auto telemetry = std::make_shared&lt;Telemetry&gt;(system);
 </code></pre></li>
 </ol>
 <p>The <code>telemetry</code> pointer can then used to access the plugin API (as shown in the following sections).</p>
-<h2 id="update-rate">Setting the Update Rate </h2>
+<h2 id="update-rate"><a name="update-rate" class="plugin-anchor" href="#update-rate"><i class="fa fa-link" aria-hidden="true"></i></a>Setting the Update Rate </h2>
 <p>The telemetry update rate determines the frequency at which callbacks will be invoked with new information, and also the probable &quot;freshness&quot; of data obtained when using synchronous telemetry APIs. The default update rate depends on the autopilot and may also be limited by the characteristics of the communications channel. You can set the rate for <em>each</em> type of telemetry, and both synchronous or asynchronous rate-setting methods are provided. </p>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> For PX4 running on hardware the <em>default</em> rates are set on a per-mode basis in <a href="https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_main.cpp#L2025" target="_blank">mavlink_main.cpp</a> (search on <code>configure_stream</code>). For PX4 running on SITL, the default rates are defined in the <a href="https://dev.px4.io/en/simulation/#example-startup-file" target="_blank">init file</a>.</p>
+<blockquote>
+<p><strong>Note</strong> For PX4 running on hardware the <em>default</em> rates are set on a per-mode basis in <a href="https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_main.cpp#L2025" target="_blank">mavlink_main.cpp</a> (search on <code>configure_stream</code>). For PX4 running on SITL, the default rates are defined in the <a href="https://dev.px4.io/en/simulation/#example-startup-file" target="_blank">init file</a>.</p>
 </blockquote>
 <p>The rate-setting methods are all used in the same way, so we just show one example for both the asynchronous and synchronous methods below. In both cases we set the rate for position updates.</p>
 <p>To set the position update rate synchronously (in this case using <a href="../api_reference/classmavsdk_1_1_telemetry.html#classmavsdk_1_1_telemetry_1ae7a6e1313b1508fef7163287aa77a6da">set_rate_position()</a>):</p>
@@ -2022,7 +2026,7 @@ auto telemetry = std::make_shared&lt;Telemetry&gt;(system);
     }
 }
 </code></pre>
-<h2 id="getting-regular-updates">Getting Regular Updates</h2>
+<h2 id="getting-regular-updates"><a name="getting-regular-updates" class="plugin-anchor" href="#getting-regular-updates"><i class="fa fa-link" aria-hidden="true"></i></a>Getting Regular Updates</h2>
 <p>The best way to get telemetry updates is to use the asynchronous methods. 
 These methods are non-blocking - they take a callback function argument and return immediately. 
 The callback will be invoked with a populated <code>struct</code> of the associated type as soon as an update message arrives from the vehicle. 
@@ -2037,7 +2041,7 @@ The rate at which this occurs can be set through the API <a href="#update-rate">
               &lt;&lt; <span class="hljs-string">&quot;Longitude: &quot;</span> &lt;&lt; position.longitude_deg &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
 });
 </code></pre>
-<h2 id="detecting-changes-only">Detecting Changes (only)</h2>
+<h2 id="detecting-changes-only"><a name="detecting-changes-only" class="plugin-anchor" href="#detecting-changes-only"><i class="fa fa-link" aria-hidden="true"></i></a>Detecting Changes (only)</h2>
 <p>The asynchronous callbacks are updated every time new information is provided by the vehicle. 
 For some types of telemetry you may only wish to report only when the value changes.</p>
 <p>The example below shows how to use <a href="../api_reference/classmavsdk_1_1_telemetry.html#classmavsdk_1_1_telemetry_1ac8842dec06db4bd54c8c2ba2deb0d34a">flight_mode_async()</a> to report only when the current flight mode changes. 
@@ -2054,10 +2058,10 @@ telemetry-&gt;flight_mode_async([&amp;oldFlightMode](Telemetry::FlightMode fligh
 });
 </code></pre>
 <p>This same approach can be used to report only messages that meet some condition.</p>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> In future we may add a mechanism <em>in the API</em> to support just reporting changes: <a href="https://github.com/mavlink/MAVSDK/issues/63" target="_blank">Issue #63</a>.</p>
+<blockquote>
+<p><strong>Tip</strong> In future we may add a mechanism <em>in the API</em> to support just reporting changes: <a href="https://github.com/mavlink/MAVSDK/issues/63" target="_blank">Issue #63</a>.</p>
 </blockquote>
-<h2 id="blocking-telemetry-requests-state-management">Blocking Telemetry Requests (State Management)</h2>
+<h2 id="blocking-telemetry-requests-state-management"><a name="blocking-telemetry-requests-state-management" class="plugin-anchor" href="#blocking-telemetry-requests-state-management"><i class="fa fa-link" aria-hidden="true"></i></a>Blocking Telemetry Requests (State Management)</h2>
 <p>Some commands/vehicle operations must be performed in a certain sequence, or can only be called when the vehicle reaches a certain state. 
 For example, in order to takeoff the vehicle must first be armed, and in order to arm, the vehicle must have a home position/GPS lock. 
 For these cases you will want to monitor for the vehicle being in a certain state and block other commands until it is ready to proceed. </p>
@@ -2089,7 +2093,7 @@ For example, the following code shows how you might poll for whether the vehicle
 </code></pre>
 <p>Depending on the architecture of your application, you may even wish to arm the vehicle in your callback function. 
 Usually though it is easier to understand program flow using the approach above.</p>
-<h2 id="further-information">Further Information</h2>
+<h2 id="further-information"><a name="further-information" class="plugin-anchor" href="#further-information"><i class="fa fa-link" aria-hidden="true"></i></a>Further Information</h2>
 <p>Additional information/examples for the Telemetry API are linked below:</p>
 <ul>
 <li><a href="../examples/">SDK Examples</a></li>
@@ -2101,7 +2105,7 @@ Usually though it is easier to understand program flow using the approach above.
 </ul>
 </li>
 </ul>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2019-12-03 23:24:06 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-01-05 23:46:57 </span> </footer>
                                 
                                 </section>
                             
@@ -2144,7 +2148,7 @@ Usually though it is easier to understand program flow using the approach above.
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Telemetry","level":"1.4.1.5","depth":3,"next":{"title":"Actions - Take Off, Arm, ...","level":"1.4.1.6","depth":3,"path":"guide/taking_off_landing.md","ref":"guide/taking_off_landing.md","articles":[]},"previous":{"title":"System Information","level":"1.4.1.4","depth":3,"path":"guide/system_information.md","ref":"guide/system_information.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"guide/telemetry.md","mtime":"2019-12-03T23:24:06.592Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-03T23:24:55.258Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Telemetry","level":"1.4.1.5","depth":3,"next":{"title":"Actions - Take Off, Arm, ...","level":"1.4.1.6","depth":3,"path":"guide/taking_off_landing.md","ref":"guide/taking_off_landing.md","articles":[]},"previous":{"title":"System Information","level":"1.4.1.4","depth":3,"path":"guide/system_information.md","ref":"guide/system_information.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"guide/telemetry.md","mtime":"2020-01-05T23:46:57.940Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-05T23:47:52.785Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

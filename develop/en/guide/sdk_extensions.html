@@ -33,6 +33,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions-select/plugin.css">
                 
             
@@ -1935,14 +1939,14 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="sdk-extensions">SDK Extensions</h1>
+                                <h1 id="sdk-extensions"><a name="sdk-extensions" class="plugin-anchor" href="#sdk-extensions"><i class="fa fa-link" aria-hidden="true"></i></a>SDK Extensions</h1>
 <p>The MAVSDK can be extended with <a href="../contributing/plugins.html">plugins</a> and <a href="../contributing/test.html">tests</a> that are defined &quot;out of tree&quot;.
 This enables developers to manage custom code in a separate repository (reducing <em>git</em> conflicts). </p>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> Extensions are defined in a parallel tree that <em>mirrors</em> the SDK source code structure. 
+<blockquote>
+<p><strong>Note</strong> Extensions are defined in a parallel tree that <em>mirrors</em> the SDK source code structure. 
 Extension plugins and tests are <em>exactly the same</em> as &quot;standard&quot; SDK plugins and tests.</p>
 </blockquote>
-<h2 id="folder-structure">Folder Structure</h2>
+<h2 id="folder-structure"><a name="folder-structure" class="plugin-anchor" href="#folder-structure"><i class="fa fa-link" aria-hidden="true"></i></a>Folder Structure</h2>
 <p>The extension folder <em>mirrors</em> the SDK source tree, and <strong>must</strong> contain the folders <strong>integration_tests</strong> and <strong>plugins</strong>.
 The <em>plugin</em> folder contains appropriately named sub-folders for each plugin (along with its unit test code).</p>
 <p>A simplified view of a &quot;typical&quot; extension directory is shown below (in this case named &quot;SDK_Extensions&quot;). </p>
@@ -1959,7 +1963,7 @@ The <em>plugin</em> folder contains appropriately named sub-folders for each plu
 &#x2502;       &#x251C;&#x2500;&#x2500; camera
 &#x2502;       &#x251C;&#x2500;&#x2500; another_plugin
 &#x2502;       &#x2514;&#x2500;&#x2500; etc.
-</code></pre><h2 id="create-an-sdk-extension-library">Create an SDK Extension Library</h2>
+</code></pre><h2 id="create-an-sdk-extension-library"><a name="create-an-sdk-extension-library" class="plugin-anchor" href="#create-an-sdk-extension-library"><i class="fa fa-link" aria-hidden="true"></i></a>Create an SDK Extension Library</h2>
 <p>To create a new C++ MAVSDK Extension Library, first copy <a href="https://github.com/mavlink/MAVSDK/tree/develop/src/external_example" target="_blank">MAVSDK/src/external_example</a> to the same folder level as the MAVSDK directory.
 Then rename the top level folder as desired.</p>
 <p>The <em>external_example</em> contains a single integration test (<strong>hello_world.cpp</strong>) and a single plugin (<strong>/example</strong>) 
@@ -1976,28 +1980,28 @@ with a separate implementation file and a stub unit test file. </p>
         &#x251C;&#x2500;&#x2500; example_impl.cpp
         &#x251C;&#x2500;&#x2500; example_impl.h
         &#x2514;&#x2500;&#x2500; example_impl_test.cpp
-</code></pre><h2 id="addingmodifying-plugins">Adding/Modifying Plugins</h2>
+</code></pre><h2 id="addingmodifying-plugins"><a name="addingmodifying-plugins" class="plugin-anchor" href="#addingmodifying-plugins"><i class="fa fa-link" aria-hidden="true"></i></a>Adding/Modifying Plugins</h2>
 <p>Plugins in extension libraries are exactly the same as &quot;normal&quot; SDK plugins 
 (except that they are located in the extension &quot;plugins&quot; folder rather than under <strong>MAVSDK</strong>).</p>
 <p><a href="../contributing/plugins.html">Writing Plugins</a> explains how to write or modify plugins.</p>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> To create a new plugin you can either copy and modify an existing SDK plugin or start from the example plugin shown above.</p>
+<blockquote>
+<p><strong>Tip</strong> To create a new plugin you can either copy and modify an existing SDK plugin or start from the example plugin shown above.</p>
 </blockquote>
-<h2 id="testing">Testing</h2>
+<h2 id="testing"><a name="testing" class="plugin-anchor" href="#testing"><i class="fa fa-link" aria-hidden="true"></i></a>Testing</h2>
 <p>Tests in extension libraries are written in exactly the same as &quot;normal&quot; SDK plugin tests.</p>
 <p>The only difference is that all external tests should be compiled into their own &quot;test runner&quot;. 
 The test runner for the &quot;external example&quot; is defined in 
 <a href="https://github.com/mavlink/MAVSDK/blob/develop/src/external_example/integration_tests/CMakeLists.txt" target="_blank">/integration_tests/CMakeLists.txt</a> (named <code>external_example_integration_tests_runner</code>).</p>
 <p><a href="../contributing/test.html">Testing</a> explains how to run (and write) unit and integration tests.</p>
-<h2 id="building">Building</h2>
+<h2 id="building"><a name="building" class="plugin-anchor" href="#building"><i class="fa fa-link" aria-hidden="true"></i></a>Building</h2>
 <p>To build the MAVSDK so that it includes the extension library, 
 specify the top level directory <code>EXTERNAL_DIR</code> in the <code>make</code> command (only one external directory can be specified). </p>
 <p>To build and install a parallel folder named <strong>SDK_Extensions</strong> you would enter (from within the <strong>MAVSDK</strong> directory):</p>
 <pre><code>make clean   # This is required!
 make default EXTERNAL_DIR=../SDK_Extensions
 sudo make default install   # sudo needed to install files into system directories.
-</code></pre><blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> You can test this by copying the <a href="https://github.com/mavlink/MAVSDK/tree/develop/src/external_example" target="_blank">MAVSDK/src/external_example</a> directory as a peer of <strong>MAVSDK</strong> and renaming it to <em>SDK_Extensions</em>.</p>
+</code></pre><blockquote>
+<p><strong>Tip</strong> You can test this by copying the <a href="https://github.com/mavlink/MAVSDK/tree/develop/src/external_example" target="_blank">MAVSDK/src/external_example</a> directory as a peer of <strong>MAVSDK</strong> and renaming it to <em>SDK_Extensions</em>.</p>
 </blockquote>
 <!-- 
 ## Additional Functionality
@@ -2007,7 +2011,7 @@ sudo make default install   # sudo needed to install files into system directori
 Functionality delivered in: https://github.com/mavlink/MAVSDK/pull/139
 This is somewhat internal.
 -->
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2019-12-03 23:24:06 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-01-05 23:46:57 </span> </footer>
                                 
                                 </section>
                             
@@ -2050,7 +2054,7 @@ This is somewhat internal.
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SDK Extensions","level":"1.4.1.12","depth":3,"next":{"title":"Examples","level":"1.4.2","depth":2,"path":"examples/README.md","ref":"examples/README.md","articles":[{"title":"Takeoff and Land","level":"1.4.2.1","depth":3,"path":"examples/takeoff_and_land.md","ref":"examples/takeoff_and_land.md","articles":[]},{"title":"Fly Mission","level":"1.4.2.2","depth":3,"path":"examples/fly_mission.md","ref":"examples/fly_mission.md","articles":[]},{"title":"Fly QGC Plan Mission","level":"1.4.2.3","depth":3,"path":"examples/fly_mission_qgc_plan.md","ref":"examples/fly_mission_qgc_plan.md","articles":[]},{"title":"Offboard Mode - Velocity Control","level":"1.4.2.4","depth":3,"path":"examples/offboard_velocity.md","ref":"examples/offboard_velocity.md","articles":[]},{"title":"Follow Me Mode","level":"1.4.2.5","depth":3,"path":"examples/follow_me.md","ref":"examples/follow_me.md","articles":[]},{"title":"VTOL Transitions","level":"1.4.2.6","depth":3,"path":"examples/transition_vtol_fixed_wing.md","ref":"examples/transition_vtol_fixed_wing.md","articles":[]}]},"previous":{"title":"Building C++ Apps","level":"1.4.1.11","depth":3,"path":"guide/toolchain.md","ref":"guide/toolchain.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"guide/sdk_extensions.md","mtime":"2019-12-03T23:24:06.588Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-03T23:24:55.258Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"SDK Extensions","level":"1.4.1.12","depth":3,"next":{"title":"Examples","level":"1.4.2","depth":2,"path":"examples/README.md","ref":"examples/README.md","articles":[{"title":"Takeoff and Land","level":"1.4.2.1","depth":3,"path":"examples/takeoff_and_land.md","ref":"examples/takeoff_and_land.md","articles":[]},{"title":"Fly Mission","level":"1.4.2.2","depth":3,"path":"examples/fly_mission.md","ref":"examples/fly_mission.md","articles":[]},{"title":"Fly QGC Plan Mission","level":"1.4.2.3","depth":3,"path":"examples/fly_mission_qgc_plan.md","ref":"examples/fly_mission_qgc_plan.md","articles":[]},{"title":"Offboard Mode - Velocity Control","level":"1.4.2.4","depth":3,"path":"examples/offboard_velocity.md","ref":"examples/offboard_velocity.md","articles":[]},{"title":"Follow Me Mode","level":"1.4.2.5","depth":3,"path":"examples/follow_me.md","ref":"examples/follow_me.md","articles":[]},{"title":"VTOL Transitions","level":"1.4.2.6","depth":3,"path":"examples/transition_vtol_fixed_wing.md","ref":"examples/transition_vtol_fixed_wing.md","articles":[]}]},"previous":{"title":"Building C++ Apps","level":"1.4.1.11","depth":3,"path":"guide/toolchain.md","ref":"guide/toolchain.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"guide/sdk_extensions.md","mtime":"2020-01-05T23:46:57.940Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-05T23:47:52.785Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

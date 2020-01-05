@@ -33,6 +33,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions-select/plugin.css">
                 
             
@@ -1935,13 +1939,13 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="building-sdk-from-source">Building SDK from Source</h1>
+                                <h1 id="building-sdk-from-source"><a name="building-sdk-from-source" class="plugin-anchor" href="#building-sdk-from-source"><i class="fa fa-link" aria-hidden="true"></i></a>Building SDK from Source</h1>
 <p>This section explains how to <a href="#build_sdk_cpp">build</a> and <a href="#install-artifacts">install</a> the MAVSDK C++ library from source for all our target platforms.
 It also shows how to build the SDK with extensions and build the API Reference documentation.</p>
-<h2 id="build_sdk_cpp">Build the C++ Library </h2>
+<h2 id="build_sdk_cpp"><a name="build_sdk_cpp" class="plugin-anchor" href="#build_sdk_cpp"><i class="fa fa-link" aria-hidden="true"></i></a>Build the C++ Library </h2>
 <p>This section explains how to build the SDK C++ library from source, along with its unit and integration tests.
 Build artifacts are created in the <strong>build</strong> subdirectory.</p>
-<h3 id="build_cpp_mac_os">macOS </h3>
+<h3 id="build_cpp_mac_os"><a name="build_cpp_mac_os" class="plugin-anchor" href="#build_cpp_mac_os"><i class="fa fa-link" aria-hidden="true"></i></a>macOS </h3>
 <p>First install:</p>
 <ul>
 <li><a href="https://developer.apple.com/xcode/" target="_blank">XCode</a> (for <em>clang</em>)</li>
@@ -1950,15 +1954,15 @@ Once you have installed brew, you can install <em>cmake</em> via the terminal:<p
 </code></pre></li>
 </ul>
 <p>Then follow the instructions for building the library on <a href="#build_cpp_linux">Linux</a>.</p>
-<h3 id="build_cpp_linux">Linux </h3>
+<h3 id="build_cpp_linux"><a name="build_cpp_linux" class="plugin-anchor" href="#build_cpp_linux"><i class="fa fa-link" aria-hidden="true"></i></a>Linux </h3>
 <p>To build the MAVSDK C++ Library on Linux (or macOS after installing the <a href="#build_cpp_mac_os">preconditions above</a>):</p>
 <ol>
 <li><p>First install the dependencies</p>
 <pre><code class="lang-bash">sudo apt-get update -y
 sudo apt-get install cmake build-essential colordiff git doxygen -y
 </code></pre>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> If the build reports a missing dependency, confirm that the set above matches the requirements in the <a href="https://github.com/mavlink/MAVSDK/tree/develop/docker" target="_blank">appropriate docker file for your platform</a>.</p>
+<blockquote>
+<p><strong>Note</strong> If the build reports a missing dependency, confirm that the set above matches the requirements in the <a href="https://github.com/mavlink/MAVSDK/tree/develop/docker" target="_blank">appropriate docker file for your platform</a>.</p>
 </blockquote>
 </li>
 <li><p>Clone the <a href="https://github.com/mavlink/MAVSDK" target="_blank">MAVSDK repository</a> (or your fork):</p>
@@ -1979,8 +1983,8 @@ sudo apt-get install cmake build-essential colordiff git doxygen -y
 <li>Build the (debug) C++ library by calling:<pre><code class="lang-sh">cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_SHARED_LIBS=ON -Bbuild/default -H.
 cmake --build build/default
 </code></pre>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> You can build <em>release</em> binaries by setting <code>CMAKE_BUILD_TYPE=Release</code> as shown below:</p>
+<blockquote>
+<p><strong>Tip</strong> You can build <em>release</em> binaries by setting <code>CMAKE_BUILD_TYPE=Release</code> as shown below:</p>
 <pre><code class="lang-sh">  cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -Bbuild/default -H.
   cmake --build build/default
 </code></pre>
@@ -1988,7 +1992,7 @@ cmake --build build/default
 </li>
 <li>&quot;Install&quot; the MAVSDK <a href="#install-artifacts">as described below</a>.</li>
 </ol>
-<h3 id="build_cpp_windows">Windows </h3>
+<h3 id="build_cpp_windows"><a name="build_cpp_windows" class="plugin-anchor" href="#build_cpp_windows"><i class="fa fa-link" aria-hidden="true"></i></a>Windows </h3>
 <p>To build the library in Windows, you need:</p>
 <ul>
 <li><a href="https://www.visualstudio.com/downloads/#58852" target="_blank">Build Tools for Visual Studio 2017</a>: Download and install (only the &quot;Visual C+ Build Tools&quot; are needed from installer).</li>
@@ -2016,8 +2020,8 @@ Make sure to tick &quot;add to PATH&quot; during the installation.</li>
 cmake -G <span class="hljs-string">&quot;Visual Studio 15 2017&quot;</span> -DBUILD_SHARED_LIBS=ON -Bbuild/default -H.
 cmake --build build/default --config Debug
 </code></pre>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> You can generate <em>release</em> binaries by setting <code>--config Release</code> in the build step:</p>
+<blockquote>
+<p><strong>Tip</strong> You can generate <em>release</em> binaries by setting <code>--config Release</code> in the build step:</p>
 <pre><code class="lang-sh">  cmake --build build --config Release
 </code></pre>
 <p><span></span>
@@ -2029,17 +2033,17 @@ cmake --build build/default --config Debug
 <li><p>&quot;Install&quot; the SDK <a href="#install-artifacts">as described below</a>.</p>
 </li>
 </ol>
-<h2 id="install-artifacts">Install the SDK </h2>
+<h2 id="install-artifacts"><a name="install-artifacts" class="plugin-anchor" href="#install-artifacts"><i class="fa fa-link" aria-hidden="true"></i></a>Install the SDK </h2>
 <p><em>Installing</em> builds the SDK <strong>and</strong> copies the libraries and header files into a &quot;public&quot; location so that they can be referenced by C++ applications (see <a href="../guide/toolchain.html">Building C++ Apps</a>).
 The SDK supports installation system-wide by default. You can also install files locally/relative to the MAVSDK tree if needed.</p>
-<blockquote class="clearfix alert alert-warning"><strong class="fa fa-2x fa-exclamation-triangle"></strong>
-<p> System-wide installation is not yet supported on Windows (see <a href="https://github.com/mavlink/MAVSDK/issues/155" target="_blank">#155</a>) so you will need to <a href="#sdk_local_install">install the SDK locally</a>.</p>
+<blockquote>
+<p><strong>Warning</strong> System-wide installation is not yet supported on Windows (see <a href="https://github.com/mavlink/MAVSDK/issues/155" target="_blank">#155</a>) so you will need to <a href="#sdk_local_install">install the SDK locally</a>.</p>
 <p>Windows gurus, we&apos;d <a href="../#getting-help">love your help</a> to implement this).</p>
 </blockquote>
-<h3 id="sdk_system_wide_install">System-wide Install </h3>
+<h3 id="sdk_system_wide_install"><a name="sdk_system_wide_install" class="plugin-anchor" href="#sdk_system_wide_install"><i class="fa fa-link" aria-hidden="true"></i></a>System-wide Install </h3>
 <p>System-wide installation copies the SDK headers and binaries to the standard system-wide locations for your platform (e.g. on Ubuntu Linux this is <strong>/usr/local/</strong>).</p>
-<blockquote class="clearfix alert alert-warning"><strong class="fa fa-2x fa-exclamation-triangle"></strong>
-<p> System-wide installation overwrites any previously installed version of the SDK.</p>
+<blockquote>
+<p><strong>Warning</strong> System-wide installation overwrites any previously installed version of the SDK.</p>
 </blockquote>
 <p>To install the SDK system-wide:</p>
 <pre><code class="lang-sh">sudo cmake --build build/default --target install <span class="hljs-comment"># sudo is required to install to system directories!</span>
@@ -2047,11 +2051,11 @@ The SDK supports installation system-wide by default. You can also install files
 <span class="hljs-comment"># First installation only</span>
 sudo ldconfig  <span class="hljs-comment"># update linker cache</span>
 </code></pre>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> The first time you build the SDK you may also need to <a href="http://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html" target="_blank">update the linker cache</a>.
+<blockquote>
+<p><strong>Note</strong> The first time you build the SDK you may also need to <a href="http://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html" target="_blank">update the linker cache</a>.
   On Ubuntu this is done with <code>sudo ldconfig</code>, as shown above.</p>
 </blockquote>
-<h3 id="sdk_local_install">Local Install </h3>
+<h3 id="sdk_local_install"><a name="sdk_local_install" class="plugin-anchor" href="#sdk_local_install"><i class="fa fa-link" aria-hidden="true"></i></a>Local Install </h3>
 <p>Local installation copies the SDK headers/library to a user-specified location inside the SDK source directory.</p>
 <p>On Linux/macOS use the <code>CMAKE_INSTALL_PREFIX</code> variable to specify a path relative to the folder from which you call <code>cmake</code>
 (or an absolute path).
@@ -2059,14 +2063,14 @@ For example, to install into the <strong>MAVSDK/install/</strong> folder you wou
 <pre><code class="lang-sh">cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=install -Bbuild/default -H.
 cmake --build build/default --target install
 </code></pre>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> If you already have run <em>cmake</em> without setting <code>CMAKE_INSTALL_PREFIX</code>, you may need to clean the build first:</p>
+<blockquote>
+<p><strong>Tip</strong> If you already have run <em>cmake</em> without setting <code>CMAKE_INSTALL_PREFIX</code>, you may need to clean the build first:</p>
 <pre><code class="lang-sh">  rm -rf build/default
 </code></pre>
 </blockquote>
-<h2 id="build_cpp_android">Build for Android </h2>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> You must first build the C++ Library (as shown above).</p>
+<h2 id="build_cpp_android"><a name="build_cpp_android" class="plugin-anchor" href="#build_cpp_android"><i class="fa fa-link" aria-hidden="true"></i></a>Build for Android </h2>
+<blockquote>
+<p><strong>Tip</strong> You must first build the C++ Library (as shown above).</p>
 </blockquote>
 <p>To build for Android devices or simulators, you first need to install:</p>
 <ul>
@@ -2087,9 +2091,9 @@ cmake --build build/default --target install
 <p>Then you build for all Android architectures:</p>
 <pre><code class="lang-sh">make android install
 </code></pre>
-<h2 id="build_cpp_iOS">Build for iOS </h2>
-<blockquote class="clearfix alert alert-warning"><strong class="fa fa-2x fa-exclamation-triangle"></strong>
-<p> You must first build the C++ Library (as shown above).</p>
+<h2 id="build_cpp_iOS"><a name="build_cpp_iOS" class="plugin-anchor" href="#build_cpp_iOS"><i class="fa fa-link" aria-hidden="true"></i></a>Build for iOS </h2>
+<blockquote>
+<p><strong>Warning</strong> You must first build the C++ Library (as shown above).</p>
 </blockquote>
 <p>To build for real iOS devices on macOS:</p>
 <pre><code class="lang-sh">cmake -DCMAKE_TOOLCHAIN_FILE=tools/ios.toolchain.cmake -Bbuild/ios -H.
@@ -2098,20 +2102,20 @@ cmake --build build/ios
 <p>Build for the iOS simulator on macOS:</p>
 <pre><code class="lang-sh">cmake -DCMAKE_TOOLCHAIN_FILE=tools/ios.toolchain.cmake -DPLATFORM=SIMULATOR64 -Bbuild/ios_simulator -H.
 </code></pre>
-<h2 id="sdk_extensions">Build SDK Extensions </h2>
+<h2 id="sdk_extensions"><a name="sdk_extensions" class="plugin-anchor" href="#sdk_extensions"><i class="fa fa-link" aria-hidden="true"></i></a>Build SDK Extensions </h2>
 <p>The MAVSDK can be extended with plugins and integration tests that are defined &quot;out of tree&quot;. These are declared inside a parallel directory that is included into the SDK at compile time (by specifying <code>EXTERNAL_DIR</code> in the <code>make</code> command).</p>
 <p>The commands to build the SDK with an extension library are:</p>
 <pre><code class="lang-sh">cmake -DEXTERNAL_DIR=relative_path_to_external_directory -Dbuild/default -H.
 cmake --build build/default
 </code></pre>
 <p>See <a href="../guide/sdk_extensions.html">SDK Extensions</a> for more information.</p>
-<h2 id="build_backend">Building the Backend </h2>
+<h2 id="build_backend"><a name="build_backend" class="plugin-anchor" href="#build_backend"><i class="fa fa-link" aria-hidden="true"></i></a>Building the Backend </h2>
 <p>The MAVSDK programming-language-specific libraries (e.g. <a href="http://dronecode-sdk-swift.s3.eu-central-1.amazonaws.com/docs/master/index.html" target="_blank">Swift</a>, <a href="https://github.com/mavlink/MAVSDK-Python#dronecodesdk-python" target="_blank">Python</a>) share a common backend, which may optionally be built as part of the C++ library.</p>
 <p>The cmake configuration step additionally depends on the <code>-DBUILD_BACKEND=ON</code> option. Otherwise the build is exactly the same as usual.</p>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> When building the backend, we usually like to link all the dependencies statically, and therefore we set <code>-DBUILD_SHARED_LIBS=OFF</code> (or don&apos;t specify it, because the default is <code>OFF</code>).</p>
+<blockquote>
+<p><strong>Tip</strong> When building the backend, we usually like to link all the dependencies statically, and therefore we set <code>-DBUILD_SHARED_LIBS=OFF</code> (or don&apos;t specify it, because the default is <code>OFF</code>).</p>
 </blockquote>
-<h3 id="build_backend_ubuntu">Ubuntu </h3>
+<h3 id="build_backend_ubuntu"><a name="build_backend_ubuntu" class="plugin-anchor" href="#build_backend_ubuntu"><i class="fa fa-link" aria-hidden="true"></i></a>Ubuntu </h3>
 <p>To build the backend on Ubuntu:</p>
 <ol>
 <li><a href="#build_cpp_linux">Setup the C++ Library on Linux</a></li>
@@ -2120,7 +2124,7 @@ cmake -DBUILD_BACKEND=ON -Bbuild/default -H.
 cmake --build build/default
 </code></pre></li>
 </ol>
-<h3 id="build_backend_macos">macOS </h3>
+<h3 id="build_backend_macos"><a name="build_backend_macos" class="plugin-anchor" href="#build_backend_macos"><i class="fa fa-link" aria-hidden="true"></i></a>macOS </h3>
 <p>To build the backend on macOS:</p>
 <ol>
 <li><a href="#build_cpp_mac_os">Setup the C++ Library on macOS</a></li>
@@ -2129,7 +2133,7 @@ cmake -DBUILD_BACKEND=ON -Bbuild/default -H.
 cmake --build build/default
 </code></pre></li>
 </ol>
-<h3 id="build_backend_windows">Windows </h3>
+<h3 id="build_backend_windows"><a name="build_backend_windows" class="plugin-anchor" href="#build_backend_windows"><i class="fa fa-link" aria-hidden="true"></i></a>Windows </h3>
 <p>To build the backend on Windows:</p>
 <ol>
 <li>[Setup the C++ Library on Windows(#build_cpp_windows)</li>
@@ -2137,7 +2141,7 @@ cmake --build build/default
 cmake --build build/default
 </code></pre></li>
 </ol>
-<h3 id="cross_compilation_dockcross">Cross compilation using dockcross </h3>
+<h3 id="cross_compilation_dockcross"><a name="cross_compilation_dockcross" class="plugin-anchor" href="#cross_compilation_dockcross"><i class="fa fa-link" aria-hidden="true"></i></a>Cross compilation using dockcross </h3>
 <p>To compile for platforms like the Raspberry Pi, BeagleBone Blue or Nvidia Jetson, cross compilation is typically faster than native compilation on the &quot;embedded&quot; device.</p>
 <p>We recommend to use <a href="https://github.com/dockcross/dockcross" target="_blank">dockcross</a> which is a very convenient tool for cross compilation based on docker supporting many platforms.</p>
 <p>For example, use the commands below to build for <code>armv7</code>:</p>
@@ -2155,29 +2159,29 @@ build/linux-armv7-release/src/backend/src/mavsdk_server: ELF 32-bit LSB executab
 <li>This built binary can now be copied to the device:<pre><code>cp build/linux-armv7/src/backend/src/mavsdk_server somewhere/else
 </code></pre></li>
 </ol>
-<h2 id="build_api_reference">Build API Reference Documentation </h2>
+<h2 id="build_api_reference"><a name="build_api_reference" class="plugin-anchor" href="#build_api_reference"><i class="fa fa-link" aria-hidden="true"></i></a>Build API Reference Documentation </h2>
 <p>The C++ source code is annotated using comments using <a href="http://doxygen.nl/manual/index.html" target="_blank">Doxygen</a> syntax.</p>
 <p>Extract the documentation to markdown files (one per class) on macOS or Linux using the commands:</p>
 <pre><code class="lang-bash">rm -rf tools/docs <span class="hljs-comment"># Remove previous docs</span>
 ./tools/generate_docs.sh
 </code></pre>
 <p>The files are created in <strong>/install/docs/markdown</strong>.</p>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> Extracting the API reference does not yet work automatically on Windows.</p>
+<blockquote>
+<p><strong>Note</strong> Extracting the API reference does not yet work automatically on Windows.</p>
 </blockquote>
 <p><span></span></p>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> The <em>generate_docs.sh</em> script <a href="build.html">builds the library</a>, installs it locally to <strong>/install</strong>, and then uses <em>DOxygen</em> to create XML documentation in <strong>/install/docs/xml</strong>.
+<blockquote>
+<p><strong>Note</strong> The <em>generate_docs.sh</em> script <a href="build.html">builds the library</a>, installs it locally to <strong>/install</strong>, and then uses <em>DOxygen</em> to create XML documentation in <strong>/install/docs/xml</strong>.
 The <a href="https://github.com/mavlink/MAVSDK/blob/develop/generate_markdown_from_doxygen_xml.py" target="_blank">generate_markdown_from_doxygen_xml.py</a> script
 is then run on all files in the <em>/xml</em> directory to generate markdown files in <strong>/install/docs/markdown</strong>.</p>
 </blockquote>
-<h2 id="troubleshooting">Troubleshooting</h2>
+<h2 id="troubleshooting"><a name="troubleshooting" class="plugin-anchor" href="#troubleshooting"><i class="fa fa-link" aria-hidden="true"></i></a>Troubleshooting</h2>
 <p>The vast majority of common build issues can be resolved by updating submodules and cleaning the distribution:</p>
 <pre><code>cd MAVSDK
 git submodule update --recursive
 rm -rf build
 </code></pre><p>Then attempt to build again.</p>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2019-12-03 23:24:06 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-01-05 23:46:57 </span> </footer>
                                 
                                 </section>
                             
@@ -2220,7 +2224,7 @@ rm -rf build
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Building Source","level":"1.4.4.1","depth":3,"next":{"title":"Testing","level":"1.4.4.2","depth":3,"path":"contributing/test.md","ref":"contributing/test.md","articles":[]},"previous":{"title":"Contributing","level":"1.4.4","depth":2,"path":"contributing/README.md","ref":"contributing/README.md","articles":[{"title":"Building Source","level":"1.4.4.1","depth":3,"path":"contributing/build.md","ref":"contributing/build.md","articles":[]},{"title":"Testing","level":"1.4.4.2","depth":3,"path":"contributing/test.md","ref":"contributing/test.md","articles":[]},{"title":"Writing Plugins","level":"1.4.4.3","depth":3,"path":"contributing/plugins.md","ref":"contributing/plugins.md","articles":[]},{"title":"Coding Style","level":"1.4.4.4","depth":3,"path":"contributing/code_style.md","ref":"contributing/code_style.md","articles":[]},{"title":"Plugin/Test Logging","level":"1.4.4.5","depth":3,"path":"contributing/dev_logging.md","ref":"contributing/dev_logging.md","articles":[]},{"title":"Documentation","level":"1.4.4.6","depth":3,"path":"contributing/documentation.md","ref":"contributing/documentation.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"contributing/build.md","mtime":"2019-12-03T23:24:06.588Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-03T23:24:55.258Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Building Source","level":"1.4.4.1","depth":3,"next":{"title":"Testing","level":"1.4.4.2","depth":3,"path":"contributing/test.md","ref":"contributing/test.md","articles":[]},"previous":{"title":"Contributing","level":"1.4.4","depth":2,"path":"contributing/README.md","ref":"contributing/README.md","articles":[{"title":"Building Source","level":"1.4.4.1","depth":3,"path":"contributing/build.md","ref":"contributing/build.md","articles":[]},{"title":"Testing","level":"1.4.4.2","depth":3,"path":"contributing/test.md","ref":"contributing/test.md","articles":[]},{"title":"Writing Plugins","level":"1.4.4.3","depth":3,"path":"contributing/plugins.md","ref":"contributing/plugins.md","articles":[]},{"title":"Coding Style","level":"1.4.4.4","depth":3,"path":"contributing/code_style.md","ref":"contributing/code_style.md","articles":[]},{"title":"Plugin/Test Logging","level":"1.4.4.5","depth":3,"path":"contributing/dev_logging.md","ref":"contributing/dev_logging.md","articles":[]},{"title":"Documentation","level":"1.4.4.6","depth":3,"path":"contributing/documentation.md","ref":"contributing/documentation.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"contributing/build.md","mtime":"2020-01-05T23:46:57.936Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-05T23:47:52.785Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
