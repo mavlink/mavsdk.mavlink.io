@@ -2069,81 +2069,64 @@ cmake --build build/default --target install
 </code></pre>
 </blockquote>
 <h2 id="build_cpp_android"><a name="build_cpp_android" class="plugin-anchor" href="#build_cpp_android"><i class="fa fa-link" aria-hidden="true"></i></a>Build for Android </h2>
-<blockquote>
-<p><strong>Tip</strong> You must first build the C++ Library (as shown above).</p>
-</blockquote>
-<p>To build for Android devices or simulators, you first need to install:</p>
-<ul>
-<li><a href="https://developer.android.com/ndk/downloads/index.html" target="_blank">Android NDK</a></li>
-<li><a href="https://developer.android.com/studio/index.html" target="_blank">Android SDK</a></li>
-</ul>
-<p>Also, you need to set these three environment variables:</p>
-<ul>
-<li><code>NDK_ROOT</code> to <code>&lt;your-android-ndk&gt;</code></li>
-<li><code>ANDROID_TOOLCHAIN_CMAKE</code> to <code>&lt;your-android-ndk&gt;/build/cmake/android.toolchain.cmake</code></li>
-<li><code>ANDROID_CMAKE_BIN</code> to <code>&lt;your-android-sdk&gt;/cmake/&lt;version&gt;/bin/cmake</code></li>
-</ul>
-<p>E.g. you can add the lines below to your .bashrc, (or .zshrc for zshell users, or .profile):</p>
-<pre><code class="lang-sh"><span class="hljs-built_in">export</span> NDK_ROOT=<span class="hljs-variable">$HOME</span>/Android/android-ndk-r13
-<span class="hljs-built_in">export</span> ANDROID_TOOLCHAIN_CMAKE=<span class="hljs-variable">$HOME</span>/Android/android-ndk-r13/build/cmake/android.toolchain.cmake
-<span class="hljs-built_in">export</span> ANDROID_CMAKE_BIN=<span class="hljs-variable">$HOME</span>/Android/Sdk/cmake/3.6.3155560/bin/cmake
-</code></pre>
-<p>Then you build for all Android architectures:</p>
-<pre><code class="lang-sh">make android install
-</code></pre>
+<p>Build for Android using the dockcross cross compiler, as described in the <a href="#cross_compilation_dockcross">cross-compilation</a> section below (e.g. with the <code>dockcross/android-arm64</code> image).</p>
 <h2 id="build_cpp_iOS"><a name="build_cpp_iOS" class="plugin-anchor" href="#build_cpp_iOS"><i class="fa fa-link" aria-hidden="true"></i></a>Build for iOS </h2>
-<blockquote>
-<p><strong>Warning</strong> You must first build the C++ Library (as shown above).</p>
-</blockquote>
 <p>To build for real iOS devices on macOS:</p>
-<pre><code class="lang-sh">cmake -DCMAKE_TOOLCHAIN_FILE=tools/ios.toolchain.cmake -Bbuild/ios -H.
+<pre><code class="lang-sh">cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_BACKEND=ON -DBUILD_SHARED_LIBS=OFF -DCMAKE_TOOLCHAIN_FILE=tools/ios.toolchain.cmake -DPLATFORM=OS -Bbuild/ios -H.
 cmake --build build/ios
 </code></pre>
 <p>Build for the iOS simulator on macOS:</p>
-<pre><code class="lang-sh">cmake -DCMAKE_TOOLCHAIN_FILE=tools/ios.toolchain.cmake -DPLATFORM=SIMULATOR64 -Bbuild/ios_simulator -H.
+<pre><code class="lang-sh">cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_BACKEND=ON -DBUILD_SHARED_LIBS=OFF -DCMAKE_TOOLCHAIN_FILE=tools/ios.toolchain.cmake -DPLATFORM=SIMULATOR64 -Bbuild/ios_simulator -H.
 </code></pre>
+<blockquote>
+<p><strong>Note</strong> The commands above build the <a href="#build_mavsdk_server">mavsdk_server</a> (<code>-DBUILD_BACKEND=ON</code>).
+  This is required for contributors who want to <em>extend</em> the MAVSDK programming-language-specific libraries like <a href="http://dronecode-sdk-swift.s3.eu-central-1.amazonaws.com/docs/master/index.html" target="_blank">MAVSDK-Swift</a>, but is not required for developers who just want to <em>use</em> C++, <em>MAVSDK-Swift</em> or <em>MAVSDK-Python</em>.</p>
+</blockquote>
 <h2 id="sdk_extensions"><a name="sdk_extensions" class="plugin-anchor" href="#sdk_extensions"><i class="fa fa-link" aria-hidden="true"></i></a>Build SDK Extensions </h2>
-<p>The MAVSDK can be extended with plugins and integration tests that are defined &quot;out of tree&quot;. These are declared inside a parallel directory that is included into the SDK at compile time (by specifying <code>EXTERNAL_DIR</code> in the <code>make</code> command).</p>
+<p>The MAVSDK can be extended with plugins and integration tests that are defined &quot;out of tree&quot;.
+These are declared inside a parallel directory that is included into the SDK at compile time (by specifying <code>EXTERNAL_DIR</code> in the <code>make</code> command).</p>
 <p>The commands to build the SDK with an extension library are:</p>
 <pre><code class="lang-sh">cmake -DEXTERNAL_DIR=relative_path_to_external_directory -Dbuild/default -H.
 cmake --build build/default
 </code></pre>
 <p>See <a href="../guide/sdk_extensions.html">SDK Extensions</a> for more information.</p>
-<h2 id="build_backend"><a name="build_backend" class="plugin-anchor" href="#build_backend"><i class="fa fa-link" aria-hidden="true"></i></a>Building the Backend </h2>
-<p>The MAVSDK programming-language-specific libraries (e.g. <a href="http://dronecode-sdk-swift.s3.eu-central-1.amazonaws.com/docs/master/index.html" target="_blank">Swift</a>, <a href="https://github.com/mavlink/MAVSDK-Python#dronecodesdk-python" target="_blank">Python</a>) share a common backend, which may optionally be built as part of the C++ library.</p>
-<p>The cmake configuration step additionally depends on the <code>-DBUILD_BACKEND=ON</code> option. Otherwise the build is exactly the same as usual.</p>
+<h2 id="build_mavsdk_server"><a name="build_mavsdk_server" class="plugin-anchor" href="#build_mavsdk_server"><i class="fa fa-link" aria-hidden="true"></i></a>Building mavsdk_server </h2>
+<p>The MAVSDK programming-language-specific libraries (e.g. <a href="http://dronecode-sdk-swift.s3.eu-central-1.amazonaws.com/docs/master/index.html" target="_blank">Swift</a>, <a href="https://github.com/mavlink/MAVSDK-Python" target="_blank">Python</a>) share a common backend (called &quot;mavsdk_server&quot;).
+This may optionally be built as part of the C++ library.</p>
+<p>The cmake configuration step additionally depends on the <code>-DBUILD_BACKEND=ON</code> option.
+Otherwise the build is exactly the same as usual.</p>
 <blockquote>
-<p><strong>Tip</strong> When building the backend, we usually like to link all the dependencies statically, and therefore we set <code>-DBUILD_SHARED_LIBS=OFF</code> (or don&apos;t specify it, because the default is <code>OFF</code>).</p>
+<p><strong>Tip</strong> When building mavsdk_server, we usually like to link all the dependencies statically, and therefore we set <code>-DBUILD_SHARED_LIBS=OFF</code> (or don&apos;t specify it, because the default is <code>OFF</code>).</p>
 </blockquote>
-<h3 id="build_backend_ubuntu"><a name="build_backend_ubuntu" class="plugin-anchor" href="#build_backend_ubuntu"><i class="fa fa-link" aria-hidden="true"></i></a>Ubuntu </h3>
-<p>To build the backend on Ubuntu:</p>
+<h3 id="build_mavsdk_server_ubuntu"><a name="build_mavsdk_server_ubuntu" class="plugin-anchor" href="#build_mavsdk_server_ubuntu"><i class="fa fa-link" aria-hidden="true"></i></a>Ubuntu </h3>
+<p>To build mavsdk_server on Ubuntu:</p>
 <ol>
 <li><a href="#build_cpp_linux">Setup the C++ Library on Linux</a></li>
 <li>Navigate into the SDK directory and build the project<pre><code>cd MAVSDK
-cmake -DBUILD_BACKEND=ON -Bbuild/default -H.
+cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_BACKEND=ON -Bbuild/default -H.
 cmake --build build/default
 </code></pre></li>
 </ol>
-<h3 id="build_backend_macos"><a name="build_backend_macos" class="plugin-anchor" href="#build_backend_macos"><i class="fa fa-link" aria-hidden="true"></i></a>macOS </h3>
-<p>To build the backend on macOS:</p>
+<h3 id="build_mavsdk_server_macos"><a name="build_mavsdk_server_macos" class="plugin-anchor" href="#build_mavsdk_server_macos"><i class="fa fa-link" aria-hidden="true"></i></a>macOS </h3>
+<p>To build mavsdk_server on macOS:</p>
 <ol>
 <li><a href="#build_cpp_mac_os">Setup the C++ Library on macOS</a></li>
 <li>Navigate into the SDK directory and build the project<pre><code>cd MAVSDK
-cmake -DBUILD_BACKEND=ON -Bbuild/default -H.
+cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_BACKEND=ON -Bbuild/default -H.
 cmake --build build/default
 </code></pre></li>
 </ol>
-<h3 id="build_backend_windows"><a name="build_backend_windows" class="plugin-anchor" href="#build_backend_windows"><i class="fa fa-link" aria-hidden="true"></i></a>Windows </h3>
-<p>To build the backend on Windows:</p>
+<h3 id="build_mavsdk_server_windows"><a name="build_mavsdk_server_windows" class="plugin-anchor" href="#build_mavsdk_server_windows"><i class="fa fa-link" aria-hidden="true"></i></a>Windows </h3>
+<p>To build mavsdk_server on Windows:</p>
 <ol>
-<li>[Setup the C++ Library on Windows(#build_cpp_windows)</li>
+<li><a href="#build_cpp_windows">Setup the C++ Library on Windows</a></li>
 <li>Navigate into the SDK directory and build the project<pre><code>cmake -G &quot;Visual Studio 15 2017&quot; -DBUILD_BACKEND=ON -Bbuild/default -H.
 cmake --build build/default
 </code></pre></li>
 </ol>
 <h3 id="cross_compilation_dockcross"><a name="cross_compilation_dockcross" class="plugin-anchor" href="#cross_compilation_dockcross"><i class="fa fa-link" aria-hidden="true"></i></a>Cross compilation using dockcross </h3>
-<p>To compile for platforms like the Raspberry Pi, BeagleBone Blue or Nvidia Jetson, cross compilation is typically faster than native compilation on the &quot;embedded&quot; device.</p>
-<p>We recommend to use <a href="https://github.com/dockcross/dockcross" target="_blank">dockcross</a> which is a very convenient tool for cross compilation based on docker supporting many platforms.</p>
+<p>Cross compilation is usually the fastest way to compile for &quot;embedded&quot; platforms like the Raspberry Pi, BeagleBone Blue or Nvidia Jetson (i.e. typically faster than native compilation on device itself).</p>
+<p>We recommend using <a href="https://github.com/dockcross/dockcross" target="_blank">dockcross</a>, which is a very convenient tool for cross compilation based on docker (and which supports many platforms).</p>
 <p>For example, use the commands below to build for <code>armv7</code>:</p>
 <ol>
 <li>Make sure docker is installed on your system.</li>
@@ -2156,9 +2139,14 @@ chmod +x ./dockcross-linux-armv7
 <li>If all goes well, <code>mavsdk_server</code> is built. You can check the file with:<pre><code>./dockcross-linux-armv7 file build/linux-armv7-release/src/backend/src/mavsdk_server
 build/linux-armv7-release/src/backend/src/mavsdk_server: ELF 32-bit LSB executable, ARM, EABI5 version 1 (GNU/Linux), dynamically linked, interpreter /lib/ld-linux-armhf.so.3, for GNU/Linux 4.10.8, not stripped
 </code></pre></li>
-<li>This built binary can now be copied to the device:<pre><code>cp build/linux-armv7/src/backend/src/mavsdk_server somewhere/else
+<li>The newly built binary can now be copied to the device:<pre><code>cp build/linux-armv7/src/backend/src/mavsdk_server somewhere/else
 </code></pre></li>
 </ol>
+<blockquote>
+<p><strong>Note</strong> The commands above build the <a href="#build_mavsdk_server">mavsdk_server</a> (<code>-DBUILD_BACKEND=ON</code>).
+  This is required for contributors who want to <em>extend</em> the MAVSDK programming-language-specific libraries like <a href="http://dronecode-sdk-swift.s3.eu-central-1.amazonaws.com/docs/master/index.html" target="_blank">MAVSDK-Swift</a>.
+  It is not required for developers who just want to <em>use</em> C++, <em>MAVSDK-Swift</em> or <em>MAVSDK-Python</em>.</p>
+</blockquote>
 <h2 id="build_api_reference"><a name="build_api_reference" class="plugin-anchor" href="#build_api_reference"><i class="fa fa-link" aria-hidden="true"></i></a>Build API Reference Documentation </h2>
 <p>The C++ source code is annotated using comments using <a href="http://doxygen.nl/manual/index.html" target="_blank">Doxygen</a> syntax.</p>
 <p>Extract the documentation to markdown files (one per class) on macOS or Linux using the commands:</p>
@@ -2181,7 +2169,7 @@ is then run on all files in the <em>/xml</em> directory to generate markdown fil
 git submodule update --recursive
 rm -rf build
 </code></pre><p>Then attempt to build again.</p>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-01-05 23:46:57 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-01-13 06:45:38 </span> </footer>
                                 
                                 </section>
                             
@@ -2224,7 +2212,7 @@ rm -rf build
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Building Source","level":"1.4.4.1","depth":3,"next":{"title":"Testing","level":"1.4.4.2","depth":3,"path":"contributing/test.md","ref":"contributing/test.md","articles":[]},"previous":{"title":"Contributing","level":"1.4.4","depth":2,"path":"contributing/README.md","ref":"contributing/README.md","articles":[{"title":"Building Source","level":"1.4.4.1","depth":3,"path":"contributing/build.md","ref":"contributing/build.md","articles":[]},{"title":"Testing","level":"1.4.4.2","depth":3,"path":"contributing/test.md","ref":"contributing/test.md","articles":[]},{"title":"Writing Plugins","level":"1.4.4.3","depth":3,"path":"contributing/plugins.md","ref":"contributing/plugins.md","articles":[]},{"title":"Coding Style","level":"1.4.4.4","depth":3,"path":"contributing/code_style.md","ref":"contributing/code_style.md","articles":[]},{"title":"Plugin/Test Logging","level":"1.4.4.5","depth":3,"path":"contributing/dev_logging.md","ref":"contributing/dev_logging.md","articles":[]},{"title":"Documentation","level":"1.4.4.6","depth":3,"path":"contributing/documentation.md","ref":"contributing/documentation.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"contributing/build.md","mtime":"2020-01-05T23:46:57.936Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-05T23:47:52.785Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Building Source","level":"1.4.4.1","depth":3,"next":{"title":"Testing","level":"1.4.4.2","depth":3,"path":"contributing/test.md","ref":"contributing/test.md","articles":[]},"previous":{"title":"Contributing","level":"1.4.4","depth":2,"path":"contributing/README.md","ref":"contributing/README.md","articles":[{"title":"Building Source","level":"1.4.4.1","depth":3,"path":"contributing/build.md","ref":"contributing/build.md","articles":[]},{"title":"Testing","level":"1.4.4.2","depth":3,"path":"contributing/test.md","ref":"contributing/test.md","articles":[]},{"title":"Writing Plugins","level":"1.4.4.3","depth":3,"path":"contributing/plugins.md","ref":"contributing/plugins.md","articles":[]},{"title":"Coding Style","level":"1.4.4.4","depth":3,"path":"contributing/code_style.md","ref":"contributing/code_style.md","articles":[]},{"title":"Plugin/Test Logging","level":"1.4.4.5","depth":3,"path":"contributing/dev_logging.md","ref":"contributing/dev_logging.md","articles":[]},{"title":"Documentation","level":"1.4.4.6","depth":3,"path":"contributing/documentation.md","ref":"contributing/documentation.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"contributing/build.md","mtime":"2020-01-13T06:45:38.776Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-13T06:46:35.678Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
