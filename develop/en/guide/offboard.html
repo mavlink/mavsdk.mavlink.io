@@ -888,7 +888,20 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.3.8.1" data-path="../api_reference/structmavsdk_1_1_info_1_1_identification.html">
+        <li class="chapter " data-level="1.4.3.8.1" data-path="../api_reference/structmavsdk_1_1_info_1_1_flight_info.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_info_1_1_flight_info.html">
+            
+                    
+                    struct FlightInfo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.8.2" data-path="../api_reference/structmavsdk_1_1_info_1_1_identification.html">
             
                 <a href="../api_reference/structmavsdk_1_1_info_1_1_identification.html">
             
@@ -901,7 +914,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3.8.2" data-path="../api_reference/structmavsdk_1_1_info_1_1_product.html">
+        <li class="chapter " data-level="1.4.3.8.3" data-path="../api_reference/structmavsdk_1_1_info_1_1_product.html">
             
                 <a href="../api_reference/structmavsdk_1_1_info_1_1_product.html">
             
@@ -914,7 +927,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3.8.3" data-path="../api_reference/structmavsdk_1_1_info_1_1_version.html">
+        <li class="chapter " data-level="1.4.3.8.4" data-path="../api_reference/structmavsdk_1_1_info_1_1_version.html">
             
                 <a href="../api_reference/structmavsdk_1_1_info_1_1_version.html">
             
@@ -1942,16 +1955,16 @@
                                 <h1 id="offboard-control"><a name="offboard-control" class="plugin-anchor" href="#offboard-control"><i class="fa fa-link" aria-hidden="true"></i></a>Offboard Control</h1>
 <p>The <a href="../api_reference/classmavsdk_1_1_offboard.html">Offboard</a> SDK plugin provides a simple API for controlling the vehicle using velocity and yaw setpoints. 
 It is useful for tasks requiring direct control from a companion computer; for example to implement collision avoidance.</p>
-<blockquote>
-<p><strong>Note</strong> The API uses the PX4 <a href="https://docs.px4.io/en/flight_modes/offboard.html" target="_blank">Offboard flight mode</a>. 
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> The API uses the PX4 <a href="https://docs.px4.io/en/flight_modes/offboard.html" target="_blank">Offboard flight mode</a>. 
   The class can only be used with copter and VTOL vehicles (not fixed wing - a PX4 limitation) and currently only supports <em>velocity setpoint commands</em> (PX4 additionally supports position and thrust setpoints). </p>
 </blockquote>
 <p>Client code must specify a setpoint before starting <em>Offboard mode</em>. 
 The Offboard plugin automatically resends setpoints at 20Hz (PX4 requires that setpoints are minimally resent at 2Hz). 
 If more precise control is required, clients can call the setpoint methods at whatever rate is required.</p>
 <h2 id="create-the-plugin"><a name="create-the-plugin" class="plugin-anchor" href="#create-the-plugin"><i class="fa fa-link" aria-hidden="true"></i></a>Create the Plugin</h2>
-<blockquote>
-<p><strong>Tip</strong> <code>Offboard</code> objects are created in the same way as other SDK plugins. 
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> <code>Offboard</code> objects are created in the same way as other SDK plugins. 
   General instructions are provided in the topic: <a href="using_plugins.html">Using Plugins</a>.</p>
 </blockquote>
 <p>The main steps are:</p>
@@ -2008,8 +2021,8 @@ offboard_result = offboard-&gt;stop();
         &lt;&lt; Offboard::result_str(offboard_result) &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
     }
 </code></pre>
-<blockquote>
-<p><strong>Note</strong> Offboard mode can also be stopped by moving the vehicle into another mode (e.g. using the <code>Action</code> API).</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> Offboard mode can also be stopped by moving the vehicle into another mode (e.g. using the <code>Action</code> API).</p>
 </blockquote>
 <h2 id="velocity-setpoints"><a name="velocity-setpoints" class="plugin-anchor" href="#velocity-setpoints"><i class="fa fa-link" aria-hidden="true"></i></a>Velocity Setpoints</h2>
 <p>The API provides methods to set velocity and yaw components using the NED frame (<code>set_velocity_ned()</code>) and the body frame (<code>set_velocity_body()</code>). 
@@ -2104,7 +2117,7 @@ Depending on the particular use case, offboard code may need to explicitly monit
 </ul>
 </li>
 </ul>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-01-13 06:45:38 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-01-15 03:47:27 </span> </footer>
                                 
                                 </section>
                             
@@ -2147,7 +2160,7 @@ Depending on the particular use case, offboard code may need to explicitly monit
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Offboard Control","level":"1.4.1.8","depth":3,"next":{"title":"Follow Me","level":"1.4.1.9","depth":3,"path":"guide/follow_me.md","ref":"guide/follow_me.md","articles":[]},"previous":{"title":"Missions","level":"1.4.1.7","depth":3,"path":"guide/missions.md","ref":"guide/missions.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"guide/offboard.md","mtime":"2020-01-13T06:45:38.780Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-13T06:46:35.678Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Offboard Control","level":"1.4.1.8","depth":3,"next":{"title":"Follow Me","level":"1.4.1.9","depth":3,"path":"guide/follow_me.md","ref":"guide/follow_me.md","articles":[]},"previous":{"title":"Missions","level":"1.4.1.7","depth":3,"path":"guide/missions.md","ref":"guide/missions.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"guide/offboard.md","mtime":"2020-01-15T03:47:27.414Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-15T03:48:02.617Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

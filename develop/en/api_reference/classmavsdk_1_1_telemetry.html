@@ -888,7 +888,20 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.3.8.1" data-path="structmavsdk_1_1_info_1_1_identification.html">
+        <li class="chapter " data-level="1.4.3.8.1" data-path="structmavsdk_1_1_info_1_1_flight_info.html">
+            
+                <a href="structmavsdk_1_1_info_1_1_flight_info.html">
+            
+                    
+                    struct FlightInfo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.8.2" data-path="structmavsdk_1_1_info_1_1_identification.html">
             
                 <a href="structmavsdk_1_1_info_1_1_identification.html">
             
@@ -901,7 +914,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3.8.2" data-path="structmavsdk_1_1_info_1_1_product.html">
+        <li class="chapter " data-level="1.4.3.8.3" data-path="structmavsdk_1_1_info_1_1_product.html">
             
                 <a href="structmavsdk_1_1_info_1_1_product.html">
             
@@ -914,7 +927,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3.8.3" data-path="structmavsdk_1_1_info_1_1_version.html">
+        <li class="chapter " data-level="1.4.3.8.4" data-path="structmavsdk_1_1_info_1_1_version.html">
             
                 <a href="structmavsdk_1_1_info_1_1_version.html">
             
@@ -2713,6 +2726,10 @@
 </thead>
 <tbody>
 <tr>
+<td><span id="classmavsdk_1_1_telemetry_1a8317d953a82a23654db6f14509acb4fea696b031073e74bf2cb98e5ef201d4aa3"></span> <code>UNKNOWN</code></td>
+<td>Mode not known. </td>
+</tr>
+<tr>
 <td><span id="classmavsdk_1_1_telemetry_1a8317d953a82a23654db6f14509acb4fea2baa69eafc7204f3bd8648eba580c489"></span> <code>READY</code></td>
 <td>Armed and ready to take off. </td>
 </tr>
@@ -2745,8 +2762,28 @@
 <td><a href="classmavsdk_1_1_follow_me.html">FollowMe</a> mode. </td>
 </tr>
 <tr>
-<td><span id="classmavsdk_1_1_telemetry_1a8317d953a82a23654db6f14509acb4fea696b031073e74bf2cb98e5ef201d4aa3"></span> <code>UNKNOWN</code></td>
-<td>Mode not known. </td>
+<td><span id="classmavsdk_1_1_telemetry_1a8317d953a82a23654db6f14509acb4feaa60a6a471c0681e5a49c4f5d00f6bc5a"></span> <code>MANUAL</code></td>
+<td>Manual mode. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_telemetry_1a8317d953a82a23654db6f14509acb4fead5e23b5225efc25c190be41834cacbd2"></span> <code>ALTCTL</code></td>
+<td>Altitude mode. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_telemetry_1a8317d953a82a23654db6f14509acb4feaf97e5cf4e6989bd5601994704d76548d"></span> <code>POSCTL</code></td>
+<td><a href="structmavsdk_1_1_telemetry_1_1_position.html">Position</a> mode. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_telemetry_1a8317d953a82a23654db6f14509acb4feac3f676dd6770bc216184ca9a9922d218"></span> <code>ACRO</code></td>
+<td>Acro mode. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_telemetry_1a8317d953a82a23654db6f14509acb4fea409f918b099f0b3588c14af1e76a44e1"></span> <code>STABILIZED</code></td>
+<td>Stabilize mode. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_telemetry_1a8317d953a82a23654db6f14509acb4feae9f2c5d95e79dc39219e37558c79a82e"></span> <code>RATTITUDE</code></td>
+<td>Rattitude mode. </td>
 </tr>
 </tbody>
 </table>
@@ -2827,8 +2864,8 @@
 <pre><code class="lang-cpp">Result mavsdk::Telemetry::set_rate_position_velocity_ned(<span class="hljs-keyword">double</span> rate_hz)
 </code></pre>
 <p>Set rate of kinematic (position and velocity) updates (synchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -2844,8 +2881,8 @@
 <pre><code class="lang-cpp">Result mavsdk::Telemetry::set_rate_position(<span class="hljs-keyword">double</span> rate_hz)
 </code></pre>
 <p>Set rate of position updates (synchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -2857,8 +2894,8 @@
 <pre><code class="lang-cpp">Result mavsdk::Telemetry::set_rate_home_position(<span class="hljs-keyword">double</span> rate_hz)
 </code></pre>
 <p>Set rate of home position updates (synchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -2870,8 +2907,8 @@
 <pre><code class="lang-cpp">Result mavsdk::Telemetry::set_rate_in_air(<span class="hljs-keyword">double</span> rate_hz)
 </code></pre>
 <p>Set rate of in-air status updates (synchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -2883,8 +2920,8 @@
 <pre><code class="lang-cpp">Result mavsdk::Telemetry::set_rate_attitude(<span class="hljs-keyword">double</span> rate_hz)
 </code></pre>
 <p>Set rate of attitude updates (synchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -2896,8 +2933,8 @@
 <pre><code class="lang-cpp">Result mavsdk::Telemetry::set_rate_camera_attitude(<span class="hljs-keyword">double</span> rate_hz)
 </code></pre>
 <p>Set rate of camera attitude updates (synchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -2909,8 +2946,8 @@
 <pre><code class="lang-cpp">Result mavsdk::Telemetry::set_rate_ground_speed_ned(<span class="hljs-keyword">double</span> rate_hz)
 </code></pre>
 <p>Set rate of ground speed (NED) updates (synchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -2922,8 +2959,8 @@
 <pre><code class="lang-cpp">Result mavsdk::Telemetry::set_rate_imu_reading_ned(<span class="hljs-keyword">double</span> rate_hz)
 </code></pre>
 <p>Set rate of IMU reading (NED) updates (synchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -2935,8 +2972,8 @@
 <pre><code class="lang-cpp">Result mavsdk::Telemetry::set_rate_gps_info(<span class="hljs-keyword">double</span> rate_hz)
 </code></pre>
 <p>Set rate of GPS information updates (synchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -2948,8 +2985,8 @@
 <pre><code class="lang-cpp">Result mavsdk::Telemetry::set_rate_battery(<span class="hljs-keyword">double</span> rate_hz)
 </code></pre>
 <p>Set rate of battery status updates (synchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -2961,8 +2998,8 @@
 <pre><code class="lang-cpp">Result mavsdk::Telemetry::set_rate_rc_status(<span class="hljs-keyword">double</span> rate_hz)
 </code></pre>
 <p>Set rate of RC status updates (synchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -2974,8 +3011,8 @@
 <pre><code class="lang-cpp">Result mavsdk::Telemetry::set_rate_actuator_control_target(<span class="hljs-keyword">double</span> rate_hz)
 </code></pre>
 <p>Set rate of actuator controls updates (synchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -2987,8 +3024,8 @@
 <pre><code class="lang-cpp">Result mavsdk::Telemetry::set_rate_actuator_output_status(<span class="hljs-keyword">double</span> rate_hz)
 </code></pre>
 <p>Set rate of actuator output status updates (synchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -3000,8 +3037,8 @@
 <pre><code class="lang-cpp">Result mavsdk::Telemetry::set_rate_odometry(<span class="hljs-keyword">double</span> rate_hz)
 </code></pre>
 <p>Set rate of odometry updates (synchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -3013,8 +3050,8 @@
 <pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Telemetry::set_rate_position_velocity_ned_async(<span class="hljs-keyword">double</span> rate_hz, <span class="hljs-keyword">result_callback_t</span> callback)
 </code></pre>
 <p>Set rate of kinematic (position and velocity) updates (asynchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -3029,8 +3066,8 @@
 <pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Telemetry::set_rate_position_async(<span class="hljs-keyword">double</span> rate_hz, <span class="hljs-keyword">result_callback_t</span> callback)
 </code></pre>
 <p>Set rate of position updates (asynchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -3041,8 +3078,8 @@
 <pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Telemetry::set_rate_home_position_async(<span class="hljs-keyword">double</span> rate_hz, <span class="hljs-keyword">result_callback_t</span> callback)
 </code></pre>
 <p>Set rate of home position updates (asynchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -3053,8 +3090,8 @@
 <pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Telemetry::set_rate_in_air_async(<span class="hljs-keyword">double</span> rate_hz, <span class="hljs-keyword">result_callback_t</span> callback)
 </code></pre>
 <p>Set rate of in-air status updates (asynchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -3065,8 +3102,8 @@
 <pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Telemetry::set_rate_attitude_async(<span class="hljs-keyword">double</span> rate_hz, <span class="hljs-keyword">result_callback_t</span> callback)
 </code></pre>
 <p>Set rate of attitude updates (asynchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -3077,8 +3114,8 @@
 <pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Telemetry::set_rate_camera_attitude_async(<span class="hljs-keyword">double</span> rate_hz, <span class="hljs-keyword">result_callback_t</span> callback)
 </code></pre>
 <p>Set rate of camera attitude updates (asynchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -3089,8 +3126,8 @@
 <pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Telemetry::set_rate_ground_speed_ned_async(<span class="hljs-keyword">double</span> rate_hz, <span class="hljs-keyword">result_callback_t</span> callback)
 </code></pre>
 <p>Set rate of ground speed (NED) updates (asynchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -3101,8 +3138,8 @@
 <pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Telemetry::set_rate_imu_reading_ned_async(<span class="hljs-keyword">double</span> rate_hz, <span class="hljs-keyword">result_callback_t</span> callback)
 </code></pre>
 <p>Set rate of IMU reading (NED) updates (asynchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -3113,8 +3150,8 @@
 <pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Telemetry::set_rate_gps_info_async(<span class="hljs-keyword">double</span> rate_hz, <span class="hljs-keyword">result_callback_t</span> callback)
 </code></pre>
 <p>Set rate of GPS information updates (asynchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -3125,8 +3162,8 @@
 <pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Telemetry::set_rate_battery_async(<span class="hljs-keyword">double</span> rate_hz, <span class="hljs-keyword">result_callback_t</span> callback)
 </code></pre>
 <p>Set rate of battery status updates (asynchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -3137,8 +3174,8 @@
 <pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Telemetry::set_rate_rc_status_async(<span class="hljs-keyword">double</span> rate_hz, <span class="hljs-keyword">result_callback_t</span> callback)
 </code></pre>
 <p>Set rate of RC status updates (asynchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -3149,8 +3186,8 @@
 <pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Telemetry::set_rate_actuator_control_target_async(<span class="hljs-keyword">double</span> rate_hz, <span class="hljs-keyword">result_callback_t</span> callback)
 </code></pre>
 <p>Set rate of actuator control target updates (asynchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -3161,8 +3198,8 @@
 <pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Telemetry::set_rate_actuator_output_status_async(<span class="hljs-keyword">double</span> rate_hz, <span class="hljs-keyword">result_callback_t</span> callback)
 </code></pre>
 <p>Set rate of actuator control target updates (asynchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -3173,8 +3210,8 @@
 <pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Telemetry::set_rate_odometry_async(<span class="hljs-keyword">double</span> rate_hz, <span class="hljs-keyword">result_callback_t</span> callback)
 </code></pre>
 <p>Set rate of odometry updates (asynchronous).</p>
-<blockquote>
-<p><strong>Note</strong> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To stop sending it completely, use a rate_hz of -1, for default rate use 0.</p>
 </blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -3560,7 +3597,7 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;const char * - Human readable string for the <a href="classmavsdk_1_1_telemetry.html#classmavsdk_1_1_telemetry_1a241427df9a06234df2d3020fb524db75">Telemetry::Result</a>.</p>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-01-13 06:45:38 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-01-15 03:47:27 </span> </footer>
                                 
                                 </section>
                             
@@ -3603,7 +3640,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"class Telemetry","level":"1.4.3.21","depth":3,"next":{"title":"struct AccelerationNED","level":"1.4.3.21.1","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_acceleration_n_e_d.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_acceleration_n_e_d.md","articles":[]},"previous":{"title":"class System","level":"1.4.3.20","depth":3,"path":"api_reference/classmavsdk_1_1_system.md","ref":"api_reference/classmavsdk_1_1_system.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"api_reference/classmavsdk_1_1_telemetry.md","mtime":"2020-01-13T06:45:38.772Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-13T06:46:35.678Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"class Telemetry","level":"1.4.3.21","depth":3,"next":{"title":"struct AccelerationNED","level":"1.4.3.21.1","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_acceleration_n_e_d.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_acceleration_n_e_d.md","articles":[]},"previous":{"title":"class System","level":"1.4.3.20","depth":3,"path":"api_reference/classmavsdk_1_1_system.md","ref":"api_reference/classmavsdk_1_1_system.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"api_reference/classmavsdk_1_1_telemetry.md","mtime":"2020-01-15T03:47:27.406Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-15T03:48:02.617Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

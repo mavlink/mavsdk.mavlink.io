@@ -888,7 +888,20 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.3.8.1" data-path="../api_reference/structmavsdk_1_1_info_1_1_identification.html">
+        <li class="chapter " data-level="1.4.3.8.1" data-path="../api_reference/structmavsdk_1_1_info_1_1_flight_info.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_info_1_1_flight_info.html">
+            
+                    
+                    struct FlightInfo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.8.2" data-path="../api_reference/structmavsdk_1_1_info_1_1_identification.html">
             
                 <a href="../api_reference/structmavsdk_1_1_info_1_1_identification.html">
             
@@ -901,7 +914,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3.8.2" data-path="../api_reference/structmavsdk_1_1_info_1_1_product.html">
+        <li class="chapter " data-level="1.4.3.8.3" data-path="../api_reference/structmavsdk_1_1_info_1_1_product.html">
             
                 <a href="../api_reference/structmavsdk_1_1_info_1_1_product.html">
             
@@ -914,7 +927,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3.8.3" data-path="../api_reference/structmavsdk_1_1_info_1_1_version.html">
+        <li class="chapter " data-level="1.4.3.8.4" data-path="../api_reference/structmavsdk_1_1_info_1_1_version.html">
             
                 <a href="../api_reference/structmavsdk_1_1_info_1_1_version.html">
             
@@ -1949,14 +1962,14 @@ Applications must get target position information from the underlying platform (
 <li>Apple: <a href="https://developer.apple.com/documentation/corelocation" target="_blank">Core Location Framework</a></li>
 <li>Windows: <a href="https://docs.microsoft.com/en-us/uwp/api/Windows.Devices.Geolocation" target="_blank">Windows.Devices.Geolocation</a></li>
 </ul>
-<blockquote>
-<p><strong>Warning</strong> Running <em>QGroundControl</em> at the same time as the SDK <em>Follow Me</em> may result in unpredictable behaviour as both send position updates. 
+<blockquote class="clearfix alert alert-warning"><strong class="fa fa-2x fa-exclamation-triangle"></strong>
+<p> Running <em>QGroundControl</em> at the same time as the SDK <em>Follow Me</em> may result in unpredictable behaviour as both send position updates. 
 You <strong>must</strong> ensure that <em>GSC Position Streaming</em> is disabled. 
 Use the latest <em>QGC Daily Build</em> and ensure that the <strong><a href="https://docs.qgroundcontrol.com/en/SettingsView/General.html" target="_blank">Application Setting &gt; General</a> &gt; Miscellaneous &gt; Stream GCS Position</strong> is set to <em>Never</em>.</p>
 </blockquote>
 <h2 id="create-the-plugin"><a name="create-the-plugin" class="plugin-anchor" href="#create-the-plugin"><i class="fa fa-link" aria-hidden="true"></i></a>Create the Plugin</h2>
-<blockquote>
-<p><strong>Tip</strong> <code>FollowMe</code> objects are created in the same way as other SDK plugins.
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> <code>FollowMe</code> objects are created in the same way as other SDK plugins.
   General instructions are provided in the topic: <a href="using_plugins.html">Using Plugins</a>.</p>
 </blockquote>
 <p>The main steps are:</p>
@@ -2013,8 +2026,8 @@ FollowMe::Result config_result = follow_me-&gt;set_config(config);
 <p>Use <a href="../api_reference/classmavsdk_1_1_follow_me.html#classmavsdk_1_1_follow_me_1a1220596b8bb51d2ca52248a92e300ad5">set_target_location()</a> to set the target position(s) for the vehicle to follow (the app typically passes its host&apos;s current position, which it would obtain using OS-specific methods). 
 This can be called at any time, but messages will only be sent once following is started. 
 The plugin automatically resends the last set position at the rate required by the autopilot/flight mode (1 Hz). </p>
-<blockquote>
-<p><strong>Note</strong> Typically you would call <code>set_target_location()</code> before or shortly after starting the mode. If you call <code>start()</code> without having set any target location, or if the connection is broken, the vehicle will climb to minimum altitude (if needed) and remain in the mode waiting for messages. </p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> Typically you would call <code>set_target_location()</code> before or shortly after starting the mode. If you call <code>start()</code> without having set any target location, or if the connection is broken, the vehicle will climb to minimum altitude (if needed) and remain in the mode waiting for messages. </p>
 </blockquote>
 <pre><code class="lang-cpp"><span class="hljs-comment">// Start following</span>
 FollowMe::Result follow_me_result = follow_me-&gt;start();
@@ -2047,7 +2060,7 @@ Before a target position is first set this API will return <code>Nan</code>.</p>
 </ul>
 </li>
 </ul>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-01-13 06:45:38 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-01-15 03:47:27 </span> </footer>
                                 
                                 </section>
                             
@@ -2090,7 +2103,7 @@ Before a target position is first set this API will return <code>Nan</code>.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Follow Me","level":"1.4.1.9","depth":3,"next":{"title":"VTOL Support","level":"1.4.1.10","depth":3,"path":"guide/vtol.md","ref":"guide/vtol.md","articles":[]},"previous":{"title":"Offboard Control","level":"1.4.1.8","depth":3,"path":"guide/offboard.md","ref":"guide/offboard.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"guide/follow_me.md","mtime":"2020-01-13T06:45:38.780Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-13T06:46:35.678Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Follow Me","level":"1.4.1.9","depth":3,"next":{"title":"VTOL Support","level":"1.4.1.10","depth":3,"path":"guide/vtol.md","ref":"guide/vtol.md","articles":[]},"previous":{"title":"Offboard Control","level":"1.4.1.8","depth":3,"path":"guide/offboard.md","ref":"guide/offboard.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"guide/follow_me.md","mtime":"2020-01-15T03:47:27.410Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-15T03:48:02.617Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

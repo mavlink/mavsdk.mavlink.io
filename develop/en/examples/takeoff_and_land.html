@@ -888,7 +888,20 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.3.8.1" data-path="../api_reference/structmavsdk_1_1_info_1_1_identification.html">
+        <li class="chapter " data-level="1.4.3.8.1" data-path="../api_reference/structmavsdk_1_1_info_1_1_flight_info.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_info_1_1_flight_info.html">
+            
+                    
+                    struct FlightInfo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.8.2" data-path="../api_reference/structmavsdk_1_1_info_1_1_identification.html">
             
                 <a href="../api_reference/structmavsdk_1_1_info_1_1_identification.html">
             
@@ -901,7 +914,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3.8.2" data-path="../api_reference/structmavsdk_1_1_info_1_1_product.html">
+        <li class="chapter " data-level="1.4.3.8.3" data-path="../api_reference/structmavsdk_1_1_info_1_1_product.html">
             
                 <a href="../api_reference/structmavsdk_1_1_info_1_1_product.html">
             
@@ -914,7 +927,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3.8.3" data-path="../api_reference/structmavsdk_1_1_info_1_1_version.html">
+        <li class="chapter " data-level="1.4.3.8.4" data-path="../api_reference/structmavsdk_1_1_info_1_1_version.html">
             
                 <a href="../api_reference/structmavsdk_1_1_info_1_1_version.html">
             
@@ -1944,14 +1957,14 @@
 <p>It sets up a UDP connection, waits for a vehicle (system) to appear, arms it, and commands it to takeoff.
 After a short wait the vehicle lands. 
 While flying the vehicle receives telemetry. The example is implemented in C++ (only).</p>
-<blockquote>
-<p><strong>Tip</strong> The full source code for the example <a href="https://github.com/mavlink/MAVSDK/tree/develop/example/takeoff_land" target="_blank">can be found here</a>.</p>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> The full source code for the example <a href="https://github.com/mavlink/MAVSDK/tree/develop/example/takeoff_land" target="_blank">can be found here</a>.</p>
 </blockquote>
 <h2 id="run_example"><a name="run_example" class="plugin-anchor" href="#run_example"><i class="fa fa-link" aria-hidden="true"></i></a>Running the Example </h2>
 <p>The example is built and run <a href="./#trying_the_examples">as described here</a> (the standard way).</p>
 <p>The example terminal output should be similar to that shown below:</p>
-<blockquote>
-<p><strong>Note</strong> This is from a debug build of the SDK. 
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> This is from a debug build of the SDK. 
   A release build will omit the &quot;Debug&quot; messages.</p>
 </blockquote>
 <pre><code class="lang-sh">$ ./takeoff_and_land udp://:14540
@@ -1989,8 +2002,8 @@ Altitude: -0.524 m
 Finished...
 </code></pre>
 <h2 id="source_code"><a name="source_code" class="plugin-anchor" href="#source_code"><i class="fa fa-link" aria-hidden="true"></i></a>Source code </h2>
-<blockquote>
-<p><strong>Tip</strong> The full source code for the example <a href="https://github.com/mavlink/MAVSDK/tree/develop/example/takeoff_land" target="_blank">can be found on Github here</a>.</p>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> The full source code for the example <a href="https://github.com/mavlink/MAVSDK/tree/develop/example/takeoff_land" target="_blank">can be found on Github here</a>.</p>
 </blockquote>
 <p><a href="https://github.com/mavlink/MAVSDK/blob/develop/example/takeoff_land/CMakeLists.txt" target="_blank">CMakeLists.txt</a></p>
 <pre><code class="lang-make">cmake_minimum_required(VERSION 2.8.12)
@@ -2170,7 +2183,7 @@ target_link_libraries(takeoff_and_land
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }
 </code></pre>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-01-13 06:45:38 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-01-15 03:47:27 </span> </footer>
                                 
                                 </section>
                             
@@ -2213,7 +2226,7 @@ target_link_libraries(takeoff_and_land
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Takeoff and Land","level":"1.4.2.1","depth":3,"next":{"title":"Fly Mission","level":"1.4.2.2","depth":3,"path":"examples/fly_mission.md","ref":"examples/fly_mission.md","articles":[]},"previous":{"title":"Examples","level":"1.4.2","depth":2,"path":"examples/README.md","ref":"examples/README.md","articles":[{"title":"Takeoff and Land","level":"1.4.2.1","depth":3,"path":"examples/takeoff_and_land.md","ref":"examples/takeoff_and_land.md","articles":[]},{"title":"Fly Mission","level":"1.4.2.2","depth":3,"path":"examples/fly_mission.md","ref":"examples/fly_mission.md","articles":[]},{"title":"Fly QGC Plan Mission","level":"1.4.2.3","depth":3,"path":"examples/fly_mission_qgc_plan.md","ref":"examples/fly_mission_qgc_plan.md","articles":[]},{"title":"Offboard Mode - Velocity Control","level":"1.4.2.4","depth":3,"path":"examples/offboard_velocity.md","ref":"examples/offboard_velocity.md","articles":[]},{"title":"Follow Me Mode","level":"1.4.2.5","depth":3,"path":"examples/follow_me.md","ref":"examples/follow_me.md","articles":[]},{"title":"VTOL Transitions","level":"1.4.2.6","depth":3,"path":"examples/transition_vtol_fixed_wing.md","ref":"examples/transition_vtol_fixed_wing.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"examples/takeoff_and_land.md","mtime":"2020-01-13T06:45:38.776Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-13T06:46:35.678Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Takeoff and Land","level":"1.4.2.1","depth":3,"next":{"title":"Fly Mission","level":"1.4.2.2","depth":3,"path":"examples/fly_mission.md","ref":"examples/fly_mission.md","articles":[]},"previous":{"title":"Examples","level":"1.4.2","depth":2,"path":"examples/README.md","ref":"examples/README.md","articles":[{"title":"Takeoff and Land","level":"1.4.2.1","depth":3,"path":"examples/takeoff_and_land.md","ref":"examples/takeoff_and_land.md","articles":[]},{"title":"Fly Mission","level":"1.4.2.2","depth":3,"path":"examples/fly_mission.md","ref":"examples/fly_mission.md","articles":[]},{"title":"Fly QGC Plan Mission","level":"1.4.2.3","depth":3,"path":"examples/fly_mission_qgc_plan.md","ref":"examples/fly_mission_qgc_plan.md","articles":[]},{"title":"Offboard Mode - Velocity Control","level":"1.4.2.4","depth":3,"path":"examples/offboard_velocity.md","ref":"examples/offboard_velocity.md","articles":[]},{"title":"Follow Me Mode","level":"1.4.2.5","depth":3,"path":"examples/follow_me.md","ref":"examples/follow_me.md","articles":[]},{"title":"VTOL Transitions","level":"1.4.2.6","depth":3,"path":"examples/transition_vtol_fixed_wing.md","ref":"examples/transition_vtol_fixed_wing.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"examples/takeoff_and_land.md","mtime":"2020-01-15T03:47:27.410Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-15T03:48:02.617Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
