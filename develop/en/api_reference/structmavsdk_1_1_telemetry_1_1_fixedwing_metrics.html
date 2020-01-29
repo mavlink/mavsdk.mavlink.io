@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>struct VelocityNED · MAVSDK Guide</title>
+        <title>struct FixedwingMetrics · MAVSDK Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -85,10 +85,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="structmavsdk_1_1_telemetry_1_1_quaternion.html" />
+    <link rel="next" href="structmavsdk_1_1_telemetry_1_1_g_p_s_info.html" />
     
     
-    <link rel="prev" href="structmavsdk_1_1_telemetry_1_1_position_velocity_n_e_d.html" />
+    <link rel="prev" href="structmavsdk_1_1_telemetry_1_1_euler_angle.html" />
     
 
     </head>
@@ -1476,7 +1476,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3.21.8" data-path="structmavsdk_1_1_telemetry_1_1_fixedwing_metrics.html">
+        <li class="chapter active" data-level="1.4.3.21.8" data-path="structmavsdk_1_1_telemetry_1_1_fixedwing_metrics.html">
             
                 <a href="structmavsdk_1_1_telemetry_1_1_fixedwing_metrics.html">
             
@@ -1632,7 +1632,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.3.21.20" data-path="structmavsdk_1_1_telemetry_1_1_velocity_n_e_d.html">
+        <li class="chapter " data-level="1.4.3.21.20" data-path="structmavsdk_1_1_telemetry_1_1_velocity_n_e_d.html">
             
                 <a href="structmavsdk_1_1_telemetry_1_1_velocity_n_e_d.html">
             
@@ -1963,7 +1963,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >struct VelocityNED</a>
+        <a href=".." >struct FixedwingMetrics</a>
     </h1>
 </div>
 
@@ -1978,28 +1978,28 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="mavsdktelemetryvelocityned-struct-reference"><a name="mavsdktelemetryvelocityned-struct-reference" class="plugin-anchor" href="#mavsdktelemetryvelocityned-struct-reference"><i class="fa fa-link" aria-hidden="true"></i></a>mavsdk::Telemetry::VelocityNED Struct Reference</h1>
+                                <h1 id="mavsdktelemetryfixedwingmetrics-struct-reference"><a name="mavsdktelemetryfixedwingmetrics-struct-reference" class="plugin-anchor" href="#mavsdktelemetryfixedwingmetrics-struct-reference"><i class="fa fa-link" aria-hidden="true"></i></a>mavsdk::Telemetry::FixedwingMetrics Struct Reference</h1>
 <p><code>#include: telemetry.h</code></p>
 <hr>
-<p>Velocity type in local coordinates. </p>
-<p>Velocity is represented in NED (North East Down) frame in local coordinate system. </p>
+<p>Fixed wing metrics type. </p>
+<p>Metrics typically displayed on a HUD for fixed wing aircraft. </p>
 <h2 id="data-fields"><a name="data-fields" class="plugin-anchor" href="#data-fields"><i class="fa fa-link" aria-hidden="true"></i></a>Data Fields</h2>
-<p>float <a href="#structmavsdk_1_1_telemetry_1_1_velocity_n_e_d_1a36969b6419b6b8f50cb67ee244ce6056">north_m_s</a>  - Velocity along north-direction in meters per seconds.</p>
-<p>float <a href="#structmavsdk_1_1_telemetry_1_1_velocity_n_e_d_1abf4bc8508d5f53347be8850d624b8582">east_m_s</a>  - Velocity along east-direction in meters per seconds.</p>
-<p>float <a href="#structmavsdk_1_1_telemetry_1_1_velocity_n_e_d_1ae6a7dc65a645475dff5ad7903ab9b804">down_m_s</a>  - Velocity along down-direction in meters per seconds.</p>
+<p>float <a href="#structmavsdk_1_1_telemetry_1_1_fixedwing_metrics_1abf0ee1126c15c67a0e6e96cbd06d742c">airspeed_m_s</a>  - Current indicated airspeed (IAS) in metres/second.</p>
+<p>float <a href="#structmavsdk_1_1_telemetry_1_1_fixedwing_metrics_1a990318556dd083660a716fe07268b3ad">throttle_percentage</a>  - Current throttle setting (0 to 100).</p>
+<p>float <a href="#structmavsdk_1_1_telemetry_1_1_fixedwing_metrics_1a9bc33e3e1ea00ad6fd4ef385c20b1233">climb_rate_m_s</a>  - Current climb rate in metres/second.</p>
 <h2 id="field-documentation"><a name="field-documentation" class="plugin-anchor" href="#field-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Field Documentation</h2>
-<h3 id="structmavsdk_1_1_telemetry_1_1_velocity_n_e_d_1a36969b6419b6b8f50cb67ee244ce6056"><a name="structmavsdk_1_1_telemetry_1_1_velocity_n_e_d_1a36969b6419b6b8f50cb67ee244ce6056" class="plugin-anchor" href="#structmavsdk_1_1_telemetry_1_1_velocity_n_e_d_1a36969b6419b6b8f50cb67ee244ce6056"><i class="fa fa-link" aria-hidden="true"></i></a>north_m_s </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">float</span> mavsdk::Telemetry::VelocityNED::north_m_s
+<h3 id="structmavsdk_1_1_telemetry_1_1_fixedwing_metrics_1abf0ee1126c15c67a0e6e96cbd06d742c"><a name="structmavsdk_1_1_telemetry_1_1_fixedwing_metrics_1abf0ee1126c15c67a0e6e96cbd06d742c" class="plugin-anchor" href="#structmavsdk_1_1_telemetry_1_1_fixedwing_metrics_1abf0ee1126c15c67a0e6e96cbd06d742c"><i class="fa fa-link" aria-hidden="true"></i></a>airspeed_m_s </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">float</span> mavsdk::Telemetry::FixedwingMetrics::airspeed_m_s
 </code></pre>
-<p>Velocity along north-direction in meters per seconds.</p>
-<h3 id="structmavsdk_1_1_telemetry_1_1_velocity_n_e_d_1abf4bc8508d5f53347be8850d624b8582"><a name="structmavsdk_1_1_telemetry_1_1_velocity_n_e_d_1abf4bc8508d5f53347be8850d624b8582" class="plugin-anchor" href="#structmavsdk_1_1_telemetry_1_1_velocity_n_e_d_1abf4bc8508d5f53347be8850d624b8582"><i class="fa fa-link" aria-hidden="true"></i></a>east_m_s </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">float</span> mavsdk::Telemetry::VelocityNED::east_m_s
+<p>Current indicated airspeed (IAS) in metres/second.</p>
+<h3 id="structmavsdk_1_1_telemetry_1_1_fixedwing_metrics_1a990318556dd083660a716fe07268b3ad"><a name="structmavsdk_1_1_telemetry_1_1_fixedwing_metrics_1a990318556dd083660a716fe07268b3ad" class="plugin-anchor" href="#structmavsdk_1_1_telemetry_1_1_fixedwing_metrics_1a990318556dd083660a716fe07268b3ad"><i class="fa fa-link" aria-hidden="true"></i></a>throttle_percentage </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">float</span> mavsdk::Telemetry::FixedwingMetrics::throttle_percentage
 </code></pre>
-<p>Velocity along east-direction in meters per seconds.</p>
-<h3 id="structmavsdk_1_1_telemetry_1_1_velocity_n_e_d_1ae6a7dc65a645475dff5ad7903ab9b804"><a name="structmavsdk_1_1_telemetry_1_1_velocity_n_e_d_1ae6a7dc65a645475dff5ad7903ab9b804" class="plugin-anchor" href="#structmavsdk_1_1_telemetry_1_1_velocity_n_e_d_1ae6a7dc65a645475dff5ad7903ab9b804"><i class="fa fa-link" aria-hidden="true"></i></a>down_m_s </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">float</span> mavsdk::Telemetry::VelocityNED::down_m_s
+<p>Current throttle setting (0 to 100).</p>
+<h3 id="structmavsdk_1_1_telemetry_1_1_fixedwing_metrics_1a9bc33e3e1ea00ad6fd4ef385c20b1233"><a name="structmavsdk_1_1_telemetry_1_1_fixedwing_metrics_1a9bc33e3e1ea00ad6fd4ef385c20b1233" class="plugin-anchor" href="#structmavsdk_1_1_telemetry_1_1_fixedwing_metrics_1a9bc33e3e1ea00ad6fd4ef385c20b1233"><i class="fa fa-link" aria-hidden="true"></i></a>climb_rate_m_s </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">float</span> mavsdk::Telemetry::FixedwingMetrics::climb_rate_m_s
 </code></pre>
-<p>Velocity along down-direction in meters per seconds.</p>
+<p>Current climb rate in metres/second.</p>
 <footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-01-29 00:52:35 </span> </footer>
                                 
                                 </section>
@@ -2027,12 +2027,12 @@
 
             
                 
-                <a href="structmavsdk_1_1_telemetry_1_1_position_velocity_n_e_d.html" class="navigation navigation-prev " aria-label="Previous page: struct PositionVelocityNED">
+                <a href="structmavsdk_1_1_telemetry_1_1_euler_angle.html" class="navigation navigation-prev " aria-label="Previous page: struct EulerAngle">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="structmavsdk_1_1_telemetry_1_1_quaternion.html" class="navigation navigation-next " aria-label="Next page: struct Quaternion">
+                <a href="structmavsdk_1_1_telemetry_1_1_g_p_s_info.html" class="navigation navigation-next " aria-label="Next page: struct GPSInfo">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -2043,7 +2043,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"struct VelocityNED","level":"1.4.3.21.20","depth":4,"next":{"title":"struct Quaternion","level":"1.4.3.21.21","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_quaternion.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_quaternion.md","articles":[]},"previous":{"title":"struct PositionVelocityNED","level":"1.4.3.21.19","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_position_velocity_n_e_d.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_position_velocity_n_e_d.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"api_reference/structmavsdk_1_1_telemetry_1_1_velocity_n_e_d.md","mtime":"2020-01-29T00:52:35.951Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-29T00:53:12.462Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"struct FixedwingMetrics","level":"1.4.3.21.8","depth":4,"next":{"title":"struct GPSInfo","level":"1.4.3.21.9","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_g_p_s_info.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_g_p_s_info.md","articles":[]},"previous":{"title":"struct EulerAngle","level":"1.4.3.21.7","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_euler_angle.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_euler_angle.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"api_reference/structmavsdk_1_1_telemetry_1_1_fixedwing_metrics.md","mtime":"2020-01-29T00:52:35.947Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-29T00:53:12.462Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
