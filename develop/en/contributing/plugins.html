@@ -1883,7 +1883,7 @@
     
         <li class="chapter " data-level="2.1" >
             
-                <a target="_blank" href="https://dev.px4.io/en/">
+                <a target="_blank" href="https://dev.px4.io/master/en/">
             
                     
                     PX4 Developer Guide
@@ -1896,7 +1896,7 @@
     
         <li class="chapter " data-level="2.2" >
             
-                <a target="_blank" href="https://docs.px4.io/en/">
+                <a target="_blank" href="https://docs.px4.io/master/en/">
             
                     
                     PX4 User Guide
@@ -2005,7 +2005,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="writing-plugins"><a name="writing-plugins" class="plugin-anchor" href="#writing-plugins"><i class="fa fa-link" aria-hidden="true"></i></a>Writing Plugins</h1>
-<p>The MAVSDK is split into a <a href="https://github.com/mavlink/MAVSDK/tree/develop/core" target="_blank">core</a> and multiple independent <a href="https://github.com/mavlink/MAVSDK/tree/develop/plugins" target="_blank">plugins</a>. </p>
+<p>The MAVSDK is split into a <a href="https://github.com/mavlink/MAVSDK/tree/develop/src/core" target="_blank">core</a> and multiple independent <a href="https://github.com/mavlink/MAVSDK/tree/develop/src/plugins" target="_blank">plugins</a>. </p>
 <p>Plugins that are located in the <em>correct location</em> (a subfolder of <strong>/plugins</strong>) and have the <em>correct structure</em> are built at compile time. 
 The <a href="https://github.com/mavlink/MAVSDK/blob/develop/CMakeLists.txt" target="_blank">CMakeLists.txt</a> takes care of including the plugin folders and integration tests.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
@@ -2041,10 +2041,10 @@ Integration tests for all plugins in the library are stored in <strong>integrati
         &#x251C;&#x2500;&#x2500; example_impl.h
         &#x2514;&#x2500;&#x2500; example_impl_test.cpp  ##optional
 </code></pre><h2 id="create-a-plugin"><a name="create-a-plugin" class="plugin-anchor" href="#create-a-plugin"><i class="fa fa-link" aria-hidden="true"></i></a>Create a Plugin</h2>
-<p>To create a new C++ plugin, duplicate either a <a href="https://github.com/mavlink/MAVSDK/tree/develop/plugins" target="_blank">standard plugin</a> (e.g. 
-<a href="https://github.com/mavlink/MAVSDK/tree/develop/plugins/action" target="_blank">Action</a>,
-<a href="https://github.com/mavlink/MAVSDK/tree/develop/plugins/telemetry" target="_blank">Telemetry</a>, etc.) or the <a href="https://github.com/mavlink/MAVSDK/tree/develop/external_example/plugins/example/" target="_blank">example</a> plugin into the <strong>plugins</strong> directory (either in the DroneCore tree or a <a href="../guide/sdk_extensions.html">SDK Extension</a> folder).</p>
-<p>Modify the plugin as needed and update its <a href="https://github.com/mavlink/MAVSDK/blob/develop/external_example/plugins/example/CMakeLists.txt" target="_blank">CMakeLists.txt</a> as appropriate:</p>
+<p>To create a new C++ plugin, duplicate either a <a href="https://github.com/mavlink/MAVSDK/tree/develop/src/plugins" target="_blank">standard plugin</a> (e.g. 
+<a href="https://github.com/mavlink/MAVSDK/tree/develop/src/plugins/action" target="_blank">Action</a>,
+<a href="https://github.com/mavlink/MAVSDK/tree/develop/src/plugins/telemetry" target="_blank">Telemetry</a>, etc.) or the <a href="https://github.com/mavlink/MAVSDK/tree/develop/src/external_example/plugins/example/" target="_blank">example</a> plugin into the <strong>plugins</strong> directory (either in the MAVSDK tree or a <a href="../guide/sdk_extensions.html">SDK Extension</a> folder).</p>
+<p>Modify the plugin as needed and update its <a href="https://github.com/mavlink/MAVSDK/blob/develop/src/external_example/plugins/example/CMakeLists.txt" target="_blank">CMakeLists.txt</a> as appropriate:</p>
 <ul>
 <li>Modify plugin filenames as appropriate</li>
 <li>Add additional libraries using the variable <code>additional_libs</code>:<pre><code>set(additional_libs &quot;library_name&quot; PARENT_SCOPE)
@@ -2054,7 +2054,7 @@ Integration tests for all plugins in the library are stored in <strong>integrati
 <li>You can also add tests with <code>unittest_source_files</code>, as <a href="#adding_unit_tests">discussed below</a>.</li>
 </ul>
 <h2 id="plugin-code"><a name="plugin-code" class="plugin-anchor" href="#plugin-code"><i class="fa fa-link" aria-hidden="true"></i></a>Plugin Code</h2>
-<p>The <a href="https://github.com/mavlink/MAVSDK/tree/develop/plugins" target="_blank">standard plugins</a> can be reviewed for guidance on
+<p>The <a href="https://github.com/mavlink/MAVSDK/tree/develop/src/plugins" target="_blank">standard plugins</a> can be reviewed for guidance on
 how to write plugin code, including how to send and process MAVLink messages.</p>
 <h3 id="plugin-base-class"><a name="plugin-base-class" class="plugin-anchor" href="#plugin-base-class"><i class="fa fa-link" aria-hidden="true"></i></a>Plugin Base Class</h3>
 <p>All plugins should derive their implementation from <code>PluginImplBase</code> (<strong>core/plugin_impl_base.h</strong>) and override virtual methods as needed.</p>
@@ -2066,7 +2066,7 @@ For example, to prevent callback being created before the <code>System</code> is
 <li><a href="#init">init()</a>/<a href="#deinit">deinit()</a>: These are called when a system is created and just before it is destroyed. These should be used for setting up and cleaning everything that depends on having the <code>System</code> instantiated. This includes calls that set up callbacks.</li>
 <li><a href="#enable">enable()</a>/<a href="#disable">disable()</a>: These are called when a vehicle is discovered or has timed out. They should be used for managing resources needed to access a connected system/vehicle (e.g. getting a parameter or changing a setting).</li>
 </ul>
-<p>The <a href="https://github.com/mavlink/MAVSDK/tree/develop/external_example" target="_blank">external example</a> provides a minimal implementation.</p>
+<p>The <a href="https://github.com/mavlink/MAVSDK/tree/develop/src/external_example" target="_blank">external example</a> provides a minimal implementation.</p>
 <p>Additional detail is provided for methods below.</p>
 <h5 id="init"><a name="init" class="plugin-anchor" href="#init"><i class="fa fa-link" aria-hidden="true"></i></a>init() </h5>
 <pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span> </span>= <span class="hljs-number">0</span>
@@ -2095,7 +2095,7 @@ The method is also called before <code>deinit()</code> is called to stop any sys
 <h2 id="testing"><a name="testing" class="plugin-anchor" href="#testing"><i class="fa fa-link" aria-hidden="true"></i></a>Test Code </h2>
 <p>Tests must be created for all new and updated plugin code. 
 The tests should be exhaustive, and cover all aspects of using the plugin API.</p>
-<p>The <a href="https://github.com/google/googletest/blob/master/googletest/docs/Primer.md" target="_blank">Google Test Primer</a>
+<p>The <a href="https://github.com/google/googletest/blob/master/googletest/docs/primer.md" target="_blank">Google Test Primer</a>
 provides an excellent overview of how tests are written and used.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> Testing is the same for plugins in SDK and the <a href="../guide/sdk_extensions.html">SDK Extensions</a>.</p>
@@ -2116,7 +2116,7 @@ it must be added to the <code>UNIT_TEST_SOURCES</code> variable in the plugin <s
 <p>For example, to add the <strong>example_impl_test.cpp</strong> unit test you would 
 append the following lines to its <strong>CMakeLists.txt</strong>:</p>
 <pre><code class="lang-cmake">list(APPEND UNIT_TEST_SOURCES
-    <span class="hljs-variable">${CMAKE_SOURCE_DIR}</span>/plugins/mission/example_impl_test.cpp
+    <span class="hljs-variable">${CMAKE_SOURCE_DIR}</span>/src/plugins/mission/example_impl_test.cpp
 )
 <span class="hljs-keyword">set</span>(UNIT_TEST_SOURCES <span class="hljs-variable">${UNIT_TEST_SOURCES}</span> PARENT_SCOPE)
 </code></pre>
@@ -2142,8 +2142,8 @@ TEST(ExampleImpl, NoTest)
 <h3 id="integration_tests"><a name="integration_tests" class="plugin-anchor" href="#integration_tests"><i class="fa fa-link" aria-hidden="true"></i></a>Writing Integration Tests </h3>
 <p>The SDK provides the <code>integration_tests_runner</code> application for running the integration tests and some helper code to make it easier to log tests and run them against the simulator.</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> Check out the <a href="https://github.com/google/googletest/blob/master/googletest/docs/Primer.md" target="_blank">Google Test Primer</a> 
-and the <a href="https://github.com/mavlink/MAVSDK/tree/develop/integration_tests" target="_blank">integration_tests</a> 
+<p> Check out the <a href="https://github.com/google/googletest/blob/master/googletest/docs/primer.md" target="_blank">Google Test Primer</a> 
+and the <a href="https://github.com/mavlink/MAVSDK/tree/develop/src/integration_tests" target="_blank">integration_tests</a> 
 for our existing plugins to better understand how to write your own!</p>
 </blockquote>
 <h4 id="adding-integration-tests"><a name="adding-integration-tests" class="plugin-anchor" href="#adding-integration-tests"><i class="fa fa-link" aria-hidden="true"></i></a>Adding Integration Tests</h4>
@@ -2178,7 +2178,7 @@ The files are added to the test program in that folder&apos;s
 )
 </code></pre>
 <h4 id="integration-test-filescode"><a name="integration-test-filescode" class="plugin-anchor" href="#integration-test-filescode"><i class="fa fa-link" aria-hidden="true"></i></a>Integration Test Files/Code</h4>
-<p>The main SDK-specific functionality is provided by <a href="https://github.com/mavlink/MAVSDK/blob/develop/core/integration_test_helper.h" target="_blank">integration_test_helper.h</a>. 
+<p>The main SDK-specific functionality is provided by <a href="https://github.com/mavlink/MAVSDK/blob/develop/src/integration_tests/integration_test_helper.h" target="_blank">integration_test_helper.h</a>.
 This provides access to the <a href="dev_logging.html">Plugin/Test Logger</a> and a shared test class <code>SitlTest</code> for setting up and tearing down the PX4 simulator.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> All tests must be declared using <code>TEST_F</code> and have a first argument <code>SitlTest</code> as shown. 
@@ -2240,7 +2240,7 @@ The explanation of how the code works is usually deferred to <a href="#guide">gu
 <li>Highlight usage patterns and limitations that may not be obvious from API reference</li>
 <li>Provide code fragments that can easily be reused</li>
 </ul>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-03-22 07:25:57 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-03-23 06:04:52 </span> </footer>
                                 
                                 </section>
                             
@@ -2283,7 +2283,7 @@ The explanation of how the code works is usually deferred to <a href="#guide">gu
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Writing Plugins","level":"1.5.5.3","depth":3,"next":{"title":"Coding Style","level":"1.5.5.4","depth":3,"path":"contributing/code_style.md","ref":"contributing/code_style.md","articles":[]},"previous":{"title":"Testing","level":"1.5.5.2","depth":3,"path":"contributing/test.md","ref":"contributing/test.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"contributing/plugins.md","mtime":"2020-03-22T07:25:57.085Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-22T07:26:59.684Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Writing Plugins","level":"1.5.5.3","depth":3,"next":{"title":"Coding Style","level":"1.5.5.4","depth":3,"path":"contributing/code_style.md","ref":"contributing/code_style.md","articles":[]},"previous":{"title":"Testing","level":"1.5.5.2","depth":3,"path":"contributing/test.md","ref":"contributing/test.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"contributing/plugins.md","mtime":"2020-03-23T06:04:52.916Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-23T06:05:59.517Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

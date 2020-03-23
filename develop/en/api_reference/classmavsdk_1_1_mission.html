@@ -1883,7 +1883,7 @@
     
         <li class="chapter " data-level="2.1" >
             
-                <a target="_blank" href="https://dev.px4.io/en/">
+                <a target="_blank" href="https://dev.px4.io/master/en/">
             
                     
                     PX4 Developer Guide
@@ -1896,7 +1896,7 @@
     
         <li class="chapter " data-level="2.2" >
             
-                <a target="_blank" href="https://docs.px4.io/en/">
+                <a target="_blank" href="https://docs.px4.io/master/en/">
             
                     
                     PX4 User Guide
@@ -2116,17 +2116,17 @@
 </tr>
 <tr>
 <td style="text-align:right">bool</td>
-<td><a href="#classmavsdk_1_1_mission_1af9ea77b0e4a83f674b37abc2aa692d07">mission_finished</a> () const</td>
+<td><a href="#classmavsdk_1_1_mission_1a5861a4c6325ca1eeb1cc1d37004a7f61">mission_finished</a> () const</td>
 <td>Checks if mission has been finished (synchronous).</td>
 </tr>
 <tr>
 <td style="text-align:right">int</td>
-<td><a href="#classmavsdk_1_1_mission_1abaeecc2d4227c56f070ad36f9831bb90">current_mission_item</a> () const</td>
+<td><a href="#classmavsdk_1_1_mission_1a25afa022a4206bd1055a692937f9b916">current_mission_item</a> () const</td>
 <td>Returns the current mission item index (synchronous).</td>
 </tr>
 <tr>
 <td style="text-align:right">int</td>
-<td><a href="#classmavsdk_1_1_mission_1a37cdb45b27b2c002f957067833c90b23">total_mission_items</a> () const</td>
+<td><a href="#classmavsdk_1_1_mission_1a97c07cbcf5e9c54d5776cd86e4228311">total_mission_items</a> () const</td>
 <td>Returns the total number of mission items (synchronous).</td>
 </tr>
 <tr>
@@ -2339,7 +2339,7 @@
 <pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Mission::pause_mission_async(<span class="hljs-keyword">result_callback_t</span> callback)
 </code></pre>
 <p>Pauses the mission (asynchronous).</p>
-<p>Pausing the mission puts the vehicle into <a href="https://docs.px4.io/en/flight_modes/hold.html" target="_blank">HOLD mode</a>. A multicopter should just hover at the spot while a fixedwing vehicle should loiter around the location where it paused.</p>
+<p>Pausing the mission puts the vehicle into <a href="https://docs.px4.io/master/en/flight_modes/hold.html" target="_blank">HOLD mode</a>. A multicopter should just hover at the spot while a fixedwing vehicle should loiter around the location where it paused.</p>
 <p><strong>Parameters</strong></p>
 <ul>
 <li><a href="classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a2dfe79d7f58c5b76ab6b245f9d516dbc">result_callback_t</a> <strong>callback</strong> - Callback to receive result of this request.</li>
@@ -2358,25 +2358,26 @@
 <p>Sets the mission item index to go to (asynchronous).</p>
 <p>By setting the current index to 0, the mission is restarted from the beginning. If it is set to a specific index of a mission item, the mission will be set to this item.</p>
 <p>Note that this is not necessarily true for general missions using MAVLink if loop counters are used.</p>
+<p>Also not that the mission items need to be uploaded or downloaded before calling this method. The exception is current == 0 to reset to the beginning</p>
 <p><strong>Parameters</strong></p>
 <ul>
 <li>int <strong>current</strong> - Index for mission index to go to next (0 based).</li>
 <li><a href="classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a2dfe79d7f58c5b76ab6b245f9d516dbc">result_callback_t</a> <strong>callback</strong> - Callback to receive result of this request.</li>
 </ul>
-<h3 id="classmavsdk_1_1_mission_1af9ea77b0e4a83f674b37abc2aa692d07"><a name="classmavsdk_1_1_mission_1af9ea77b0e4a83f674b37abc2aa692d07" class="plugin-anchor" href="#classmavsdk_1_1_mission_1af9ea77b0e4a83f674b37abc2aa692d07"><i class="fa fa-link" aria-hidden="true"></i></a>mission_finished() </h3>
+<h3 id="classmavsdk_1_1_mission_1a5861a4c6325ca1eeb1cc1d37004a7f61"><a name="classmavsdk_1_1_mission_1a5861a4c6325ca1eeb1cc1d37004a7f61" class="plugin-anchor" href="#classmavsdk_1_1_mission_1a5861a4c6325ca1eeb1cc1d37004a7f61"><i class="fa fa-link" aria-hidden="true"></i></a>mission_finished() </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">bool</span> mavsdk::Mission::mission_finished() <span class="hljs-keyword">const</span>
 </code></pre>
 <p>Checks if mission has been finished (synchronous).</p>
 <p><strong>Returns</strong></p>
 <p>&#x2003;bool - true if mission is finished and the last mission item has been reached.</p>
-<h3 id="classmavsdk_1_1_mission_1abaeecc2d4227c56f070ad36f9831bb90"><a name="classmavsdk_1_1_mission_1abaeecc2d4227c56f070ad36f9831bb90" class="plugin-anchor" href="#classmavsdk_1_1_mission_1abaeecc2d4227c56f070ad36f9831bb90"><i class="fa fa-link" aria-hidden="true"></i></a>current_mission_item() </h3>
+<h3 id="classmavsdk_1_1_mission_1a25afa022a4206bd1055a692937f9b916"><a name="classmavsdk_1_1_mission_1a25afa022a4206bd1055a692937f9b916" class="plugin-anchor" href="#classmavsdk_1_1_mission_1a25afa022a4206bd1055a692937f9b916"><i class="fa fa-link" aria-hidden="true"></i></a>current_mission_item() </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">int</span> mavsdk::Mission::current_mission_item() <span class="hljs-keyword">const</span>
 </code></pre>
 <p>Returns the current mission item index (synchronous).</p>
 <p>If the mission is finished, the current mission item will be the total number of mission items (so the last mission item index + 1).</p>
 <p><strong>Returns</strong></p>
 <p>&#x2003;int - current mission item index (0 based).</p>
-<h3 id="classmavsdk_1_1_mission_1a37cdb45b27b2c002f957067833c90b23"><a name="classmavsdk_1_1_mission_1a37cdb45b27b2c002f957067833c90b23" class="plugin-anchor" href="#classmavsdk_1_1_mission_1a37cdb45b27b2c002f957067833c90b23"><i class="fa fa-link" aria-hidden="true"></i></a>total_mission_items() </h3>
+<h3 id="classmavsdk_1_1_mission_1a97c07cbcf5e9c54d5776cd86e4228311"><a name="classmavsdk_1_1_mission_1a97c07cbcf5e9c54d5776cd86e4228311" class="plugin-anchor" href="#classmavsdk_1_1_mission_1a97c07cbcf5e9c54d5776cd86e4228311"><i class="fa fa-link" aria-hidden="true"></i></a>total_mission_items() </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">int</span> mavsdk::Mission::total_mission_items() <span class="hljs-keyword">const</span>
 </code></pre>
 <p>Returns the total number of mission items (synchronous).</p>
@@ -2426,7 +2427,7 @@
 <ul>
 <li><a href="https://dev.qgroundcontrol.com/en/file_formats/plan.html" target="_blank">QGroundControl Plan file format</a> (QGroundControl Dev Guide)</li>
 </ul>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-03-22 07:25:57 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-03-23 06:04:52 </span> </footer>
                                 
                                 </section>
                             
@@ -2469,7 +2470,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"class Mission","level":"1.5.4.13","depth":3,"next":{"title":"class MissionItem","level":"1.5.4.14","depth":3,"path":"api_reference/classmavsdk_1_1_mission_item.md","ref":"api_reference/classmavsdk_1_1_mission_item.md","articles":[]},"previous":{"title":"class Mavsdk","level":"1.5.4.12","depth":3,"path":"api_reference/classmavsdk_1_1_mavsdk.md","ref":"api_reference/classmavsdk_1_1_mavsdk.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"api_reference/classmavsdk_1_1_mission.md","mtime":"2020-03-22T07:25:57.077Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-22T07:26:59.684Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"class Mission","level":"1.5.4.13","depth":3,"next":{"title":"class MissionItem","level":"1.5.4.14","depth":3,"path":"api_reference/classmavsdk_1_1_mission_item.md","ref":"api_reference/classmavsdk_1_1_mission_item.md","articles":[]},"previous":{"title":"class Mavsdk","level":"1.5.4.12","depth":3,"path":"api_reference/classmavsdk_1_1_mavsdk.md","ref":"api_reference/classmavsdk_1_1_mavsdk.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"api_reference/classmavsdk_1_1_mission.md","mtime":"2020-03-23T06:04:52.912Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-23T06:05:59.517Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
