@@ -2005,23 +2005,23 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="offboard-control"><a name="offboard-control" class="plugin-anchor" href="#offboard-control"><i class="fa fa-link" aria-hidden="true"></i></a>Offboard Control</h1>
-<p>The <a href="../api_reference/classmavsdk_1_1_offboard.html">Offboard</a> SDK plugin provides a simple API for controlling the vehicle using velocity and yaw setpoints. 
+<p>The <a href="../api_reference/classmavsdk_1_1_offboard.html">Offboard</a> SDK plugin provides a simple API for controlling the vehicle using velocity and yaw setpoints.
 It is useful for tasks requiring direct control from a companion computer; for example to implement collision avoidance.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> The API uses the PX4 <a href="https://docs.px4.io/master/en/flight_modes/offboard.html" target="_blank">Offboard flight mode</a>. 
-  The class can only be used with copter and VTOL vehicles (not fixed wing - a PX4 limitation) and currently only supports <em>velocity setpoint commands</em> (PX4 additionally supports position and thrust setpoints). </p>
+<p> The API uses the PX4 <a href="https://docs.px4.io/master/en/flight_modes/offboard.html" target="_blank">Offboard flight mode</a>.
+  The class can only be used with copter and VTOL vehicles (not fixed wing - a PX4 limitation) and currently only supports <em>velocity setpoint commands</em> (PX4 additionally supports position and thrust setpoints).</p>
 </blockquote>
-<p>Client code must specify a setpoint before starting <em>Offboard mode</em>. 
-The Offboard plugin automatically resends setpoints at 20Hz (PX4 requires that setpoints are minimally resent at 2Hz). 
+<p>Client code must specify a setpoint before starting <em>Offboard mode</em>.
+The Offboard plugin automatically resends setpoints at 20Hz (PX4 requires that setpoints are minimally resent at 2Hz).
 If more precise control is required, clients can call the setpoint methods at whatever rate is required.</p>
 <h2 id="create-the-plugin"><a name="create-the-plugin" class="plugin-anchor" href="#create-the-plugin"><i class="fa fa-link" aria-hidden="true"></i></a>Create the Plugin</h2>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> <code>Offboard</code> objects are created in the same way as other SDK plugins. 
+<p> <code>Offboard</code> objects are created in the same way as other SDK plugins.
   General instructions are provided in the topic: <a href="using_plugins.html">Using Plugins</a>.</p>
 </blockquote>
 <p>The main steps are:</p>
 <ol>
-<li><p>Link the plugin library into your application. 
+<li><p>Link the plugin library into your application.
 Do this by adding <code>mavsdk_offboard</code> to the <code>target_link_libraries</code> section of the app&apos;s <em>cmake</em> build definition file</p>
 <pre><code class="lang-cmake"><span class="hljs-keyword">target_link_libraries</span>(your_application_name
   mavsdk
@@ -2041,35 +2041,35 @@ while (!dc.is_connected()) {
 // System got discovered.
 System &amp;system = dc.system();
 </code></pre></li>
-<li>Create a shared pointer to an instance of <code>Offboard</code> instantiated with the <code>system</code>: <pre><code>#include &lt;mavsdk/plugins/offboard/offboard.h&gt;
+<li>Create a shared pointer to an instance of <code>Offboard</code> instantiated with the <code>system</code>:<pre><code>#include &lt;mavsdk/plugins/offboard/offboard.h&gt;
 auto offboard = std::make_shared&lt;Offboard&gt;(system);
 </code></pre></li>
 </ol>
 <p>The <code>offboard</code> pointer can then used to access the plugin API (as shown in the following sections).</p>
 <h2 id="startingstopping-offboard-mode"><a name="startingstopping-offboard-mode" class="plugin-anchor" href="#startingstopping-offboard-mode"><i class="fa fa-link" aria-hidden="true"></i></a>Starting/Stopping Offboard Mode</h2>
-<p>To use offboard mode you must first create a setpoint using either <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1a689fec126f8da55dadfc13e67bf9bb39">set_velocity_ned()</a> or <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1aab32b36b4396cecbac9c745507b2fb81">set_velocity_body()</a>. 
+<p>To use offboard mode you must first create a setpoint using any of the setpoint setter methods (e.g. <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1a689fec126f8da55dadfc13e67bf9bb39">set_velocity_ned()</a> or <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1aab32b36b4396cecbac9c745507b2fb81">set_velocity_body()</a>).
 You can use any setpoint you like - the vehicle will start acting on the current setpoint as soon as the mode starts.</p>
-<p>After you have created a setpoint call <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1a3f0b71195ae6cb445237b192e3b8343f">start()</a> or <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1a8d52d710dbfcd77a33d8657ea55ab606">start_async()</a> to switch to offboard mode. </p>
+<p>After you have created a setpoint call <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1a3f0b71195ae6cb445237b192e3b8343f">start()</a> or <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1a8d52d710dbfcd77a33d8657ea55ab606">start_async()</a> to switch to offboard mode.</p>
 <pre><code class="lang-cpp"><span class="hljs-comment">// Create a setpoint before starting offboard mode (in this case a null setpoint)</span>
 offboard-&gt;set_velocity_body({<span class="hljs-number">0.0f</span>, <span class="hljs-number">0.0f</span>, <span class="hljs-number">0.0f</span>, <span class="hljs-number">0.0f</span>});
 
 <span class="hljs-comment">// Start offboard mode.</span>
 Offboard::Result offboard_result = offboard-&gt;start();
 <span class="hljs-keyword">if</span> (result != Offboard::Result::SUCCESS) {
-        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">&quot;Offboard::start() failed: &quot;</span> 
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">&quot;Offboard::start() failed: &quot;</span>
         &lt;&lt; Offboard::result_str(offboard_result) &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
     }
 </code></pre>
-<p>The methods return/complete with a <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1a2d4d594301d8c756429457b0982130e9">Result</a> indicating whether the command was successful. 
+<p>The methods return/complete with a <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1a2d4d594301d8c756429457b0982130e9">Result</a> indicating whether the command was successful.
 Above we use the synchronous API, and then use <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1a3402d7e3dc8b4ff15598dfd67af0644b">Offboard::result_str()</a> to get a human readable string for the returned enum.</p>
 <p>You can change the setpoints as needed (new setpoints replace any old setpoints).</p>
-<p>To stop offboard mode call <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1a9a54e588bcfd5b0ffca27833ad4f6b10">Offboard::stop()</a> or <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1a8d52d710dbfcd77a33d8657ea55ab606">stop_async()</a>. 
-The SDK will then clear the current setpoint and put the vehicle into <a href="https://docs.px4.io/master/en/flight_modes/hold.html" target="_blank">Hold flight mode</a>. 
+<p>To stop offboard mode call <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1a9a54e588bcfd5b0ffca27833ad4f6b10">Offboard::stop()</a> or <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1a8d52d710dbfcd77a33d8657ea55ab606">stop_async()</a>.
+The SDK will then clear the current setpoint and put the vehicle into <a href="https://docs.px4.io/master/en/flight_modes/hold.html" target="_blank">Hold flight mode</a>.
 The synchronous API is used as shown below:</p>
 <pre><code class="lang-cpp"><span class="hljs-comment">//Stop offboard mode</span>
 offboard_result = offboard-&gt;stop();
 <span class="hljs-keyword">if</span> (result != Offboard::Result::SUCCESS) {
-        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">&quot;Offboard::stop() failed: &quot;</span> 
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">&quot;Offboard::stop() failed: &quot;</span>
         &lt;&lt; Offboard::result_str(offboard_result) &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
     }
 </code></pre>
@@ -2077,27 +2077,27 @@ offboard_result = offboard-&gt;stop();
 <p> Offboard mode can also be stopped by moving the vehicle into another mode (e.g. using the <code>Action</code> API).</p>
 </blockquote>
 <h2 id="velocity-setpoints"><a name="velocity-setpoints" class="plugin-anchor" href="#velocity-setpoints"><i class="fa fa-link" aria-hidden="true"></i></a>Velocity Setpoints</h2>
-<p>The API provides methods to set velocity and yaw components using the NED frame (<code>set_velocity_ned()</code>) and the body frame (<code>set_velocity_body()</code>). 
+<p>The API provides methods to set velocity and yaw components using the NED frame (<code>set_velocity_ned()</code>) and the body frame (<code>set_velocity_body()</code>).
 The difference is that NED is relative to an absolute co-ordinate system (North, East, Down) while body frame is relative to the vehicle orientation (front, right, down).</p>
-<p>The NED frame is used to move towards a specific compass direction or face the vehicle in a specific compass direction. 
-Body frame is usually used for tasks where the vehicle needs to <em>deviate</em> from the current path (e.g. to avoid an obstacle) or to rotate the vehicle at a specific rate. 
+<p>The NED frame is used to move towards a specific compass direction or face the vehicle in a specific compass direction.
+Body frame is usually used for tasks where the vehicle needs to <em>deviate</em> from the current path (e.g. to avoid an obstacle) or to rotate the vehicle at a specific rate.
 Movement up/down is the same in either frame.</p>
 <p>The following sections provide some common usage examples.</p>
 <h3 id="move-in-compass-direction"><a name="move-in-compass-direction" class="plugin-anchor" href="#move-in-compass-direction"><i class="fa fa-link" aria-hidden="true"></i></a>Move in Compass Direction</h3>
-<p>The <code>set_velocity_ned()</code> can be used to move towards any particular compass direction - e.g. North, West, South-East, etc. </p>
-<p>Calling <code>set_velocity_ned()</code> using an initialiser list type declaration for the <a href="../api_reference/structmavsdk_1_1_offboard_1_1_velocity_n_e_d_yaw.html">VelocityNEDYaw</a> argument, 
-the first three values are the velocity components in North, East, and Down directions (in metres/second). </p>
+<p>The <code>set_velocity_ned()</code> can be used to move towards any particular compass direction - e.g. North, West, South-East, etc.</p>
+<p>Calling <code>set_velocity_ned()</code> using an initialiser list type declaration for the <a href="../api_reference/structmavsdk_1_1_offboard_1_1_velocity_n_e_d_yaw.html">VelocityNEDYaw</a> argument,
+the first three values are the velocity components in North, East, and Down directions (in metres/second).</p>
 <p>Examples:</p>
 <ul>
 <li>Head North at 3 m/s:<pre><code class="lang-cpp">offboard-&gt;set_velocity_ned({<span class="hljs-number">3.0f</span>, <span class="hljs-number">0.0f</span>, <span class="hljs-number">0.0f</span>, <span class="hljs-number">0.0f</span>});
 </code></pre>
 </li>
-<li>Head North-West with 5 m/s on each velocity component (notice that a negative value is required on the <code>east_m_s</code> value to move West): <pre><code class="lang-cpp">offboard-&gt;set_velocity_ned({<span class="hljs-number">5.0f</span>, <span class="hljs-number">-5.0</span>f, <span class="hljs-number">0.0f</span>, <span class="hljs-number">0.0f</span>});
+<li>Head North-West with 5 m/s on each velocity component (notice that a negative value is required on the <code>east_m_s</code> value to move West):<pre><code class="lang-cpp">offboard-&gt;set_velocity_ned({<span class="hljs-number">5.0f</span>, <span class="hljs-number">-5.0</span>f, <span class="hljs-number">0.0f</span>, <span class="hljs-number">0.0f</span>});
 </code></pre>
 </li>
 </ul>
 <h3 id="go-up-or-down"><a name="go-up-or-down" class="plugin-anchor" href="#go-up-or-down"><i class="fa fa-link" aria-hidden="true"></i></a>Go Up or Down</h3>
-<p>Both co-ordinate systems use the same definition for &quot;down&quot;, and both methods take an argument where the third value is used to specify the velocity component in this direction. 
+<p>Both co-ordinate systems use the same definition for &quot;down&quot;, and both methods take an argument where the third value is used to specify the velocity component in this direction.
 The following examples show how you set the velocity component down (positive) or up (negative) using the two methods:</p>
 <p>Examples:</p>
 <ul>
@@ -2109,9 +2109,9 @@ The following examples show how you set the velocity component down (positive) o
 </li>
 </ul>
 <h3 id="turnyaw-vehicle-to-face-a-compass-direction"><a name="turnyaw-vehicle-to-face-a-compass-direction" class="plugin-anchor" href="#turnyaw-vehicle-to-face-a-compass-direction"><i class="fa fa-link" aria-hidden="true"></i></a>Turn/Yaw Vehicle to Face a Compass Direction</h3>
-<p>The <code>set_velocity_ned()</code> can be used to face the vehicle in a particular direction, independent of the direction of travel. 
+<p>The <code>set_velocity_ned()</code> can be used to face the vehicle in a particular direction, independent of the direction of travel.
 The direction is specified in clockwise degrees relative to North (0 is North, 90 is East, 180 is South, etc.)</p>
-<p>Calling <code>set_velocity_ned()</code> using an initialiser list type declaration for the <code>VelocityNEDYaw</code> argument, 
+<p>Calling <code>set_velocity_ned()</code> using an initialiser list type declaration for the <code>VelocityNEDYaw</code> argument,
 the final (fourth) value is the yaw direction.</p>
 <p>Examples:</p>
 <ul>
@@ -2153,12 +2153,12 @@ offboard-&gt;set_velocity_body({<span class="hljs-number">0.0f</span>, <span cla
 <h2 id="positionthrust-setpoints"><a name="positionthrust-setpoints" class="plugin-anchor" href="#positionthrust-setpoints"><i class="fa fa-link" aria-hidden="true"></i></a>Position/Thrust Setpoints</h2>
 <p>The SDK does not support position or thrust setpoints (at time of writing).</p>
 <h2 id="waiting-on-setpoints"><a name="waiting-on-setpoints" class="plugin-anchor" href="#waiting-on-setpoints"><i class="fa fa-link" aria-hidden="true"></i></a>Waiting on Setpoints</h2>
-<p>The vehicle will obey the last setpoint called (when you call a setpoint the last one is cleared). 
+<p>The vehicle will obey the last setpoint called (when you call a setpoint the last one is cleared).
 The SDK examples use timers to separate commands (e.g. <code>sleep_for(seconds(8))</code>) but in a real-world use case you might use telemetry or sensors to control when the setpoint is changed.</p>
 <h2 id="monitoring-offboard-mode"><a name="monitoring-offboard-mode" class="plugin-anchor" href="#monitoring-offboard-mode"><i class="fa fa-link" aria-hidden="true"></i></a>Monitoring Offboard Mode</h2>
 <p>The vehicle may change out of offboard mode outside the control of your application (for example if a GCS were to put the vehicle into <em>Hold mode</em>).
 In this case, the SDK will automatically stop sending setpoints and <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1aa5e0f3c02a03f2667f82d5e162221ff5">Offboard::is_active()</a> will change from <code>true</code> to <code>false</code>.</p>
-<p>Calls to change the setpoint do not return an error! 
+<p>Calls to change the setpoint do not return an error!
 Depending on the particular use case, offboard code may need to explicitly monitor for flight mode and change behaviour appropriately (e.g. using <a href="../api_reference/classmavsdk_1_1_telemetry.html#classmavsdk_1_1_telemetry_1adede4202304e53466b4df41367a75878">Telemetry::flight_mode_async()</a>).</p>
 <h2 id="further-information"><a name="further-information" class="plugin-anchor" href="#further-information"><i class="fa fa-link" aria-hidden="true"></i></a>Further Information</h2>
 <p>Additional information/examples for the Offboard API are linked below:</p>
@@ -2169,7 +2169,7 @@ Depending on the particular use case, offboard code may need to explicitly monit
 </ul>
 </li>
 </ul>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-04-21 01:43:21 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-05-07 05:45:50 </span> </footer>
                                 
                                 </section>
                             
@@ -2212,7 +2212,7 @@ Depending on the particular use case, offboard code may need to explicitly monit
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Offboard Control","level":"1.5.2.8","depth":3,"next":{"title":"Follow Me","level":"1.5.2.9","depth":3,"path":"guide/follow_me.md","ref":"guide/follow_me.md","articles":[]},"previous":{"title":"Missions","level":"1.5.2.7","depth":3,"path":"guide/missions.md","ref":"guide/missions.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"guide/offboard.md","mtime":"2020-04-21T01:43:21.371Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-21T01:43:56.516Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Offboard Control","level":"1.5.2.8","depth":3,"next":{"title":"Follow Me","level":"1.5.2.9","depth":3,"path":"guide/follow_me.md","ref":"guide/follow_me.md","articles":[]},"previous":{"title":"Missions","level":"1.5.2.7","depth":3,"path":"guide/missions.md","ref":"guide/missions.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"guide/offboard.md","mtime":"2020-05-07T05:45:50.611Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-07T05:46:28.449Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
