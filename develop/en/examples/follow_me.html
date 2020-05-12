@@ -1012,9 +1012,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5.9.2" data-path="../api_reference/structmavsdk_1_1_geofence_1_1_point.html">
+        <li class="chapter " data-level="1.5.5.9.2" data-path="../api_reference/structmavsdk_1_1_log_files_1_1_progress_data.html">
             
-                <a href="../api_reference/structmavsdk_1_1_geofence_1_1_point.html">
+                <a href="../api_reference/structmavsdk_1_1_log_files_1_1_progress_data.html">
             
                     
                     struct ProgressData
@@ -1844,7 +1844,7 @@
                 <a href="../api_reference/namespacemavsdk.html">
             
                     
-                    namespace mavsdk (api_reference/globals)
+                    namespace mavsdk (globals)
             
                 </a>
             
@@ -2263,9 +2263,9 @@ target_link_libraries(follow_me
 <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> TELEMETRY_CONSOLE_TEXT <span class="hljs-string">&quot;\033[34m&quot;</span> <span class="hljs-comment">// Turn text on console blue</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> NORMAL_CONSOLE_TEXT <span class="hljs-string">&quot;\033[0m&quot;</span> <span class="hljs-comment">// Restore normal console colour</span></span>
 
-<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">action_error_exit</span><span class="hljs-params">(Action::Result result, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;message)</span></span>;
-<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">follow_me_error_exit</span><span class="hljs-params">(FollowMe::Result result, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;message)</span></span>;
-<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">connection_error_exit</span><span class="hljs-params">(ConnectionResult result, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;message)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">action_error_exit</span><span class="hljs-params">(Action::Result result, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; message)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">follow_me_error_exit</span><span class="hljs-params">(FollowMe::Result result, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; message)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">connection_error_exit</span><span class="hljs-params">(ConnectionResult result, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; message)</span></span>;
 
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">usage</span><span class="hljs-params">(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> bin_name)</span>
 </span>{
@@ -2277,7 +2277,7 @@ target_link_libraries(follow_me
               &lt;&lt; <span class="hljs-string">&quot;For example, to connect to the simulator use URL: udp://:14540&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
 }
 
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> **argv)</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span>** argv)</span>
 </span>{
     Mavsdk dc;
     <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> connection_url;
@@ -2291,9 +2291,8 @@ target_link_libraries(follow_me
         <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
     }
 
-    <span class="hljs-keyword">if</span> (connection_result != ConnectionResult::SUCCESS) {
-        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; ERROR_CONSOLE_TEXT
-                  &lt;&lt; <span class="hljs-string">&quot;Connection failed: &quot;</span> &lt;&lt; connection_result_str(connection_result)
+    <span class="hljs-keyword">if</span> (connection_result != ConnectionResult::Success) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; ERROR_CONSOLE_TEXT &lt;&lt; <span class="hljs-string">&quot;Connection failed: &quot;</span> &lt;&lt; connection_result
                   &lt;&lt; NORMAL_CONSOLE_TEXT &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
         <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
     }
@@ -2305,7 +2304,7 @@ target_link_libraries(follow_me
     }
 
     <span class="hljs-comment">// System got discovered.</span>
-    System &amp;system = dc.system();
+    System&amp; system = dc.system();
     <span class="hljs-keyword">auto</span> action = <span class="hljs-built_in">std</span>::make_shared&lt;Action&gt;(system);
     <span class="hljs-keyword">auto</span> follow_me = <span class="hljs-built_in">std</span>::make_shared&lt;FollowMe&gt;(system);
     <span class="hljs-keyword">auto</span> telemetry = <span class="hljs-built_in">std</span>::make_shared&lt;Telemetry&gt;(system);
@@ -2322,10 +2321,10 @@ target_link_libraries(follow_me
     <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Armed&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
 
     <span class="hljs-comment">// Subscribe to receive updates on flight mode. You can find out whether FollowMe is active.</span>
-    telemetry-&gt;flight_mode_async(<span class="hljs-built_in">std</span>::bind(
+    telemetry-&gt;subscribe_flight_mode(<span class="hljs-built_in">std</span>::bind(
         [&amp;](Telemetry::FlightMode flight_mode) {
             <span class="hljs-keyword">const</span> FollowMe::TargetLocation last_location = follow_me-&gt;get_last_location();
-            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;[FlightMode: &quot;</span> &lt;&lt; Telemetry::flight_mode_str(flight_mode)
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;[FlightMode: &quot;</span> &lt;&lt; flight_mode
                       &lt;&lt; <span class="hljs-string">&quot;] Vehicle is at: &quot;</span> &lt;&lt; last_location.latitude_deg &lt;&lt; <span class="hljs-string">&quot;, &quot;</span>
                       &lt;&lt; last_location.longitude_deg &lt;&lt; <span class="hljs-string">&quot; degrees.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
         },
@@ -2341,7 +2340,7 @@ target_link_libraries(follow_me
     <span class="hljs-comment">// right&quot;.</span>
     FollowMe::Config config;
     config.min_height_m = <span class="hljs-number">10.0</span>;
-    config.follow_direction = FollowMe::Config::FollowDirection::BEHIND;
+    config.follow_direction = FollowMe::Config::FollowDirection::Behind;
     FollowMe::Result follow_me_result = follow_me-&gt;set_config(config);
 
     <span class="hljs-comment">// Start Follow Me</span>
@@ -2352,7 +2351,10 @@ target_link_libraries(follow_me
     <span class="hljs-comment">// Register for platform-specific Location provider. We&apos;re using FakeLocationProvider for the</span>
     <span class="hljs-comment">// example.</span>
     location_provider.request_location_updates([&amp;follow_me](<span class="hljs-keyword">double</span> lat, <span class="hljs-keyword">double</span> lon) {
-        follow_me-&gt;set_target_location({lat, lon, <span class="hljs-number">0.0</span>, <span class="hljs-number">0.f</span>, <span class="hljs-number">0.f</span>, <span class="hljs-number">0.f</span>});
+        FollowMe::TargetLocation target_location{};
+        target_location.latitude_deg = lat;
+        target_location.longitude_deg = lon;
+        follow_me-&gt;set_target_location(target_location);
     });
 
     <span class="hljs-keyword">while</span> (location_provider.is_running()) {
@@ -2364,7 +2366,7 @@ target_link_libraries(follow_me
     follow_me_error_exit(follow_me_result, <span class="hljs-string">&quot;Failed to stop FollowMe mode&quot;</span>);
 
     <span class="hljs-comment">// Stop flight mode updates.</span>
-    telemetry-&gt;flight_mode_async(<span class="hljs-literal">nullptr</span>);
+    telemetry-&gt;subscribe_flight_mode(<span class="hljs-literal">nullptr</span>);
 
     <span class="hljs-comment">// Land</span>
     <span class="hljs-keyword">const</span> Action::Result land_result = action-&gt;land();
@@ -2378,29 +2380,26 @@ target_link_libraries(follow_me
 }
 
 <span class="hljs-comment">// Handles Action&apos;s result</span>
-<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">action_error_exit</span><span class="hljs-params">(Action::Result result, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;message)</span>
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">action_error_exit</span><span class="hljs-params">(Action::Result result, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; message)</span>
 </span>{
     <span class="hljs-keyword">if</span> (result != Action::Result::Success) {
-        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; ERROR_CONSOLE_TEXT &lt;&lt; message &lt;&lt; Action::result_str(result)
-                  &lt;&lt; NORMAL_CONSOLE_TEXT &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; ERROR_CONSOLE_TEXT &lt;&lt; message &lt;&lt; result &lt;&lt; NORMAL_CONSOLE_TEXT &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
         <span class="hljs-built_in">exit</span>(EXIT_FAILURE);
     }
 }
 <span class="hljs-comment">// Handles FollowMe&apos;s result</span>
-<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">follow_me_error_exit</span><span class="hljs-params">(FollowMe::Result result, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;message)</span>
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">follow_me_error_exit</span><span class="hljs-params">(FollowMe::Result result, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; message)</span>
 </span>{
-    <span class="hljs-keyword">if</span> (result != FollowMe::Result::SUCCESS) {
-        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; ERROR_CONSOLE_TEXT &lt;&lt; message &lt;&lt; FollowMe::result_str(result)
-                  &lt;&lt; NORMAL_CONSOLE_TEXT &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    <span class="hljs-keyword">if</span> (result != FollowMe::Result::Success) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; ERROR_CONSOLE_TEXT &lt;&lt; message &lt;&lt; result &lt;&lt; NORMAL_CONSOLE_TEXT &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
         <span class="hljs-built_in">exit</span>(EXIT_FAILURE);
     }
 }
 <span class="hljs-comment">// Handles connection result</span>
-<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">connection_error_exit</span><span class="hljs-params">(ConnectionResult result, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;message)</span>
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">connection_error_exit</span><span class="hljs-params">(ConnectionResult result, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; message)</span>
 </span>{
-    <span class="hljs-keyword">if</span> (result != ConnectionResult::SUCCESS) {
-        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; ERROR_CONSOLE_TEXT &lt;&lt; message &lt;&lt; connection_result_str(result)
-                  &lt;&lt; NORMAL_CONSOLE_TEXT &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    <span class="hljs-keyword">if</span> (result != ConnectionResult::Success) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; ERROR_CONSOLE_TEXT &lt;&lt; message &lt;&lt; result &lt;&lt; NORMAL_CONSOLE_TEXT &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
         <span class="hljs-built_in">exit</span>(EXIT_FAILURE);
     }
 }
@@ -2432,7 +2431,7 @@ target_link_libraries(follow_me
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">stop</span><span class="hljs-params">()</span></span>;
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">compute_locations</span><span class="hljs-params">()</span></span>;
 
-    <span class="hljs-built_in">std</span>::thread *thread_{<span class="hljs-literal">nullptr</span>};
+    <span class="hljs-built_in">std</span>::thread* thread_{<span class="hljs-literal">nullptr</span>};
     <span class="hljs-built_in">std</span>::atomic&lt;<span class="hljs-keyword">bool</span>&gt; should_exit_{<span class="hljs-literal">false</span>};
 
     <span class="hljs-keyword">location_callback_t</span> location_callback_ = <span class="hljs-literal">nullptr</span>;
@@ -2446,8 +2445,7 @@ target_link_libraries(follow_me
 };
 </code></pre>
 <p><a href="https://github.com/mavlink/MAVSDK/blob/develop/examples/follow_me/fake_location_provider.cpp" target="_blank">fake_location_provider.cpp</a></p>
-<pre><code class="lang-cpp">
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">&quot;fake_location_provider.h&quot;</span></span>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">&quot;fake_location_provider.h&quot;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;chrono&gt;</span> // for seonds()</span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;thread&gt;</span> // for sleep_for()</span>
 
@@ -2513,7 +2511,7 @@ FakeLocationProvider::~FakeLocationProvider()
 <span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> FakeLocationProvider::LATITUDE_DEG_PER_METER = <span class="hljs-number">0.000009044</span>;
 <span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> FakeLocationProvider::LONGITUDE_DEG_PER_METER = <span class="hljs-number">0.000008985</span>;
 </code></pre>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-05-07 16:13:20 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-05-12 09:54:07 </span> </footer>
                                 
                                 </section>
                             
@@ -2556,7 +2554,7 @@ FakeLocationProvider::~FakeLocationProvider()
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Follow Me Mode","level":"1.5.4.5","depth":3,"next":{"title":"VTOL Transitions","level":"1.5.4.6","depth":3,"path":"examples/transition_vtol_fixed_wing.md","ref":"examples/transition_vtol_fixed_wing.md","articles":[]},"previous":{"title":"Offboard Mode - Velocity Control","level":"1.5.4.4","depth":3,"path":"examples/offboard_velocity.md","ref":"examples/offboard_velocity.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"examples/follow_me.md","mtime":"2020-05-07T16:13:20.962Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-07T16:14:13.877Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Follow Me Mode","level":"1.5.4.5","depth":3,"next":{"title":"VTOL Transitions","level":"1.5.4.6","depth":3,"path":"examples/transition_vtol_fixed_wing.md","ref":"examples/transition_vtol_fixed_wing.md","articles":[]},"previous":{"title":"Offboard Mode - Velocity Control","level":"1.5.4.4","depth":3,"path":"examples/offboard_velocity.md","ref":"examples/offboard_velocity.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"examples/follow_me.md","mtime":"2020-05-12T09:54:07.944Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-12T09:55:12.320Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

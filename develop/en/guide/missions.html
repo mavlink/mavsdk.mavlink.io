@@ -1012,9 +1012,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5.9.2" data-path="../api_reference/structmavsdk_1_1_geofence_1_1_point.html">
+        <li class="chapter " data-level="1.5.5.9.2" data-path="../api_reference/structmavsdk_1_1_log_files_1_1_progress_data.html">
             
-                <a href="../api_reference/structmavsdk_1_1_geofence_1_1_point.html">
+                <a href="../api_reference/structmavsdk_1_1_log_files_1_1_progress_data.html">
             
                     
                     struct ProgressData
@@ -1844,7 +1844,7 @@
                 <a href="../api_reference/namespacemavsdk.html">
             
                     
-                    namespace mavsdk (api_reference/globals)
+                    namespace mavsdk (globals)
             
                 </a>
             
@@ -2106,9 +2106,9 @@
 <p>The Mission API (plugin) allows you to create, upload, download, import from <em>QGroundControl</em>, run, pause, restart, jump to item in, and track missions. 
 Missions can have multiple &quot;mission items&quot;, each which may specify a position, altitude, fly-through behaviour, camera action, gimbal position, and the speed to use when traveling to the next position.</p>
 <p>Missions are <em>managed</em> though the <a href="../api_reference/classmavsdk_1_1_mission.html">Mission</a> class, which communicates with the vehicle to upload mission information and run, pause, track the mission progress etc. 
-The mission that is uploaded to the vehicle is defined as a vector of <a href="../api_reference/classmavsdk_1_1_mission_item.md">MissionItem</a> objects.</p>
+The mission that is uploaded to the vehicle is defined as a vector of <a href="../api_reference/structmavsdk_1_1_mission_1_1_mission_item.html">MissionItem</a> objects.</p>
 <h2 id="supported_mission_commands"><a name="supported_mission_commands" class="plugin-anchor" href="#supported_mission_commands"><i class="fa fa-link" aria-hidden="true"></i></a>Supported Mission Commands </h2>
-<p>The <a href="../api_reference/classmavsdk_1_1_mission_item.md">MissionItem</a> class abstracts a small but useful subset of the mission commands supported by PX4 (and the MAVLink specification):</p>
+<p>The <a href="../api_reference/structmavsdk_1_1_mission_1_1_mission_item.html">MissionItem</a> class abstracts a small but useful subset of the mission commands supported by PX4 (and the MAVLink specification):</p>
 <p>The supported set is:</p>
 <ul>
 <li><a href="https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT" target="_blank">MAV_CMD_NAV_WAYPOINT</a></li>
@@ -2163,26 +2163,32 @@ auto mission = std::make_shared&lt;Mission&gt;(system);
 </ol>
 <p>The <code>mission</code> pointer can then used to access the plugin API (as shown in the following sections).</p>
 <h2 id="defining-a-mission"><a name="defining-a-mission" class="plugin-anchor" href="#defining-a-mission"><i class="fa fa-link" aria-hidden="true"></i></a>Defining a Mission</h2>
-<p>A mission must be defined as a vector of <a href="../api_reference/classmavsdk_1_1_mission_item.md">MissionItem</a> objects as shown below:</p>
+<p>A mission must be defined as a vector of <a href="../api_reference/structmavsdk_1_1_mission_1_1_mission_item.html">MissionItem</a> objects as shown below:</p>
 <pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;MissionItem&gt;&gt; mission_items;
 </code></pre>
 <p>You can create as many <code>MissionItem</code> objects as you like and use <code>std_vector::push_back()</code> to add them to the back of the mission item vector. 
-The example below shows how to create and add a <code>MissionItem</code>, that just sets the target position (using <a href="../api_reference/classmavsdk_1_1_mission_item.md#classmavsdk_1_1_mission_item_1abe17a24cf27fa0b6d632f39f8d7d15f3">set_position()</a>).</p>
+The example below shows how to create and add a <code>MissionItem</code> that sets the target position.</p>
 <pre><code class="lang-cpp"><span class="hljs-comment">// Create MissionItem and set its position</span>
 <span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;MissionItem&gt; new_item(<span class="hljs-keyword">new</span> MissionItem());
-new_item-&gt;set_position(<span class="hljs-number">47.40</span> <span class="hljs-comment">/*latitude_deg*/</span>, <span class="hljs-number">8.5455360114574432</span> <span class="hljs-comment">/*longitude_deg*/</span>);
+new_item-&gt;latitude_deg = <span class="hljs-number">47.40</span>;
+new_item-&gt;longitude_deg = <span class="hljs-number">8.5455360114574432</span>;
 
 <span class="hljs-comment">// Add new_item to the vector</span>
 mission_items.push_back(new_item);
 </code></pre>
 <p>The example below shows how you might set the other options on a second <code>MissionItem</code> (and add it to the mission).</p>
 <pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;MissionItem&gt; new_item2(<span class="hljs-keyword">new</span> MissionItem());
-new_item2-&gt;set_position(<span class="hljs-number">47.50</span> <span class="hljs-comment">/*latitude_deg*/</span>, <span class="hljs-number">8.5455360114574432</span> <span class="hljs-comment">/*longitude_deg*/</span>);
-new_item2-&gt;set_relative_altitude(<span class="hljs-number">2.0f</span>);
-new_item2-&gt;set_speed(<span class="hljs-number">5.0f</span> <span class="hljs-comment">/* m/s */</span>);
-new_item2-&gt;set_fly_through(<span class="hljs-literal">true</span>);
-new_item2-&gt;set_gimbal_pitch_and_yaw(<span class="hljs-number">20.0f</span> <span class="hljs-comment">/*pitch*/</span>, <span class="hljs-number">60.0f</span> <span class="hljs-comment">/*yaw degrees*/</span>);
-new_item2-&gt;set_camera_action(MissionItem::CameraAction::TAKE_PHOTO);
+new_item2-&gt;latitude_deg = <span class="hljs-number">47.40</span>;
+new_item2-&gt;longitude_deg = <span class="hljs-number">8.5455360114574432</span>);
+new_item2-&gt;relative_altitude_m = <span class="hljs-number">2.0f</span>;
+new_item2-&gt;speed_m_s = <span class="hljs-number">5.0f</span>;
+new_item2-&gt;is_fly_through = <span class="hljs-literal">true</span>;
+new_item2-&gt;gimbal_pitch_deg = <span class="hljs-number">20.0f</span>;
+new_item2-&gt;gimbal_pitch_deg = <span class="hljs-number">20.0f</span>;
+new_item2-&gt;gimbal_yaw_deg = <span class="hljs-number">60.0f</span>;
+new_item2-&gt;camera_action = MissionItem::CameraAction::TakePhoto;
+new_item2-&gt;loiter_time_s = <span class="hljs-number">1.0f</span>;
+new_item2-&gt;camera_photo_interval_s =  <span class="hljs-number">1.0f</span>;
 
 <span class="hljs-comment">//Add new_item2 to the vector</span>
 mission_items.push_back(new_item2);
@@ -2201,24 +2207,15 @@ mission_items.push_back(new_item2);
 <p>The <a href="../examples/fly_mission.html">Fly Mission</a> uses a convenience function to create <code>MissionItem</code> objects. 
 Using this approach you have to specify every attribute for every mission item, whether or not the value is actually used.</p>
 <p>The definition and use of this function is shown below:</p>
-<pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;MissionItem&gt; make_mission_item(<span class="hljs-keyword">double</span> latitude_deg,
-                                               <span class="hljs-keyword">double</span> longitude_deg,
-                                               <span class="hljs-keyword">float</span> relative_altitude_m,
-                                               <span class="hljs-keyword">float</span> speed_m_s,
-                                               <span class="hljs-keyword">bool</span> is_fly_through,
-                                               <span class="hljs-keyword">float</span> gimbal_pitch_deg,
-                                               <span class="hljs-keyword">float</span> gimbal_yaw_deg,
-                                               MissionItem::CameraAction camera_action)
-{
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;MissionItem&gt; new_item(<span class="hljs-keyword">new</span> MissionItem());
-    new_item-&gt;set_position(latitude_deg, longitude_deg);
-    new_item-&gt;set_relative_altitude(relative_altitude_m);
-    new_item-&gt;set_speed(speed_m_s);
-    new_item-&gt;set_fly_through(is_fly_through);
-    new_item-&gt;set_gimbal_pitch_and_yaw(gimbal_pitch_deg, gimbal_yaw_deg);
-    new_item-&gt;set_camera_action(camera_action);
-    <span class="hljs-keyword">return</span> new_item;
-}
+<pre><code class="lang-cpp"><span class="hljs-keyword">static</span> Mission::<span class="hljs-function">MissionItem <span class="hljs-title">make_mission_item</span><span class="hljs-params">(
+    <span class="hljs-keyword">double</span> latitude_deg,
+    <span class="hljs-keyword">double</span> longitude_deg,
+    <span class="hljs-keyword">float</span> relative_altitude_m,
+    <span class="hljs-keyword">float</span> speed_m_s,
+    <span class="hljs-keyword">bool</span> is_fly_through,
+    <span class="hljs-keyword">float</span> gimbal_pitch_deg,
+    <span class="hljs-keyword">float</span> gimbal_yaw_deg,
+    Mission::MissionItem::CameraAction camera_action)</span></span>;
 
 
 mission_items.push_back(
@@ -2233,7 +2230,7 @@ mission_items.push_back(
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> To export a mission plan from the <em>QGroundControl</em> use the <a href="https://docs.qgroundcontrol.com/en/PlanView/PlanView.html#file" target="_blank">Sync Tool</a> (<strong>Plan View &gt; Sync Tool</strong>, and then select <strong>Save to File</strong>).</p>
 </blockquote>
-<p>The mission is imported using the static <a href="../api_reference/classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1aa0a937d18e9ce2c4f346aa9ee8a1a6d9">import_qgroundcontrol_mission</a> method.
+<p>The mission is imported using the static <a href="../api_reference/classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a575a720f5814dd0380220abaf7a955f5">import_qgroundcontrol_mission</a> method.
 The method will fail with an error if the plan file cannot be found, cannot be parsed, or if it contains mission items that are <a href="#supported_mission_commands">not supported</a>.</p>
 <p>The code fragment below shows how to import mission items from a plan:</p>
 <pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> qgc_plan = <span class="hljs-string">&quot;file_path_to_some_qgroundcontrol.plan&quot;</span>
@@ -2245,28 +2242,31 @@ Mission::Result import_res = Mission::import_qgroundcontrol_mission(mission_item
 </blockquote>
 <p>The mission (<code>mission_items</code>) can then be uploaded as shown in the section <a href="#uploading_mission">Uploading a Mission</a> below.</p>
 <h2 id="uploading_mission"><a name="uploading_mission" class="plugin-anchor" href="#uploading_mission"><i class="fa fa-link" aria-hidden="true"></i></a>Uploading a Mission </h2>
-<p>Use <a href="../api_reference/classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1ad6117cf541865249900201fe6305f5a1">Mission::upload_mission_async()</a> to upload the mission defined in the previous section.</p>
+<p>Use <a href="../api_reference/classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a38274b1c1509375a182c44711ee9f7b1">Mission::upload_mission()</a> to upload the mission defined in the previous section.</p>
 <p>The example below shows how this is done, using promises to wait on the result.</p>
 <pre><code class="lang-cpp"><span class="hljs-comment">// ... declare and populate the mission vector: mission_items</span>
 
 {
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Uploading mission...&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    <span class="hljs-comment">// We only have the upload_mission function asynchronous for now, so we wrap it using</span>
+    <span class="hljs-comment">// std::future.</span>
     <span class="hljs-keyword">auto</span> prom = <span class="hljs-built_in">std</span>::make_shared&lt;<span class="hljs-built_in">std</span>::promise&lt;Mission::Result&gt;&gt;();
     <span class="hljs-keyword">auto</span> future_result = prom-&gt;get_future();
+    Mission::MissionPlan mission_plan{};
+    mission_plan.mission_items = mission_items;
     mission-&gt;upload_mission_async(
-    mission_items, [prom](Mission::Result result) {
-        prom-&gt;set_value(result);
-    });
+        mission_plan, [prom](Mission::Result result) { prom-&gt;set_value(result); });
 
     <span class="hljs-keyword">const</span> Mission::Result result = future_result.get();
-    <span class="hljs-keyword">if</span> (result != Mission::Result::SUCCESS) {
-        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission upload failed (&quot;</span> &lt;&lt; Mission::result_str(result) &lt;&lt; <span class="hljs-string">&quot;), exiting.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    <span class="hljs-keyword">if</span> (result != Mission::Result::Success) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission upload failed (&quot;</span> &lt;&lt; result &lt;&lt; <span class="hljs-string">&quot;), exiting.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
         <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
     }
     <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission uploaded.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
 }
 </code></pre>
 <h2 id="startingpausing-missions"><a name="startingpausing-missions" class="plugin-anchor" href="#startingpausing-missions"><i class="fa fa-link" aria-hidden="true"></i></a>Starting/Pausing Missions</h2>
-<p>Start or resume a paused mission using <a href="../api_reference/classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1af0a6404b7af085759bc6dad518eea525">Mission::start_mission_async()</a>.
+<p>Start or resume a paused mission using <a href="../api_reference/classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a31ca2fc6b9fe4802dbc3fbebad0bb5d7">Mission::start_mission_async()</a>.
 The vehicle must already have a mission (the mission need not have been uploaded using the SDK).</p>
 <p>The code fragment below shows how this is done, using promises to wait on the result.</p>
 <pre><code class="lang-cpp">{
@@ -2285,7 +2285,7 @@ The vehicle must already have a mission (the mission need not have been uploaded
     <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Started mission.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
 }
 </code></pre>
-<p>To pause a mission use <a href="../api_reference/classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a39a0434bb2e731ccca7c0f2d579b0ee8">Mission::pause_mission_async()</a>. 
+<p>To pause a mission use <a href="../api_reference/classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a4c5679369e215ef21901fc7ffe1ce32b">Mission::pause_mission_async()</a>. 
 The code is almost exactly the same as for starting a mission:</p>
 <pre><code class="lang-cpp">{
     <span class="hljs-keyword">auto</span> prom = <span class="hljs-built_in">std</span>::make_shared&lt;<span class="hljs-built_in">std</span>::promise&lt;Mission::Result&gt;&gt;();
@@ -2306,25 +2306,20 @@ The code is almost exactly the same as for starting a mission:</p>
 }
 </code></pre>
 <h2 id="monitoring-progress"><a name="monitoring-progress" class="plugin-anchor" href="#monitoring-progress"><i class="fa fa-link" aria-hidden="true"></i></a>Monitoring Progress</h2>
-<p>Asynchronously monitor progress using <a href="../api_reference/classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1aa882278b493a2390ca0b3cf7027b3a01">Mission::subscribe_progress()</a>, 
+<p>Asynchronously monitor progress using <a href="../api_reference/classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a6dd32b92e593c1a692fe59e5bfb670fb">Mission::subscribe_mission_progress()</a>, 
 which receives a regular callback with the current <code>MissionItem</code> number and the total number of items.</p>
 <p>The code fragment just takes a lambda function that reports the current status. </p>
-<pre><code class="lang-cpp">mission-&gt;subscribe_progress( [](<span class="hljs-keyword">int</span> current, <span class="hljs-keyword">int</span> total) {
-       <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission status update: &quot;</span> &lt;&lt; current &lt;&lt; <span class="hljs-string">&quot; / &quot;</span> &lt;&lt; total &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+<pre><code class="lang-cpp">mission-&gt;subscribe_mission_progress( [](Mission::MissionProgress mission_progress)) {
+       <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission status update: &quot;</span> &lt;&lt; mission_progress.current &lt;&lt; <span class="hljs-string">&quot; / &quot;</span> &lt;&lt; mission_progress.total &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
     });
 </code></pre>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> The mission is complete when <code>current == total</code>.</p>
 </blockquote>
-<p>The following synchronous methods are also available for checking mission progress:</p>
+<p>The following synchronous methods is also available for checking mission progress:</p>
 <ul>
-<li><a href="../api_reference/classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a5861a4c6325ca1eeb1cc1d37004a7f61">mission_finished()</a> - Checks if mission has been finished.</li>
-<li><a href="../api_reference/classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a25afa022a4206bd1055a692937f9b916">current_mission_item()</a> - Returns the current mission item index.</li>
-<li><a href="../api_reference/classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a97c07cbcf5e9c54d5776cd86e4228311">total_mission_items()</a> - Gets the total number of items.</li>
+<li><a href="../api_reference/classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a1ecf4f8798ab9ae96882dfbd34f23466">is_mission_finished()</a> - Checks if mission has been finished.</li>
 </ul>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> The mission is (also) complete when <code>current_mission_item()</code> == <code>total_mission_items()</code>.</p>
-</blockquote>
 <h2 id="taking-off-landing-returning"><a name="taking-off-landing-returning" class="plugin-anchor" href="#taking-off-landing-returning"><i class="fa fa-link" aria-hidden="true"></i></a>Taking Off, Landing, Returning</h2>
 <p>If using a copter or VTOL vehicle then PX4 will automatically takeoff when it is armed and a mission is started (even without a takeoff mission item). 
 For Fixed Wing vehicles the vehicle must be launched before starting a mission.</p>
@@ -2332,8 +2327,8 @@ For Fixed Wing vehicles the vehicle must be launched before starting a mission.<
 If required you can instead use the appropriate commands in the <a href="taking_off_landing.html">Action</a> class.</p>
 <!-- Update if we get new mission items -->
 <h2 id="downloading-missions"><a name="downloading-missions" class="plugin-anchor" href="#downloading-missions"><i class="fa fa-link" aria-hidden="true"></i></a>Downloading Missions</h2>
-<p>Use <a href="../api_reference/classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a23173385eef570b9802402fc047104c1">Mission::download_mission_async()</a> to download a mission from the vehicle.
-The mission is downloaded as a vector of <a href="../api_reference/classmavsdk_1_1_mission_item.md">MissionItem</a> objects, that you can then view or manipulate as required.</p>
+<p>Use <a href="../api_reference/classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a04e7e7074273b4591a820894c5c4ad43">Mission::download_mission_async()</a> to download a mission from the vehicle.
+The mission is downloaded as a vector of <a href="../api_reference/structmavsdk_1_1_mission_1_1_mission_item.html">MissionItem</a> objects, that you can then view or manipulate as required.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> Mission download will fail if the mission contains a command that is outside the <a href="#supported_mission_commands">supported set</a>. 
 Missions created using <em>QGroundControl</em> are not guaranteed to successfully download! </p>
@@ -2379,8 +2374,11 @@ Missions created using <em>QGroundControl</em> are not guaranteed to successfull
 <li><a href="../examples/fly_mission_qgc_plan.html">Example:Fly QGC Plan Mission</a></li>
 <li>Integration tests:<ul>
 <li><a href="https://github.com/mavlink/MAVSDK/blob/develop/src/integration_tests/mission.cpp" target="_blank">mission.cpp</a></li>
+<li><a href="https://github.com/mavlink/MAVSDK/blob/develop/src/integration_tests/mission_cancellation.cpp" target="_blank">mission_cancellation.cpp</a></li>
 <li><a href="https://github.com/mavlink/MAVSDK/blob/develop/src/integration_tests/mission_change_speed.cpp" target="_blank">mission_change_speed.cpp</a></li>
-<li><a href="https://github.com/mavlink/MAVSDK/blob/develop/src/integration_tests/mission_survey.cpp" target="_blank">mission_survey.cpp</a></li>
+<li><a href="https://github.com/mavlink/MAVSDK/blob/develop/src/integration_tests/mission_raw_mission_changed.cpp" target="_blank">mission_raw_mission_changed.cpp</a>  </li>
+<li><a href="https://github.com/mavlink/MAVSDK/blob/develop/src/integration_tests/mission_rtl.cpp" target="_blank">mission_rtl.cpp</a></li>
+<li><a href="https://github.com/mavlink/MAVSDK/blob/develop/src/integration_tests/mission_transfer_lossy.cpp" target="_blank">mission_transfer_lossy.cpp</a>  </li>
 </ul>
 </li>
 <li>Unit Tests:<ul>
@@ -2388,7 +2386,7 @@ Missions created using <em>QGroundControl</em> are not guaranteed to successfull
 </ul>
 </li>
 </ul>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-05-07 16:13:20 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-05-12 09:54:07 </span> </footer>
                                 
                                 </section>
                             
@@ -2431,7 +2429,7 @@ Missions created using <em>QGroundControl</em> are not guaranteed to successfull
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Missions","level":"1.5.3.7","depth":3,"next":{"title":"Offboard Control","level":"1.5.3.8","depth":3,"path":"guide/offboard.md","ref":"guide/offboard.md","articles":[]},"previous":{"title":"Actions - Take Off, Arm, ...","level":"1.5.3.6","depth":3,"path":"guide/taking_off_landing.md","ref":"guide/taking_off_landing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"guide/missions.md","mtime":"2020-05-07T16:13:20.962Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-07T16:14:13.877Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Missions","level":"1.5.3.7","depth":3,"next":{"title":"Offboard Control","level":"1.5.3.8","depth":3,"path":"guide/offboard.md","ref":"guide/offboard.md","articles":[]},"previous":{"title":"Actions - Take Off, Arm, ...","level":"1.5.3.6","depth":3,"path":"guide/taking_off_landing.md","ref":"guide/taking_off_landing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"guide/missions.md","mtime":"2020-05-12T09:54:07.944Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-12T09:55:12.320Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

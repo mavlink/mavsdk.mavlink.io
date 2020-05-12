@@ -1012,9 +1012,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5.9.2" data-path="../api_reference/structmavsdk_1_1_geofence_1_1_point.html">
+        <li class="chapter " data-level="1.5.5.9.2" data-path="../api_reference/structmavsdk_1_1_log_files_1_1_progress_data.html">
             
-                <a href="../api_reference/structmavsdk_1_1_geofence_1_1_point.html">
+                <a href="../api_reference/structmavsdk_1_1_log_files_1_1_progress_data.html">
             
                     
                     struct ProgressData
@@ -1844,7 +1844,7 @@
                 <a href="../api_reference/namespacemavsdk.html">
             
                     
-                    namespace mavsdk (api_reference/globals)
+                    namespace mavsdk (globals)
             
                 </a>
             
@@ -2145,30 +2145,28 @@ auto offboard = std::make_shared&lt;Offboard&gt;(system);
 </ol>
 <p>The <code>offboard</code> pointer can then used to access the plugin API (as shown in the following sections).</p>
 <h2 id="startingstopping-offboard-mode"><a name="startingstopping-offboard-mode" class="plugin-anchor" href="#startingstopping-offboard-mode"><i class="fa fa-link" aria-hidden="true"></i></a>Starting/Stopping Offboard Mode</h2>
-<p>To use offboard mode you must first create a setpoint using any of the setpoint setter methods (e.g. <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1a689fec126f8da55dadfc13e67bf9bb39">set_velocity_ned()</a> or <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1aab32b36b4396cecbac9c745507b2fb81">set_velocity_body()</a>).
+<p>To use offboard mode you must first create a setpoint using any of the setpoint setter methods (e.g. <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1a4edbc6e4528ff955d4e46e7c4e711732">set_velocity_ned()</a> or <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1abe7364f0a48dda4df34c5c67d177cfb4">set_velocity_body()</a>).
 You can use any setpoint you like - the vehicle will start acting on the current setpoint as soon as the mode starts.</p>
-<p>After you have created a setpoint call <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1a3f0b71195ae6cb445237b192e3b8343f">start()</a> or <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1a8d52d710dbfcd77a33d8657ea55ab606">start_async()</a> to switch to offboard mode.</p>
+<p>After you have created a setpoint call <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1ab71d0dd2a81f76e3a0330b0304daa30b">start()</a> or <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1a0c880ad3f663142e194dd6f187cfc934">start_async()</a> to switch to offboard mode.</p>
 <pre><code class="lang-cpp"><span class="hljs-comment">// Create a setpoint before starting offboard mode (in this case a null setpoint)</span>
 offboard-&gt;set_velocity_body({<span class="hljs-number">0.0f</span>, <span class="hljs-number">0.0f</span>, <span class="hljs-number">0.0f</span>, <span class="hljs-number">0.0f</span>});
 
 <span class="hljs-comment">// Start offboard mode.</span>
 Offboard::Result offboard_result = offboard-&gt;start();
-<span class="hljs-keyword">if</span> (result != Offboard::Result::SUCCESS) {
-        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">&quot;Offboard::start() failed: &quot;</span>
-        &lt;&lt; Offboard::result_str(offboard_result) &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+<span class="hljs-keyword">if</span> (result != Offboard::Result::Success) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">&quot;Offboard::start() failed: &quot;</span> &lt;&lt; offboard_result &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
     }
 </code></pre>
 <p>The methods return/complete with a <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1a2d4d594301d8c756429457b0982130e9">Result</a> indicating whether the command was successful.
-Above we use the synchronous API, and then use <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1a3402d7e3dc8b4ff15598dfd67af0644b">Offboard::result_str()</a> to get a human readable string for the returned enum.</p>
+Above we use the synchronous API, and then print a human readable string for the returned enum.</p>
 <p>You can change the setpoints as needed (new setpoints replace any old setpoints).</p>
-<p>To stop offboard mode call <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1a9a54e588bcfd5b0ffca27833ad4f6b10">Offboard::stop()</a> or <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1a8d52d710dbfcd77a33d8657ea55ab606">stop_async()</a>.
+<p>To stop offboard mode call <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1a626810cbfa02b36019dde2d2fd4c3da9">Offboard::stop()</a> or <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1a86c163d7fa1217b4e82a03daf52065c3">stop_async()</a>.
 The SDK will then clear the current setpoint and put the vehicle into <a href="https://docs.px4.io/master/en/flight_modes/hold.html" target="_blank">Hold flight mode</a>.
 The synchronous API is used as shown below:</p>
 <pre><code class="lang-cpp"><span class="hljs-comment">//Stop offboard mode</span>
 offboard_result = offboard-&gt;stop();
-<span class="hljs-keyword">if</span> (result != Offboard::Result::SUCCESS) {
-        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">&quot;Offboard::stop() failed: &quot;</span>
-        &lt;&lt; Offboard::result_str(offboard_result) &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+<span class="hljs-keyword">if</span> (result != Offboard::Result::Success) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">&quot;Offboard::stop() failed: &quot;</span> &lt;&lt; offboard_result &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
     }
 </code></pre>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
@@ -2183,7 +2181,7 @@ Movement up/down is the same in either frame.</p>
 <p>The following sections provide some common usage examples.</p>
 <h3 id="move-in-compass-direction"><a name="move-in-compass-direction" class="plugin-anchor" href="#move-in-compass-direction"><i class="fa fa-link" aria-hidden="true"></i></a>Move in Compass Direction</h3>
 <p>The <code>set_velocity_ned()</code> can be used to move towards any particular compass direction - e.g. North, West, South-East, etc.</p>
-<p>Calling <code>set_velocity_ned()</code> using an initialiser list type declaration for the <a href="../api_reference/structmavsdk_1_1_offboard_1_1_velocity_n_e_d_yaw.md">VelocityNEDYaw</a> argument,
+<p>Calling <code>set_velocity_ned()</code> using an initialiser list type declaration for the <a href="../api_reference/structmavsdk_1_1_offboard_1_1_velocity_ned_yaw.html">VelocityNEDYaw</a> argument,
 the first three values are the velocity components in North, East, and Down directions (in metres/second).</p>
 <p>Examples:</p>
 <ul>
@@ -2257,7 +2255,7 @@ The SDK examples use timers to separate commands (e.g. <code>sleep_for(seconds(8
 <p>The vehicle may change out of offboard mode outside the control of your application (for example if a GCS were to put the vehicle into <em>Hold mode</em>).
 In this case, the SDK will automatically stop sending setpoints and <a href="../api_reference/classmavsdk_1_1_offboard.html#classmavsdk_1_1_offboard_1aa5e0f3c02a03f2667f82d5e162221ff5">Offboard::is_active()</a> will change from <code>true</code> to <code>false</code>.</p>
 <p>Calls to change the setpoint do not return an error!
-Depending on the particular use case, offboard code may need to explicitly monitor for flight mode and change behaviour appropriately (e.g. using <a href="../api_reference/classmavsdk_1_1_telemetry.html#classmavsdk_1_1_telemetry_1adede4202304e53466b4df41367a75878">Telemetry::flight_mode_async()</a>).</p>
+Depending on the particular use case, offboard code may need to explicitly monitor for flight mode and change behaviour appropriately (e.g. using <a href="../api_reference/classmavsdk_1_1_telemetry.html#classmavsdk_1_1_telemetry_1a53db5fb36bf10fbc7ac004a3be9100a4">Telemetry::subscribe_flight_mode()</a>).</p>
 <h2 id="further-information"><a name="further-information" class="plugin-anchor" href="#further-information"><i class="fa fa-link" aria-hidden="true"></i></a>Further Information</h2>
 <p>Additional information/examples for the Offboard API are linked below:</p>
 <ul>
@@ -2267,7 +2265,7 @@ Depending on the particular use case, offboard code may need to explicitly monit
 </ul>
 </li>
 </ul>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-05-07 16:13:20 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-05-12 09:54:07 </span> </footer>
                                 
                                 </section>
                             
@@ -2310,7 +2308,7 @@ Depending on the particular use case, offboard code may need to explicitly monit
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Offboard Control","level":"1.5.3.8","depth":3,"next":{"title":"Follow Me","level":"1.5.3.9","depth":3,"path":"guide/follow_me.md","ref":"guide/follow_me.md","articles":[]},"previous":{"title":"Missions","level":"1.5.3.7","depth":3,"path":"guide/missions.md","ref":"guide/missions.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"guide/offboard.md","mtime":"2020-05-07T16:13:20.962Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-07T16:14:13.877Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Offboard Control","level":"1.5.3.8","depth":3,"next":{"title":"Follow Me","level":"1.5.3.9","depth":3,"path":"guide/follow_me.md","ref":"guide/follow_me.md","articles":[]},"previous":{"title":"Missions","level":"1.5.3.7","depth":3,"path":"guide/missions.md","ref":"guide/missions.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"guide/offboard.md","mtime":"2020-05-12T09:54:07.944Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-12T09:55:12.320Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

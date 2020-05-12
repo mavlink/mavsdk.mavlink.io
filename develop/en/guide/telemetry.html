@@ -1012,9 +1012,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5.9.2" data-path="../api_reference/structmavsdk_1_1_geofence_1_1_point.html">
+        <li class="chapter " data-level="1.5.5.9.2" data-path="../api_reference/structmavsdk_1_1_log_files_1_1_progress_data.html">
             
-                <a href="../api_reference/structmavsdk_1_1_geofence_1_1_point.html">
+                <a href="../api_reference/structmavsdk_1_1_log_files_1_1_progress_data.html">
             
                     
                     struct ProgressData
@@ -1844,7 +1844,7 @@
                 <a href="../api_reference/namespacemavsdk.html">
             
                     
-                    namespace mavsdk (api_reference/globals)
+                    namespace mavsdk (globals)
             
                 </a>
             
@@ -2109,13 +2109,30 @@ All the methods of a particular type (synchronous, asynchronous, and set_rate me
 <h2 id="api-overview"><a name="api-overview" class="plugin-anchor" href="#api-overview"><i class="fa fa-link" aria-hidden="true"></i></a>API Overview</h2>
 <p>The <code>Telemetry</code> API provides methods to return the following types of information:</p>
 <ul>
-<li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_position.html">Position</a> - latitude and longitude in degrees, and altitude relative to sea level and to the takeoff altitude.</li>
+<li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_acceleration_frd.html">AccelerationFrd</a></li>
+<li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_actuator_control_target.html">ActuatorControlTarget</a></li>
+<li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_actuator_output_status.html">ActuatorOutputStatus</a></li>
+<li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_angular_velocity_body.html">AngularVelocityBody</a></li>
+<li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_angular_velocity_frd.html">AngularVelocityNed</a></li>
 <li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_battery.html">Battery</a> - voltage and percentage power remaining.</li>
-<li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_ground_speed_n_e_d.md">GroundSpeedNED</a> - velocity components in NED coordinates.</li>
-<li>Vehicle attitude/orientation - as a <a href="../api_reference/structmavsdk_1_1_telemetry_1_1_quaternion.html">Quaternion</a> or <a href="../api_reference/structmavsdk_1_1_telemetry_1_1_euler_angle.html">EulerAngle</a></li>
-<li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_g_p_s_info.md">GPSInfo</a> - type of fix, if any, and number of satellites.</li>
+<li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_covariance.html">Covariance</a></li>
+<li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_euler_angle.html">EulerAngle</a> - vehicle attitude/orientation as Euler Angle</li>
+<li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_fixedwing_metrics.html">FixedwingMetrics</a></li>
+<li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_gps_info.html">GpsInfo</a> - type of fix, if any, and number of satellites.</li>
+<li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_ground_truth.html">GroundTruth</a></li>
 <li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_health.html">Health</a> - calibration status of various sensors and confirmation that position estimates are good enough for position control.</li>
-<li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_r_c_status.md">RCStatus</a> - connection status, signal strength, and whether RC has ever been connected.</li>
+<li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_imu.html">Imu</a></li>
+<li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_magnetic_field_frd.html">MagneticFieldFrd</a></li>
+<li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_odometry.html">Odometry</a></li>
+<li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_position.html">Position</a> - latitude and longitude in degrees, and altitude relative to sea level and to the takeoff altitude.</li>
+<li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_position_body.html">PositionBody</a></li>
+<li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_position_ned.html">PositionNed</a></li>
+<li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_velocity_ned.html">VelocityNed</a></li>
+<li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_velocity_body.html">VelocityBody</a></li>
+<li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_position_velocity_ned.html">PositionVelocityNed</a></li>
+<li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_quaternion.html">Quaternion</a> - vehicle attitude/orientation as a quaternion</li>
+<li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_rc_status.html">RcStatus</a> - connection status, signal strength, and whether RC has ever been connected.</li>
+<li><a href="../api_reference/structmavsdk_1_1_telemetry_1_1_status_text.html">StatusText</a></li>
 </ul>
 <p>In addition there are a number of methods that return vehicle &quot;state&quot;:</p>
 <ul>
@@ -2166,7 +2183,7 @@ You can set the rate for <em>each</em> type of telemetry, and both synchronous o
 </blockquote>
 <p>The rate-setting methods are all used in the same way, so we just show one example for both the asynchronous and synchronous methods below.
 In both cases we set the rate for position updates.</p>
-<p>To set the position update rate synchronously (in this case using <a href="../api_reference/classmavsdk_1_1_telemetry.html#classmavsdk_1_1_telemetry_1a7bb2f0ad795108ea857cbd6b9f802ee2">set_rate_position()</a>):</p>
+<p>To set the position update rate synchronously (in this case using <a href="../api_reference/classmavsdk_1_1_telemetry.html#classmavsdk_1_1_telemetry_1a665439f3d5f8c58b3ef3dd427cf4782b">set_rate_position()</a>):</p>
 <pre><code class="lang-cpp"><span class="hljs-comment">// Set position update rate to 1 Hz.</span>
 <span class="hljs-keyword">const</span> Telemetry::Result set_rate_result = telemetry-&gt;set_rate_position(<span class="hljs-number">1.0</span>);
 <span class="hljs-keyword">if</span> (set_rate_result != Telemetry::Result::SUCCESS) {
@@ -2174,7 +2191,7 @@ In both cases we set the rate for position updates.</p>
     <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Setting rate failed:&quot;</span> &lt;&lt; Telemetry::result_str(set_rate_result) &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
 }
 </code></pre>
-<p>To set the position update rate asynchronously with <a href="../api_reference/classmavsdk_1_1_telemetry.html#classmavsdk_1_1_telemetry_1aa8d3e034d11fccb1533d1a782618f4a4">set_rate_position_async()</a> (here we use a <em>promise</em> to block until we have a result):</p>
+<p>To set the position update rate asynchronously with <a href="../api_reference/classmavsdk_1_1_telemetry.html#classmavsdk_1_1_telemetry_1ad7e5b576edb9398c8f5f2f14626b984a">set_rate_position_async()</a> (here we use a <em>promise</em> to block until we have a result):</p>
 <pre><code class="lang-cpp">{
     <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Setting rate updates...&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
 
@@ -2195,14 +2212,14 @@ In both cases we set the rate for position updates.</p>
 </code></pre>
 <h2 id="getting-regular-updates"><a name="getting-regular-updates" class="plugin-anchor" href="#getting-regular-updates"><i class="fa fa-link" aria-hidden="true"></i></a>Getting Regular Updates</h2>
 <p>The best way to get telemetry updates is to use the asynchronous methods. 
-These methods are non-blocking - they take a callback function argument and return immediately. 
+These methods are non-blocking; they take a callback function argument and return immediately. 
 The callback will be invoked with a populated <code>struct</code> of the associated type as soon as an update message arrives from the vehicle. 
 The rate at which this occurs can be set through the API <a href="#update-rate">as discussed above</a>. </p>
-<p>For example, the <a href="../api_reference/classmavsdk_1_1_telemetry.html#classmavsdk_1_1_telemetry_1a36c873a346ec80ffa6440191e57e440a">Telemetry::position_async()</a> has the following prototype, where <a href="../api_reference/classmavsdk_1_1_telemetry.html#classmavsdk_1_1_telemetry_1aadcd5ce9f12b7de8f44b32aff9bc766f">position_callback_t</a> is called with a populated <a href="../api_reference/structmavsdk_1_1_telemetry_1_1_position.html">Position</a>:</p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Telemetry::position_async(<span class="hljs-keyword">position_callback_t</span> callback)
+<p>For example, the <a href="../api_reference/classmavsdk_1_1_telemetry.html#classmavsdk_1_1_telemetry_1a61bda57b3ca47000ea7e4758b2a33134">Telemetry::subscribe_position()</a> has the following prototype, where <code>callback</code> is called with a populated <a href="../api_reference/classmavsdk_1_1_telemetry.html#classmavsdk_1_1_telemetry_1a978b371d636226e198995462afa63552">PositionCallback</a> function:</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Telemetry::subscribe_position(PositionCallback callback)
 </code></pre>
 <p>The code fragment below shows this method being use with a lambda function for the callback, which simply prints out the current position and altitude).</p>
-<pre><code class="lang-cpp">telemetry-&gt;position_async([](Telemetry::Position position) {
+<pre><code class="lang-cpp">telemetry-&gt;subscribe_position([](Telemetry::Position position) {
     <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Altitude: &quot;</span> &lt;&lt; position.relative_altitude_m &lt;&lt; <span class="hljs-string">&quot; m&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>
               &lt;&lt; <span class="hljs-string">&quot;Latitude: &quot;</span> &lt;&lt; position.latitude_deg &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>
               &lt;&lt; <span class="hljs-string">&quot;Longitude: &quot;</span> &lt;&lt; position.longitude_deg &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
@@ -2211,18 +2228,21 @@ The rate at which this occurs can be set through the API <a href="#update-rate">
 <h2 id="detecting-changes-only"><a name="detecting-changes-only" class="plugin-anchor" href="#detecting-changes-only"><i class="fa fa-link" aria-hidden="true"></i></a>Detecting Changes (only)</h2>
 <p>The asynchronous callbacks are updated every time new information is provided by the vehicle. 
 For some types of telemetry you may only wish to report only when the value changes.</p>
-<p>The example below shows how to use <a href="../api_reference/classmavsdk_1_1_telemetry.html#classmavsdk_1_1_telemetry_1adede4202304e53466b4df41367a75878">flight_mode_async()</a> to report only when the current flight mode changes. 
+<p>The example below shows how to use <a href="../api_reference/classmavsdk_1_1_telemetry.html#classmavsdk_1_1_telemetry_1a53db5fb36bf10fbc7ac004a3be9100a4">subscribe_flight_mode()</a> to report only when the current flight mode changes. 
 The example uses a lambda function callback that captures a variable for the last mode. 
 This variable is compared to the current flight mode to determine whether the value has changed and needs to be reported.</p>
 <pre><code class="lang-cpp"><span class="hljs-comment">// Set up callback to monitor flight mode &apos;changes&apos; </span>
-Telemetry::FlightMode oldFlightMode=Telemetry::FlightMode::UNKNOWN;
-telemetry-&gt;flight_mode_async([&amp;oldFlightMode](Telemetry::FlightMode flightMode) {
+Telemetry::FlightMode oldFlightMode=Telemetry::FlightMode::Unknown;
+telemetry-&gt;subscribe_flight_mode([&amp;oldFlightMode](Telemetry::FlightMode flightMode) {
     <span class="hljs-keyword">if</span> (oldFlightMode != flightMode) {
         <span class="hljs-comment">//Flight mode changed. Print!</span>
-        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;FlightMode: &quot;</span> &lt;&lt; Telemetry::flight_mode_str(flightMode) &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;FlightMode: &quot;</span> &lt;&lt; flightMode &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
         oldFlightMode=flightMode; <span class="hljs-comment">//Save updated mode.</span>
     }
 });
+</code></pre>
+<p>You can stop flight mode updates altogether with:</p>
+<pre><code class="lang-cpp">telemetry-&gt;subscribe_flight_mode(<span class="hljs-literal">nullptr</span>);
 </code></pre>
 <p>This same approach can be used to report only messages that meet some condition.</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
@@ -2276,7 +2296,7 @@ Usually though it is easier to understand program flow using the approach above.
 </ul>
 </li>
 </ul>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-05-07 16:13:20 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-05-12 09:54:07 </span> </footer>
                                 
                                 </section>
                             
@@ -2319,7 +2339,7 @@ Usually though it is easier to understand program flow using the approach above.
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Telemetry","level":"1.5.3.5","depth":3,"next":{"title":"Actions - Take Off, Arm, ...","level":"1.5.3.6","depth":3,"path":"guide/taking_off_landing.md","ref":"guide/taking_off_landing.md","articles":[]},"previous":{"title":"System Information","level":"1.5.3.4","depth":3,"path":"guide/system_information.md","ref":"guide/system_information.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"guide/telemetry.md","mtime":"2020-05-07T16:13:20.962Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-07T16:14:13.877Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Telemetry","level":"1.5.3.5","depth":3,"next":{"title":"Actions - Take Off, Arm, ...","level":"1.5.3.6","depth":3,"path":"guide/taking_off_landing.md","ref":"guide/taking_off_landing.md","articles":[]},"previous":{"title":"System Information","level":"1.5.3.4","depth":3,"path":"guide/system_information.md","ref":"guide/system_information.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"guide/telemetry.md","mtime":"2020-05-12T09:54:07.956Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-12T09:55:12.320Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

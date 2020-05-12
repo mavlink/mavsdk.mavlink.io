@@ -1012,9 +1012,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5.9.2" data-path="../api_reference/structmavsdk_1_1_geofence_1_1_point.html">
+        <li class="chapter " data-level="1.5.5.9.2" data-path="../api_reference/structmavsdk_1_1_log_files_1_1_progress_data.html">
             
-                <a href="../api_reference/structmavsdk_1_1_geofence_1_1_point.html">
+                <a href="../api_reference/structmavsdk_1_1_log_files_1_1_progress_data.html">
             
                     
                     struct ProgressData
@@ -1844,7 +1844,7 @@
                 <a href="../api_reference/namespacemavsdk.html">
             
                     
-                    namespace mavsdk (api_reference/globals)
+                    namespace mavsdk (globals)
             
                 </a>
             
@@ -2146,7 +2146,7 @@ auto action = std::make_shared&lt;Action&gt;(system);
 <p> Some of the sections below additionally assume you have created a <code>Telemetry</code> instance that can be accessed using <code>telemetry</code>.</p>
 </blockquote>
 <h2 id="taking-off"><a name="taking-off" class="plugin-anchor" href="#taking-off"><i class="fa fa-link" aria-hidden="true"></i></a>Taking Off</h2>
-<p>The recommended way to take off using the SDK (and PX4) is to use either of the <a href="../api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a0121d39baf922b1d88283230207ab5d0">takeoff()</a> or <a href="../api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a05325bd5c29aa533b95c344e25aa47dd">takeoff_async()</a> methods. If a takeoff command is accepted the vehicle will change to the <a href="https://docs.px4.io/master/en/flight_modes/takeoff.html" target="_blank">Takeoff mode</a>, fly to the takeoff altitude, and then hover (in takeoff mode) until another instruction is received.</p>
+<p>The recommended way to take off using the SDK (and PX4) is to use either of the <a href="../api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a0121d39baf922b1d88283230207ab5d0">takeoff()</a> or <a href="../api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1ab658d938970326db41709d83e02b41e6">takeoff_async()</a> methods. If a takeoff command is accepted the vehicle will change to the <a href="https://docs.px4.io/master/en/flight_modes/takeoff.html" target="_blank">Takeoff mode</a>, fly to the takeoff altitude, and then hover (in takeoff mode) until another instruction is received.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> PX4/SDK also provides other ways to take off:</p>
 <ul>
@@ -2163,7 +2163,8 @@ auto action = std::make_shared&lt;Action&gt;(system);
     <span class="hljs-built_in">std</span>::this_thread::sleep_for(<span class="hljs-built_in">std</span>::chrono::seconds(<span class="hljs-number">1</span>));
 }
 </code></pre>
-<p>The code fragment below performs the same task, but additionally exits the app if calibration is required reports what conditions are still required before the vehicle is &quot;healthy&quot;:</p>
+<p>The code fragment below performs the same task, but additionally exits the app if calibration is required reports what conditions are still required before the vehicle is &quot;healthy&quot;:
+<!-- update for subscribe_health_all_ok --></p>
 <pre><code class="lang-cpp"><span class="hljs-comment">// Exit if calibration is required</span>
 Telemetry::Health check_health = telemetry-&gt;health();
 <span class="hljs-keyword">bool</span> calibration_required = <span class="hljs-literal">false</span>;
@@ -2205,7 +2206,7 @@ Telemetry::Health check_health = telemetry-&gt;health();
 }
 </code></pre>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> Vehicle health can also be checked using <a href="../api_reference/classmavsdk_1_1_telemetry.html#classmavsdk_1_1_telemetry_1ae1a2f05a126a88b19e78078ef5f552f4">Telemetry:health_all_ok_async()</a>. </p>
+<p> Vehicle health can also be checked using <a href="../api_reference/classmavsdk_1_1_telemetry.html#classmavsdk_1_1_telemetry_1a0f94ea6d707ff314e412367d6681bd8f">Telemetry:subscribe_health_all_ok()</a>. </p>
 </blockquote>
 <h3 id="arming"><a name="arming" class="plugin-anchor" href="#arming"><i class="fa fa-link" aria-hidden="true"></i></a>Arming</h3>
 <p>Once the vehicle is ready, use the following synchronous code to arm:</p>
@@ -2255,7 +2256,7 @@ The code below uses the synchronous <code>takeoff()</code> method, and fails if 
 <span class="hljs-comment">// Reached target altitude - continue with next instruction.</span>
 </code></pre>
 <h2 id="landing"><a name="landing" class="plugin-anchor" href="#landing"><i class="fa fa-link" aria-hidden="true"></i></a>Landing</h2>
-<p>The best way to land the vehicle at the current location is to use the <a href="../api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1af6429e1bdb2875deebfe98ed53da3d41">land()</a> or <a href="../api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a386b5425dea3449bfd6e20e58a06ab99">land_async()</a> methods.
+<p>The best way to land the vehicle at the current location is to use the <a href="../api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1af6429e1bdb2875deebfe98ed53da3d41">land()</a> or <a href="../api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a89d146a766d49f1c706c66a3e2b9252d">land_async()</a> methods.
 If the command is accepted the vehicle will change to the <a href="https://docs.px4.io/master/en/flight_modes/land.html" target="_blank">Land mode</a> and land at the current point.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> The SDK does not at time of writing recommend other approaches for landing: land mission items are not supported and manually landing the vehicle using the offboard is not as safe. </p>
@@ -2276,7 +2277,7 @@ If you want to monitor the landing you can trigger completion of the app based o
 </code></pre>
 <h2 id="returnrtl"><a name="returnrtl" class="plugin-anchor" href="#returnrtl"><i class="fa fa-link" aria-hidden="true"></i></a>Return/RTL</h2>
 <p><a href="https://docs.px4.io/master/en/flight_modes/return.html" target="_blank">Return mode</a> (also known as &quot;Return to Launch&quot;, &quot;Return to Land&quot;, &quot;Return to Home&quot;) flies the vehicle back to the home position and may also land the vehicle (depending on vehicle configuration). 
-This mode is invoked from <code>Action</code> using the <a href="../api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1afd7c225df0495b0947f00e7d2dd64877">return_to_launch()</a> or <a href="../api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a3b3d5dc86e0d177280b89ec021b94803">return_to_launch_async()</a> methods. </p>
+This mode is invoked from <code>Action</code> using the <a href="../api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1afd7c225df0495b0947f00e7d2dd64877">return_to_launch()</a> or <a href="../api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1afd7c225df0495b0947f00e7d2dd64877">return_to_launch_async()</a> methods. </p>
 <p>The code below shows how to use the synchronous method:</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">const</span> Action::Result rtl_result = telemetry-&gt;return_to_launch();
 <span class="hljs-keyword">if</span> (rtl_result != Action::Result::Success) {
@@ -2289,8 +2290,8 @@ This mode is invoked from <code>Action</code> using the <a href="../api_referenc
 <p>Use the disarm or kill methods to stop the drone motors (the difference is that disarming will only succeed if the drone considers itself landed, while kill will disarm a vehicle even in flight).</p>
 <p>The methods are listed below. These are used in the same way as other similar <code>Action</code> APIs:</p>
 <ul>
-<li><a href="../api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a44c61110965bcdd3dfb90a08d3c6b6b9">disarm()</a>, <a href="../api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a56b39e81fec142ac0ce7abe6b6313a80">disarm_async</a></li>
-<li><a href="../api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1af40fc1ddf588b3796134a9303ebc3667">kill()</a>, <a href="../api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a1a6d69c174df758b6f06a45e429265db">kill_async</a></li>
+<li><a href="../api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a44c61110965bcdd3dfb90a08d3c6b6b9">disarm()</a>, <a href="../api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a3107f7f5a2f4a478024667f187f8f2aa">disarm_async</a></li>
+<li><a href="../api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1af40fc1ddf588b3796134a9303ebc3667">kill()</a>, <a href="../api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a78c1f15c3b190ba94793045621819e69">kill_async</a></li>
 </ul>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> PX4 will automatically disarm the vehicle after landing. The disarm methods explicitly invoke the same functionality.</p>
@@ -2309,7 +2310,7 @@ This mode is invoked from <code>Action</code> using the <a href="../api_referenc
 <p><code>Action</code> provides methods to transition between VTOL fixed wing and multicopter modes, with both synchronous and asynchronous versions:</p>
 <ul>
 <li><a href="../api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a8d5cf999a48ea3859ec75db27cf4fbda">transition_to_fixedwing()</a>, <a href="../api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1aac94bfb8613a8e9869e3620b3dc9bb8e">transition_to_multicopter()</a></li>
-<li><a href="../api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1ace04a08fdcdd171bc27a86f5f33daeef">transition_to_fixedwing_async()</a>, <a href="../api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1afc5b0e0502685c0a894cbb8445828e8c">transition_to_multicopter_async()</a></li>
+<li><a href="../api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1aa56181441cd64e092a8fb91a38c7c9fd">transition_to_fixedwing_async()</a>, <a href="../api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a8c109076641b5c9aa6dd78ea8b913529">transition_to_multicopter_async()</a></li>
 </ul>
 <p>The associated action will only be executed for VTOL vehicles (on other vehicle types the command will fail with a <code>Result</code> of <code>VTOL_TRANSITION_SUPPORT_UNKNOWN</code> or <code>NO_VTOL_TRANSITION_SUPPORT</code>). 
 The command will succeed if called when the vehicle is already in the mode.</p>
@@ -2334,7 +2335,7 @@ and to print the result of the call (the other synchronous method is used in the
 </ul>
 </li>
 </ul>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-05-07 16:13:20 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-05-12 09:54:07 </span> </footer>
                                 
                                 </section>
                             
@@ -2377,7 +2378,7 @@ and to print the result of the call (the other synchronous method is used in the
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Actions - Take Off, Arm, ...","level":"1.5.3.6","depth":3,"next":{"title":"Missions","level":"1.5.3.7","depth":3,"path":"guide/missions.md","ref":"guide/missions.md","articles":[]},"previous":{"title":"Telemetry","level":"1.5.3.5","depth":3,"path":"guide/telemetry.md","ref":"guide/telemetry.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"guide/taking_off_landing.md","mtime":"2020-05-07T16:13:20.962Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-07T16:14:13.877Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Actions - Take Off, Arm, ...","level":"1.5.3.6","depth":3,"next":{"title":"Missions","level":"1.5.3.7","depth":3,"path":"guide/missions.md","ref":"guide/missions.md","articles":[]},"previous":{"title":"Telemetry","level":"1.5.3.5","depth":3,"path":"guide/telemetry.md","ref":"guide/telemetry.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"guide/taking_off_landing.md","mtime":"2020-05-12T09:54:07.944Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-12T09:55:12.320Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

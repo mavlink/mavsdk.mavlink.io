@@ -1012,9 +1012,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5.9.2" data-path="../api_reference/structmavsdk_1_1_geofence_1_1_point.html">
+        <li class="chapter " data-level="1.5.5.9.2" data-path="../api_reference/structmavsdk_1_1_log_files_1_1_progress_data.html">
             
-                <a href="../api_reference/structmavsdk_1_1_geofence_1_1_point.html">
+                <a href="../api_reference/structmavsdk_1_1_log_files_1_1_progress_data.html">
             
                     
                     struct ProgressData
@@ -1844,7 +1844,7 @@
                 <a href="../api_reference/namespacemavsdk.html">
             
                     
-                    namespace mavsdk (api_reference/globals)
+                    namespace mavsdk (globals)
             
                 </a>
             
@@ -2241,7 +2241,6 @@ target_link_libraries(fly_mission
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;functional&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;future&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;memory&gt;</span></span>
 
 <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ERROR_CONSOLE_TEXT <span class="hljs-string">&quot;\033[31m&quot;</span> <span class="hljs-comment">// Turn text on console red</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> TELEMETRY_CONSOLE_TEXT <span class="hljs-string">&quot;\033[34m&quot;</span> <span class="hljs-comment">// Turn text on console blue</span></span>
@@ -2253,20 +2252,21 @@ target_link_libraries(fly_mission
 <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>::this_thread; <span class="hljs-comment">// for sleep_for()</span>
 
 <span class="hljs-comment">// Handles Action&apos;s result</span>
-<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handle_action_err_exit</span><span class="hljs-params">(Action::Result result, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;message)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handle_action_err_exit</span><span class="hljs-params">(Action::Result result, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; message)</span></span>;
 <span class="hljs-comment">// Handles Mission&apos;s result</span>
-<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handle_mission_err_exit</span><span class="hljs-params">(Mission::Result result, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;message)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handle_mission_err_exit</span><span class="hljs-params">(Mission::Result result, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; message)</span></span>;
 <span class="hljs-comment">// Handles Connection result</span>
-<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handle_connection_err_exit</span><span class="hljs-params">(ConnectionResult result, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;message)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handle_connection_err_exit</span><span class="hljs-params">(ConnectionResult result, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; message)</span></span>;
 
-<span class="hljs-keyword">static</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;MissionItem&gt; make_mission_item(<span class="hljs-keyword">double</span> latitude_deg,
-                                                      <span class="hljs-keyword">double</span> longitude_deg,
-                                                      <span class="hljs-keyword">float</span> relative_altitude_m,
-                                                      <span class="hljs-keyword">float</span> speed_m_s,
-                                                      <span class="hljs-keyword">bool</span> is_fly_through,
-                                                      <span class="hljs-keyword">float</span> gimbal_pitch_deg,
-                                                      <span class="hljs-keyword">float</span> gimbal_yaw_deg,
-                                                      MissionItem::CameraAction camera_action);
+<span class="hljs-keyword">static</span> Mission::<span class="hljs-function">MissionItem <span class="hljs-title">make_mission_item</span><span class="hljs-params">(
+    <span class="hljs-keyword">double</span> latitude_deg,
+    <span class="hljs-keyword">double</span> longitude_deg,
+    <span class="hljs-keyword">float</span> relative_altitude_m,
+    <span class="hljs-keyword">float</span> speed_m_s,
+    <span class="hljs-keyword">bool</span> is_fly_through,
+    <span class="hljs-keyword">float</span> gimbal_pitch_deg,
+    <span class="hljs-keyword">float</span> gimbal_yaw_deg,
+    Mission::MissionItem::CameraAction camera_action)</span></span>;
 
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">usage</span><span class="hljs-params">(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> bin_name)</span>
 </span>{
@@ -2278,7 +2278,7 @@ target_link_libraries(fly_mission
               &lt;&lt; <span class="hljs-string">&quot;For example, to connect to the simulator use URL: udp://:14540&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
 }
 
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> **argv)</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span>** argv)</span>
 </span>{
     Mavsdk dc;
 
@@ -2303,9 +2303,8 @@ target_link_libraries(fly_mission
             <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
         }
 
-        <span class="hljs-keyword">if</span> (connection_result != ConnectionResult::SUCCESS) {
-            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; ERROR_CONSOLE_TEXT
-                      &lt;&lt; <span class="hljs-string">&quot;Connection failed: &quot;</span> &lt;&lt; connection_result_str(connection_result)
+        <span class="hljs-keyword">if</span> (connection_result != ConnectionResult::Success) {
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; ERROR_CONSOLE_TEXT &lt;&lt; <span class="hljs-string">&quot;Connection failed: &quot;</span> &lt;&lt; connection_result
                       &lt;&lt; NORMAL_CONSOLE_TEXT &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
             <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
         }
@@ -2322,7 +2321,7 @@ target_link_libraries(fly_mission
     <span class="hljs-comment">// We don&apos;t need to specifiy the UUID if it&apos;s only one system anyway.</span>
     <span class="hljs-comment">// If there were multiple, we could specify it with:</span>
     <span class="hljs-comment">// dc.system(uint64_t uuid);</span>
-    System &amp;system = dc.system();
+    System&amp; system = dc.system();
     <span class="hljs-keyword">auto</span> action = <span class="hljs-built_in">std</span>::make_shared&lt;Action&gt;(system);
     <span class="hljs-keyword">auto</span> mission = <span class="hljs-built_in">std</span>::make_shared&lt;Mission&gt;(system);
     <span class="hljs-keyword">auto</span> telemetry = <span class="hljs-built_in">std</span>::make_shared&lt;Telemetry&gt;(system);
@@ -2335,61 +2334,67 @@ target_link_libraries(fly_mission
     <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;System ready&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
     <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Creating and uploading mission&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
 
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;MissionItem&gt;&gt; mission_items;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;Mission::MissionItem&gt; mission_items;
 
-    mission_items.push_back(make_mission_item(<span class="hljs-number">47.398170327054473</span>,
-                                              <span class="hljs-number">8.5456490218639658</span>,
-                                              <span class="hljs-number">10.0f</span>,
-                                              <span class="hljs-number">5.0f</span>,
-                                              <span class="hljs-literal">false</span>,
-                                              <span class="hljs-number">20.0f</span>,
-                                              <span class="hljs-number">60.0f</span>,
-                                              MissionItem::CameraAction::NONE));
+    mission_items.push_back(make_mission_item(
+        <span class="hljs-number">47.398170327054473</span>,
+        <span class="hljs-number">8.5456490218639658</span>,
+        <span class="hljs-number">10.0f</span>,
+        <span class="hljs-number">5.0f</span>,
+        <span class="hljs-literal">false</span>,
+        <span class="hljs-number">20.0f</span>,
+        <span class="hljs-number">60.0f</span>,
+        Mission::MissionItem::CameraAction::None));
 
-    mission_items.push_back(make_mission_item(<span class="hljs-number">47.398241338125118</span>,
-                                              <span class="hljs-number">8.5455360114574432</span>,
-                                              <span class="hljs-number">10.0f</span>,
-                                              <span class="hljs-number">2.0f</span>,
-                                              <span class="hljs-literal">true</span>,
-                                              <span class="hljs-number">0.0f</span>,
-                                              <span class="hljs-number">-60.0</span>f,
-                                              MissionItem::CameraAction::TAKE_PHOTO));
+    mission_items.push_back(make_mission_item(
+        <span class="hljs-number">47.398241338125118</span>,
+        <span class="hljs-number">8.5455360114574432</span>,
+        <span class="hljs-number">10.0f</span>,
+        <span class="hljs-number">2.0f</span>,
+        <span class="hljs-literal">true</span>,
+        <span class="hljs-number">0.0f</span>,
+        <span class="hljs-number">-60.0</span>f,
+        Mission::MissionItem::CameraAction::TakePhoto));
 
-    mission_items.push_back(make_mission_item(<span class="hljs-number">47.398139363821485</span>,
-                                              <span class="hljs-number">8.5453846156597137</span>,
-                                              <span class="hljs-number">10.0f</span>,
-                                              <span class="hljs-number">5.0f</span>,
-                                              <span class="hljs-literal">true</span>,
-                                              <span class="hljs-number">-45.0</span>f,
-                                              <span class="hljs-number">0.0f</span>,
-                                              MissionItem::CameraAction::START_VIDEO));
+    mission_items.push_back(make_mission_item(
+        <span class="hljs-number">47.398139363821485</span>,
+        <span class="hljs-number">8.5453846156597137</span>,
+        <span class="hljs-number">10.0f</span>,
+        <span class="hljs-number">5.0f</span>,
+        <span class="hljs-literal">true</span>,
+        <span class="hljs-number">-45.0</span>f,
+        <span class="hljs-number">0.0f</span>,
+        Mission::MissionItem::CameraAction::StartVideo));
 
-    mission_items.push_back(make_mission_item(<span class="hljs-number">47.398058617228855</span>,
-                                              <span class="hljs-number">8.5454618036746979</span>,
-                                              <span class="hljs-number">10.0f</span>,
-                                              <span class="hljs-number">2.0f</span>,
-                                              <span class="hljs-literal">false</span>,
-                                              <span class="hljs-number">-90.0</span>f,
-                                              <span class="hljs-number">30.0f</span>,
-                                              MissionItem::CameraAction::STOP_VIDEO));
+    mission_items.push_back(make_mission_item(
+        <span class="hljs-number">47.398058617228855</span>,
+        <span class="hljs-number">8.5454618036746979</span>,
+        <span class="hljs-number">10.0f</span>,
+        <span class="hljs-number">2.0f</span>,
+        <span class="hljs-literal">false</span>,
+        <span class="hljs-number">-90.0</span>f,
+        <span class="hljs-number">30.0f</span>,
+        Mission::MissionItem::CameraAction::StopVideo));
 
-    mission_items.push_back(make_mission_item(<span class="hljs-number">47.398100366082858</span>,
-                                              <span class="hljs-number">8.5456969141960144</span>,
-                                              <span class="hljs-number">10.0f</span>,
-                                              <span class="hljs-number">5.0f</span>,
-                                              <span class="hljs-literal">false</span>,
-                                              <span class="hljs-number">-45.0</span>f,
-                                              <span class="hljs-number">-30.0</span>f,
-                                              MissionItem::CameraAction::START_PHOTO_INTERVAL));
+    mission_items.push_back(make_mission_item(
+        <span class="hljs-number">47.398100366082858</span>,
+        <span class="hljs-number">8.5456969141960144</span>,
+        <span class="hljs-number">10.0f</span>,
+        <span class="hljs-number">5.0f</span>,
+        <span class="hljs-literal">false</span>,
+        <span class="hljs-number">-45.0</span>f,
+        <span class="hljs-number">-30.0</span>f,
+        Mission::MissionItem::CameraAction::StartPhotoInterval));
 
-    mission_items.push_back(make_mission_item(<span class="hljs-number">47.398001890458097</span>,
-                                              <span class="hljs-number">8.5455576181411743</span>,
-                                              <span class="hljs-number">10.0f</span>,
-                                              <span class="hljs-number">5.0f</span>,
-                                              <span class="hljs-literal">false</span>,
-                                              <span class="hljs-number">0.0f</span>,
-                                              <span class="hljs-number">0.0f</span>,
-                                              MissionItem::CameraAction::STOP_PHOTO_INTERVAL));
+    mission_items.push_back(make_mission_item(
+        <span class="hljs-number">47.398001890458097</span>,
+        <span class="hljs-number">8.5455576181411743</span>,
+        <span class="hljs-number">10.0f</span>,
+        <span class="hljs-number">5.0f</span>,
+        <span class="hljs-literal">false</span>,
+        <span class="hljs-number">0.0f</span>,
+        <span class="hljs-number">0.0f</span>,
+        Mission::MissionItem::CameraAction::StopPhotoInterval));
 
     {
         <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Uploading mission...&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
@@ -2397,13 +2402,14 @@ target_link_libraries(fly_mission
         <span class="hljs-comment">// std::future.</span>
         <span class="hljs-keyword">auto</span> prom = <span class="hljs-built_in">std</span>::make_shared&lt;<span class="hljs-built_in">std</span>::promise&lt;Mission::Result&gt;&gt;();
         <span class="hljs-keyword">auto</span> future_result = prom-&gt;get_future();
-        mission-&gt;upload_mission_async(mission_items,
-                                      [prom](Mission::Result result) { prom-&gt;set_value(result); });
+        Mission::MissionPlan mission_plan{};
+        mission_plan.mission_items = mission_items;
+        mission-&gt;upload_mission_async(
+            mission_plan, [prom](Mission::Result result) { prom-&gt;set_value(result); });
 
         <span class="hljs-keyword">const</span> Mission::Result result = future_result.get();
-        <span class="hljs-keyword">if</span> (result != Mission::Result::SUCCESS) {
-            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission upload failed (&quot;</span> &lt;&lt; Mission::result_str(result) &lt;&lt; <span class="hljs-string">&quot;), exiting.&quot;</span>
-                      &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+        <span class="hljs-keyword">if</span> (result != Mission::Result::Success) {
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission upload failed (&quot;</span> &lt;&lt; result &lt;&lt; <span class="hljs-string">&quot;), exiting.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
             <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
         }
         <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission uploaded.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
@@ -2416,15 +2422,17 @@ target_link_libraries(fly_mission
 
     <span class="hljs-built_in">std</span>::atomic&lt;<span class="hljs-keyword">bool</span>&gt; want_to_pause{<span class="hljs-literal">false</span>};
     <span class="hljs-comment">// Before starting the mission, we want to be sure to subscribe to the mission progress.</span>
-    mission-&gt;subscribe_progress([&amp;want_to_pause](<span class="hljs-keyword">int</span> current, <span class="hljs-keyword">int</span> total) {
-        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission status update: &quot;</span> &lt;&lt; current &lt;&lt; <span class="hljs-string">&quot; / &quot;</span> &lt;&lt; total &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    mission-&gt;subscribe_mission_progress(
+        [&amp;want_to_pause](Mission::MissionProgress mission_progress) {
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission status update: &quot;</span> &lt;&lt; mission_progress.current &lt;&lt; <span class="hljs-string">&quot; / &quot;</span>
+                      &lt;&lt; mission_progress.total &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
 
-        <span class="hljs-keyword">if</span> (current &gt;= <span class="hljs-number">2</span>) {
-            <span class="hljs-comment">// We can only set a flag here. If we do more request inside the callback,</span>
-            <span class="hljs-comment">// we risk blocking the system.</span>
-            want_to_pause = <span class="hljs-literal">true</span>;
-        }
-    });
+            <span class="hljs-keyword">if</span> (mission_progress.current &gt;= <span class="hljs-number">2</span>) {
+                <span class="hljs-comment">// We can only set a flag here. If we do more request inside the callback,</span>
+                <span class="hljs-comment">// we risk blocking the system.</span>
+                want_to_pause = <span class="hljs-literal">true</span>;
+            }
+        });
 
     {
         <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Starting mission.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
@@ -2451,9 +2459,8 @@ target_link_libraries(fly_mission
         mission-&gt;pause_mission_async([prom](Mission::Result result) { prom-&gt;set_value(result); });
 
         <span class="hljs-keyword">const</span> Mission::Result result = future_result.get();
-        <span class="hljs-keyword">if</span> (result != Mission::Result::SUCCESS) {
-            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Failed to pause mission (&quot;</span> &lt;&lt; Mission::result_str(result) &lt;&lt; <span class="hljs-string">&quot;)&quot;</span>
-                      &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+        <span class="hljs-keyword">if</span> (result != Mission::Result::Success) {
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Failed to pause mission (&quot;</span> &lt;&lt; result &lt;&lt; <span class="hljs-string">&quot;)&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
         } <span class="hljs-keyword">else</span> {
             <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission paused.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
         }
@@ -2471,15 +2478,14 @@ target_link_libraries(fly_mission
         mission-&gt;start_mission_async([prom](Mission::Result result) { prom-&gt;set_value(result); });
 
         <span class="hljs-keyword">const</span> Mission::Result result = future_result.get();
-        <span class="hljs-keyword">if</span> (result != Mission::Result::SUCCESS) {
-            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Failed to resume mission (&quot;</span> &lt;&lt; Mission::result_str(result) &lt;&lt; <span class="hljs-string">&quot;)&quot;</span>
-                      &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+        <span class="hljs-keyword">if</span> (result != Mission::Result::Success) {
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Failed to resume mission (&quot;</span> &lt;&lt; result &lt;&lt; <span class="hljs-string">&quot;)&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
         } <span class="hljs-keyword">else</span> {
             <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Resumed mission.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
         }
     }
 
-    <span class="hljs-keyword">while</span> (!mission-&gt;mission_finished()) {
+    <span class="hljs-keyword">while</span> (!mission-&gt;is_mission_finished().second) {
         sleep_for(seconds(<span class="hljs-number">1</span>));
     }
 
@@ -2488,8 +2494,7 @@ target_link_libraries(fly_mission
         <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Commanding RTL...&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
         <span class="hljs-keyword">const</span> Action::Result result = action-&gt;return_to_launch();
         <span class="hljs-keyword">if</span> (result != Action::Result::Success) {
-            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Failed to command RTL (&quot;</span> &lt;&lt; Action::result_str(result) &lt;&lt; <span class="hljs-string">&quot;)&quot;</span>
-                      &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Failed to command RTL (&quot;</span> &lt;&lt; result &lt;&lt; <span class="hljs-string">&quot;)&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
         } <span class="hljs-keyword">else</span> {
             <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Commanded RTL.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
         }
@@ -2505,54 +2510,54 @@ target_link_libraries(fly_mission
     <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Disarmed, exiting.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
 }
 
-<span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;MissionItem&gt; make_mission_item(<span class="hljs-keyword">double</span> latitude_deg,
-                                               <span class="hljs-keyword">double</span> longitude_deg,
-                                               <span class="hljs-keyword">float</span> relative_altitude_m,
-                                               <span class="hljs-keyword">float</span> speed_m_s,
-                                               <span class="hljs-keyword">bool</span> is_fly_through,
-                                               <span class="hljs-keyword">float</span> gimbal_pitch_deg,
-                                               <span class="hljs-keyword">float</span> gimbal_yaw_deg,
-                                               MissionItem::CameraAction camera_action)
-{
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;MissionItem&gt; new_item(<span class="hljs-keyword">new</span> MissionItem());
-    new_item-&gt;set_position(latitude_deg, longitude_deg);
-    new_item-&gt;set_relative_altitude(relative_altitude_m);
-    new_item-&gt;set_speed(speed_m_s);
-    new_item-&gt;set_fly_through(is_fly_through);
-    new_item-&gt;set_gimbal_pitch_and_yaw(gimbal_pitch_deg, gimbal_yaw_deg);
-    new_item-&gt;set_camera_action(camera_action);
+Mission::<span class="hljs-function">MissionItem <span class="hljs-title">make_mission_item</span><span class="hljs-params">(
+    <span class="hljs-keyword">double</span> latitude_deg,
+    <span class="hljs-keyword">double</span> longitude_deg,
+    <span class="hljs-keyword">float</span> relative_altitude_m,
+    <span class="hljs-keyword">float</span> speed_m_s,
+    <span class="hljs-keyword">bool</span> is_fly_through,
+    <span class="hljs-keyword">float</span> gimbal_pitch_deg,
+    <span class="hljs-keyword">float</span> gimbal_yaw_deg,
+    Mission::MissionItem::CameraAction camera_action)</span>
+</span>{
+    Mission::MissionItem new_item{};
+    new_item.latitude_deg = latitude_deg;
+    new_item.longitude_deg = longitude_deg;
+    new_item.relative_altitude_m = relative_altitude_m;
+    new_item.speed_m_s = speed_m_s;
+    new_item.is_fly_through = is_fly_through;
+    new_item.gimbal_pitch_deg = gimbal_pitch_deg;
+    new_item.gimbal_yaw_deg = gimbal_yaw_deg;
+    new_item.camera_action = camera_action;
     <span class="hljs-keyword">return</span> new_item;
 }
 
-<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handle_action_err_exit</span><span class="hljs-params">(Action::Result result, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;message)</span>
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handle_action_err_exit</span><span class="hljs-params">(Action::Result result, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; message)</span>
 </span>{
     <span class="hljs-keyword">if</span> (result != Action::Result::Success) {
-        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; ERROR_CONSOLE_TEXT &lt;&lt; message &lt;&lt; Action::result_str(result)
-                  &lt;&lt; NORMAL_CONSOLE_TEXT &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; ERROR_CONSOLE_TEXT &lt;&lt; message &lt;&lt; result &lt;&lt; NORMAL_CONSOLE_TEXT &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
         <span class="hljs-built_in">exit</span>(EXIT_FAILURE);
     }
 }
 
-<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handle_mission_err_exit</span><span class="hljs-params">(Mission::Result result, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;message)</span>
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handle_mission_err_exit</span><span class="hljs-params">(Mission::Result result, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; message)</span>
 </span>{
-    <span class="hljs-keyword">if</span> (result != Mission::Result::SUCCESS) {
-        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; ERROR_CONSOLE_TEXT &lt;&lt; message &lt;&lt; Mission::result_str(result)
-                  &lt;&lt; NORMAL_CONSOLE_TEXT &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    <span class="hljs-keyword">if</span> (result != Mission::Result::Success) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; ERROR_CONSOLE_TEXT &lt;&lt; message &lt;&lt; result &lt;&lt; NORMAL_CONSOLE_TEXT &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
         <span class="hljs-built_in">exit</span>(EXIT_FAILURE);
     }
 }
 
 <span class="hljs-comment">// Handles connection result</span>
-<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handle_connection_err_exit</span><span class="hljs-params">(ConnectionResult result, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;message)</span>
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handle_connection_err_exit</span><span class="hljs-params">(ConnectionResult result, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; message)</span>
 </span>{
-    <span class="hljs-keyword">if</span> (result != ConnectionResult::SUCCESS) {
-        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; ERROR_CONSOLE_TEXT &lt;&lt; message &lt;&lt; connection_result_str(result)
-                  &lt;&lt; NORMAL_CONSOLE_TEXT &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    <span class="hljs-keyword">if</span> (result != ConnectionResult::Success) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span> &lt;&lt; ERROR_CONSOLE_TEXT &lt;&lt; message &lt;&lt; result &lt;&lt; NORMAL_CONSOLE_TEXT &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
         <span class="hljs-built_in">exit</span>(EXIT_FAILURE);
     }
 }
 </code></pre>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-05-07 16:13:20 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-05-12 09:54:07 </span> </footer>
                                 
                                 </section>
                             
@@ -2595,7 +2600,7 @@ target_link_libraries(fly_mission
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Fly Mission","level":"1.5.4.2","depth":3,"next":{"title":"Fly QGC Plan Mission","level":"1.5.4.3","depth":3,"path":"examples/fly_mission_qgc_plan.md","ref":"examples/fly_mission_qgc_plan.md","articles":[]},"previous":{"title":"Takeoff and Land","level":"1.5.4.1","depth":3,"path":"examples/takeoff_and_land.md","ref":"examples/takeoff_and_land.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"examples/fly_mission.md","mtime":"2020-05-07T16:13:20.962Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-07T16:14:13.877Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Fly Mission","level":"1.5.4.2","depth":3,"next":{"title":"Fly QGC Plan Mission","level":"1.5.4.3","depth":3,"path":"examples/fly_mission_qgc_plan.md","ref":"examples/fly_mission_qgc_plan.md","articles":[]},"previous":{"title":"Takeoff and Land","level":"1.5.4.1","depth":3,"path":"examples/takeoff_and_land.md","ref":"examples/takeoff_and_land.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"examples/fly_mission.md","mtime":"2020-05-12T09:54:07.944Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-12T09:55:12.320Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
