@@ -1,0 +1,2268 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Documentation · MAVSDK Guide</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-richquotes/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-footer-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions-select/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-dronecode/theme_styles.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="release.html" />
+    
+    
+    <link rel="prev" href="dev_logging.html" />
+    
+
+    </head>
+    <body>
+        
+    
+    <!-- ##HW Add dronecode menu -->
+    <div id="common_dronecode_menu">
+
+      <div class="common_menu_logo large_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png" alt="Dronecode logo (large)" />
+        </a>
+      </div>
+      <div class="common_menu_logo small_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png" alt="Dronecode logo (small)" />
+        </a>
+      </div>
+      
+      <div class="common_menu_options">
+        
+            <div class="common_dronecode_menu_item"><a href="http://px4.io/">PX4</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://qgroundcontrol.com/">QGroundControl</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://qgroundcontrol.com/">QGC</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://www.dronecode.org/sdk/">SDK</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://mavlink.io/en/">MAVLink</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="https://www.dronecode.org/documentation/">Documentation</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="https://www.dronecode.org/documentation/">Docs</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://discuss.px4.io/">Support</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://discuss.px4.io/">Help</a></div>
+        
+      </div>
+    </div>
+    
+<!-- ##HW END Add dronecode menu -->
+    
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../getting_started/faq.html">
+            
+                <a href="../getting_started/faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../getting_started/installation.html">
+            
+                <a href="../getting_started/installation.html">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <a target="_blank" href="http://dronecode-sdk-swift.s3.eu-central-1.amazonaws.com/docs/master/index.html">
+            
+                    
+                    iOS/Swift
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <a target="_blank" href="http://mavsdk-python-docs.s3-website.eu-central-1.amazonaws.com/">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../cpp/">
+            
+                <a href="../cpp/">
+            
+                    
+                    C++ (MAVSDK Core)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../cpp/quickstart.html">
+            
+                <a href="../cpp/quickstart.html">
+            
+                    
+                    C++ QuickStart
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../cpp/api_changes.html">
+            
+                <a href="../cpp/api_changes.html">
+            
+                    
+                    C++ API changes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../guide/">
+            
+                <a href="../guide/">
+            
+                    
+                    Guide
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.3.1" data-path="../guide/general_usage.html">
+            
+                <a href="../guide/general_usage.html">
+            
+                    
+                    Usage/Paradigms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.2" data-path="../guide/connections.html">
+            
+                <a href="../guide/connections.html">
+            
+                    
+                    Connecting to Systems (Vehicles)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.3" data-path="../guide/using_plugins.html">
+            
+                <a href="../guide/using_plugins.html">
+            
+                    
+                    Managing Systems
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.4" data-path="../guide/system_information.html">
+            
+                <a href="../guide/system_information.html">
+            
+                    
+                    System Information
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.5" data-path="../guide/telemetry.html">
+            
+                <a href="../guide/telemetry.html">
+            
+                    
+                    Telemetry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.6" data-path="../guide/taking_off_landing.html">
+            
+                <a href="../guide/taking_off_landing.html">
+            
+                    
+                    Actions - Take Off, Arm, ...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.7" data-path="../guide/missions.html">
+            
+                <a href="../guide/missions.html">
+            
+                    
+                    Missions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.8" data-path="../guide/offboard.html">
+            
+                <a href="../guide/offboard.html">
+            
+                    
+                    Offboard Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.9" data-path="../guide/follow_me.html">
+            
+                <a href="../guide/follow_me.html">
+            
+                    
+                    Follow Me
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.10" data-path="../guide/vtol.html">
+            
+                <a href="../guide/vtol.html">
+            
+                    
+                    VTOL Support
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.11" data-path="../guide/toolchain.html">
+            
+                <a href="../guide/toolchain.html">
+            
+                    
+                    Building C++ Apps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.12" data-path="../guide/sdk_extensions.html">
+            
+                <a href="../guide/sdk_extensions.html">
+            
+                    
+                    SDK Extensions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../examples/">
+            
+                <a href="../examples/">
+            
+                    
+                    Examples
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.4.1" data-path="../examples/takeoff_and_land.html">
+            
+                <a href="../examples/takeoff_and_land.html">
+            
+                    
+                    Takeoff and Land
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.2" data-path="../examples/fly_mission.html">
+            
+                <a href="../examples/fly_mission.html">
+            
+                    
+                    Fly Mission
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.3" data-path="../examples/fly_mission_qgc_plan.html">
+            
+                <a href="../examples/fly_mission_qgc_plan.html">
+            
+                    
+                    Fly QGC Plan Mission
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.4" data-path="../examples/offboard_velocity.html">
+            
+                <a href="../examples/offboard_velocity.html">
+            
+                    
+                    Offboard Mode - Velocity Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.5" data-path="../examples/follow_me.html">
+            
+                <a href="../examples/follow_me.html">
+            
+                    
+                    Follow Me Mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.6" data-path="../examples/transition_vtol_fixed_wing.html">
+            
+                <a href="../examples/transition_vtol_fixed_wing.html">
+            
+                    
+                    VTOL Transitions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../api_reference/">
+            
+                <a href="../api_reference/">
+            
+                    
+                    API Reference
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.1" data-path="../api_reference/classmavsdk_1_1_action.html">
+            
+                <a href="../api_reference/classmavsdk_1_1_action.html">
+            
+                    
+                    class Action
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.2" data-path="../api_reference/classmavsdk_1_1_calibration.html">
+            
+                <a href="../api_reference/classmavsdk_1_1_calibration.html">
+            
+                    
+                    class Calibration
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.2.1" data-path="../api_reference/structmavsdk_1_1_calibration_1_1_progress_data.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_calibration_1_1_progress_data.html">
+            
+                    
+                    struct ProgressData
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.3" data-path="../api_reference/classmavsdk_1_1_camera.html">
+            
+                <a href="../api_reference/classmavsdk_1_1_camera.html">
+            
+                    
+                    class Camera
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.3.1" data-path="../api_reference/structmavsdk_1_1_camera_1_1_information.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_camera_1_1_information.html">
+            
+                    
+                    struct Information
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.3.2" data-path="../api_reference/structmavsdk_1_1_camera_1_1_capture_info.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_camera_1_1_capture_info.html">
+            
+                    
+                    struct CaptureInfo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.3.3" data-path="../api_reference/structmavsdk_1_1_camera_1_1_position.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_camera_1_1_position.html">
+            
+                    
+                    struct Position
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.3.4" data-path="../api_reference/structmavsdk_1_1_camera_1_1_quaternion.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_camera_1_1_quaternion.html">
+            
+                    
+                    struct Quaternion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.3.5" data-path="../api_reference/structmavsdk_1_1_camera_1_1_euler_angle.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_camera_1_1_euler_angle.html">
+            
+                    
+                    struct EulerAngle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.3.6" data-path="../api_reference/structmavsdk_1_1_camera_1_1_status.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_camera_1_1_status.html">
+            
+                    
+                    struct Status
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.3.7" data-path="../api_reference/structmavsdk_1_1_camera_1_1_video_stream_info.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_camera_1_1_video_stream_info.html">
+            
+                    
+                    struct VideoStreamInfo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.3.8" data-path="../api_reference/structmavsdk_1_1_camera_1_1_video_stream_settings.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_camera_1_1_video_stream_settings.html">
+            
+                    
+                    struct VideoStreamSettings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.3.9" data-path="../api_reference/structmavsdk_1_1_camera_1_1_option.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_camera_1_1_option.html">
+            
+                    
+                    struct Option
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.3.10" data-path="../api_reference/structmavsdk_1_1_camera_1_1_setting.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_camera_1_1_setting.html">
+            
+                    
+                    struct Setting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.3.11" data-path="../api_reference/structmavsdk_1_1_camera_1_1_setting_options.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_camera_1_1_setting_options.html">
+            
+                    
+                    struct SettingOptions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.4" data-path="../api_reference/classmavsdk_1_1_follow_me.html">
+            
+                <a href="../api_reference/classmavsdk_1_1_follow_me.html">
+            
+                    
+                    class FollowMe
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.4.1" data-path="../api_reference/structmavsdk_1_1_follow_me_1_1_config.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_follow_me_1_1_config.html">
+            
+                    
+                    struct Config
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.4.2" data-path="../api_reference/structmavsdk_1_1_follow_me_1_1_target_location.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_follow_me_1_1_target_location.html">
+            
+                    
+                    struct TargetLocation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.5" data-path="../api_reference/classmavsdk_1_1_geofence.html">
+            
+                <a href="../api_reference/classmavsdk_1_1_geofence.html">
+            
+                    
+                    class Geofence
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.5.1" data-path="../api_reference/structmavsdk_1_1_geofence_1_1_polygon.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_geofence_1_1_polygon.html">
+            
+                    
+                    struct Polygon
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.5.2" data-path="../api_reference/structmavsdk_1_1_geofence_1_1_point.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_geofence_1_1_point.html">
+            
+                    
+                    struct Point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.5.3" data-path="../api_reference/structmavsdk_1_1_ftp_1_1_progress_data.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_ftp_1_1_progress_data.html">
+            
+                    
+                    struct ProgressData
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.6" data-path="../api_reference/classmavsdk_1_1geometry_1_1_coordinate_transformation.html">
+            
+                <a href="../api_reference/classmavsdk_1_1geometry_1_1_coordinate_transformation.html">
+            
+                    
+                    class geometry::CoordinateTransformation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.6.1" data-path="../api_reference/structmavsdk_1_1geometry_1_1_coordinate_transformation_1_1_global_coordinate.html">
+            
+                <a href="../api_reference/structmavsdk_1_1geometry_1_1_coordinate_transformation_1_1_global_coordinate.html">
+            
+                    
+                    struct GlobalCoordinate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.6.2" data-path="../api_reference/structmavsdk_1_1geometry_1_1_coordinate_transformation_1_1_local_coordinate.html">
+            
+                <a href="../api_reference/structmavsdk_1_1geometry_1_1_coordinate_transformation_1_1_local_coordinate.html">
+            
+                    
+                    struct LocalCoordinate
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.7" data-path="../api_reference/classmavsdk_1_1_gimbal.html">
+            
+                <a href="../api_reference/classmavsdk_1_1_gimbal.html">
+            
+                    
+                    class Gimbal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.8" data-path="../api_reference/classmavsdk_1_1_info.html">
+            
+                <a href="../api_reference/classmavsdk_1_1_info.html">
+            
+                    
+                    class Info
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.8.1" data-path="../api_reference/structmavsdk_1_1_info_1_1_flight_info.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_info_1_1_flight_info.html">
+            
+                    
+                    struct FlightInfo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.8.2" data-path="../api_reference/structmavsdk_1_1_info_1_1_identification.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_info_1_1_identification.html">
+            
+                    
+                    struct Identification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.8.3" data-path="../api_reference/structmavsdk_1_1_info_1_1_product.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_info_1_1_product.html">
+            
+                    
+                    struct Product
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.8.4" data-path="../api_reference/structmavsdk_1_1_info_1_1_version.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_info_1_1_version.html">
+            
+                    
+                    struct Version
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.9" data-path="../api_reference/classmavsdk_1_1_log_files.html">
+            
+                <a href="../api_reference/classmavsdk_1_1_log_files.html">
+            
+                    
+                    class LogFiles
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.9.1" data-path="../api_reference/structmavsdk_1_1_log_files_1_1_entry.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_log_files_1_1_entry.html">
+            
+                    
+                    struct Entry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.9.2" data-path="../api_reference/structmavsdk_1_1_log_files_1_1_progress_data.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_log_files_1_1_progress_data.html">
+            
+                    
+                    struct ProgressData
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.10" data-path="../api_reference/classmavsdk_1_1_ftp.html">
+            
+                <a href="../api_reference/classmavsdk_1_1_ftp.html">
+            
+                    
+                    class Ftp
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.11" data-path="../api_reference/classmavsdk_1_1_mavlink_passthrough.html">
+            
+                <a href="../api_reference/classmavsdk_1_1_mavlink_passthrough.html">
+            
+                    
+                    class MavlinkPassthrough
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.12" data-path="../api_reference/classmavsdk_1_1_mavsdk.html">
+            
+                <a href="../api_reference/classmavsdk_1_1_mavsdk.html">
+            
+                    
+                    class Mavsdk
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.12.1" data-path="../api_reference/classmavsdk_1_1_mavsdk_1_1_configuration.html">
+            
+                <a href="../api_reference/classmavsdk_1_1_mavsdk_1_1_configuration.html">
+            
+                    
+                    class Mavsdk::Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.13" data-path="../api_reference/classmavsdk_1_1_mission.html">
+            
+                <a href="../api_reference/classmavsdk_1_1_mission.html">
+            
+                    
+                    class Mission
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.13.1" data-path="../api_reference/structmavsdk_1_1_mission_1_1_mission_item.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_mission_1_1_mission_item.html">
+            
+                    
+                    struct MissionItem
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.13.2" data-path="../api_reference/structmavsdk_1_1_mission_1_1_mission_plan.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_mission_1_1_mission_plan.html">
+            
+                    
+                    struct MissionPlan
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.13.3" data-path="../api_reference/structmavsdk_1_1_mission_1_1_mission_progress.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_mission_1_1_mission_progress.html">
+            
+                    
+                    struct MissionProgress
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.14" data-path="../api_reference/classmavsdk_1_1_mission_raw.html">
+            
+                <a href="../api_reference/classmavsdk_1_1_mission_raw.html">
+            
+                    
+                    class MissionRaw
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.14.1" data-path="../api_reference/structmavsdk_1_1_mission_raw_1_1_mission_item.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_mission_raw_1_1_mission_item.html">
+            
+                    
+                    struct MissionItem
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.14.2" data-path="../api_reference/structmavsdk_1_1_mission_raw_1_1_mission_progress.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_mission_raw_1_1_mission_progress.html">
+            
+                    
+                    struct MissionProgress
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.15" data-path="../api_reference/classmavsdk_1_1_mocap.html">
+            
+                <a href="../api_reference/classmavsdk_1_1_mocap.html">
+            
+                    
+                    class Mocap
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.15.1" data-path="../api_reference/structmavsdk_1_1_mocap_1_1_angle_body.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_mocap_1_1_angle_body.html">
+            
+                    
+                    struct AngleBody
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.15.2" data-path="../api_reference/structmavsdk_1_1_mocap_1_1_angular_velocity_body.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_mocap_1_1_angular_velocity_body.html">
+            
+                    
+                    struct AngularVelocityBody
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.15.3" data-path="../api_reference/structmavsdk_1_1_mocap_1_1_attitude_position_mocap.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_mocap_1_1_attitude_position_mocap.html">
+            
+                    
+                    struct AttitudePositionMocap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.15.4" data-path="../api_reference/structmavsdk_1_1_mocap_1_1_covariance.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_mocap_1_1_covariance.html">
+            
+                    
+                    struct Covariance
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.15.5" data-path="../api_reference/structmavsdk_1_1_mocap_1_1_odometry.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_mocap_1_1_odometry.html">
+            
+                    
+                    struct Odometry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.15.6" data-path="../api_reference/structmavsdk_1_1_mocap_1_1_position_body.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_mocap_1_1_position_body.html">
+            
+                    
+                    struct PositionBody
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.15.7" data-path="../api_reference/structmavsdk_1_1_mocap_1_1_quaternion.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_mocap_1_1_quaternion.html">
+            
+                    
+                    struct Quaternion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.15.8" data-path="../api_reference/structmavsdk_1_1_mocap_1_1_speed_body.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_mocap_1_1_speed_body.html">
+            
+                    
+                    struct SpeedBody
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.15.9" data-path="../api_reference/structmavsdk_1_1_mocap_1_1_vision_position_estimate.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_mocap_1_1_vision_position_estimate.html">
+            
+                    
+                    struct VisionPositionEstimate
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.16" data-path="../api_reference/classmavsdk_1_1_offboard.html">
+            
+                <a href="../api_reference/classmavsdk_1_1_offboard.html">
+            
+                    
+                    class Offboard
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.16.1" data-path="../api_reference/structmavsdk_1_1_offboard_1_1_actuator_control.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_offboard_1_1_actuator_control.html">
+            
+                    
+                    struct ActuatorControl
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.16.2" data-path="../api_reference/structmavsdk_1_1_offboard_1_1_actuator_control_group.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_offboard_1_1_actuator_control_group.html">
+            
+                    
+                    struct ActuatorControlGroup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.16.3" data-path="../api_reference/structmavsdk_1_1_offboard_1_1_attitude.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_offboard_1_1_attitude.html">
+            
+                    
+                    struct Attitude
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.16.4" data-path="../api_reference/structmavsdk_1_1_offboard_1_1_attitude_rate.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_offboard_1_1_attitude_rate.html">
+            
+                    
+                    struct AltitudeRate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.16.5" data-path="../api_reference/structmavsdk_1_1_offboard_1_1_velocity_body_yawspeed.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_offboard_1_1_velocity_body_yawspeed.html">
+            
+                    
+                    struct VelocityBodyYawspeed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.16.6" data-path="../api_reference/structmavsdk_1_1_offboard_1_1_velocity_ned_yaw.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_offboard_1_1_velocity_ned_yaw.html">
+            
+                    
+                    struct VelocityNedYaw
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.16.7" data-path="../api_reference/structmavsdk_1_1_offboard_1_1_position_ned_yaw.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_offboard_1_1_position_ned_yaw.html">
+            
+                    
+                    struct PositionNedYaw
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.17" data-path="../api_reference/classmavsdk_1_1_param.html">
+            
+                <a href="../api_reference/classmavsdk_1_1_param.html">
+            
+                    
+                    class Param
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.18" data-path="../api_reference/classmavsdk_1_1_shell.html">
+            
+                <a href="../api_reference/classmavsdk_1_1_shell.html">
+            
+                    
+                    class Shell
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.19" data-path="../api_reference/classmavsdk_1_1_system.html">
+            
+                <a href="../api_reference/classmavsdk_1_1_system.html">
+            
+                    
+                    class System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.20" data-path="../api_reference/classmavsdk_1_1_telemetry.html">
+            
+                <a href="../api_reference/classmavsdk_1_1_telemetry.html">
+            
+                    
+                    class Telemetry
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.20.1" data-path="../api_reference/structmavsdk_1_1_telemetry_1_1_acceleration_frd.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_telemetry_1_1_acceleration_frd.html">
+            
+                    
+                    struct AccelerationFrd
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.20.2" data-path="../api_reference/structmavsdk_1_1_telemetry_1_1_actuator_control_target.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_telemetry_1_1_actuator_control_target.html">
+            
+                    
+                    struct ActuatorControlTarget
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.20.3" data-path="../api_reference/structmavsdk_1_1_telemetry_1_1_actuator_output_status.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_telemetry_1_1_actuator_output_status.html">
+            
+                    
+                    struct ActuatorOutputStatus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.20.4" data-path="../api_reference/structmavsdk_1_1_telemetry_1_1_angular_velocity_body.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_telemetry_1_1_angular_velocity_body.html">
+            
+                    
+                    struct AngularVelocityBody
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.20.5" data-path="../api_reference/structmavsdk_1_1_telemetry_1_1_angular_velocity_frd.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_telemetry_1_1_angular_velocity_frd.html">
+            
+                    
+                    struct AngularVelocityNed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.20.6" data-path="../api_reference/structmavsdk_1_1_telemetry_1_1_battery.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_telemetry_1_1_battery.html">
+            
+                    
+                    struct Battery
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.20.7" data-path="../api_reference/structmavsdk_1_1_telemetry_1_1_covariance.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_telemetry_1_1_covariance.html">
+            
+                    
+                    struct Covariance
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.20.8" data-path="../api_reference/structmavsdk_1_1_telemetry_1_1_euler_angle.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_telemetry_1_1_euler_angle.html">
+            
+                    
+                    struct EulerAngle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.20.9" data-path="../api_reference/structmavsdk_1_1_telemetry_1_1_fixedwing_metrics.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_telemetry_1_1_fixedwing_metrics.html">
+            
+                    
+                    struct FixedwingMetrics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.20.10" data-path="../api_reference/structmavsdk_1_1_telemetry_1_1_gps_info.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_telemetry_1_1_gps_info.html">
+            
+                    
+                    struct GpsInfo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.20.11" data-path="../api_reference/structmavsdk_1_1_telemetry_1_1_ground_truth.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_telemetry_1_1_ground_truth.html">
+            
+                    
+                    struct GroundTruth
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.20.12" data-path="../api_reference/structmavsdk_1_1_telemetry_1_1_health.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_telemetry_1_1_health.html">
+            
+                    
+                    struct Health
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.20.13" data-path="../api_reference/structmavsdk_1_1_telemetry_1_1_imu.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_telemetry_1_1_imu.html">
+            
+                    
+                    struct Imu
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.20.14" data-path="../api_reference/structmavsdk_1_1_telemetry_1_1_magnetic_field_frd.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_telemetry_1_1_magnetic_field_frd.html">
+            
+                    
+                    struct MagneticFieldFrd
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.20.15" data-path="../api_reference/structmavsdk_1_1_telemetry_1_1_odometry.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_telemetry_1_1_odometry.html">
+            
+                    
+                    struct Odometry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.20.16" data-path="../api_reference/structmavsdk_1_1_telemetry_1_1_position.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_telemetry_1_1_position.html">
+            
+                    
+                    struct Position
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.20.17" data-path="../api_reference/structmavsdk_1_1_telemetry_1_1_position_body.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_telemetry_1_1_position_body.html">
+            
+                    
+                    struct PositionBody
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.20.18" data-path="../api_reference/structmavsdk_1_1_telemetry_1_1_position_ned.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_telemetry_1_1_position_ned.html">
+            
+                    
+                    struct PositionNed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.20.19" data-path="../api_reference/structmavsdk_1_1_telemetry_1_1_velocity_ned.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_telemetry_1_1_velocity_ned.html">
+            
+                    
+                    struct VelocityNed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.20.20" data-path="../api_reference/structmavsdk_1_1_telemetry_1_1_velocity_body.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_telemetry_1_1_velocity_body.html">
+            
+                    
+                    struct VelocityBody
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.20.21" data-path="../api_reference/structmavsdk_1_1_telemetry_1_1_position_velocity_ned.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_telemetry_1_1_position_velocity_ned.html">
+            
+                    
+                    struct PositionVelocityNed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.20.22" data-path="../api_reference/structmavsdk_1_1_telemetry_1_1_quaternion.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_telemetry_1_1_quaternion.html">
+            
+                    
+                    struct Quaternion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.20.23" data-path="../api_reference/structmavsdk_1_1_telemetry_1_1_rc_status.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_telemetry_1_1_rc_status.html">
+            
+                    
+                    struct RcStatus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.20.24" data-path="../api_reference/structmavsdk_1_1_telemetry_1_1_status_text.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_telemetry_1_1_status_text.html">
+            
+                    
+                    struct StatusText
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.21" data-path="../api_reference/classmavsdk_1_1_tune.html">
+            
+                <a href="../api_reference/classmavsdk_1_1_tune.html">
+            
+                    
+                    class Tune
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.21.1" data-path="../api_reference/structmavsdk_1_1_tune_1_1_tune_description.html">
+            
+                <a href="../api_reference/structmavsdk_1_1_tune_1_1_tune_description.html">
+            
+                    
+                    struct TuneDescription
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.22" data-path="../api_reference/namespacemavsdk.html">
+            
+                <a href="../api_reference/namespacemavsdk.html">
+            
+                    
+                    namespace mavsdk (globals)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Contributing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.6.1" data-path="build.html">
+            
+                <a href="build.html">
+            
+                    
+                    Building Source
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2" data-path="test.html">
+            
+                <a href="test.html">
+            
+                    
+                    Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.3" data-path="plugins.html">
+            
+                <a href="plugins.html">
+            
+                    
+                    Writing Plugins
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.4" data-path="code_style.html">
+            
+                <a href="code_style.html">
+            
+                    
+                    Coding Style
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.5" data-path="dev_logging.html">
+            
+                <a href="dev_logging.html">
+            
+                    
+                    Plugin/Test Logging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.6.6" data-path="documentation.html">
+            
+                <a href="documentation.html">
+            
+                    
+                    Documentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.7" data-path="release.html">
+            
+                <a href="release.html">
+            
+                    
+                    Release process
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../releases/">
+            
+                <a href="../releases/">
+            
+                    
+                    Releases
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Dronecode Shortcuts</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <a target="_blank" href="https://dev.px4.io/master/en/">
+            
+                    
+                    PX4 Developer Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <a target="_blank" href="https://docs.px4.io/master/en/">
+            
+                    
+                    PX4 User Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <a target="_blank" href="https://docs.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl User Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <a target="_blank" href="https://dev.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl Developer Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" >
+            
+                <a target="_blank" href="https://mavlink.io/en/">
+            
+                    
+                    MAVLink Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" >
+            
+                <a target="_blank" href="https://camera-manager.dronecode.org/en/">
+            
+                    
+                    Dronecode Camera Manager
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Documentation</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="contributing-to-documentation"><a name="contributing-to-documentation" class="plugin-anchor" href="#contributing-to-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Contributing to Documentation</h1>
+<p>Making quick fixes to existing text or raising issues is very easy.
+More complicated changes will require you to set up the <a href="https://github.com/GitbookIO/gitbook/blob/master/docs/setup.md" target="_blank">Gitbook toolchain</a>.
+If you want to help, <a href="../#getting-help">get in touch</a>.</p>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> You will need a <a href="https://github.com/" target="_blank">Github</a> login to make and submit changes to this guide.</p>
+</blockquote>
+<h2 id="overview"><a name="overview" class="plugin-anchor" href="#overview"><i class="fa fa-link" aria-hidden="true"></i></a>Overview</h2>
+<p>This guide is written in <a href="https://github.com/GitbookIO/gitbook/blob/master/docs/syntax/markdown.md" target="_blank">markdown</a> wiki syntax and stored in the Github <a href="https://github.com/mavlink/MAVSDK-docs" target="_blank">mavlink/MAVSDK-docs</a> repo.
+The book is hosted on <a href="https://www.gitbook.com/" target="_blank">Gitbook.com</a> and is automatically rebuilt whenever the master branch of the repo is updated.
+You can also rebuild it locally using the <a href="https://github.com/GitbookIO/gitbook/blob/master/docs/setup.md" target="_blank">Gitbook toolchain</a>.</p>
+<p>The <a href="../api_reference/">API Reference</a> section is compiled from source code into markdown using a <a href="#api-reference">separate toolchain</a> and then copied into Github.
+Updates to the reference should be made in the <a href="https://github.com/mavlink/MAVSDK" target="_blank">source code repository</a> (see <a href="#api-reference">API Reference</a> below for more information).</p>
+<p>The guide is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> - if you make any changes then they will be made available under the same license. </p>
+<h2 id="making-a-quick-fix"><a name="making-a-quick-fix" class="plugin-anchor" href="#making-a-quick-fix"><i class="fa fa-link" aria-hidden="true"></i></a>Making a Quick Fix</h2>
+<p>Simple fixes to an existing page can be made directly on Github:</p>
+<ol>
+<li><p>Click the <strong>Edit</strong> button in the top toolbar to open the page</p>
+<p><img src="../../assets/site/gitbook_toolbar_edit.png" alt="Edit page"></p>
+</li>
+<li><p>Make required changes in the editor section near the top of the page.</p>
+</li>
+<li><p>At the bottom of the page, add a comment and select the second radio button to create a new branch.</p>
+<p><img src="../../assets/site/github_edit.png" alt="Edit page"></p>
+</li>
+<li><p>Follow the on-screen instructions to create a pull request with your change.</p>
+</li>
+</ol>
+<h2 id="raising-an-issue"><a name="raising-an-issue" class="plugin-anchor" href="#raising-an-issue"><i class="fa fa-link" aria-hidden="true"></i></a>Raising an Issue</h2>
+<p>To raise an issue against the documentation:</p>
+<ol>
+<li>Open the page with problem content.</li>
+<li><p>Click the <strong>Bug</strong> button in the top toolbar.</p>
+<p><img src="../../assets/site/gitbook_toolbar_bug.png" alt="Raise bug"></p>
+<p>This will open a bug in Github, seeded with the URL/name for the current page. </p>
+</li>
+<li>Enter enough information for someone to understand the problem, and ideally to fix it. </li>
+</ol>
+<h2 id="making-a-big-change"><a name="making-a-big-change" class="plugin-anchor" href="#making-a-big-change"><i class="fa fa-link" aria-hidden="true"></i></a>Making a Big Change</h2>
+<p>If you want to make more significant changes or additions to the documentation you will need to set up <em>Git</em> and the <em>Gitbook</em> toolchain (this allows you to render the documentation and check that links work). </p>
+<p>For setup information see: <a href="https://github.com/GitbookIO/gitbook/blob/master/docs/setup.md" target="_blank">Gitbook toolchain</a>.</p>
+<h2 id="api-reference"><a name="api-reference" class="plugin-anchor" href="#api-reference"><i class="fa fa-link" aria-hidden="true"></i></a>API Reference</h2>
+<p>The C++ source code is annotated using comments using <a href="http://doxygen.nl/manual/index.html" target="_blank">Doxygen</a> syntax. 
+You can extract the documentation to markdown files (one per class) on macOS or Linux using the instructions in <a href="build.html#build_api_reference">Building SDK from Source &gt; Build API Reference Documentation</a>.</p>
+<p>In order to include new API reference in the <em>SDK Documentation</em> it must be manually added to the <a href="https://github.com/mavlink/MAVSDK-docs" target="_blank">Github repository</a>:</p>
+<ul>
+<li>Copy the files into the <a href="https://github.com/mavlink/MAVSDK-docs/tree/develop/en/api_reference" target="_blank">/en/api_reference</a> folder</li>
+<li><em>New</em> APIs should be added to appropriate sections in the <a href="https://github.com/mavlink/MAVSDK-docs/blob/develop/en/SUMMARY.md" target="_blank">MAVSDK-docs/en/SUMMARY.md</a> and <a href="https://github.com/mavlink/MAVSDK-docs/blob/develop/en/api_reference/README.md" target="_blank">/en/api_reference/README.md</a>.</li>
+</ul>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-05-30 14:53:23 </span> </footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="dev_logging.html" class="navigation navigation-prev " aria-label="Previous page: Plugin/Test Logging">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="release.html" class="navigation navigation-next " aria-label="Next page: Release process">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Documentation","level":"1.5.6.6","depth":3,"next":{"title":"Release process","level":"1.5.6.7","depth":3,"path":"contributing/release.md","ref":"contributing/release.md","articles":[]},"previous":{"title":"Plugin/Test Logging","level":"1.5.6.5","depth":3,"path":"contributing/dev_logging.md","ref":"contributing/dev_logging.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.27.0/en/","text":"v0.27.0"},{"value":"https://mavsdk.mavlink.io/v0.25.0/en/","text":"v0.25.0"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"contributing/documentation.md","mtime":"2020-05-30T14:53:23.631Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-30T14:54:24.482Z"},"basePath":"..","book":{"language":"en"}});
+        });
+    </script>
+</div>
+
+    
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-language-picker/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions-select/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
