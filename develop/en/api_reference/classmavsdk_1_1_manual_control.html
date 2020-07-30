@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>struct PositionVelocityNed · MAVSDK Guide</title>
+        <title>class ManualControl · MAVSDK Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -85,10 +85,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="structmavsdk_1_1_telemetry_1_1_quaternion.html" />
+    <link rel="next" href="classmavsdk_1_1_mavlink_passthrough.html" />
     
     
-    <link rel="prev" href="structmavsdk_1_1_telemetry_1_1_velocity_body.html" />
+    <link rel="prev" href="structmavsdk_1_1_log_files_1_1_progress_data.html" />
     
 
     </head>
@@ -1043,7 +1043,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5.12" data-path="classmavsdk_1_1_manual_control.html">
+        <li class="chapter active" data-level="1.5.5.12" data-path="classmavsdk_1_1_manual_control.html">
             
                 <a href="classmavsdk_1_1_manual_control.html">
             
@@ -1763,7 +1763,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5.5.22.21" data-path="structmavsdk_1_1_telemetry_1_1_position_velocity_ned.html">
+        <li class="chapter " data-level="1.5.5.22.21" data-path="structmavsdk_1_1_telemetry_1_1_position_velocity_ned.html">
             
                 <a href="structmavsdk_1_1_telemetry_1_1_position_velocity_ned.html">
             
@@ -2126,7 +2126,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >struct PositionVelocityNed</a>
+        <a href=".." >class ManualControl</a>
     </h1>
 </div>
 
@@ -2141,22 +2141,222 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="mavsdktelemetrypositionvelocityned-struct-reference"><a name="mavsdktelemetrypositionvelocityned-struct-reference" class="plugin-anchor" href="#mavsdktelemetrypositionvelocityned-struct-reference"><i class="fa fa-link" aria-hidden="true"></i></a>mavsdk::Telemetry::PositionVelocityNed Struct Reference</h1>
-<p><code>#include: telemetry.h</code></p>
+                                <h1 id="mavsdkmanualcontrol-class-reference"><a name="mavsdkmanualcontrol-class-reference" class="plugin-anchor" href="#mavsdkmanualcontrol-class-reference"><i class="fa fa-link" aria-hidden="true"></i></a>mavsdk::ManualControl Class Reference</h1>
+<p><code>#include: manual_control.h</code></p>
 <hr>
-<p><a href="structmavsdk_1_1_telemetry_1_1_position_velocity_ned.html">PositionVelocityNed</a> message type. </p>
-<h2 id="data-fields"><a name="data-fields" class="plugin-anchor" href="#data-fields"><i class="fa fa-link" aria-hidden="true"></i></a>Data Fields</h2>
-<p><a href="structmavsdk_1_1_telemetry_1_1_position_ned.html">PositionNed</a> <a href="#structmavsdk_1_1_telemetry_1_1_position_velocity_ned_1a3efc29b2fe10b80cbf49cbf4c1498752">position</a> {} - <a href="structmavsdk_1_1_telemetry_1_1_position.html">Position</a> (NED)</p>
-<p><a href="structmavsdk_1_1_telemetry_1_1_velocity_ned.html">VelocityNed</a> <a href="#structmavsdk_1_1_telemetry_1_1_position_velocity_ned_1ad445b0be7cf4ad7ef02e85d06aa52e37">velocity</a> {} - Velocity (NED)</p>
-<h2 id="field-documentation"><a name="field-documentation" class="plugin-anchor" href="#field-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Field Documentation</h2>
-<h3 id="structmavsdk_1_1_telemetry_1_1_position_velocity_ned_1a3efc29b2fe10b80cbf49cbf4c1498752"><a name="structmavsdk_1_1_telemetry_1_1_position_velocity_ned_1a3efc29b2fe10b80cbf49cbf4c1498752" class="plugin-anchor" href="#structmavsdk_1_1_telemetry_1_1_position_velocity_ned_1a3efc29b2fe10b80cbf49cbf4c1498752"><i class="fa fa-link" aria-hidden="true"></i></a>position </h3>
-<pre><code class="lang-cpp">PositionNed mavsdk::Telemetry::PositionVelocityNed::position {}
+<p>Enable manual control using e.g. a joystick or gamepad. </p>
+<h2 id="public-types"><a name="public-types" class="plugin-anchor" href="#public-types"><i class="fa fa-link" aria-hidden="true"></i></a>Public Types</h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enum <a href="#classmavsdk_1_1_manual_control_1a6c7dbd25e051b6e1369a65fd05a22799">Result</a></td>
+<td>Possible results returned for manual control requests.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(<a href="classmavsdk_1_1_manual_control.html#classmavsdk_1_1_manual_control_1a6c7dbd25e051b6e1369a65fd05a22799">Result</a>)&gt; <a href="#classmavsdk_1_1_manual_control_1a08b010bafdf770d3e4ea6060f56a0f3b">ResultCallback</a></td>
+<td>Callback type for asynchronous <a href="classmavsdk_1_1_manual_control.html">ManualControl</a> calls.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-member-functions"><a name="public-member-functions" class="plugin-anchor" href="#public-member-functions"><i class="fa fa-link" aria-hidden="true"></i></a>Public Member Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Type</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">&#xA0;</td>
+<td><a href="#classmavsdk_1_1_manual_control_1af89d947dd2c843cc41f2ea183ad17b03">ManualControl</a> (<a href="classmavsdk_1_1_system.html">System</a> &amp; system)</td>
+<td>Constructor. Creates the plugin for a specific <a href="classmavsdk_1_1_system.html">System</a>.</td>
+</tr>
+<tr>
+<td style="text-align:right">&#xA0;</td>
+<td><a href="#classmavsdk_1_1_manual_control_1a793e4be2447ef44cfd5a41b1c06e9350">~ManualControl</a> ()</td>
+<td>Destructor (internal use only).</td>
+</tr>
+<tr>
+<td style="text-align:right">&#xA0;</td>
+<td><a href="#classmavsdk_1_1_manual_control_1a46f7e393be52fbe674a8ea9a687aaf11">ManualControl</a> (const <a href="classmavsdk_1_1_manual_control.html">ManualControl</a> &amp;)=delete</td>
+<td>Copy constructor (object is not copyable).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_manual_control_1a2a3352c11c56dd14d55537b3a6413792">start_position_control_async</a> (const <a href="classmavsdk_1_1_manual_control.html#classmavsdk_1_1_manual_control_1a08b010bafdf770d3e4ea6060f56a0f3b">ResultCallback</a> callback)</td>
+<td>Start position control using e.g. joystick input.</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_manual_control.html#classmavsdk_1_1_manual_control_1a6c7dbd25e051b6e1369a65fd05a22799">Result</a></td>
+<td><a href="#classmavsdk_1_1_manual_control_1a570c7e78fc9c5083d9a2f9570c32caaa">start_position_control</a> () const</td>
+<td>Start position control using e.g. joystick input.</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_manual_control_1abf7659d98949c01b634e421a9c2df079">start_altitude_control_async</a> (const <a href="classmavsdk_1_1_manual_control.html#classmavsdk_1_1_manual_control_1a08b010bafdf770d3e4ea6060f56a0f3b">ResultCallback</a> callback)</td>
+<td>Start altitude control.</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_manual_control.html#classmavsdk_1_1_manual_control_1a6c7dbd25e051b6e1369a65fd05a22799">Result</a></td>
+<td><a href="#classmavsdk_1_1_manual_control_1a67609e46bafb34309d5b5d943a29f23c">start_altitude_control</a> () const</td>
+<td>Start altitude control.</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_manual_control.html#classmavsdk_1_1_manual_control_1a6c7dbd25e051b6e1369a65fd05a22799">Result</a></td>
+<td><a href="#classmavsdk_1_1_manual_control_1a1b4b34db391d7238e33b821614fc1f29">set_manual_control_input</a> (float x, float y, float z, float r)const</td>
+<td>Set manual control input.</td>
+</tr>
+<tr>
+<td style="text-align:right">const <a href="classmavsdk_1_1_manual_control.html">ManualControl</a> &amp;</td>
+<td><a href="#classmavsdk_1_1_manual_control_1aca51fff98c33fbd5201495101ddf1368">operator=</a> (const <a href="classmavsdk_1_1_manual_control.html">ManualControl</a> &amp;)=delete</td>
+<td>Equality operator (object is not copyable).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="constructor--destructor-documentation"><a name="constructor--destructor-documentation" class="plugin-anchor" href="#constructor--destructor-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Constructor &amp; Destructor Documentation</h2>
+<h3 id="classmavsdk_1_1_manual_control_1af89d947dd2c843cc41f2ea183ad17b03"><a name="classmavsdk_1_1_manual_control_1af89d947dd2c843cc41f2ea183ad17b03" class="plugin-anchor" href="#classmavsdk_1_1_manual_control_1af89d947dd2c843cc41f2ea183ad17b03"><i class="fa fa-link" aria-hidden="true"></i></a>ManualControl() </h3>
+<pre><code class="lang-cpp">mavsdk::ManualControl::ManualControl(System &amp;system)
 </code></pre>
-<p><a href="structmavsdk_1_1_telemetry_1_1_position.html">Position</a> (NED)</p>
-<h3 id="structmavsdk_1_1_telemetry_1_1_position_velocity_ned_1ad445b0be7cf4ad7ef02e85d06aa52e37"><a name="structmavsdk_1_1_telemetry_1_1_position_velocity_ned_1ad445b0be7cf4ad7ef02e85d06aa52e37" class="plugin-anchor" href="#structmavsdk_1_1_telemetry_1_1_position_velocity_ned_1ad445b0be7cf4ad7ef02e85d06aa52e37"><i class="fa fa-link" aria-hidden="true"></i></a>velocity </h3>
-<pre><code class="lang-cpp">VelocityNed mavsdk::Telemetry::PositionVelocityNed::velocity {}
+<p>Constructor. Creates the plugin for a specific <a href="classmavsdk_1_1_system.html">System</a>.</p>
+<p>The plugin is typically created as shown below: </p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">auto</span> manual_control = <span class="hljs-built_in">std</span>::make_shared&lt;ManualControl&gt;(system);
 </code></pre>
-<p>Velocity (NED)</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_system.html">System</a>&amp; <strong>system</strong> - The specific system associated with this plugin.</li>
+</ul>
+<h3 id="classmavsdk_1_1_manual_control_1a793e4be2447ef44cfd5a41b1c06e9350"><a name="classmavsdk_1_1_manual_control_1a793e4be2447ef44cfd5a41b1c06e9350" class="plugin-anchor" href="#classmavsdk_1_1_manual_control_1a793e4be2447ef44cfd5a41b1c06e9350"><i class="fa fa-link" aria-hidden="true"></i></a>~ManualControl() </h3>
+<pre><code class="lang-cpp">mavsdk::ManualControl::~ManualControl()
+</code></pre>
+<p>Destructor (internal use only).</p>
+<h3 id="classmavsdk_1_1_manual_control_1a46f7e393be52fbe674a8ea9a687aaf11"><a name="classmavsdk_1_1_manual_control_1a46f7e393be52fbe674a8ea9a687aaf11" class="plugin-anchor" href="#classmavsdk_1_1_manual_control_1a46f7e393be52fbe674a8ea9a687aaf11"><i class="fa fa-link" aria-hidden="true"></i></a>ManualControl() </h3>
+<pre><code class="lang-cpp">mavsdk::ManualControl::ManualControl(<span class="hljs-keyword">const</span> ManualControl &amp;)=<span class="hljs-keyword">delete</span>
+</code></pre>
+<p>Copy constructor (object is not copyable).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classmavsdk_1_1_manual_control.html">ManualControl</a>&amp;  - </li>
+</ul>
+<h2 id="member-typdef-documentation"><a name="member-typdef-documentation" class="plugin-anchor" href="#member-typdef-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Member Typdef Documentation</h2>
+<h3 id="classmavsdk_1_1_manual_control_1a08b010bafdf770d3e4ea6060f56a0f3b"><a name="classmavsdk_1_1_manual_control_1a08b010bafdf770d3e4ea6060f56a0f3b" class="plugin-anchor" href="#classmavsdk_1_1_manual_control_1a08b010bafdf770d3e4ea6060f56a0f3b"><i class="fa fa-link" aria-hidden="true"></i></a>typedef ResultCallback </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::ManualControl::ResultCallback =  <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(Result)&gt;
+</code></pre>
+<p>Callback type for asynchronous <a href="classmavsdk_1_1_manual_control.html">ManualControl</a> calls.</p>
+<h2 id="member-enumeration-documentation"><a name="member-enumeration-documentation" class="plugin-anchor" href="#member-enumeration-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Member Enumeration Documentation</h2>
+<h3 id="classmavsdk_1_1_manual_control_1a6c7dbd25e051b6e1369a65fd05a22799"><a name="classmavsdk_1_1_manual_control_1a6c7dbd25e051b6e1369a65fd05a22799" class="plugin-anchor" href="#classmavsdk_1_1_manual_control_1a6c7dbd25e051b6e1369a65fd05a22799"><i class="fa fa-link" aria-hidden="true"></i></a>enum Result </h3>
+<p>Possible results returned for manual control requests.</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span id="classmavsdk_1_1_manual_control_1a6c7dbd25e051b6e1369a65fd05a22799a88183b946cc5f0e8c96b2e66e1c74a7e"></span> <code>Unknown</code></td>
+<td>Unknown result. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_manual_control_1a6c7dbd25e051b6e1369a65fd05a22799a505a83f220c02df2f85c3810cd9ceb38"></span> <code>Success</code></td>
+<td>Request was successful. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_manual_control_1a6c7dbd25e051b6e1369a65fd05a22799a1119faf72ba0dfb23aeea644fed960ad"></span> <code>NoSystem</code></td>
+<td>No system is connected. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_manual_control_1a6c7dbd25e051b6e1369a65fd05a22799a094a6f6b0868122a9dd008cb91c083e4"></span> <code>ConnectionError</code></td>
+<td>Connection error. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_manual_control_1a6c7dbd25e051b6e1369a65fd05a22799ad8a942ef2b04672adfafef0ad817a407"></span> <code>Busy</code></td>
+<td>Vehicle is busy. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_manual_control_1a6c7dbd25e051b6e1369a65fd05a22799a3398e12855176d55f43d53e04f472c8a"></span> <code>CommandDenied</code></td>
+<td>Command refused by vehicle. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_manual_control_1a6c7dbd25e051b6e1369a65fd05a22799ac85a251cc457840f1e032f1b733e9398"></span> <code>Timeout</code></td>
+<td>Request timed out. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_manual_control_1a6c7dbd25e051b6e1369a65fd05a22799a2add56a53420744e7e68e6a5e03e41bc"></span> <code>InputOutOfRange</code></td>
+<td>Input out of range. </td>
+</tr>
+</tbody>
+</table>
+<h2 id="member-function-documentation"><a name="member-function-documentation" class="plugin-anchor" href="#member-function-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Member Function Documentation</h2>
+<h3 id="classmavsdk_1_1_manual_control_1a2a3352c11c56dd14d55537b3a6413792"><a name="classmavsdk_1_1_manual_control_1a2a3352c11c56dd14d55537b3a6413792" class="plugin-anchor" href="#classmavsdk_1_1_manual_control_1a2a3352c11c56dd14d55537b3a6413792"><i class="fa fa-link" aria-hidden="true"></i></a>start_position_control_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::ManualControl::start_position_control_async(<span class="hljs-keyword">const</span> ResultCallback callback)
+</code></pre>
+<p>Start position control using e.g. joystick input.</p>
+<p>Requires manual control input to be sent regularly already. Requires a valid position using e.g. GPS, external vision, or optical flow.</p>
+<p>This function is non-blocking. See &apos;start_position_control&apos; for the blocking counterpart.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classmavsdk_1_1_manual_control.html#classmavsdk_1_1_manual_control_1a08b010bafdf770d3e4ea6060f56a0f3b">ResultCallback</a> <strong>callback</strong> - </li>
+</ul>
+<h3 id="classmavsdk_1_1_manual_control_1a570c7e78fc9c5083d9a2f9570c32caaa"><a name="classmavsdk_1_1_manual_control_1a570c7e78fc9c5083d9a2f9570c32caaa" class="plugin-anchor" href="#classmavsdk_1_1_manual_control_1a570c7e78fc9c5083d9a2f9570c32caaa"><i class="fa fa-link" aria-hidden="true"></i></a>start_position_control() </h3>
+<pre><code class="lang-cpp">Result mavsdk::ManualControl::start_position_control() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Start position control using e.g. joystick input.</p>
+<p>Requires manual control input to be sent regularly already. Requires a valid position using e.g. GPS, external vision, or optical flow.</p>
+<p>This function is blocking. See &apos;start_position_control_async&apos; for the non-blocking counterpart.</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_manual_control.html#classmavsdk_1_1_manual_control_1a6c7dbd25e051b6e1369a65fd05a22799">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_manual_control_1abf7659d98949c01b634e421a9c2df079"><a name="classmavsdk_1_1_manual_control_1abf7659d98949c01b634e421a9c2df079" class="plugin-anchor" href="#classmavsdk_1_1_manual_control_1abf7659d98949c01b634e421a9c2df079"><i class="fa fa-link" aria-hidden="true"></i></a>start_altitude_control_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::ManualControl::start_altitude_control_async(<span class="hljs-keyword">const</span> ResultCallback callback)
+</code></pre>
+<p>Start altitude control.</p>
+<p>Requires manual control input to be sent regularly already. Does not require a valid position e.g. GPS.</p>
+<p>This function is non-blocking. See &apos;start_altitude_control&apos; for the blocking counterpart.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classmavsdk_1_1_manual_control.html#classmavsdk_1_1_manual_control_1a08b010bafdf770d3e4ea6060f56a0f3b">ResultCallback</a> <strong>callback</strong> - </li>
+</ul>
+<h3 id="classmavsdk_1_1_manual_control_1a67609e46bafb34309d5b5d943a29f23c"><a name="classmavsdk_1_1_manual_control_1a67609e46bafb34309d5b5d943a29f23c" class="plugin-anchor" href="#classmavsdk_1_1_manual_control_1a67609e46bafb34309d5b5d943a29f23c"><i class="fa fa-link" aria-hidden="true"></i></a>start_altitude_control() </h3>
+<pre><code class="lang-cpp">Result mavsdk::ManualControl::start_altitude_control() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Start altitude control.</p>
+<p>Requires manual control input to be sent regularly already. Does not require a valid position e.g. GPS.</p>
+<p>This function is blocking. See &apos;start_altitude_control_async&apos; for the non-blocking counterpart.</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_manual_control.html#classmavsdk_1_1_manual_control_1a6c7dbd25e051b6e1369a65fd05a22799">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_manual_control_1a1b4b34db391d7238e33b821614fc1f29"><a name="classmavsdk_1_1_manual_control_1a1b4b34db391d7238e33b821614fc1f29" class="plugin-anchor" href="#classmavsdk_1_1_manual_control_1a1b4b34db391d7238e33b821614fc1f29"><i class="fa fa-link" aria-hidden="true"></i></a>set_manual_control_input() </h3>
+<pre><code class="lang-cpp">Result mavsdk::ManualControl::set_manual_control_input(<span class="hljs-keyword">float</span> x, <span class="hljs-keyword">float</span> y, <span class="hljs-keyword">float</span> z, <span class="hljs-keyword">float</span> r) <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Set manual control input.</p>
+<p>The manual control input needs to be sent at a rate high enough to prevent triggering of RC loss, a good minimum rate is 10 Hz.</p>
+<p>This function is blocking.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>float <strong>x</strong> - </li>
+<li>float <strong>y</strong> - </li>
+<li>float <strong>z</strong> - </li>
+<li>float <strong>r</strong> - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_manual_control.html#classmavsdk_1_1_manual_control_1a6c7dbd25e051b6e1369a65fd05a22799">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_manual_control_1aca51fff98c33fbd5201495101ddf1368"><a name="classmavsdk_1_1_manual_control_1aca51fff98c33fbd5201495101ddf1368" class="plugin-anchor" href="#classmavsdk_1_1_manual_control_1aca51fff98c33fbd5201495101ddf1368"><i class="fa fa-link" aria-hidden="true"></i></a>operator=() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">const</span> ManualControl&amp; mavsdk::ManualControl::<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> ManualControl &amp;)=<span class="hljs-keyword">delete</span>
+</code></pre>
+<p>Equality operator (object is not copyable).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classmavsdk_1_1_manual_control.html">ManualControl</a>&amp;  - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;const <a href="classmavsdk_1_1_manual_control.html">ManualControl</a> &amp; - </p>
 <footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2019. License:   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-07-30 00:13:03 </span> </footer>
                                 
                                 </section>
@@ -2184,12 +2384,12 @@
 
             
                 
-                <a href="structmavsdk_1_1_telemetry_1_1_velocity_body.html" class="navigation navigation-prev " aria-label="Previous page: struct VelocityBody">
+                <a href="structmavsdk_1_1_log_files_1_1_progress_data.html" class="navigation navigation-prev " aria-label="Previous page: struct ProgressData">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="structmavsdk_1_1_telemetry_1_1_quaternion.html" class="navigation navigation-next " aria-label="Next page: struct Quaternion">
+                <a href="classmavsdk_1_1_mavlink_passthrough.html" class="navigation navigation-next " aria-label="Next page: class MavlinkPassthrough">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -2200,7 +2400,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"struct PositionVelocityNed","level":"1.5.5.22.21","depth":4,"next":{"title":"struct Quaternion","level":"1.5.5.22.22","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_quaternion.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_quaternion.md","articles":[]},"previous":{"title":"struct VelocityBody","level":"1.5.5.22.20","depth":4,"path":"api_reference/structmavsdk_1_1_telemetry_1_1_velocity_body.md","ref":"api_reference/structmavsdk_1_1_telemetry_1_1_velocity_body.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.27.0/en/","text":"v0.27.0"},{"value":"https://mavsdk.mavlink.io/v0.25.0/en/","text":"v0.25.0"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"api_reference/structmavsdk_1_1_telemetry_1_1_position_velocity_ned.md","mtime":"2020-07-30T00:13:03.982Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-30T00:14:12.287Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"class ManualControl","level":"1.5.5.12","depth":3,"next":{"title":"class MavlinkPassthrough","level":"1.5.5.13","depth":3,"path":"api_reference/classmavsdk_1_1_mavlink_passthrough.md","ref":"api_reference/classmavsdk_1_1_mavlink_passthrough.md","articles":[]},"previous":{"title":"struct ProgressData","level":"1.5.5.11.2","depth":4,"path":"api_reference/structmavsdk_1_1_log_files_1_1_progress_data.md","ref":"api_reference/structmavsdk_1_1_log_files_1_1_progress_data.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2019. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.27.0/en/","text":"v0.27.0"},{"value":"https://mavsdk.mavlink.io/v0.25.0/en/","text":"v0.25.0"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"api_reference/classmavsdk_1_1_manual_control.md","mtime":"2020-07-30T00:13:03.978Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-30T00:14:12.287Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
