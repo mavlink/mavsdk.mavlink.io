@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>struct AttitudePositionMocap · MAVSDK Guide</title>
+        <title>struct CommandInt · MAVSDK Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -85,10 +85,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="structmavsdk_1_1_mocap_1_1_covariance.html" />
+    <link rel="next" href="structmavsdk_1_1_mavlink_passthrough_1_1_command_long.html" />
     
     
-    <link rel="prev" href="structmavsdk_1_1_mocap_1_1_angular_velocity_body.html" />
+    <link rel="prev" href="classmavsdk_1_1_mavlink_passthrough.html" />
     
 
     </head>
@@ -1102,7 +1102,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.5.13.1" data-path="structmavsdk_1_1_mavlink_passthrough_1_1_command_int.html">
+        <li class="chapter active" data-level="1.5.5.13.1" data-path="structmavsdk_1_1_mavlink_passthrough_1_1_command_int.html">
             
                 <a href="structmavsdk_1_1_mavlink_passthrough_1_1_command_int.html">
             
@@ -1308,7 +1308,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5.5.17.3" data-path="structmavsdk_1_1_mocap_1_1_attitude_position_mocap.html">
+        <li class="chapter " data-level="1.5.5.17.3" data-path="structmavsdk_1_1_mocap_1_1_attitude_position_mocap.html">
             
                 <a href="structmavsdk_1_1_mocap_1_1_attitude_position_mocap.html">
             
@@ -2248,7 +2248,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >struct AttitudePositionMocap</a>
+        <a href=".." >struct CommandInt</a>
     </h1>
 </div>
 
@@ -2263,32 +2263,67 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="mavsdkmocapattitudepositionmocap-struct-reference"><a name="mavsdkmocapattitudepositionmocap-struct-reference" class="plugin-anchor" href="#mavsdkmocapattitudepositionmocap-struct-reference"><i class="fa fa-link" aria-hidden="true"></i></a>mavsdk::Mocap::AttitudePositionMocap Struct Reference</h1>
-<p><code>#include: mocap.h</code></p>
+                                <h1 id="mavsdkmavlinkpassthroughcommandint-struct-reference"><a name="mavsdkmavlinkpassthroughcommandint-struct-reference" class="plugin-anchor" href="#mavsdkmavlinkpassthroughcommandint-struct-reference"><i class="fa fa-link" aria-hidden="true"></i></a>mavsdk::MavlinkPassthrough::CommandInt Struct Reference</h1>
+<p><code>#include: mavlink_passthrough.h</code></p>
 <hr>
-<p>Motion capture attitude and position. </p>
+<p>Type for MAVLink command_int. </p>
 <h2 id="data-fields"><a name="data-fields" class="plugin-anchor" href="#data-fields"><i class="fa fa-link" aria-hidden="true"></i></a>Data Fields</h2>
-<p>uint64_t <a href="#structmavsdk_1_1_mocap_1_1_attitude_position_mocap_1a71fe88d56f731ccf1006ab4824dd28a5">time_usec</a> {} - <a href="structmavsdk_1_1_mocap_1_1_position_body.html">PositionBody</a> frame timestamp UNIX Epoch time (0 to use Backend timestamp)</p>
-<p><a href="structmavsdk_1_1_mocap_1_1_quaternion.html">Quaternion</a> <a href="#structmavsdk_1_1_mocap_1_1_attitude_position_mocap_1a7a0dc18912abfd898ab277fa1cde1ea6">q</a> {} - Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)</p>
-<p><a href="structmavsdk_1_1_mocap_1_1_position_body.html">PositionBody</a> <a href="#structmavsdk_1_1_mocap_1_1_attitude_position_mocap_1a5fc4e26d1c619304149d5fa5f7fed6a0">position_body</a> {} - Body Position (NED)</p>
-<p><a href="structmavsdk_1_1_mocap_1_1_covariance.html">Covariance</a> <a href="#structmavsdk_1_1_mocap_1_1_attitude_position_mocap_1a5e927086fb1877984f364884cbce42e9">pose_covariance</a> {} - Pose cross-covariance matrix.</p>
+<p>uint8_t <a href="#structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1a306288fb9fa75a3304ba16dd8d9bb0c6">target_sysid</a>  - <a href="classmavsdk_1_1_system.html">System</a> ID to send command to.</p>
+<p>uint8_t <a href="#structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1aa93fd091a743292535c2419579f62204">target_compid</a>  - Component ID to send command to.</p>
+<p>uint16_t <a href="#structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1a17dda91c83b7ae7d01dc64a3ed7fc7c0">command</a>  - command to send.</p>
+<p>MAV_FRAME <a href="#structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1a31cbea5392e711069d5f5c990d2cba92">frame</a>  -</p>
+<p>float <a href="#structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1af667d2f79bb1a196c5d1423869078203">param1</a>  - param1.</p>
+<p>float <a href="#structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1a1dd4bce33e0281ec6468c97b7a7b03a1">param2</a>  - param2.</p>
+<p>float <a href="#structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1ab63eb6898d7ab2838567c52bd1339635">param3</a>  - param3.</p>
+<p>float <a href="#structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1acb8b24402f78d37eb6e1aae1a44ed86c">param4</a>  - param4.</p>
+<p>int32_t <a href="#structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1aeb66966f4af3b080fa565094e2c9df51">x</a>  - x.</p>
+<p>int32_t <a href="#structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1a2b7f8e7e6cf1905f096f5dea43c669ce">y</a>  - y.</p>
+<p>float <a href="#structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1a06b57c3981c70b9b79fcc28b097ecdf6">z</a>  - z.</p>
 <h2 id="field-documentation"><a name="field-documentation" class="plugin-anchor" href="#field-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Field Documentation</h2>
-<h3 id="structmavsdk_1_1_mocap_1_1_attitude_position_mocap_1a71fe88d56f731ccf1006ab4824dd28a5"><a name="structmavsdk_1_1_mocap_1_1_attitude_position_mocap_1a71fe88d56f731ccf1006ab4824dd28a5" class="plugin-anchor" href="#structmavsdk_1_1_mocap_1_1_attitude_position_mocap_1a71fe88d56f731ccf1006ab4824dd28a5"><i class="fa fa-link" aria-hidden="true"></i></a>time_usec </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">uint64_t</span> mavsdk::Mocap::AttitudePositionMocap::time_usec {}
+<h3 id="structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1a306288fb9fa75a3304ba16dd8d9bb0c6"><a name="structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1a306288fb9fa75a3304ba16dd8d9bb0c6" class="plugin-anchor" href="#structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1a306288fb9fa75a3304ba16dd8d9bb0c6"><i class="fa fa-link" aria-hidden="true"></i></a>target_sysid </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">uint8_t</span> mavsdk::MavlinkPassthrough::CommandInt::target_sysid
 </code></pre>
-<p><a href="structmavsdk_1_1_mocap_1_1_position_body.html">PositionBody</a> frame timestamp UNIX Epoch time (0 to use Backend timestamp)</p>
-<h3 id="structmavsdk_1_1_mocap_1_1_attitude_position_mocap_1a7a0dc18912abfd898ab277fa1cde1ea6"><a name="structmavsdk_1_1_mocap_1_1_attitude_position_mocap_1a7a0dc18912abfd898ab277fa1cde1ea6" class="plugin-anchor" href="#structmavsdk_1_1_mocap_1_1_attitude_position_mocap_1a7a0dc18912abfd898ab277fa1cde1ea6"><i class="fa fa-link" aria-hidden="true"></i></a>q </h3>
-<pre><code class="lang-cpp">Quaternion mavsdk::Mocap::AttitudePositionMocap::q {}
+<p><a href="classmavsdk_1_1_system.html">System</a> ID to send command to.</p>
+<h3 id="structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1aa93fd091a743292535c2419579f62204"><a name="structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1aa93fd091a743292535c2419579f62204" class="plugin-anchor" href="#structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1aa93fd091a743292535c2419579f62204"><i class="fa fa-link" aria-hidden="true"></i></a>target_compid </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">uint8_t</span> mavsdk::MavlinkPassthrough::CommandInt::target_compid
 </code></pre>
-<p>Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)</p>
-<h3 id="structmavsdk_1_1_mocap_1_1_attitude_position_mocap_1a5fc4e26d1c619304149d5fa5f7fed6a0"><a name="structmavsdk_1_1_mocap_1_1_attitude_position_mocap_1a5fc4e26d1c619304149d5fa5f7fed6a0" class="plugin-anchor" href="#structmavsdk_1_1_mocap_1_1_attitude_position_mocap_1a5fc4e26d1c619304149d5fa5f7fed6a0"><i class="fa fa-link" aria-hidden="true"></i></a>position_body </h3>
-<pre><code class="lang-cpp">PositionBody mavsdk::Mocap::AttitudePositionMocap::position_body {}
+<p>Component ID to send command to.</p>
+<h3 id="structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1a17dda91c83b7ae7d01dc64a3ed7fc7c0"><a name="structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1a17dda91c83b7ae7d01dc64a3ed7fc7c0" class="plugin-anchor" href="#structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1a17dda91c83b7ae7d01dc64a3ed7fc7c0"><i class="fa fa-link" aria-hidden="true"></i></a>command </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">uint16_t</span> mavsdk::MavlinkPassthrough::CommandInt::command
 </code></pre>
-<p>Body Position (NED)</p>
-<h3 id="structmavsdk_1_1_mocap_1_1_attitude_position_mocap_1a5e927086fb1877984f364884cbce42e9"><a name="structmavsdk_1_1_mocap_1_1_attitude_position_mocap_1a5e927086fb1877984f364884cbce42e9" class="plugin-anchor" href="#structmavsdk_1_1_mocap_1_1_attitude_position_mocap_1a5e927086fb1877984f364884cbce42e9"><i class="fa fa-link" aria-hidden="true"></i></a>pose_covariance </h3>
-<pre><code class="lang-cpp">Covariance mavsdk::Mocap::AttitudePositionMocap::pose_covariance {}
+<p>command to send.</p>
+<h3 id="structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1a31cbea5392e711069d5f5c990d2cba92"><a name="structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1a31cbea5392e711069d5f5c990d2cba92" class="plugin-anchor" href="#structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1a31cbea5392e711069d5f5c990d2cba92"><i class="fa fa-link" aria-hidden="true"></i></a>frame </h3>
+<pre><code class="lang-cpp">MAV_FRAME mavsdk::MavlinkPassthrough::CommandInt::frame
 </code></pre>
-<p>Pose cross-covariance matrix.</p>
+<p>Frame of command.</p>
+<h3 id="structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1af667d2f79bb1a196c5d1423869078203"><a name="structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1af667d2f79bb1a196c5d1423869078203" class="plugin-anchor" href="#structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1af667d2f79bb1a196c5d1423869078203"><i class="fa fa-link" aria-hidden="true"></i></a>param1 </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">float</span> mavsdk::MavlinkPassthrough::CommandInt::param1
+</code></pre>
+<p>param1.</p>
+<h3 id="structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1a1dd4bce33e0281ec6468c97b7a7b03a1"><a name="structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1a1dd4bce33e0281ec6468c97b7a7b03a1" class="plugin-anchor" href="#structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1a1dd4bce33e0281ec6468c97b7a7b03a1"><i class="fa fa-link" aria-hidden="true"></i></a>param2 </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">float</span> mavsdk::MavlinkPassthrough::CommandInt::param2
+</code></pre>
+<p>param2.</p>
+<h3 id="structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1ab63eb6898d7ab2838567c52bd1339635"><a name="structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1ab63eb6898d7ab2838567c52bd1339635" class="plugin-anchor" href="#structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1ab63eb6898d7ab2838567c52bd1339635"><i class="fa fa-link" aria-hidden="true"></i></a>param3 </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">float</span> mavsdk::MavlinkPassthrough::CommandInt::param3
+</code></pre>
+<p>param3.</p>
+<h3 id="structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1acb8b24402f78d37eb6e1aae1a44ed86c"><a name="structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1acb8b24402f78d37eb6e1aae1a44ed86c" class="plugin-anchor" href="#structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1acb8b24402f78d37eb6e1aae1a44ed86c"><i class="fa fa-link" aria-hidden="true"></i></a>param4 </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">float</span> mavsdk::MavlinkPassthrough::CommandInt::param4
+</code></pre>
+<p>param4.</p>
+<h3 id="structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1aeb66966f4af3b080fa565094e2c9df51"><a name="structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1aeb66966f4af3b080fa565094e2c9df51" class="plugin-anchor" href="#structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1aeb66966f4af3b080fa565094e2c9df51"><i class="fa fa-link" aria-hidden="true"></i></a>x </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">int32_t</span> mavsdk::MavlinkPassthrough::CommandInt::x
+</code></pre>
+<p>x.</p>
+<h3 id="structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1a2b7f8e7e6cf1905f096f5dea43c669ce"><a name="structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1a2b7f8e7e6cf1905f096f5dea43c669ce" class="plugin-anchor" href="#structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1a2b7f8e7e6cf1905f096f5dea43c669ce"><i class="fa fa-link" aria-hidden="true"></i></a>y </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">int32_t</span> mavsdk::MavlinkPassthrough::CommandInt::y
+</code></pre>
+<p>y.</p>
+<h3 id="structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1a06b57c3981c70b9b79fcc28b097ecdf6"><a name="structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1a06b57c3981c70b9b79fcc28b097ecdf6" class="plugin-anchor" href="#structmavsdk_1_1_mavlink_passthrough_1_1_command_int_1a06b57c3981c70b9b79fcc28b097ecdf6"><i class="fa fa-link" aria-hidden="true"></i></a>z </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">float</span> mavsdk::MavlinkPassthrough::CommandInt::z
+</code></pre>
+<p>z.</p>
 <footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-11-10 23:51:17 </span> </footer>
                                 
                                 </section>
@@ -2316,12 +2351,12 @@
 
             
                 
-                <a href="structmavsdk_1_1_mocap_1_1_angular_velocity_body.html" class="navigation navigation-prev " aria-label="Previous page: struct AngularVelocityBody">
+                <a href="classmavsdk_1_1_mavlink_passthrough.html" class="navigation navigation-prev " aria-label="Previous page: class MavlinkPassthrough">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="structmavsdk_1_1_mocap_1_1_covariance.html" class="navigation navigation-next " aria-label="Next page: struct Covariance">
+                <a href="structmavsdk_1_1_mavlink_passthrough_1_1_command_long.html" class="navigation navigation-next " aria-label="Next page: struct CommandLong">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -2332,7 +2367,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"struct AttitudePositionMocap","level":"1.5.5.17.3","depth":4,"next":{"title":"struct Covariance","level":"1.5.5.17.4","depth":4,"path":"api_reference/structmavsdk_1_1_mocap_1_1_covariance.md","ref":"api_reference/structmavsdk_1_1_mocap_1_1_covariance.md","articles":[]},"previous":{"title":"struct AngularVelocityBody","level":"1.5.5.17.2","depth":4,"path":"api_reference/structmavsdk_1_1_mocap_1_1_angular_velocity_body.md","ref":"api_reference/structmavsdk_1_1_mocap_1_1_angular_velocity_body.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.33.0/en/","text":"v0.33.0"},{"value":"https://mavsdk.mavlink.io/v0.29.0/en/","text":"v0.29.0"},{"value":"https://mavsdk.mavlink.io/v0.27.0/en/","text":"v0.27.0"},{"value":"https://mavsdk.mavlink.io/v0.25.0/en/","text":"v0.25.0"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"api_reference/structmavsdk_1_1_mocap_1_1_attitude_position_mocap.md","mtime":"2020-11-10T23:51:17.997Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-10T23:51:58.691Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"struct CommandInt","level":"1.5.5.13.1","depth":4,"next":{"title":"struct CommandLong","level":"1.5.5.13.2","depth":4,"path":"api_reference/structmavsdk_1_1_mavlink_passthrough_1_1_command_long.md","ref":"api_reference/structmavsdk_1_1_mavlink_passthrough_1_1_command_long.md","articles":[]},"previous":{"title":"class MavlinkPassthrough","level":"1.5.5.13","depth":3,"path":"api_reference/classmavsdk_1_1_mavlink_passthrough.md","ref":"api_reference/classmavsdk_1_1_mavlink_passthrough.md","articles":[{"title":"struct CommandInt","level":"1.5.5.13.1","depth":4,"path":"api_reference/structmavsdk_1_1_mavlink_passthrough_1_1_command_int.md","ref":"api_reference/structmavsdk_1_1_mavlink_passthrough_1_1_command_int.md","articles":[]},{"title":"struct CommandLong","level":"1.5.5.13.2","depth":4,"path":"api_reference/structmavsdk_1_1_mavlink_passthrough_1_1_command_long.md","ref":"api_reference/structmavsdk_1_1_mavlink_passthrough_1_1_command_long.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.33.0/en/","text":"v0.33.0"},{"value":"https://mavsdk.mavlink.io/v0.29.0/en/","text":"v0.29.0"},{"value":"https://mavsdk.mavlink.io/v0.27.0/en/","text":"v0.27.0"},{"value":"https://mavsdk.mavlink.io/v0.25.0/en/","text":"v0.25.0"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"api_reference/structmavsdk_1_1_mavlink_passthrough_1_1_command_int.md","mtime":"2020-11-10T23:51:17.997Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-10T23:51:58.691Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
