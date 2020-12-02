@@ -2277,9 +2277,9 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="missions"><a name="missions" class="plugin-anchor" href="#missions"><i class="fa fa-link" aria-hidden="true"></i></a>Missions</h1>
-<p>The Mission API (plugin) allows you to create, upload, download, import from <em>QGroundControl</em>, run, pause, restart, jump to item in, and track missions. 
+<p>The Mission API (plugin) allows you to create, upload, download, import from <em>QGroundControl</em>, run, pause, restart, jump to item in, and track missions.
 Missions can have multiple &quot;mission items&quot;, each which may specify a position, altitude, fly-through behaviour, camera action, gimbal position, and the speed to use when traveling to the next position.</p>
-<p>Missions are <em>managed</em> though the <a href="../api_reference/classmavsdk_1_1_mission.html">Mission</a> class, which communicates with the vehicle to upload mission information and run, pause, track the mission progress etc. 
+<p>Missions are <em>managed</em> though the <a href="../api_reference/classmavsdk_1_1_mission.html">Mission</a> class, which communicates with the vehicle to upload mission information and run, pause, track the mission progress etc.
 The mission that is uploaded to the vehicle is defined as a vector of <a href="../api_reference/structmavsdk_1_1_mission_1_1_mission_item.html">MissionItem</a> objects.</p>
 <h2 id="supported_mission_commands"><a name="supported_mission_commands" class="plugin-anchor" href="#supported_mission_commands"><i class="fa fa-link" aria-hidden="true"></i></a>Supported Mission Commands </h2>
 <p>The <a href="../api_reference/structmavsdk_1_1_mission_1_1_mission_item.html">MissionItem</a> class abstracts a small but useful subset of the mission commands supported by PX4 (and the MAVLink specification):</p>
@@ -2300,7 +2300,7 @@ The mission that is uploaded to the vehicle is defined as a vector of <a href=".
 <li><a href="https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF" target="_blank">MAV_CMD_NAV_TAKEOFF</a></li>
 </ul>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> The Mission API does not (at time of writing) provide explicit functionality to &quot;repeat&quot;, takeoff, return to land etc. 
+<p> The Mission API does not (at time of writing) provide explicit functionality to &quot;repeat&quot;, takeoff, return to land etc.
 The SDK provides some omitted functionality through the <a href="taking_off_landing.html">Action</a> API.</p>
 </blockquote>
 <h2 id="create-the-plugin"><a name="create-the-plugin" class="plugin-anchor" href="#create-the-plugin"><i class="fa fa-link" aria-hidden="true"></i></a>Create the Plugin</h2>
@@ -2310,37 +2310,39 @@ The SDK provides some omitted functionality through the <a href="taking_off_land
 </blockquote>
 <p>The main steps are:</p>
 <ol>
-<li><p>Link the plugin library into your application. 
+<li><p>Link the plugin library into your application.
 Do this by adding <code>mavsdk_mission</code> to the <code>target_link_libraries</code> section of the app&apos;s <em>cmake</em> build definition file</p>
-<pre><code class="lang-cmake"><span class="hljs-keyword">target_link_libraries</span>(your_application_name
-  mavsdk
+<pre><code class="lang-cmake"><span class="hljs-keyword">find_package</span>(MAVSDK REQUIRED)
+
+<span class="hljs-keyword">target_link_libraries</span>(your_application_name
+  MAVSDK::mavsdk
   ...
-  mavsdk_mission
+  MAVSDK::mavsdk_mission
   ...
 )
 </code></pre>
 </li>
-<li><a href="connections.html">Create a connection</a> to a <code>system</code>. 
+<li><a href="connections.html">Create a connection</a> to a <code>system</code>.
 For example (basic code without error checking):<pre><code>#include &lt;mavsdk/mavsdk.h&gt;
-Mavsdk dc;
-ConnectionResult conn_result = dc.add_udp_connection();
+Mavsdk mavsdk;
+ConnectionResult conn_result = mavsdk.add_udp_connection();
 // Wait for the system to connect via heartbeat
-while (!dc.is_connected()) {
+while (mavsdk.system().size() == 0) {
    sleep_for(seconds(1));
 }
 // System got discovered.
-System &amp;system = dc.system();
+System system = mavsdk.systems()[0];
 </code></pre></li>
-<li>Create a shared pointer to an instance of <code>Mission</code> instantiated with the <code>system</code>: <pre><code>#include &lt;mavsdk/plugins/mission/mission.h&gt;
-auto mission = std::make_shared&lt;Mission&gt;(system);
+<li>Create an instance of <code>Mission</code> with the <code>system</code>:<pre><code>#include &lt;mavsdk/plugins/mission/mission.h&gt;
+auto mission = Mission{system};
 </code></pre></li>
 </ol>
-<p>The <code>mission</code> pointer can then used to access the plugin API (as shown in the following sections).</p>
+<p>The <code>mission</code> object can then used to access the plugin API (as shown in the following sections).</p>
 <h2 id="defining-a-mission"><a name="defining-a-mission" class="plugin-anchor" href="#defining-a-mission"><i class="fa fa-link" aria-hidden="true"></i></a>Defining a Mission</h2>
 <p>A mission must be defined as a vector of <a href="../api_reference/structmavsdk_1_1_mission_1_1_mission_item.html">MissionItem</a> objects as shown below:</p>
 <pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;MissionItem&gt;&gt; mission_items;
 </code></pre>
-<p>You can create as many <code>MissionItem</code> objects as you like and use <code>std_vector::push_back()</code> to add them to the back of the mission item vector. 
+<p>You can create as many <code>MissionItem</code> objects as you like and use <code>std_vector::push_back()</code> to add them to the back of the mission item vector.
 The example below shows how to create and add a <code>MissionItem</code> that sets the target position.</p>
 <pre><code class="lang-cpp"><span class="hljs-comment">// Create MissionItem and set its position</span>
 <span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;MissionItem&gt; new_item(<span class="hljs-keyword">new</span> MissionItem());
@@ -2368,17 +2370,17 @@ new_item2-&gt;camera_photo_interval_s =  <span class="hljs-number">1.0f</span>;
 mission_items.push_back(new_item2);
 </code></pre>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> The autopilot has sensible default values for the attributes. 
+<p> The autopilot has sensible default values for the attributes.
   If you do set a value (e.g. the desired speed) then it will be the default for the remainder of the mission.</p>
 </blockquote>
 <p><span></span></p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> There are also getter methods for querying the current value of <code>MissionItem</code> attributes. 
+<p> There are also getter methods for querying the current value of <code>MissionItem</code> attributes.
   The default values of most fields are <code>NaN</code> (which means they are ignored/not sent).</p>
 </blockquote>
 <p>The mission (<code>mission_items</code>) can then be uploaded as shown in the section <a href="#uploading_mission">Uploading a Mission</a> below.</p>
 <h3 id="convenience-function"><a name="convenience-function" class="plugin-anchor" href="#convenience-function"><i class="fa fa-link" aria-hidden="true"></i></a>Convenience Function</h3>
-<p>The <a href="../examples/fly_mission.html">Fly Mission</a> uses a convenience function to create <code>MissionItem</code> objects. 
+<p>The <a href="../examples/fly_mission.html">Fly Mission</a> uses a convenience function to create <code>MissionItem</code> objects.
 Using this approach you have to specify every attribute for every mission item, whether or not the value is actually used.</p>
 <p>The definition and use of this function is shown below:</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">static</span> Mission::<span class="hljs-function">MissionItem <span class="hljs-title">make_mission_item</span><span class="hljs-params">(
@@ -2417,74 +2419,56 @@ Mission::Result import_res = Mission::import_qgroundcontrol_mission(mission_item
 <p>The mission (<code>mission_items</code>) can then be uploaded as shown in the section <a href="#uploading_mission">Uploading a Mission</a> below.</p>
 <h2 id="uploading_mission"><a name="uploading_mission" class="plugin-anchor" href="#uploading_mission"><i class="fa fa-link" aria-hidden="true"></i></a>Uploading a Mission </h2>
 <p>Use <a href="../api_reference/classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a38274b1c1509375a182c44711ee9f7b1">Mission::upload_mission()</a> to upload the mission defined in the previous section.</p>
-<p>The example below shows how this is done, using promises to wait on the result.</p>
+<p>The example below shows how this is done.</p>
 <pre><code class="lang-cpp"><span class="hljs-comment">// ... declare and populate the mission vector: mission_items</span>
 
 {
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Uploading mission...&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-    <span class="hljs-comment">// We only have the upload_mission function asynchronous for now, so we wrap it using</span>
-    <span class="hljs-comment">// std::future.</span>
-    <span class="hljs-keyword">auto</span> prom = <span class="hljs-built_in">std</span>::make_shared&lt;<span class="hljs-built_in">std</span>::promise&lt;Mission::Result&gt;&gt;();
-    <span class="hljs-keyword">auto</span> future_result = prom-&gt;get_future();
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Uploading mission...&quot;</span> &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
     Mission::MissionPlan mission_plan{};
     mission_plan.mission_items = mission_items;
-    mission-&gt;upload_mission_async(
-        mission_plan, [prom](Mission::Result result) { prom-&gt;set_value(result); });
+    <span class="hljs-keyword">const</span> Mission::Result result = mission.upload_mission(
+        mission_plan);
 
-    <span class="hljs-keyword">const</span> Mission::Result result = future_result.get();
     <span class="hljs-keyword">if</span> (result != Mission::Result::Success) {
-        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission upload failed (&quot;</span> &lt;&lt; result &lt;&lt; <span class="hljs-string">&quot;), exiting.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission upload failed (&quot;</span> &lt;&lt; result &lt;&lt; <span class="hljs-string">&quot;), exiting.&quot;</span> &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
         <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
     }
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission uploaded.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission uploaded.&quot;</span> &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
 }
 </code></pre>
 <h2 id="startingpausing-missions"><a name="startingpausing-missions" class="plugin-anchor" href="#startingpausing-missions"><i class="fa fa-link" aria-hidden="true"></i></a>Starting/Pausing Missions</h2>
-<p>Start or resume a paused mission using <a href="../api_reference/classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a31ca2fc6b9fe4802dbc3fbebad0bb5d7">Mission::start_mission_async()</a>.
+<p>Start or resume a paused mission using <a href="../api_reference/classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a927fecc7734810d01cc218153780e6e3">Mission::start_mission</a>.
 The vehicle must already have a mission (the mission need not have been uploaded using the SDK).</p>
-<p>The code fragment below shows how this is done, using promises to wait on the result.</p>
+<p>The code fragment below shows how this is done.</p>
 <pre><code class="lang-cpp">{
-    <span class="hljs-keyword">auto</span> prom = <span class="hljs-built_in">std</span>::make_shared&lt;<span class="hljs-built_in">std</span>::promise&lt;Mission::Result&gt;&gt;();
-    <span class="hljs-keyword">auto</span> future_result = prom-&gt;get_future();
-    mission-&gt;start_mission_async(
-    [prom](Mission::Result result) {
-        prom-&gt;set_value(result);
-    });
+    <span class="hljs-keyword">const</span> Mission::Result result = mission.start_mission();
 
-    <span class="hljs-keyword">const</span> Mission::Result result = future_result.get(); <span class="hljs-comment">//Wait on result</span>
-    <span class="hljs-keyword">if</span> (result != Mission::Result::SUCCESS) {
-        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission start failed (&quot;</span> &lt;&lt; Mission::result_str(result) &lt;&lt; <span class="hljs-string">&quot;), exiting.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    <span class="hljs-keyword">if</span> (result != Mission::Result::Success) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission start failed (&quot;</span> &lt;&lt; result &lt;&lt; <span class="hljs-string">&quot;), exiting.&quot;</span> &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
         <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
     }
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Started mission.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Started mission.&quot;</span> &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
 }
 </code></pre>
-<p>To pause a mission use <a href="../api_reference/classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a4c5679369e215ef21901fc7ffe1ce32b">Mission::pause_mission_async()</a>. 
+<p>To pause a mission use <a href="../api_reference/classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1ab569500d992d6d859c1c35052db07315">Mission::pause_mission()</a>.
 The code is almost exactly the same as for starting a mission:</p>
 <pre><code class="lang-cpp">{
-    <span class="hljs-keyword">auto</span> prom = <span class="hljs-built_in">std</span>::make_shared&lt;<span class="hljs-built_in">std</span>::promise&lt;Mission::Result&gt;&gt;();
-    <span class="hljs-keyword">auto</span> future_result = prom-&gt;get_future();
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Pausing mission...&quot;</span> &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
 
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Pausing mission...&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-    mission-&gt;pause_mission_async(
-    [prom](Mission::Result result) {
-        prom-&gt;set_value(result);
-    });
-
-    <span class="hljs-keyword">const</span> Mission::Result result = future_result.get();
-    <span class="hljs-keyword">if</span> (result != Mission::Result::SUCCESS) {
-        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Failed to pause mission (&quot;</span> &lt;&lt; Mission::result_str(result) &lt;&lt; <span class="hljs-string">&quot;)&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    <span class="hljs-keyword">const</span> Mission::Result result = mission.pause_mission();
+    <span class="hljs-keyword">if</span> (result != Mission::Result::Success) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Failed to pause mission (&quot;</span> &lt;&lt; result &lt;&lt; <span class="hljs-string">&quot;)&quot;</span> &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
     } <span class="hljs-keyword">else</span> {
-        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission paused.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission paused.&quot;</span> &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
     }
 }
 </code></pre>
 <h2 id="monitoring-progress"><a name="monitoring-progress" class="plugin-anchor" href="#monitoring-progress"><i class="fa fa-link" aria-hidden="true"></i></a>Monitoring Progress</h2>
-<p>Asynchronously monitor progress using <a href="../api_reference/classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a6dd32b92e593c1a692fe59e5bfb670fb">Mission::subscribe_mission_progress()</a>, 
+<p>Asynchronously monitor progress using <a href="../api_reference/classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a6dd32b92e593c1a692fe59e5bfb670fb">Mission::subscribe_mission_progress()</a>,
 which receives a regular callback with the current <code>MissionItem</code> number and the total number of items.</p>
-<p>The code fragment just takes a lambda function that reports the current status. </p>
-<pre><code class="lang-cpp">mission-&gt;subscribe_mission_progress( [](Mission::MissionProgress mission_progress)) {
-       <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission status update: &quot;</span> &lt;&lt; mission_progress.current &lt;&lt; <span class="hljs-string">&quot; / &quot;</span> &lt;&lt; mission_progress.total &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+<p>The code fragment just takes a lambda function that reports the current status.</p>
+<pre><code class="lang-cpp">mission.subscribe_mission_progress( [](Mission::MissionProgress mission_progress)) {
+       <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission status update: &quot;</span> &lt;&lt; mission_progress.current &lt;&lt; <span class="hljs-string">&quot; / &quot;</span> &lt;&lt; mission_progress.total &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
     });
 </code></pre>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
@@ -2495,50 +2479,31 @@ which receives a regular callback with the current <code>MissionItem</code> numb
 <li><a href="../api_reference/classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a1ecf4f8798ab9ae96882dfbd34f23466">is_mission_finished()</a> - Checks if mission has been finished.</li>
 </ul>
 <h2 id="taking-off-landing-returning"><a name="taking-off-landing-returning" class="plugin-anchor" href="#taking-off-landing-returning"><i class="fa fa-link" aria-hidden="true"></i></a>Taking Off, Landing, Returning</h2>
-<p>If using a copter or VTOL vehicle then PX4 will automatically takeoff when it is armed and a mission is started (even without a takeoff mission item). 
+<p>If using a copter or VTOL vehicle then PX4 will automatically takeoff when it is armed and a mission is started (even without a takeoff mission item).
 For Fixed Wing vehicles the vehicle must be launched before starting a mission.</p>
-<p>At time of writing the Mission API does not provide takeoff, land or &quot;return to launch&quot; <code>MissionItems</code>. 
+<p>At time of writing the Mission API does not provide takeoff, land or &quot;return to launch&quot; <code>MissionItems</code>.
 If required you can instead use the appropriate commands in the <a href="taking_off_landing.html">Action</a> class.</p>
 <!-- Update if we get new mission items -->
 <h2 id="downloading-missions"><a name="downloading-missions" class="plugin-anchor" href="#downloading-missions"><i class="fa fa-link" aria-hidden="true"></i></a>Downloading Missions</h2>
 <p>Use <a href="../api_reference/classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a04e7e7074273b4591a820894c5c4ad43">Mission::download_mission_async()</a> to download a mission from the vehicle.
 The mission is downloaded as a vector of <a href="../api_reference/structmavsdk_1_1_mission_1_1_mission_item.html">MissionItem</a> objects, that you can then view or manipulate as required.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> Mission download will fail if the mission contains a command that is outside the <a href="#supported_mission_commands">supported set</a>. 
-Missions created using <em>QGroundControl</em> are not guaranteed to successfully download! </p>
+<p> Mission download will fail if the mission contains a command that is outside the <a href="#supported_mission_commands">supported set</a>.
+Missions created using <em>QGroundControl</em> are not guaranteed to successfully download!</p>
 </blockquote>
 <p>The code fragment below shows how to download a mission:</p>
 <pre><code class="lang-cpp">{
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Downloading mission.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Downloading mission.&quot;</span> &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
+    <span class="hljs-built_in">std</span>::pair&lt;Result, Mission::MissionPlan&gt; result = mission.download_mission();
 
-    <span class="hljs-comment">// Wrap download_mission_async() function using std::future.</span>
-    <span class="hljs-keyword">struct</span> PromiseResult {
-        Mission::Result mission_result;
-        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;MissionItem&gt;&gt; mission_items;
-    };
-
-    <span class="hljs-keyword">auto</span> prom = <span class="hljs-built_in">std</span>::make_shared&lt;<span class="hljs-built_in">std</span>::promise&lt;PromiseResult&gt;&gt;();
-    <span class="hljs-keyword">auto</span> future = prom-&gt;get_future();
-
-    mission-&gt;download_mission_async(
-        [prom](Mission::Result result, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt;MissionItem&gt;&gt; mission_items_downloaded) {
-            PromiseResult promise_result {};
-            promise_result.mission_result = result;
-            promise_result.mission_items = mission_items_downloaded;
-            prom-&gt;set_value(promise_result);
-    });
-
-    PromiseResult promise_result = future.get();
-
-    <span class="hljs-keyword">if</span> (promise_result.mission_result != Mission::Result::SUCCESS) {
-        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission download failed (&quot;</span> &lt;&lt; Mission::result_str(promise_result.mission_result) 
-            &lt;&lt; <span class="hljs-string">&quot;), exiting.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    <span class="hljs-keyword">if</span> (result.first != Mission::Result::Success) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission download failed (&quot;</span> &lt;&lt; result.first &lt;&lt; <span class="hljs-string">&quot;), exiting.&quot;</span> &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
         <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
     }
 
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission downloaded (MissionItems: &quot;</span> 
-        &lt;&lt; promise_result.mission_items.size() 
-        &lt;&lt; <span class="hljs-string">&quot;)&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Mission downloaded (MissionItems: &quot;</span>
+        &lt;&lt; result.second.mission_items.size()
+        &lt;&lt; <span class="hljs-string">&quot;)&quot;</span> &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
 }
 </code></pre>
 <h2 id="further-information"><a name="further-information" class="plugin-anchor" href="#further-information"><i class="fa fa-link" aria-hidden="true"></i></a>Further Information</h2>
@@ -2550,9 +2515,9 @@ Missions created using <em>QGroundControl</em> are not guaranteed to successfull
 <li><a href="https://github.com/mavlink/MAVSDK/blob/develop/src/integration_tests/mission.cpp" target="_blank">mission.cpp</a></li>
 <li><a href="https://github.com/mavlink/MAVSDK/blob/develop/src/integration_tests/mission_cancellation.cpp" target="_blank">mission_cancellation.cpp</a></li>
 <li><a href="https://github.com/mavlink/MAVSDK/blob/develop/src/integration_tests/mission_change_speed.cpp" target="_blank">mission_change_speed.cpp</a></li>
-<li><a href="https://github.com/mavlink/MAVSDK/blob/develop/src/integration_tests/mission_raw_mission_changed.cpp" target="_blank">mission_raw_mission_changed.cpp</a>  </li>
+<li><a href="https://github.com/mavlink/MAVSDK/blob/develop/src/integration_tests/mission_raw_mission_changed.cpp" target="_blank">mission_raw_mission_changed.cpp</a></li>
 <li><a href="https://github.com/mavlink/MAVSDK/blob/develop/src/integration_tests/mission_rtl.cpp" target="_blank">mission_rtl.cpp</a></li>
-<li><a href="https://github.com/mavlink/MAVSDK/blob/develop/src/integration_tests/mission_transfer_lossy.cpp" target="_blank">mission_transfer_lossy.cpp</a>  </li>
+<li><a href="https://github.com/mavlink/MAVSDK/blob/develop/src/integration_tests/mission_transfer_lossy.cpp" target="_blank">mission_transfer_lossy.cpp</a></li>
 </ul>
 </li>
 <li>Unit Tests:<ul>
@@ -2560,7 +2525,7 @@ Missions created using <em>QGroundControl</em> are not guaranteed to successfull
 </ul>
 </li>
 </ul>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-11-25 14:28:13 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-12-02 02:57:41 </span> </footer>
                                 
                                 </section>
                             
@@ -2603,7 +2568,7 @@ Missions created using <em>QGroundControl</em> are not guaranteed to successfull
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Missions","level":"1.5.3.7","depth":3,"next":{"title":"Offboard Control","level":"1.5.3.8","depth":3,"path":"guide/offboard.md","ref":"guide/offboard.md","articles":[]},"previous":{"title":"Actions - Take Off, Arm, ...","level":"1.5.3.6","depth":3,"path":"guide/taking_off_landing.md","ref":"guide/taking_off_landing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.35.0/en/","text":"v0.35.0"},{"value":"https://mavsdk.mavlink.io/v0.33.0/en/","text":"v0.33.0"},{"value":"https://mavsdk.mavlink.io/v0.29.0/en/","text":"v0.29.0"},{"value":"https://mavsdk.mavlink.io/v0.27.0/en/","text":"v0.27.0"},{"value":"https://mavsdk.mavlink.io/v0.25.0/en/","text":"v0.25.0"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"guide/missions.md","mtime":"2020-11-25T14:28:13.297Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-25T14:28:52.083Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Missions","level":"1.5.3.7","depth":3,"next":{"title":"Offboard Control","level":"1.5.3.8","depth":3,"path":"guide/offboard.md","ref":"guide/offboard.md","articles":[]},"previous":{"title":"Actions - Take Off, Arm, ...","level":"1.5.3.6","depth":3,"path":"guide/taking_off_landing.md","ref":"guide/taking_off_landing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.35.0/en/","text":"v0.35.0"},{"value":"https://mavsdk.mavlink.io/v0.33.0/en/","text":"v0.33.0"},{"value":"https://mavsdk.mavlink.io/v0.29.0/en/","text":"v0.29.0"},{"value":"https://mavsdk.mavlink.io/v0.27.0/en/","text":"v0.27.0"},{"value":"https://mavsdk.mavlink.io/v0.25.0/en/","text":"v0.25.0"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"guide/missions.md","mtime":"2020-12-02T02:57:41.190Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-02T02:58:24.302Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

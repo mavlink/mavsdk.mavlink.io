@@ -2277,9 +2277,9 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="follow-me"><a name="follow-me" class="plugin-anchor" href="#follow-me"><i class="fa fa-link" aria-hidden="true"></i></a>Follow Me</h1>
-<p>The <a href="../api_reference/classmavsdk_1_1_follow_me.html">Follow Me</a> class is used to engage the PX4 <a href="https://docs.px4.io/master/en/flight_modes/follow_me.html" target="_blank">Follow Me Mode</a> (multicopter only). 
+<p>The <a href="../api_reference/classmavsdk_1_1_follow_me.html">Follow Me</a> class is used to engage the PX4 <a href="https://docs.px4.io/master/en/flight_modes/follow_me.html" target="_blank">Follow Me Mode</a> (multicopter only).
 In this mode a copter will automatically yaw to face and follow a user at a specified position and distance.</p>
-<p>The API is used to supply the position(s) for the <a href="../api_reference/structmavsdk_1_1_follow_me_1_1_target_location.html">target</a> and the relative <a href="../api_reference/structmavsdk_1_1_follow_me_1_1_config.html">follow position</a> of the vehicle. 
+<p>The API is used to supply the position(s) for the <a href="../api_reference/structmavsdk_1_1_follow_me_1_1_target_location.html">target</a> and the relative <a href="../api_reference/structmavsdk_1_1_follow_me_1_1_config.html">follow position</a> of the vehicle.
 Applications must get target position information from the underlying platform (or some other source). The location APIs for supported platforms are listed below:</p>
 <ul>
 <li>Android: <a href="https://developer.android.com/reference/android/location/Location.html" target="_blank">Location</a></li>
@@ -2287,8 +2287,8 @@ Applications must get target position information from the underlying platform (
 <li>Windows: <a href="https://docs.microsoft.com/en-us/uwp/api/Windows.Devices.Geolocation" target="_blank">Windows.Devices.Geolocation</a></li>
 </ul>
 <blockquote class="clearfix alert alert-warning"><strong class="fa fa-2x fa-exclamation-triangle"></strong>
-<p> Running <em>QGroundControl</em> at the same time as the SDK <em>Follow Me</em> may result in unpredictable behaviour as both send position updates. 
-You <strong>must</strong> ensure that <em>GSC Position Streaming</em> is disabled. 
+<p> Running <em>QGroundControl</em> at the same time as the SDK <em>Follow Me</em> may result in unpredictable behaviour as both send position updates.
+You <strong>must</strong> ensure that <em>GSC Position Streaming</em> is disabled.
 Use the latest <em>QGC Daily Build</em> and ensure that the <strong><a href="https://docs.qgroundcontrol.com/en/SettingsView/General.html" target="_blank">Application Setting &gt; General</a> &gt; Miscellaneous &gt; Stream GCS Position</strong> is set to <em>Never</em>.</p>
 </blockquote>
 <h2 id="create-the-plugin"><a name="create-the-plugin" class="plugin-anchor" href="#create-the-plugin"><i class="fa fa-link" aria-hidden="true"></i></a>Create the Plugin</h2>
@@ -2298,34 +2298,37 @@ Use the latest <em>QGC Daily Build</em> and ensure that the <strong><a href="htt
 </blockquote>
 <p>The main steps are:</p>
 <ol>
-<li><p>Link the plugin library into your application. 
+<li><p>Link the plugin library into your application.
 Do this by adding <code>mavsdk_follow_me</code> to the <code>target_link_libraries</code> section of the app&apos;s <em>cmake</em> build definition file</p>
-<pre><code class="lang-cmake"><span class="hljs-keyword">target_link_libraries</span>(your_application_name
-  mavsdk
+<pre><code class="lang-cmake"><span class="hljs-keyword">find_package</span>(MAVSDK REQUIRED)
+
+<span class="hljs-keyword">target_link_libraries</span>(your_application_name
+  MAVSDK::mavsdk
   ...
-  mavsdk_follow_me
+  MAVSDK::mavsdk_follow_me
   ...
+)
 )
 </code></pre>
 </li>
-<li><a href="connections.html">Create a connection</a> to a <code>system</code>. 
+<li><a href="connections.html">Create a connection</a> to a <code>system</code>.
 For example (basic code without error checking):<pre><code>#include &lt;mavsdk/mavsdk.h&gt;
-Mavsdk dc;
-ConnectionResult conn_result = dc.add_udp_connection();
+Mavsdk mavsdk;
+ConnectionResult conn_result = mavsdk.add_udp_connection();
 // Wait for the system to connect via heartbeat
-while (!dc.is_connected()) {
+while (mavsdk.system().size() == 0) {
    sleep_for(seconds(1));
 }
 // System got discovered.
-System &amp;system = dc.system();
+System system = mavsdk.systems()[0];
 </code></pre></li>
-<li>Create a shared pointer to an instance of <code>FollowMe</code> instantiated with the <code>system</code>: <pre><code>#include &lt;mavsdk/plugins/follow_me/follow_me.h&gt;
-auto follow_me = std::make_shared&lt;FollowMe &gt;(system);
+<li>Create an instance of <code>FollowMe</code> with the <code>system</code>:<pre><code>#include &lt;mavsdk/plugins/follow_me/follow_me.h&gt;
+auto follow_me = FollowMe{system};
 </code></pre></li>
 </ol>
-<p>The <code>follow_me</code> pointer can then used to access the plugin API (as shown in the following sections).</p>
+<p>The <code>follow_me</code> object can then used to access the plugin API (as shown in the following sections).</p>
 <h2 id="set-the-follow-configuration"><a name="set-the-follow-configuration" class="plugin-anchor" href="#set-the-follow-configuration"><i class="fa fa-link" aria-hidden="true"></i></a>Set the Follow Configuration</h2>
-<p>By default the vehicle will follow directly behind the target at a height and distance of 8 metres. 
+<p>By default the vehicle will follow directly behind the target at a height and distance of 8 metres.
 You can (optionally) call <a href="../api_reference/classmavsdk_1_1_follow_me.html#classmavsdk_1_1_follow_me_1aa76aab9a21bc3ae475bee6a55c0e4d30">set_config()</a> at any time to specify a different height, follow distance, relative position (front left/right/centre or behind) and responsiveness to target movements.</p>
 <p>The code fragment below shows how to set the configuration:</p>
 <pre><code class="lang-cpp"><span class="hljs-comment">// configure follow me behaviour</span>
@@ -2336,41 +2339,41 @@ config.responsiveness = <span class="hljs-number">0.2f</span>;  <span class="hlj
 config.follow_direction = FollowMe::Config::FollowDirection::FRONT;  <span class="hljs-comment">//Follow from front-centre</span>
 
 <span class="hljs-comment">// Apply configuration</span>
-FollowMe::Result config_result = follow_me-&gt;set_config(config);
-<span class="hljs-keyword">if</span> (config_result != FollowMe::Result::SUCCESS) {
+FollowMe::Result config_result = follow_me.set_config(config);
+<span class="hljs-keyword">if</span> (config_result != FollowMe::Result::Success) {
     <span class="hljs-comment">// handle config-setting failure (in this case print error)</span>
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Setting configuration failed:&quot;</span> &lt;&lt; FollowMe::result_str(config_result) &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Setting configuration failed:&quot;</span> &lt;&lt; config_result &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
 }
 </code></pre>
 <p>The <a href="../api_reference/classmavsdk_1_1_follow_me.html#classmavsdk_1_1_follow_me_1aca2e599cd6fb889b9f80dc7a9da57ee9">get_config()</a> method is provided to get the current configuration:</p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">auto</span> curr_config = follow_me-&gt;get_config();
+<pre><code class="lang-cpp"><span class="hljs-keyword">auto</span> curr_config = follow_me.get_config();
 </code></pre>
 <h2 id="following-a-target"><a name="following-a-target" class="plugin-anchor" href="#following-a-target"><i class="fa fa-link" aria-hidden="true"></i></a>Following a Target</h2>
 <p>To start and stop following a target, call <a href="../api_reference/classmavsdk_1_1_follow_me.html#classmavsdk_1_1_follow_me_1a4b6ae3ec1ff07d8b3a79038e04992003">start()</a> and <a href="../api_reference/classmavsdk_1_1_follow_me.html#classmavsdk_1_1_follow_me_1a202a7b9edf56d9b883c974a09c14ba7d">stop()</a>, respectively - <code>start()</code> puts the vehicle into <a href="https://docs.px4.io/master/en/flight_modes/follow_me.html" target="_blank">Follow-Me mode</a> and <code>stop()</code> puts it into <a href="https://docs.px4.io/master/en/flight_modes/hold.html" target="_blank">Hold mode</a>.</p>
-<p>Use <a href="../api_reference/classmavsdk_1_1_follow_me.html#classmavsdk_1_1_follow_me_1a1a99e282472235f726bfde430873ffd5">set_target_location()</a> to set the target position(s) for the vehicle to follow (the app typically passes its host&apos;s current position, which it would obtain using OS-specific methods). 
-This can be called at any time, but messages will only be sent once following is started. 
-The plugin automatically resends the last set position at the rate required by the autopilot/flight mode (1 Hz). </p>
+<p>Use <a href="../api_reference/classmavsdk_1_1_follow_me.html#classmavsdk_1_1_follow_me_1a1a99e282472235f726bfde430873ffd5">set_target_location()</a> to set the target position(s) for the vehicle to follow (the app typically passes its host&apos;s current position, which it would obtain using OS-specific methods).
+This can be called at any time, but messages will only be sent once following is started.
+The plugin automatically resends the last set position at the rate required by the autopilot/flight mode (1 Hz).</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> Typically you would call <code>set_target_location()</code> before or shortly after starting the mode. If you call <code>start()</code> without having set any target location, or if the connection is broken, the vehicle will climb to minimum altitude (if needed) and remain in the mode waiting for messages. </p>
+<p> Typically you would call <code>set_target_location()</code> before or shortly after starting the mode. If you call <code>start()</code> without having set any target location, or if the connection is broken, the vehicle will climb to minimum altitude (if needed) and remain in the mode waiting for messages.</p>
 </blockquote>
 <pre><code class="lang-cpp"><span class="hljs-comment">// Start following</span>
-FollowMe::Result follow_me_result = follow_me-&gt;start();
-<span class="hljs-keyword">if</span> (follow_me_result != FollowMe::Result::SUCCESS) {
+FollowMe::Result follow_me_result = follow_me.start();
+<span class="hljs-keyword">if</span> (follow_me_result != FollowMe::Result::Success) {
     <span class="hljs-comment">// handle start failure (in this case print error)</span>
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Failed to start following:&quot;</span> &lt;&lt; FollowMe::result_str(follow_me_result) &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Failed to start following:&quot;</span> &lt;&lt; follow_me_result &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
 }
 
 
-<span class="hljs-comment">// Get target position from underlying platform and supply to vehicle. </span>
+<span class="hljs-comment">// Get target position from underlying platform and supply to vehicle.</span>
 <span class="hljs-comment">//   For this example we just show one point being set (instead of a stream).</span>
-follow_me-&gt;set_target_location({ <span class="hljs-number">47.39776569</span>, <span class="hljs-number">8.54553292</span>, <span class="hljs-number">0.f</span>, <span class="hljs-number">0.f</span>, <span class="hljs-number">0.f</span>, <span class="hljs-number">0.f</span> });
+follow_me.set_target_location({ <span class="hljs-number">47.39776569</span>, <span class="hljs-number">8.54553292</span>, <span class="hljs-number">0.f</span>, <span class="hljs-number">0.f</span>, <span class="hljs-number">0.f</span>, <span class="hljs-number">0.f</span> });
 
 
 <span class="hljs-comment">// Stop following</span>
-follow_me_result = follow_me-&gt;stop();
-<span class="hljs-keyword">if</span> (follow_me_result != FollowMe::Result::SUCCESS) {
+follow_me_result = follow_me.stop();
+<span class="hljs-keyword">if</span> (follow_me_result != FollowMe::Result::Success) {
     <span class="hljs-comment">// handle stop failure (in this case print error)</span>
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Failed to stop following:&quot;</span> &lt;&lt; FollowMe::result_str(follow_me_result) &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Failed to stop following:&quot;</span> &lt;&lt; follow_me_result &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
 }
 </code></pre>
 <p>The last location that was set can be retrieved using <a href="../api_reference/classmavsdk_1_1_follow_me.html#classmavsdk_1_1_follow_me_1af2a1af346ee2fa7761b58b406e9e6e0c">get_last_location()</a>.
@@ -2384,7 +2387,7 @@ Before a target position is first set this API will return <code>Nan</code>.</p>
 </ul>
 </li>
 </ul>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-11-25 14:28:13 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-12-02 02:57:41 </span> </footer>
                                 
                                 </section>
                             
@@ -2427,7 +2430,7 @@ Before a target position is first set this API will return <code>Nan</code>.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Follow Me","level":"1.5.3.9","depth":3,"next":{"title":"VTOL Support","level":"1.5.3.10","depth":3,"path":"guide/vtol.md","ref":"guide/vtol.md","articles":[]},"previous":{"title":"Offboard Control","level":"1.5.3.8","depth":3,"path":"guide/offboard.md","ref":"guide/offboard.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.35.0/en/","text":"v0.35.0"},{"value":"https://mavsdk.mavlink.io/v0.33.0/en/","text":"v0.33.0"},{"value":"https://mavsdk.mavlink.io/v0.29.0/en/","text":"v0.29.0"},{"value":"https://mavsdk.mavlink.io/v0.27.0/en/","text":"v0.27.0"},{"value":"https://mavsdk.mavlink.io/v0.25.0/en/","text":"v0.25.0"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"guide/follow_me.md","mtime":"2020-11-25T14:28:13.297Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-25T14:28:52.083Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Follow Me","level":"1.5.3.9","depth":3,"next":{"title":"VTOL Support","level":"1.5.3.10","depth":3,"path":"guide/vtol.md","ref":"guide/vtol.md","articles":[]},"previous":{"title":"Offboard Control","level":"1.5.3.8","depth":3,"path":"guide/offboard.md","ref":"guide/offboard.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.35.0/en/","text":"v0.35.0"},{"value":"https://mavsdk.mavlink.io/v0.33.0/en/","text":"v0.33.0"},{"value":"https://mavsdk.mavlink.io/v0.29.0/en/","text":"v0.29.0"},{"value":"https://mavsdk.mavlink.io/v0.27.0/en/","text":"v0.27.0"},{"value":"https://mavsdk.mavlink.io/v0.25.0/en/","text":"v0.25.0"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"guide/follow_me.md","mtime":"2020-12-02T02:57:41.190Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-02T02:58:24.302Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

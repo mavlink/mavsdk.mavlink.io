@@ -2277,9 +2277,9 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="connecting-to-systems-vehicles"><a name="connecting-to-systems-vehicles" class="plugin-anchor" href="#connecting-to-systems-vehicles"><i class="fa fa-link" aria-hidden="true"></i></a>Connecting to Systems (Vehicles)</h1>
-<p>The MAVSDK allows you to connect to multiple vehicles attached to the local WiFi network and/or via serial ports.</p>
-<p>In order to detect vehicles you must first specify the communication ports that the SDK will monitor for new systems.
-Once monitoring a port, the SDK will automatically detect connected vehicles, add them to its collection, and notify registered users of connection and disconnection events.</p>
+<p>MAVSDK allows you to connect to multiple vehicles attached to the local WiFi network and/or via serial ports.</p>
+<p>In order to detect vehicles you must first specify the communication ports that MAVSDK will monitor for new systems.
+Once monitoring a port, MAVSDK will automatically detect connected vehicles, add them to its collection, and notify registered users of connection and disconnection events.</p>
 <h2 id="monitoring-a-port"><a name="monitoring-a-port" class="plugin-anchor" href="#monitoring-a-port"><i class="fa fa-link" aria-hidden="true"></i></a>Monitoring a Port</h2>
 <p>Specify the port(s) to watch using one of the (synchronous) connection methods: <a href="../api_reference/classmavsdk_1_1_mavsdk.html#classmavsdk_1_1_mavsdk_1a229888e2931c16d11edbed07b03174d4">add_any_connection()</a>, <a href="../api_reference/classmavsdk_1_1_mavsdk.html#classmavsdk_1_1_mavsdk_1a605d3a89cd527222bf131b2c036dc899">add_udp_connection()</a>, <a href="../api_reference/classmavsdk_1_1_mavsdk.html#classmavsdk_1_1_mavsdk_1a868d224223d2f4e8de7d5e00863b6ceb">add_tcp_connection()</a> or <a href="../api_reference/classmavsdk_1_1_mavsdk.html#classmavsdk_1_1_mavsdk_1a8f27dd954d74b0afdfa4348ce49a10a1">add_serial_connection()</a>.
 All the methods are used similarly, and return immediately with a <a href="../api_reference/namespacemavsdk.html#namespacemavsdk_1a0bad93f6d037051ac3906a0bcc09f992">ConnectionResult</a> indicating whether they succeeded.</p>
@@ -2308,63 +2308,54 @@ The connection details are specified using the string formats shown below:</p>
 </tbody>
 </table>
 <p>The code snippet below shows how to set up monitoring with <code>add_any_connection()</code>:</p>
-<pre><code class="lang-cpp">Mavsdk dc;
-<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> connection_url=<span class="hljs-string">&quot;udp://0.0.0.0:14540&quot;</span>;
-ConnectionResult connection_result = dc.add_any_connection(connection_url);
-ASSERT_EQ(connection_result,ConnectionResult::Success)
+<pre><code class="lang-cpp">Mavsdk mavsdk;
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> connection_url=<span class="hljs-string">&quot;udp://:14540&quot;</span>;
+ConnectionResult connection_result = mavsdk.add_any_connection(connection_url);
+ASSERT_EQ(connection_result, ConnectionResult::Success)
 </code></pre>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> The connection string used above (<code>udp://0.0.0.0:14540</code>) is to the <a href="https://dev.px4.io/master/en/simulation/#default-px4-mavlink-udp-ports" target="_blank">standard PX4 broadcast UDP port</a> for off-board APIs (14540). This is the normal/most common way for offboard APIs to connect to PX4 over WiFi.</p>
+<p> The connection string used above (<code>udp://:14540</code>) is to the <a href="https://dev.px4.io/master/en/simulation/#default-px4-mavlink-udp-ports" target="_blank">standard PX4 broadcast UDP port</a> for off-board APIs (14540). This is the normal/most common way for offboard APIs to connect to PX4 over WiFi.</p>
 </blockquote>
-<p>The SDK also provides an operator so that you can just print out a human readable string for a <a href="../api_reference/namespacemavsdk.html#namespacemavsdk_1a0bad93f6d037051ac3906a0bcc09f992">ConnectionResult</a>.
-The code fragment below shows how you might print the string for the preceding code fragment to the console:</p>
-<pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Connection string: &quot;</span> &lt;&lt; connection_result &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+<p>The code fragment below shows how you might print the string for the preceding code fragment to the console:</p>
+<pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Connection string: &quot;</span> &lt;&lt; connection_result &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
 </code></pre>
 <h3 id="register-for-system-detection-notifications"><a name="register-for-system-detection-notifications" class="plugin-anchor" href="#register-for-system-detection-notifications"><i class="fa fa-link" aria-hidden="true"></i></a>Register for System-Detection Notifications</h3>
-<p>The SDK monitors any added communication ports for new systems, which are distinguished by vehicle <a href="../api_reference/classmavsdk_1_1_info.html">UUID</a>.
-Clients can register for notification when new systems are discovered using <a href="../api_reference/classmavsdk_1_1_mavsdk.html#classmavsdk_1_1_mavsdk_1aa8d55ab10da8f1b868003b44e99c2ecc">register_on_discover()</a>, and for systems timing out (no longer connected) using <a href="../api_reference/classmavsdk_1_1_mavsdk.html#classmavsdk_1_1_mavsdk_1a4baa7d2dd487e9cff12f5dda11ba3262">register_on_timeout()</a>.</p>
-<p>The methods are used in the same way, and invoke a callback function with the UUID of the system that was discovered/disconnected.
-This UUID can then be used to get a <code>System</code> object for managing the associated vehicle (see <a href="#accessing-systems">Accessing Systems</a> below).</p>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> If a system does not have a UUID then <code>Mavsdk</code> will instead use its MAVLink system ID (a number in the range of 1 to 255).
-  On a properly configured MAVLink network this will be unique.</p>
-</blockquote>
-<p>The code fragment below shows how to register a callback (in this case the callback is a lambda function that just prints the UUID value to standard <code>cout</code>).</p>
-<pre><code class="lang-cpp">Mavsdk dc;
+<p>MAVSDK monitors any added communication ports for new systems.
+Clients can register for notification when new systems are discovered using <a href="../api_reference/classmavsdk_1_1_mavsdk.html#classmavsdk_1_1_mavsdk_1a332ae41c7de84d5cfab11fb3e2e65522">subscribe_on_new_system()</a>.</p>
+<p>The code fragment below shows how to register a callback (in this case the callback is a lambda function that just prints if a new vehicle has been discovered.</p>
+<pre><code class="lang-cpp">Mavsdk mavsdk;
 ... <span class="hljs-comment">//add ports</span>
-dc.register_on_discover([](<span class="hljs-keyword">uint64_t</span> uuid) {
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Discovered system with UUID: &quot;</span> &lt;&lt; uuid &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+mavsdk.register_on_new_system([]() {
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Discovered new system\n&quot;</span>;
 });
 </code></pre>
 <h2 id="iterating-all-systems"><a name="iterating-all-systems" class="plugin-anchor" href="#iterating-all-systems"><i class="fa fa-link" aria-hidden="true"></i></a>Iterating all Systems</h2>
-<p>You can iterate all system UUIDs that have been detected by <code>Mavsdk</code>
-(since it was started, over all communication ports) using the <a href="../api_reference/classmavsdk_1_1_mavsdk.html#classmavsdk_1_1_mavsdk_1a80bd9c663d0e03c24f029fd77e914c3c">system_uuids()</a> method.
-This returns a vector of UUID values, from which you can get <code>System</code> objects that are used to manage vehicles.</p>
-<p>The following code fragment shows how to iterate through the UUIDs (in this case, just printing them to standard <code>cout</code>).</p>
+<p>You can iterate all systems that have been detected by <code>Mavsdk</code> (since it was started, over all communication ports) using the <a href="../api_reference/classmavsdk_1_1_mavsdk.html#classmavsdk_1_1_mavsdk_1a0d0bc4cdab14d96877b52baec5113fa8">systems()</a> method.
+This returns a vector of shared pointers to systems.</p>
+<p>The following code fragment shows how to iterate through the systems and checking their MAVLink system ID and hardware uid (uid2), and whether they are connected:</p>
 <pre><code class="lang-cpp"><span class="hljs-comment">//Iterate through detected systems</span>
-<span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">uint64_t</span>&gt; system_vector = dc.system_uuids();
-<span class="hljs-keyword">for</span> ( <span class="hljs-keyword">auto</span> i = system_vector.begin(); i != system_vector.end(); i++ ) {
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; *i &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> system : mavsdk.systems()) {
+    <span class="hljs-keyword">auto</span> info = mavsdk::Info{system};
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Found system with system ID: &quot;</span> &lt;&lt; <span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">int</span>&gt;(system-&gt;get_system_id())
+              &lt;&lt; <span class="hljs-string">&quot;, and hardware uid: &quot;</span> &lt;&lt; info.hardware_uid()
+              &lt;&lt; <span class="hljs-string">&quot;, connected: &quot;</span> &lt;&lt; (system-&gt;is_connected() ? <span class="hljs-string">&quot;yes&quot;</span> : <span class="hljs-string">&quot;no&quot;</span>) &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
 }
 </code></pre>
-<p>The vector contains UUIDs for all systems detected by <code>Mavsdk</code>, including those that may no longer be connected.
-You can use <a href="../api_reference/classmavsdk_1_1_mavsdk.html#classmavsdk_1_1_mavsdk_1aced99aea3a52c1245b1d80ff1f22cbd2">Mavsdk::is_connected(uint64_t)</a> to determine if the system with a particular UUID is connected or not.
-If you&apos;re only expecting a single connection, then you can use the parameterless <code>is_connected()</code> method.</p>
 <h2 id="accessing-systems"><a name="accessing-systems" class="plugin-anchor" href="#accessing-systems"><i class="fa fa-link" aria-hidden="true"></i></a>Accessing Systems</h2>
-<p>Once <code>Mavsdk</code> has provided you with a vehicle <code>UUID</code> you can use the <a href="../api_reference/classmavsdk_1_1_mavsdk.html#classmavsdk_1_1_mavsdk_1a2f3e89f37fffbbf1ee2c2089086ed33c">Mavsdk::system()</a> method to get its associated <a href="../api_reference/classmavsdk_1_1_system.html">System</a> object:</p>
-<pre><code class="lang-cpp">Mavsdk dc;
-<span class="hljs-comment">//...</span>
-<span class="hljs-comment">//Use UUID named uuid to get the associated System</span>
-System &amp;system = dc.system(uuid);
+<p>To access a certain system, pick the one from the vector that you require, or use the first one if only one system is assumed:</p>
+<p>E</p>
+<pre><code class="lang-cpp">   Mavsdk mavsdk;
+   ConnectionResult conn_result = mavsdk.add_udp_connection();
+   <span class="hljs-comment">// Wait for the system to connect via heartbeat</span>
+   <span class="hljs-keyword">while</span> (mavsdk.system().size() == <span class="hljs-number">0</span>) {
+      sleep_for(seconds(<span class="hljs-number">1</span>));
+   }
+   <span class="hljs-comment">// System got discovered.</span>
+   System system = mavsdk.systems()[<span class="hljs-number">0</span>];
 </code></pre>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> If you know that there is only one connected system you can instead call <code>system()</code> without any UUID.
-  This will return the first system detected, or a null <code>System</code> if none have been discovered.</p>
-<pre><code>System &amp;system = dc.system()
-</code></pre></blockquote>
 <p>The <code>System</code> is used by the MAVSDK plugin classes to query and control the vehicle.
 For more information see <a href="using_plugins.html">Using Plugins</a> (and the other guide topics).</p>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-11-25 14:28:13 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2020-12-02 02:57:41 </span> </footer>
                                 
                                 </section>
                             
@@ -2407,7 +2398,7 @@ For more information see <a href="using_plugins.html">Using Plugins</a> (and the
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Connecting to Systems (Vehicles)","level":"1.5.3.2","depth":3,"next":{"title":"Managing Systems","level":"1.5.3.3","depth":3,"path":"guide/using_plugins.md","ref":"guide/using_plugins.md","articles":[]},"previous":{"title":"Usage/Paradigms","level":"1.5.3.1","depth":3,"path":"guide/general_usage.md","ref":"guide/general_usage.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.35.0/en/","text":"v0.35.0"},{"value":"https://mavsdk.mavlink.io/v0.33.0/en/","text":"v0.33.0"},{"value":"https://mavsdk.mavlink.io/v0.29.0/en/","text":"v0.29.0"},{"value":"https://mavsdk.mavlink.io/v0.27.0/en/","text":"v0.27.0"},{"value":"https://mavsdk.mavlink.io/v0.25.0/en/","text":"v0.25.0"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"guide/connections.md","mtime":"2020-11-25T14:28:13.297Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-25T14:28:52.083Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Connecting to Systems (Vehicles)","level":"1.5.3.2","depth":3,"next":{"title":"Managing Systems","level":"1.5.3.3","depth":3,"path":"guide/using_plugins.md","ref":"guide/using_plugins.md","articles":[]},"previous":{"title":"Usage/Paradigms","level":"1.5.3.1","depth":3,"path":"guide/general_usage.md","ref":"guide/general_usage.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.35.0/en/","text":"v0.35.0"},{"value":"https://mavsdk.mavlink.io/v0.33.0/en/","text":"v0.33.0"},{"value":"https://mavsdk.mavlink.io/v0.29.0/en/","text":"v0.29.0"},{"value":"https://mavsdk.mavlink.io/v0.27.0/en/","text":"v0.27.0"},{"value":"https://mavsdk.mavlink.io/v0.25.0/en/","text":"v0.25.0"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"guide/connections.md","mtime":"2020-12-02T02:57:41.190Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-02T02:58:24.302Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
