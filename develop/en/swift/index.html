@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Python QuickStart · MAVSDK Guide</title>
+        <title>iOS/Swift · MAVSDK Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -85,8 +85,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="../python/" />
     
-    <link rel="prev" href="./" />
+    
+    <link rel="prev" href="../getting_started/installation.html" />
     
 
     </head>
@@ -192,9 +194,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" >
+        <li class="chapter active" data-level="1.3" data-path="./">
             
-                <a target="_blank" href="http://dronecode-sdk-swift.s3.eu-central-1.amazonaws.com/docs/master/index.html">
+                <a href="./">
             
                     
                     iOS/Swift
@@ -205,9 +207,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="./">
+        <li class="chapter " data-level="1.4" data-path="../python/">
             
-                <a href="./">
+                <a href="../python/">
             
                     
                     Python
@@ -215,38 +217,6 @@
                 </a>
             
 
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter active" data-level="1.4.1" data-path="quickstart.html">
-            
-                <a href="quickstart.html">
-            
-                    
-                    Python QuickStart
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.2" >
-            
-                <a target="_blank" href="http://mavsdk-python-docs.s3-website.eu-central-1.amazonaws.com/">
-            
-                    
-                    API documentation
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
             
         </li>
     
@@ -2259,7 +2229,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Python QuickStart</a>
+        <a href=".." >iOS/Swift</a>
     </h1>
 </div>
 
@@ -2274,79 +2244,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="getting-started-with-mavsdk-python"><a name="getting-started-with-mavsdk-python" class="plugin-anchor" href="#getting-started-with-mavsdk-python"><i class="fa fa-link" aria-hidden="true"></i></a>Getting started with MAVSDK-Python</h1>
-<h2 id="prerequisites"><a name="prerequisites" class="plugin-anchor" href="#prerequisites"><i class="fa fa-link" aria-hidden="true"></i></a>Prerequisites</h2>
+                                <h1 id="mavsdk-swift"><a name="mavsdk-swift" class="plugin-anchor" href="#mavsdk-swift"><i class="fa fa-link" aria-hidden="true"></i></a>MAVSDK-Swift</h1>
 <ul>
-<li><strong>Python 3.6+:</strong> run <code>python --version</code> or <code>python3 --version</code> in a terminal to check the installed version.</li>
-<li><strong>A running SITL instance</strong> (<a href="https://dev.px4.io/master/en/simulation/jmavsim.html" target="_blank">jMAVSim</a>, <a href="https://dev.px4.io/master/en/simulation/gazebo.html" target="_blank">gazebo</a>, &#x2026;).
-A quick way to run a headless gazebo SITL instance using docker is documented <a href="https://github.com/jonasvautherin/px4-gazebo-headless" target="_blank">here</a>.</li>
+<li><a href="http://dronecode-sdk-swift.s3.eu-central-1.amazonaws.com/docs/master/index.html" target="_blank">API documentation</a></li>
 </ul>
-<h2 id="install"><a name="install" class="plugin-anchor" href="#install"><i class="fa fa-link" aria-hidden="true"></i></a>Install</h2>
-<p>MAVSDK-Python is distributed through <a href="https://pypi.org/project/mavsdk/" target="_blank">PyPi</a>, and can therefore be installed with <code>pip3</code>:</p>
-<pre><code class="lang-sh">pip3 install mavsdk
-</code></pre>
-<p>Make sure that the output of this command confirms that the installation succeeded!</p>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> On some systems, you may have to run <code>pip3 install --user mavsdk</code> (install in user space), <code>sudo pip3 install mavsdk</code> (install on your system), or you may want to run in a Python venv.</p>
-</blockquote>
-<p>For the quick start below we will also install the lightweight package called &#x201C;aioconsole&#x201D;.
-This provides a REPL (interactive shell) called <code>apython</code> that we can use for running asyncio code:</p>
-<pre><code class="lang-sh">pip3 install aioconsole
-</code></pre>
-<h2 id="run-sitl"><a name="run-sitl" class="plugin-anchor" href="#run-sitl"><i class="fa fa-link" aria-hidden="true"></i></a>Run SITL</h2>
-<p>It is always good to make sure that SITL works before trying to connect MAVSDK to it.
-One way is to run the following commands in the <code>psh&gt;</code> prompt when SITL is running:</p>
-<pre><code>commander takeoff
-commander land
-</code></pre><p>The simulated drone should takeoff and land.
-If it doesn&apos;t, it may mean that SITL is not ready, or that there is a problem.</p>
-<h2 id="take-off-from-mavsdk"><a name="take-off-from-mavsdk" class="plugin-anchor" href="#take-off-from-mavsdk"><i class="fa fa-link" aria-hidden="true"></i></a>Take off from MAVSDK</h2>
-<p>When we know that the simulator is ready, we can open an <code>apython</code> REPL:</p>
-<pre><code class="lang-sh">apython
-</code></pre>
-<p>Import MAVSDK into the environment by entering:</p>
-<pre><code class="lang-python"><span class="hljs-keyword">from</span> mavsdk <span class="hljs-keyword">import</span> System
-</code></pre>
-<p>We then create a <code>System</code> object, in this case named <code>drone</code>, and make it connect to the drone (this object is our &quot;handle&quot; to access the rest of the MAVSDK functions):</p>
-<pre><code class="lang-python">drone = System()
-<span class="hljs-keyword">await</span> drone.connect()
-</code></pre>
-<p>Once connected, we can arm and takeoff using the appropriate MAVSDK commands:</p>
-<pre><code class="lang-python"><span class="hljs-keyword">await</span> drone.action.arm()
-<span class="hljs-keyword">await</span> drone.action.takeoff()
-</code></pre>
-<p>If everything went well, your drone should takeoff.
-In the <code>pxh</code> console, you should see a log line like:</p>
-<pre><code class="lang-bash">INFO [commander] Takeoff detected
-</code></pre>
-<p>If running a graphical interface, you should see the drone taking off.
-Here is what it looks like in jMAVSim:</p>
-<p><img src="../../assets/python/quickstart/jmavsim_takeoff.png" alt="jMAVSim after a successful takeoff"></p>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> Make sure to send the <code>takeoff()</code> command within (at most) a few seconds of <code>arm()</code>; the drone will automatically disarm after a few seconds if it does not receive a command to takeoff.</p>
-</blockquote>
-<p>You get an exception, as shown below:</p>
-<pre><code class="lang-python"><span class="hljs-keyword">raise</span> ActionError(result, &#x201C;arm()&#x201D;)
-mavsdk.generated.action.ActionError: COMMAND_DENIED: &#x2018;Command denied&#x2019;; origin: arm(); params: ()
-</code></pre>
-<p>This is not a bug! It means that the <code>arm()</code> call was rejected by PX4, with the error code <code>COMMAND_DENIED</code>.
-It happens for instance when you try to arm before the drone gets a GPS fix.
-Most functions in MAVSDK-Python can raise exceptions that your code should handle with <code>try... except</code>.</p>
-<p>Now that the drone is flying, we can land:</p>
-<pre><code class="lang-python"><span class="hljs-keyword">await</span> drone.action.land()
-</code></pre>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> We have been using the apython REPL to run all that interactively, but the same can be achieved by running the <a href="https://github.com/mavlink/MAVSDK-Python/blob/master/examples/takeoff_and_land.py" target="_blank">takeoff_and_land.py</a> example (in which case the <code>aioconsole</code> package is not needed).</p>
-</blockquote>
-<h2 id="using-an-ide"><a name="using-an-ide" class="plugin-anchor" href="#using-an-ide"><i class="fa fa-link" aria-hidden="true"></i></a>Using an IDE</h2>
-<p>Running from the REPL is convenient for testing a few commands interactively, but <code>aioconsole</code> does not provide auto-completion.
-However, IDEs like PyCharm do.
-This is very helpful, as typing <code>drone.</code> is enough to get a list of suggestions.
-The following screenshot shows PyCharm auto-completion for <code>drone.action.</code>:</p>
-<p><img src="../../assets/python/quickstart/mavsdk_pycharm.png" alt="Auto-completion in PyCharm"></p>
-<h2 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h2>
-<p>We do have a <a href="https://github.com/mavlink/MAVSDK-Python/tree/master/examples" target="_blank">number of examples</a> available in the repository, which are certainly a good starting point for learning about MAVSDK-Python.</p>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2021-02-04 10:17:16 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2021-02-04 22:19:18 </span> </footer>
                                 
                                 </section>
                             
@@ -2373,10 +2275,14 @@ The following screenshot shows PyCharm auto-completion for <code>drone.action.</
 
             
                 
-                <a href="./" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Python">
+                <a href="../getting_started/installation.html" class="navigation navigation-prev " aria-label="Previous page: Installation">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="../python/" class="navigation navigation-next " aria-label="Next page: Python">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -2385,7 +2291,7 @@ The following screenshot shows PyCharm auto-completion for <code>drone.action.</
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Python QuickStart","level":"1.4.1","depth":2,"next":{"title":"API documentation","level":"1.4.2","depth":2,"url":"http://mavsdk-python-docs.s3-website.eu-central-1.amazonaws.com/","ref":"http://mavsdk-python-docs.s3-website.eu-central-1.amazonaws.com/","articles":[]},"previous":{"title":"Python","level":"1.4","depth":1,"path":"python/README.md","ref":"python/README.md","articles":[{"title":"Python QuickStart","level":"1.4.1","depth":2,"path":"python/quickstart.md","ref":"python/quickstart.md","articles":[]},{"title":"API documentation","level":"1.4.2","depth":2,"url":"http://mavsdk-python-docs.s3-website.eu-central-1.amazonaws.com/","ref":"http://mavsdk-python-docs.s3-website.eu-central-1.amazonaws.com/","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.35.0/en/","text":"v0.35.0"},{"value":"https://mavsdk.mavlink.io/v0.33.0/en/","text":"v0.33.0"},{"value":"https://mavsdk.mavlink.io/v0.29.0/en/","text":"v0.29.0"},{"value":"https://mavsdk.mavlink.io/v0.27.0/en/","text":"v0.27.0"},{"value":"https://mavsdk.mavlink.io/v0.25.0/en/","text":"v0.25.0"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"python/quickstart.md","mtime":"2021-02-04T10:17:16.562Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-04T10:17:51.697Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"iOS/Swift","level":"1.3","depth":1,"next":{"title":"Python","level":"1.4","depth":1,"path":"python/README.md","ref":"python/README.md","articles":[]},"previous":{"title":"Installation","level":"1.2","depth":1,"path":"getting_started/installation.md","ref":"getting_started/installation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.35.0/en/","text":"v0.35.0"},{"value":"https://mavsdk.mavlink.io/v0.33.0/en/","text":"v0.33.0"},{"value":"https://mavsdk.mavlink.io/v0.29.0/en/","text":"v0.29.0"},{"value":"https://mavsdk.mavlink.io/v0.27.0/en/","text":"v0.27.0"},{"value":"https://mavsdk.mavlink.io/v0.25.0/en/","text":"v0.25.0"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"swift/README.md","mtime":"2021-02-04T22:19:18.724Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-04T22:19:56.114Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
