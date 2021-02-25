@@ -2248,6 +2248,8 @@
 <p><code>#include: gimbal.h</code></p>
 <hr>
 <p>Provide control over a gimbal. </p>
+<h2 id="data-structures"><a name="data-structures" class="plugin-anchor" href="#data-structures"><i class="fa fa-link" aria-hidden="true"></i></a>Data Structures</h2>
+<p>struct <a href="structmavsdk_1_1_gimbal_1_1_control_status.md">ControlStatus</a></p>
 <h2 id="public-types"><a name="public-types" class="plugin-anchor" href="#public-types"><i class="fa fa-link" aria-hidden="true"></i></a>Public Types</h2>
 <table>
 <thead>
@@ -2262,12 +2264,20 @@
 <td><a href="classmavsdk_1_1_gimbal.html">Gimbal</a> mode type.</td>
 </tr>
 <tr>
+<td>enum <a href="#classmavsdk_1_1_gimbal_1a01b721086d7de6089aefdeb0fda4cff3">ControlMode</a></td>
+<td>Control mode.</td>
+</tr>
+<tr>
 <td>enum <a href="#classmavsdk_1_1_gimbal_1aa732ec0bd49ac03b7910199d635f76ac">Result</a></td>
 <td>Possible results returned for gimbal commands.</td>
 </tr>
 <tr>
 <td>std::function&lt; void(<a href="classmavsdk_1_1_gimbal.html#classmavsdk_1_1_gimbal_1aa732ec0bd49ac03b7910199d635f76ac">Result</a>)&gt; <a href="#classmavsdk_1_1_gimbal_1a88ee7dd17821fb9b12c44b2a3630c197">ResultCallback</a></td>
 <td>Callback type for asynchronous <a href="classmavsdk_1_1_gimbal.html">Gimbal</a> calls.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(<a href="structmavsdk_1_1_gimbal_1_1_control_status.md">ControlStatus</a>)&gt; <a href="#classmavsdk_1_1_gimbal_1a1645ab20c41161e6c47620b7352eef62">ControlCallback</a></td>
+<td>Callback type for subscribe_control.</td>
 </tr>
 </tbody>
 </table>
@@ -2313,6 +2323,16 @@
 </tr>
 <tr>
 <td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_gimbal_1a161b3f85cd9fa30439774ef47a10c51d">set_pitch_rate_and_yaw_rate_async</a> (float pitch_rate_deg_s, float yaw_rate_deg_s, const <a href="classmavsdk_1_1_gimbal.html#classmavsdk_1_1_gimbal_1a88ee7dd17821fb9b12c44b2a3630c197">ResultCallback</a> callback)</td>
+<td>Set gimbal angular rates around pitch and yaw axes.</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_gimbal.html#classmavsdk_1_1_gimbal_1aa732ec0bd49ac03b7910199d635f76ac">Result</a></td>
+<td><a href="#classmavsdk_1_1_gimbal_1a2ad12582d192d8594d7da315e2729129">set_pitch_rate_and_yaw_rate</a> (float pitch_rate_deg_s, float yaw_rate_deg_s)const</td>
+<td>Set gimbal angular rates around pitch and yaw axes.</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
 <td><a href="#classmavsdk_1_1_gimbal_1ad69853994c134b0e88d0f94744254066">set_mode_async</a> (<a href="classmavsdk_1_1_gimbal.html#classmavsdk_1_1_gimbal_1afb92614c5d5915d3960bcea51bec2dca">GimbalMode</a> gimbal_mode, const <a href="classmavsdk_1_1_gimbal.html#classmavsdk_1_1_gimbal_1a88ee7dd17821fb9b12c44b2a3630c197">ResultCallback</a> callback)</td>
 <td>Set gimbal mode.</td>
 </tr>
@@ -2330,6 +2350,36 @@
 <td style="text-align:right"><a href="classmavsdk_1_1_gimbal.html#classmavsdk_1_1_gimbal_1aa732ec0bd49ac03b7910199d635f76ac">Result</a></td>
 <td><a href="#classmavsdk_1_1_gimbal_1a035ddc270efce19a9be54b98add57919">set_roi_location</a> (double latitude_deg, double longitude_deg, float altitude_m)const</td>
 <td>Set gimbal region of interest (ROI).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_gimbal_1a331139df593e8ccef0f8ca7652f2d2bc">take_control_async</a> (<a href="classmavsdk_1_1_gimbal.html#classmavsdk_1_1_gimbal_1a01b721086d7de6089aefdeb0fda4cff3">ControlMode</a> control_mode, const <a href="classmavsdk_1_1_gimbal.html#classmavsdk_1_1_gimbal_1a88ee7dd17821fb9b12c44b2a3630c197">ResultCallback</a> callback)</td>
+<td>Take control.</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_gimbal.html#classmavsdk_1_1_gimbal_1aa732ec0bd49ac03b7910199d635f76ac">Result</a></td>
+<td><a href="#classmavsdk_1_1_gimbal_1a7dabe20d1bceb7031440fefba59cd707">take_control</a> (<a href="classmavsdk_1_1_gimbal.html#classmavsdk_1_1_gimbal_1a01b721086d7de6089aefdeb0fda4cff3">ControlMode</a> control_mode)const</td>
+<td>Take control.</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_gimbal_1aa58402c4e2d9506dbe9839ef8cbfb920">release_control_async</a> (const <a href="classmavsdk_1_1_gimbal.html#classmavsdk_1_1_gimbal_1a88ee7dd17821fb9b12c44b2a3630c197">ResultCallback</a> callback)</td>
+<td>Release control.</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_gimbal.html#classmavsdk_1_1_gimbal_1aa732ec0bd49ac03b7910199d635f76ac">Result</a></td>
+<td><a href="#classmavsdk_1_1_gimbal_1ab994d4130b2956e2d33613ffb2127335">release_control</a> () const</td>
+<td>Release control.</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_gimbal_1a411ee29d7b8513758973ad8aeb4222ab">subscribe_control</a> (<a href="classmavsdk_1_1_gimbal.html#classmavsdk_1_1_gimbal_1a1645ab20c41161e6c47620b7352eef62">ControlCallback</a> callback)</td>
+<td>Subscribe to control status updates.</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="structmavsdk_1_1_gimbal_1_1_control_status.md">ControlStatus</a></td>
+<td><a href="#classmavsdk_1_1_gimbal_1aae172788140e37d6125b224f5e79829e">control</a> () const</td>
+<td>Poll for &apos;<a href="structmavsdk_1_1_gimbal_1_1_control_status.md">ControlStatus</a>&apos; (blocking).</td>
 </tr>
 <tr>
 <td style="text-align:right">const <a href="classmavsdk_1_1_gimbal.html">Gimbal</a> &amp;</td>
@@ -2378,6 +2428,10 @@
 <pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::Gimbal::ResultCallback =  <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(Result)&gt;
 </code></pre>
 <p>Callback type for asynchronous <a href="classmavsdk_1_1_gimbal.html">Gimbal</a> calls.</p>
+<h3 id="classmavsdk_1_1_gimbal_1a1645ab20c41161e6c47620b7352eef62"><a name="classmavsdk_1_1_gimbal_1a1645ab20c41161e6c47620b7352eef62" class="plugin-anchor" href="#classmavsdk_1_1_gimbal_1a1645ab20c41161e6c47620b7352eef62"><i class="fa fa-link" aria-hidden="true"></i></a>typedef ControlCallback </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::Gimbal::ControlCallback =  <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(ControlStatus)&gt;
+</code></pre>
+<p>Callback type for subscribe_control.</p>
 <h2 id="member-enumeration-documentation"><a name="member-enumeration-documentation" class="plugin-anchor" href="#member-enumeration-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Member Enumeration Documentation</h2>
 <h3 id="classmavsdk_1_1_gimbal_1afb92614c5d5915d3960bcea51bec2dca"><a name="classmavsdk_1_1_gimbal_1afb92614c5d5915d3960bcea51bec2dca" class="plugin-anchor" href="#classmavsdk_1_1_gimbal_1afb92614c5d5915d3960bcea51bec2dca"><i class="fa fa-link" aria-hidden="true"></i></a>enum GimbalMode </h3>
 <p><a href="classmavsdk_1_1_gimbal.html">Gimbal</a> mode type.</p>
@@ -2396,6 +2450,30 @@
 <tr>
 <td><span id="classmavsdk_1_1_gimbal_1afb92614c5d5915d3960bcea51bec2dcaaf0a46b0b7151dca1ab120e02b6e6663e"></span> <code>YawLock</code></td>
 <td>Yaw lock will fix the gimbal poiting to an absolute direction. </td>
+</tr>
+</tbody>
+</table>
+<h3 id="classmavsdk_1_1_gimbal_1a01b721086d7de6089aefdeb0fda4cff3"><a name="classmavsdk_1_1_gimbal_1a01b721086d7de6089aefdeb0fda4cff3" class="plugin-anchor" href="#classmavsdk_1_1_gimbal_1a01b721086d7de6089aefdeb0fda4cff3"><i class="fa fa-link" aria-hidden="true"></i></a>enum ControlMode </h3>
+<p>Control mode.</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span id="classmavsdk_1_1_gimbal_1a01b721086d7de6089aefdeb0fda4cff3a6adf97f83acf6453d4a6a4b1070f3754"></span> <code>None</code></td>
+<td>Indicates that the component does not have control over the gimbal. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_gimbal_1a01b721086d7de6089aefdeb0fda4cff3a074de7e7c226d5c60f8af14c20725352"></span> <code>Primary</code></td>
+<td>To take primary control over the gimbal. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_gimbal_1a01b721086d7de6089aefdeb0fda4cff3a0c7d6cf19426e01dcfa32434828ed266"></span> <code>Secondary</code></td>
+<td>To take secondary control over the gimbal. </td>
 </tr>
 </tbody>
 </table>
@@ -2457,6 +2535,31 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="classmavsdk_1_1_gimbal.html#classmavsdk_1_1_gimbal_1aa732ec0bd49ac03b7910199d635f76ac">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_gimbal_1a161b3f85cd9fa30439774ef47a10c51d"><a name="classmavsdk_1_1_gimbal_1a161b3f85cd9fa30439774ef47a10c51d" class="plugin-anchor" href="#classmavsdk_1_1_gimbal_1a161b3f85cd9fa30439774ef47a10c51d"><i class="fa fa-link" aria-hidden="true"></i></a>set_pitch_rate_and_yaw_rate_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Gimbal::set_pitch_rate_and_yaw_rate_async(<span class="hljs-keyword">float</span> pitch_rate_deg_s, <span class="hljs-keyword">float</span> yaw_rate_deg_s, <span class="hljs-keyword">const</span> ResultCallback callback)
+</code></pre>
+<p>Set gimbal angular rates around pitch and yaw axes.</p>
+<p>This sets the desired angular rates around pitch and yaw axes of a gimbal. Will return when the command is accepted, however, it might take the gimbal longer to actually reach the angular rate.</p>
+<p>This function is non-blocking. See &apos;set_pitch_rate_and_yaw_rate&apos; for the blocking counterpart.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>float <strong>pitch_rate_deg_s</strong> - </li>
+<li>float <strong>yaw_rate_deg_s</strong> - </li>
+<li>const <a href="classmavsdk_1_1_gimbal.html#classmavsdk_1_1_gimbal_1a88ee7dd17821fb9b12c44b2a3630c197">ResultCallback</a> <strong>callback</strong> - </li>
+</ul>
+<h3 id="classmavsdk_1_1_gimbal_1a2ad12582d192d8594d7da315e2729129"><a name="classmavsdk_1_1_gimbal_1a2ad12582d192d8594d7da315e2729129" class="plugin-anchor" href="#classmavsdk_1_1_gimbal_1a2ad12582d192d8594d7da315e2729129"><i class="fa fa-link" aria-hidden="true"></i></a>set_pitch_rate_and_yaw_rate() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Gimbal::set_pitch_rate_and_yaw_rate(<span class="hljs-keyword">float</span> pitch_rate_deg_s, <span class="hljs-keyword">float</span> yaw_rate_deg_s) <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Set gimbal angular rates around pitch and yaw axes.</p>
+<p>This sets the desired angular rates around pitch and yaw axes of a gimbal. Will return when the command is accepted, however, it might take the gimbal longer to actually reach the angular rate.</p>
+<p>This function is blocking. See &apos;set_pitch_rate_and_yaw_rate_async&apos; for the non-blocking counterpart.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>float <strong>pitch_rate_deg_s</strong> - </li>
+<li>float <strong>yaw_rate_deg_s</strong> - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_gimbal.html#classmavsdk_1_1_gimbal_1aa732ec0bd49ac03b7910199d635f76ac">Result</a> - Result of request.</p>
 <h3 id="classmavsdk_1_1_gimbal_1ad69853994c134b0e88d0f94744254066"><a name="classmavsdk_1_1_gimbal_1ad69853994c134b0e88d0f94744254066" class="plugin-anchor" href="#classmavsdk_1_1_gimbal_1ad69853994c134b0e88d0f94744254066"><i class="fa fa-link" aria-hidden="true"></i></a>set_mode_async() </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Gimbal::set_mode_async(GimbalMode gimbal_mode, <span class="hljs-keyword">const</span> ResultCallback callback)
 </code></pre>
@@ -2507,6 +2610,64 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="classmavsdk_1_1_gimbal.html#classmavsdk_1_1_gimbal_1aa732ec0bd49ac03b7910199d635f76ac">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_gimbal_1a331139df593e8ccef0f8ca7652f2d2bc"><a name="classmavsdk_1_1_gimbal_1a331139df593e8ccef0f8ca7652f2d2bc" class="plugin-anchor" href="#classmavsdk_1_1_gimbal_1a331139df593e8ccef0f8ca7652f2d2bc"><i class="fa fa-link" aria-hidden="true"></i></a>take_control_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Gimbal::take_control_async(ControlMode control_mode, <span class="hljs-keyword">const</span> ResultCallback callback)
+</code></pre>
+<p>Take control.</p>
+<p>There can be only two components in control of a gimbal at any given time. One with &quot;primary&quot; control, and one with &quot;secondary&quot; control. The way the secondary control is implemented is not specified and hence depends on the vehicle.</p>
+<p>Components are expected to be cooperative, which means that they can override each other and should therefore do it carefully.</p>
+<p>This function is non-blocking. See &apos;take_control&apos; for the blocking counterpart.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_gimbal.html#classmavsdk_1_1_gimbal_1a01b721086d7de6089aefdeb0fda4cff3">ControlMode</a> <strong>control_mode</strong> - </li>
+<li>const <a href="classmavsdk_1_1_gimbal.html#classmavsdk_1_1_gimbal_1a88ee7dd17821fb9b12c44b2a3630c197">ResultCallback</a> <strong>callback</strong> - </li>
+</ul>
+<h3 id="classmavsdk_1_1_gimbal_1a7dabe20d1bceb7031440fefba59cd707"><a name="classmavsdk_1_1_gimbal_1a7dabe20d1bceb7031440fefba59cd707" class="plugin-anchor" href="#classmavsdk_1_1_gimbal_1a7dabe20d1bceb7031440fefba59cd707"><i class="fa fa-link" aria-hidden="true"></i></a>take_control() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Gimbal::take_control(ControlMode control_mode) <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Take control.</p>
+<p>There can be only two components in control of a gimbal at any given time. One with &quot;primary&quot; control, and one with &quot;secondary&quot; control. The way the secondary control is implemented is not specified and hence depends on the vehicle.</p>
+<p>Components are expected to be cooperative, which means that they can override each other and should therefore do it carefully.</p>
+<p>This function is blocking. See &apos;take_control_async&apos; for the non-blocking counterpart.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_gimbal.html#classmavsdk_1_1_gimbal_1a01b721086d7de6089aefdeb0fda4cff3">ControlMode</a> <strong>control_mode</strong> - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_gimbal.html#classmavsdk_1_1_gimbal_1aa732ec0bd49ac03b7910199d635f76ac">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_gimbal_1aa58402c4e2d9506dbe9839ef8cbfb920"><a name="classmavsdk_1_1_gimbal_1aa58402c4e2d9506dbe9839ef8cbfb920" class="plugin-anchor" href="#classmavsdk_1_1_gimbal_1aa58402c4e2d9506dbe9839ef8cbfb920"><i class="fa fa-link" aria-hidden="true"></i></a>release_control_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Gimbal::release_control_async(<span class="hljs-keyword">const</span> ResultCallback callback)
+</code></pre>
+<p>Release control.</p>
+<p>Release control, such that other components can control the gimbal.</p>
+<p>This function is non-blocking. See &apos;release_control&apos; for the blocking counterpart.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classmavsdk_1_1_gimbal.html#classmavsdk_1_1_gimbal_1a88ee7dd17821fb9b12c44b2a3630c197">ResultCallback</a> <strong>callback</strong> - </li>
+</ul>
+<h3 id="classmavsdk_1_1_gimbal_1ab994d4130b2956e2d33613ffb2127335"><a name="classmavsdk_1_1_gimbal_1ab994d4130b2956e2d33613ffb2127335" class="plugin-anchor" href="#classmavsdk_1_1_gimbal_1ab994d4130b2956e2d33613ffb2127335"><i class="fa fa-link" aria-hidden="true"></i></a>release_control() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Gimbal::release_control() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Release control.</p>
+<p>Release control, such that other components can control the gimbal.</p>
+<p>This function is blocking. See &apos;release_control_async&apos; for the non-blocking counterpart.</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_gimbal.html#classmavsdk_1_1_gimbal_1aa732ec0bd49ac03b7910199d635f76ac">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_gimbal_1a411ee29d7b8513758973ad8aeb4222ab"><a name="classmavsdk_1_1_gimbal_1a411ee29d7b8513758973ad8aeb4222ab" class="plugin-anchor" href="#classmavsdk_1_1_gimbal_1a411ee29d7b8513758973ad8aeb4222ab"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_control() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Gimbal::subscribe_control(ControlCallback callback)
+</code></pre>
+<p>Subscribe to control status updates.</p>
+<p>This allows a component to know if it has primary, secondary or no control over the gimbal. Also, it gives the system and component ids of the other components in control (if any).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_gimbal.html#classmavsdk_1_1_gimbal_1a1645ab20c41161e6c47620b7352eef62">ControlCallback</a> <strong>callback</strong> - </li>
+</ul>
+<h3 id="classmavsdk_1_1_gimbal_1aae172788140e37d6125b224f5e79829e"><a name="classmavsdk_1_1_gimbal_1aae172788140e37d6125b224f5e79829e" class="plugin-anchor" href="#classmavsdk_1_1_gimbal_1aae172788140e37d6125b224f5e79829e"><i class="fa fa-link" aria-hidden="true"></i></a>control() </h3>
+<pre><code class="lang-cpp">ControlStatus mavsdk::Gimbal::control() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Poll for &apos;<a href="structmavsdk_1_1_gimbal_1_1_control_status.md">ControlStatus</a>&apos; (blocking).</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="structmavsdk_1_1_gimbal_1_1_control_status.md">ControlStatus</a> - One <a href="structmavsdk_1_1_gimbal_1_1_control_status.md">ControlStatus</a> update.</p>
 <h3 id="classmavsdk_1_1_gimbal_1ac9a6e1936f58ce8f957be7c6bcc0d134"><a name="classmavsdk_1_1_gimbal_1ac9a6e1936f58ce8f957be7c6bcc0d134" class="plugin-anchor" href="#classmavsdk_1_1_gimbal_1ac9a6e1936f58ce8f957be7c6bcc0d134"><i class="fa fa-link" aria-hidden="true"></i></a>operator=() </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">const</span> Gimbal&amp; mavsdk::Gimbal::<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> Gimbal &amp;)=<span class="hljs-keyword">delete</span>
 </code></pre>
@@ -2517,7 +2678,7 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;const <a href="classmavsdk_1_1_gimbal.html">Gimbal</a> &amp; - </p>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2021-02-18 04:12:00 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2021-02-25 07:35:14 </span> </footer>
                                 
                                 </section>
                             
@@ -2560,7 +2721,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"class Gimbal","level":"1.5.5.9","depth":3,"next":{"title":"class Info","level":"1.5.5.10","depth":3,"path":"api_reference/classmavsdk_1_1_info.md","ref":"api_reference/classmavsdk_1_1_info.md","articles":[{"title":"struct FlightInfo","level":"1.5.5.10.1","depth":4,"path":"api_reference/structmavsdk_1_1_info_1_1_flight_info.md","ref":"api_reference/structmavsdk_1_1_info_1_1_flight_info.md","articles":[]},{"title":"struct Identification","level":"1.5.5.10.2","depth":4,"path":"api_reference/structmavsdk_1_1_info_1_1_identification.md","ref":"api_reference/structmavsdk_1_1_info_1_1_identification.md","articles":[]},{"title":"struct Product","level":"1.5.5.10.3","depth":4,"path":"api_reference/structmavsdk_1_1_info_1_1_product.md","ref":"api_reference/structmavsdk_1_1_info_1_1_product.md","articles":[]},{"title":"struct Version","level":"1.5.5.10.4","depth":4,"path":"api_reference/structmavsdk_1_1_info_1_1_version.md","ref":"api_reference/structmavsdk_1_1_info_1_1_version.md","articles":[]}]},"previous":{"title":"struct LocalCoordinate","level":"1.5.5.8.2","depth":4,"path":"api_reference/structmavsdk_1_1geometry_1_1_coordinate_transformation_1_1_local_coordinate.md","ref":"api_reference/structmavsdk_1_1geometry_1_1_coordinate_transformation_1_1_local_coordinate.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.36.0/en/","text":"v0.36.0"},{"value":"https://mavsdk.mavlink.io/v0.35.0/en/","text":"v0.35.0"},{"value":"https://mavsdk.mavlink.io/v0.33.0/en/","text":"v0.33.0"},{"value":"https://mavsdk.mavlink.io/v0.29.0/en/","text":"v0.29.0"},{"value":"https://mavsdk.mavlink.io/v0.27.0/en/","text":"v0.27.0"},{"value":"https://mavsdk.mavlink.io/v0.25.0/en/","text":"v0.25.0"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"api_reference/classmavsdk_1_1_gimbal.md","mtime":"2021-02-18T04:12:00.435Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-18T04:12:35.694Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"class Gimbal","level":"1.5.5.9","depth":3,"next":{"title":"class Info","level":"1.5.5.10","depth":3,"path":"api_reference/classmavsdk_1_1_info.md","ref":"api_reference/classmavsdk_1_1_info.md","articles":[{"title":"struct FlightInfo","level":"1.5.5.10.1","depth":4,"path":"api_reference/structmavsdk_1_1_info_1_1_flight_info.md","ref":"api_reference/structmavsdk_1_1_info_1_1_flight_info.md","articles":[]},{"title":"struct Identification","level":"1.5.5.10.2","depth":4,"path":"api_reference/structmavsdk_1_1_info_1_1_identification.md","ref":"api_reference/structmavsdk_1_1_info_1_1_identification.md","articles":[]},{"title":"struct Product","level":"1.5.5.10.3","depth":4,"path":"api_reference/structmavsdk_1_1_info_1_1_product.md","ref":"api_reference/structmavsdk_1_1_info_1_1_product.md","articles":[]},{"title":"struct Version","level":"1.5.5.10.4","depth":4,"path":"api_reference/structmavsdk_1_1_info_1_1_version.md","ref":"api_reference/structmavsdk_1_1_info_1_1_version.md","articles":[]}]},"previous":{"title":"struct LocalCoordinate","level":"1.5.5.8.2","depth":4,"path":"api_reference/structmavsdk_1_1geometry_1_1_coordinate_transformation_1_1_local_coordinate.md","ref":"api_reference/structmavsdk_1_1geometry_1_1_coordinate_transformation_1_1_local_coordinate.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","anchors","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/develop/book.json","options":[{"value":"https://mavsdk.mavlink.io/develop/en/","text":"develop"},{"value":"https://mavsdk.mavlink.io/v0.37.0/en/","text":"v0.37.0"},{"value":"https://mavsdk.mavlink.io/v0.36.0/en/","text":"v0.36.0"},{"value":"https://mavsdk.mavlink.io/v0.35.0/en/","text":"v0.35.0"},{"value":"https://mavsdk.mavlink.io/v0.33.0/en/","text":"v0.33.0"},{"value":"https://mavsdk.mavlink.io/v0.29.0/en/","text":"v0.29.0"},{"value":"https://mavsdk.mavlink.io/v0.27.0/en/","text":"v0.27.0"},{"value":"https://mavsdk.mavlink.io/v0.25.0/en/","text":"v0.25.0"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/develop/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"develop"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"api_reference/classmavsdk_1_1_gimbal.md","mtime":"2021-02-25T07:35:14.953Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-25T07:35:55.643Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
