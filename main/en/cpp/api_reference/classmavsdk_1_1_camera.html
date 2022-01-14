@@ -534,6 +534,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.2.3.6" data-path="../examples/autopilot_server.html">
+            
+                <a href="../examples/autopilot_server.html">
+            
+                    
+                    Autopilot Server
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -3047,6 +3060,16 @@
 </tr>
 <tr>
 <td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_camera_1aba33f1f8302259a7d51a09b60ea29cbf">prepare_async</a> (const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a8d6d59cd8d0a3584ef60b16255b6301f">ResultCallback</a> callback)</td>
+<td>Prepare the camera plugin (e.g. download the camera definition, etc).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a></td>
+<td><a href="#classmavsdk_1_1_camera_1af263d3ea4e24da262f935c56fb578444">prepare</a> () const</td>
+<td>Prepare the camera plugin (e.g. download the camera definition, etc).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
 <td><a href="#classmavsdk_1_1_camera_1a343217bf38cc71cd258c7e81626dccb5">take_photo_async</a> (const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a8d6d59cd8d0a3584ef60b16255b6301f">ResultCallback</a> callback)</td>
 <td>Take one photo.</td>
 </tr>
@@ -3122,7 +3145,7 @@
 </tr>
 <tr>
 <td style="text-align:right">std::pair&lt; <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a>, std::vector&lt; <a href="structmavsdk_1_1_camera_1_1_capture_info.html">Camera::CaptureInfo</a> &gt; &gt;</td>
-<td><a href="#classmavsdk_1_1_camera_1a49dc17b74047049c386d88cd365de868">list_photos</a> (<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a1211ea6664aa9c1d4ef4aede363c7c22">PhotosRange</a> photos_range)const</td>
+<td><a href="#classmavsdk_1_1_camera_1a61b8ac1c965b60bf4b8d1adf900926a2">list_photos</a> (<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a1211ea6664aa9c1d4ef4aede363c7c22">PhotosRange</a> photos_range)const</td>
 <td>List photos available on the camera.</td>
 </tr>
 <tr>
@@ -3182,7 +3205,7 @@
 </tr>
 <tr>
 <td style="text-align:right">std::vector&lt; <a href="structmavsdk_1_1_camera_1_1_setting_options.html">SettingOptions</a> &gt;</td>
-<td><a href="#classmavsdk_1_1_camera_1a5416dc30ec436707420db715ee56ce08">possible_setting_options</a> () const</td>
+<td><a href="#classmavsdk_1_1_camera_1a61bac2d61d346a872c199d7203e08f38">possible_setting_options</a> () const</td>
 <td>Poll for &apos;std::vector<settingoptions>&apos; (blocking).</settingoptions></td>
 </tr>
 <tr>
@@ -3202,7 +3225,7 @@
 </tr>
 <tr>
 <td style="text-align:right">std::pair&lt; <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a>, <a href="structmavsdk_1_1_camera_1_1_setting.html">Camera::Setting</a> &gt;</td>
-<td><a href="#classmavsdk_1_1_camera_1ae88917857b666dc7cfd0d84b3ad29d9c">get_setting</a> (<a href="structmavsdk_1_1_camera_1_1_setting.html">Setting</a> setting)const</td>
+<td><a href="#classmavsdk_1_1_camera_1a7d426658c9c125efc0a9ba3862b1912f">get_setting</a> (<a href="structmavsdk_1_1_camera_1_1_setting.html">Setting</a> setting)const</td>
 <td>Get a setting.</td>
 </tr>
 <tr>
@@ -3217,7 +3240,7 @@
 </tr>
 <tr>
 <td style="text-align:right">const <a href="classmavsdk_1_1_camera.html">Camera</a> &amp;</td>
-<td><a href="#classmavsdk_1_1_camera_1aeff295155b6a665f5c942e473f1fe894">operator=</a> (const <a href="classmavsdk_1_1_camera.html">Camera</a> &amp;)=delete</td>
+<td><a href="#classmavsdk_1_1_camera_1a358026db44ff9a10cf14a166d8f1da78">operator=</a> (const <a href="classmavsdk_1_1_camera.html">Camera</a> &amp;)=delete</td>
 <td>Equality operator (object is not copyable).</td>
 </tr>
 </tbody>
@@ -3392,6 +3415,22 @@
 </tbody>
 </table>
 <h2 id="member-function-documentation"><a name="member-function-documentation" class="plugin-anchor" href="#member-function-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Member Function Documentation</h2>
+<h3 id="classmavsdk_1_1_camera_1aba33f1f8302259a7d51a09b60ea29cbf"><a name="classmavsdk_1_1_camera_1aba33f1f8302259a7d51a09b60ea29cbf" class="plugin-anchor" href="#classmavsdk_1_1_camera_1aba33f1f8302259a7d51a09b60ea29cbf"><i class="fa fa-link" aria-hidden="true"></i></a>prepare_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::prepare_async(<span class="hljs-keyword">const</span> ResultCallback callback)
+</code></pre>
+<p>Prepare the camera plugin (e.g. download the camera definition, etc).</p>
+<p>This function is non-blocking. See &apos;prepare&apos; for the blocking counterpart.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a8d6d59cd8d0a3584ef60b16255b6301f">ResultCallback</a> <strong>callback</strong> - </li>
+</ul>
+<h3 id="classmavsdk_1_1_camera_1af263d3ea4e24da262f935c56fb578444"><a name="classmavsdk_1_1_camera_1af263d3ea4e24da262f935c56fb578444" class="plugin-anchor" href="#classmavsdk_1_1_camera_1af263d3ea4e24da262f935c56fb578444"><i class="fa fa-link" aria-hidden="true"></i></a>prepare() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Camera::prepare() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Prepare the camera plugin (e.g. download the camera definition, etc).</p>
+<p>This function is blocking. See &apos;prepare_async&apos; for the non-blocking counterpart.</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a> - Result of request.</p>
 <h3 id="classmavsdk_1_1_camera_1a343217bf38cc71cd258c7e81626dccb5"><a name="classmavsdk_1_1_camera_1a343217bf38cc71cd258c7e81626dccb5" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a343217bf38cc71cd258c7e81626dccb5"><i class="fa fa-link" aria-hidden="true"></i></a>take_photo_async() </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::take_photo_async(<span class="hljs-keyword">const</span> ResultCallback callback)
 </code></pre>
@@ -3522,8 +3561,8 @@
 <li><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a1211ea6664aa9c1d4ef4aede363c7c22">PhotosRange</a> <strong>photos_range</strong> - </li>
 <li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a23240233586f7673c3a1b48f07623fe4">ListPhotosCallback</a> <strong>callback</strong> - </li>
 </ul>
-<h3 id="classmavsdk_1_1_camera_1a49dc17b74047049c386d88cd365de868"><a name="classmavsdk_1_1_camera_1a49dc17b74047049c386d88cd365de868" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a49dc17b74047049c386d88cd365de868"><i class="fa fa-link" aria-hidden="true"></i></a>list_photos() </h3>
-<pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::pair&lt;Result, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;Camera::CaptureInfo&gt; &gt; mavsdk::Camera::list_photos(PhotosRange photos_range) <span class="hljs-keyword">const</span>
+<h3 id="classmavsdk_1_1_camera_1a61b8ac1c965b60bf4b8d1adf900926a2"><a name="classmavsdk_1_1_camera_1a61b8ac1c965b60bf4b8d1adf900926a2" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a61b8ac1c965b60bf4b8d1adf900926a2"><i class="fa fa-link" aria-hidden="true"></i></a>list_photos() </h3>
+<pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::pair&lt; Result, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt; Camera::CaptureInfo &gt; &gt; mavsdk::Camera::list_photos(PhotosRange photos_range) <span class="hljs-keyword">const</span>
 </code></pre>
 <p>List photos available on the camera.</p>
 <p>This function is blocking. See &apos;list_photos_async&apos; for the non-blocking counterpart.</p>
@@ -3613,8 +3652,8 @@
 <ul>
 <li><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a78e25614c29cd8bc1bbf26adcf417c2a">PossibleSettingOptionsCallback</a> <strong>callback</strong> - </li>
 </ul>
-<h3 id="classmavsdk_1_1_camera_1a5416dc30ec436707420db715ee56ce08"><a name="classmavsdk_1_1_camera_1a5416dc30ec436707420db715ee56ce08" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a5416dc30ec436707420db715ee56ce08"><i class="fa fa-link" aria-hidden="true"></i></a>possible_setting_options() </h3>
-<pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;SettingOptions&gt; mavsdk::Camera::possible_setting_options() <span class="hljs-keyword">const</span>
+<h3 id="classmavsdk_1_1_camera_1a61bac2d61d346a872c199d7203e08f38"><a name="classmavsdk_1_1_camera_1a61bac2d61d346a872c199d7203e08f38" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a61bac2d61d346a872c199d7203e08f38"><i class="fa fa-link" aria-hidden="true"></i></a>possible_setting_options() </h3>
+<pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt; SettingOptions &gt; mavsdk::Camera::possible_setting_options() <span class="hljs-keyword">const</span>
 </code></pre>
 <p>Poll for &apos;std::vector<settingoptions>&apos; (blocking).</settingoptions></p>
 <p><strong>Returns</strong></p>
@@ -3653,8 +3692,8 @@
 <li><a href="structmavsdk_1_1_camera_1_1_setting.html">Setting</a> <strong>setting</strong> - </li>
 <li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1ac233f5688f0b7f1e712bb31dfaeadd85">GetSettingCallback</a> <strong>callback</strong> - </li>
 </ul>
-<h3 id="classmavsdk_1_1_camera_1ae88917857b666dc7cfd0d84b3ad29d9c"><a name="classmavsdk_1_1_camera_1ae88917857b666dc7cfd0d84b3ad29d9c" class="plugin-anchor" href="#classmavsdk_1_1_camera_1ae88917857b666dc7cfd0d84b3ad29d9c"><i class="fa fa-link" aria-hidden="true"></i></a>get_setting() </h3>
-<pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::pair&lt;Result, Camera::Setting&gt; mavsdk::Camera::get_setting(Setting setting) <span class="hljs-keyword">const</span>
+<h3 id="classmavsdk_1_1_camera_1a7d426658c9c125efc0a9ba3862b1912f"><a name="classmavsdk_1_1_camera_1a7d426658c9c125efc0a9ba3862b1912f" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a7d426658c9c125efc0a9ba3862b1912f"><i class="fa fa-link" aria-hidden="true"></i></a>get_setting() </h3>
+<pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::pair&lt; Result, Camera::Setting &gt; mavsdk::Camera::get_setting(Setting setting) <span class="hljs-keyword">const</span>
 </code></pre>
 <p>Get a setting.</p>
 <p>Only setting_id of setting needs to be set.</p>
@@ -3683,8 +3722,8 @@
 <p>This function is blocking. See &apos;format_storage_async&apos; for the non-blocking counterpart.</p>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a> - Result of request.</p>
-<h3 id="classmavsdk_1_1_camera_1aeff295155b6a665f5c942e473f1fe894"><a name="classmavsdk_1_1_camera_1aeff295155b6a665f5c942e473f1fe894" class="plugin-anchor" href="#classmavsdk_1_1_camera_1aeff295155b6a665f5c942e473f1fe894"><i class="fa fa-link" aria-hidden="true"></i></a>operator=() </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">const</span> Camera&amp; mavsdk::Camera::<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> Camera &amp;)=<span class="hljs-keyword">delete</span>
+<h3 id="classmavsdk_1_1_camera_1a358026db44ff9a10cf14a166d8f1da78"><a name="classmavsdk_1_1_camera_1a358026db44ff9a10cf14a166d8f1da78" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a358026db44ff9a10cf14a166d8f1da78"><i class="fa fa-link" aria-hidden="true"></i></a>operator=() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">const</span> Camera &amp; mavsdk::Camera::<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> Camera &amp;)=<span class="hljs-keyword">delete</span>
 </code></pre>
 <p>Equality operator (object is not copyable).</p>
 <p><strong>Parameters</strong></p>
@@ -3693,7 +3732,7 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;const <a href="classmavsdk_1_1_camera.html">Camera</a> &amp; - </p>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2021-09-29 08:27:56 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2022-01-14 13:02:38 </span> </footer>
                                 
                                 </section>
                             
@@ -3736,7 +3775,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"class Camera","level":"1.2.6.4","depth":3,"next":{"title":"struct Information","level":"1.2.6.4.1","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_camera_1_1_information.md","ref":"cpp/api_reference/structmavsdk_1_1_camera_1_1_information.md","articles":[]},"previous":{"title":"struct ProgressData","level":"1.2.6.3.1","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_calibration_1_1_progress_data.md","ref":"cpp/api_reference/structmavsdk_1_1_calibration_1_1_progress_data.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v0.39/en/","text":"v0.39"},{"value":"https://mavsdk.mavlink.io/v0.38/en/","text":"v0.38"},{"value":"https://mavsdk.mavlink.io/v0.37.0/en/","text":"v0.37.0"},{"value":"https://mavsdk.mavlink.io/v0.36.0/en/","text":"v0.36.0"},{"value":"https://mavsdk.mavlink.io/v0.35.0/en/","text":"v0.35.0"},{"value":"https://mavsdk.mavlink.io/v0.33.0/en/","text":"v0.33.0"},{"value":"https://mavsdk.mavlink.io/v0.29.0/en/","text":"v0.29.0"},{"value":"https://mavsdk.mavlink.io/v0.27.0/en/","text":"v0.27.0"},{"value":"https://mavsdk.mavlink.io/v0.25.0/en/","text":"v0.25.0"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/api_reference/classmavsdk_1_1_camera.md","mtime":"2021-09-29T08:27:56.170Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-09-29T08:28:35.560Z"},"basePath":"../..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"class Camera","level":"1.2.6.4","depth":3,"next":{"title":"struct Information","level":"1.2.6.4.1","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_camera_1_1_information.md","ref":"cpp/api_reference/structmavsdk_1_1_camera_1_1_information.md","articles":[]},"previous":{"title":"struct ProgressData","level":"1.2.6.3.1","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_calibration_1_1_progress_data.md","ref":"cpp/api_reference/structmavsdk_1_1_calibration_1_1_progress_data.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v0.44/en/","text":"v0.44"},{"value":"https://mavsdk.mavlink.io/v0.39/en/","text":"v0.39"},{"value":"https://mavsdk.mavlink.io/v0.38/en/","text":"v0.38"},{"value":"https://mavsdk.mavlink.io/v0.37.0/en/","text":"v0.37.0"},{"value":"https://mavsdk.mavlink.io/v0.36.0/en/","text":"v0.36.0"},{"value":"https://mavsdk.mavlink.io/v0.35.0/en/","text":"v0.35.0"},{"value":"https://mavsdk.mavlink.io/v0.33.0/en/","text":"v0.33.0"},{"value":"https://mavsdk.mavlink.io/v0.29.0/en/","text":"v0.29.0"},{"value":"https://mavsdk.mavlink.io/v0.27.0/en/","text":"v0.27.0"},{"value":"https://mavsdk.mavlink.io/v0.25.0/en/","text":"v0.25.0"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/api_reference/classmavsdk_1_1_camera.md","mtime":"2022-01-14T13:02:38.086Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-01-14T13:03:14.025Z"},"basePath":"../..","book":{"language":"en"}});
         });
     </script>
 </div>

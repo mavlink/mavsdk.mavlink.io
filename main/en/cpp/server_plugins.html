@@ -88,7 +88,7 @@
     <link rel="next" href="api_changes.html" />
     
     
-    <link rel="prev" href="examples/transition_vtol_fixed_wing.html" />
+    <link rel="prev" href="examples/autopilot_server.html" />
     
 
     </head>
@@ -527,6 +527,19 @@
             
                     
                     VTOL Transitions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.6" data-path="examples/autopilot_server.html">
+            
+                <a href="examples/autopilot_server.html">
+            
+                    
+                    Autopilot Server
             
                 </a>
             
@@ -2936,20 +2949,27 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="server-plugins"><a name="server-plugins" class="plugin-anchor" href="#server-plugins"><i class="fa fa-link" aria-hidden="true"></i></a>Server Plugins</h1>
-<p>MAVLink protocols are often designed using the client-server pattern, where vehicle-based components like the autopilot typically act as a server, responding to commands sent by a ground station &quot;client&quot;.</p>
-<p>Initially MAVSDK was mainly developed with the use case of a ground station in mind, so plugins implemented the client-side protocol behaviour.</p>
-<p>However, MAVSDK can also be used for the server-side of the protocol e.g. running on a companion computer on the vehicle.
-This can be used to extend the functionality &quot;in the air&quot;, or as a bridge to a proprietary or non-MAVLink flight controller.
-The plugins developed specifically for this case are usually suffixed with <code>Server</code>, e.g.:</p>
+<p>MAVSDK <em>Server</em> plugins are used to expose MAVLink services on non-MAVLink flight stacks, companions computers, cameras, gimbals and other components.</p>
+<p>The plugins listen for commands from a ground station or other MAVLink client, pass them to the underlying native system using callbacks, and respond as needed. </p>
+<blockquote class="clearfix alert alert-quote"><strong class="fa fa-2x fa-quote-left"></strong>
+<p> They are called &quot;server&quot; plugins because they perform the server role in communication - listening for commands and responding.
+The client role is usually performed by a ground station (or &quot;ordinary&quot; MAVSDK plugin)</p>
+</blockquote>
+<h2 id="adding-mavlink-support-to-your-vehicle"><a name="adding-mavlink-support-to-your-vehicle" class="plugin-anchor" href="#adding-mavlink-support-to-your-vehicle"><i class="fa fa-link" aria-hidden="true"></i></a>Adding MAVLink support to your vehicle</h2>
+<p>Adding MAVLink support to your vehicle is as simple as instantiating the required server plugin and actioning the vehicle on the appropriate callback.</p>
+<h2 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h2>
+<p>The <a href="examples/autopilot_server.html">Autopilot Server</a> example uses many different MAVSDK server plugins to replicate a simple vehicle and autopilot system, with telemetry, mission handling, parameters and more.</p>
+<h2 id="plugins"><a name="plugins" class="plugin-anchor" href="#plugins"><i class="fa fa-link" aria-hidden="true"></i></a>Plugins</h2>
+<p>The plugins developed specifically for this case are usually suffixed with <code>Server</code>, e.g.:</p>
 <ul>
-<li><a href="../api_reference/classmavsdk_1_1_action_server.md">ActionServer</a></li>
-<li><a href="../api_reference/classmavsdk_1_1_mission_raw_server.md">MissionRawServer</a></li>
-<li><a href="../api_reference/classmavsdk_1_1_param_server.md">ParamServer</a></li>
-<li><a href="../api_reference/classmavsdk_1_1_telemetry_server.md">TelemetryServer</a></li>
-<li><a href="../api_reference/classmavsdk_1_1_tracking_server.md">TrackingServer</a></li>
+<li><a href="api_reference/classmavsdk_1_1_action_server.html">ActionServer</a></li>
+<li><a href="api_reference/classmavsdk_1_1_mission_raw_server.html">MissionRawServer</a></li>
+<li><a href="api_reference/classmavsdk_1_1_param_server.md">ParamServer</a></li>
+<li><a href="api_reference/classmavsdk_1_1_telemetry_server.html">TelemetryServer</a></li>
+<li><a href="api_reference/classmavsdk_1_1_tracking_server.html">TrackingServer</a></li>
 </ul>
-<p>These server plugins can potentially also be used to test the &quot;non-server&quot; plugins of MAVSDK in the future.</p>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2021-09-29 08:27:56 </span> </footer>
+<p>These server plugins can potentially also be used to test the &quot;client&quot; plugins of MAVSDK in the future. The <a href="examples/autopilot_server.html">Autopilot Server</a> example uses multiple MAVSDK instances in this way.</p>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2022-01-14 13:02:38 </span> </footer>
                                 
                                 </section>
                             
@@ -2976,7 +2996,7 @@ The plugins developed specifically for this case are usually suffixed with <code
 
             
                 
-                <a href="examples/transition_vtol_fixed_wing.html" class="navigation navigation-prev " aria-label="Previous page: VTOL Transitions">
+                <a href="examples/autopilot_server.html" class="navigation navigation-prev " aria-label="Previous page: Autopilot Server">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -2992,7 +3012,7 @@ The plugins developed specifically for this case are usually suffixed with <code
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Server plugins","level":"1.2.4","depth":2,"next":{"title":"API Changes","level":"1.2.5","depth":2,"path":"cpp/api_changes.md","ref":"cpp/api_changes.md","articles":[]},"previous":{"title":"VTOL Transitions","level":"1.2.3.5","depth":3,"path":"cpp/examples/transition_vtol_fixed_wing.md","ref":"cpp/examples/transition_vtol_fixed_wing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v0.39/en/","text":"v0.39"},{"value":"https://mavsdk.mavlink.io/v0.38/en/","text":"v0.38"},{"value":"https://mavsdk.mavlink.io/v0.37.0/en/","text":"v0.37.0"},{"value":"https://mavsdk.mavlink.io/v0.36.0/en/","text":"v0.36.0"},{"value":"https://mavsdk.mavlink.io/v0.35.0/en/","text":"v0.35.0"},{"value":"https://mavsdk.mavlink.io/v0.33.0/en/","text":"v0.33.0"},{"value":"https://mavsdk.mavlink.io/v0.29.0/en/","text":"v0.29.0"},{"value":"https://mavsdk.mavlink.io/v0.27.0/en/","text":"v0.27.0"},{"value":"https://mavsdk.mavlink.io/v0.25.0/en/","text":"v0.25.0"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/server_plugins.md","mtime":"2021-09-29T08:27:56.178Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-09-29T08:28:35.560Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Server plugins","level":"1.2.4","depth":2,"next":{"title":"API Changes","level":"1.2.5","depth":2,"path":"cpp/api_changes.md","ref":"cpp/api_changes.md","articles":[]},"previous":{"title":"Autopilot Server","level":"1.2.3.6","depth":3,"path":"cpp/examples/autopilot_server.md","ref":"cpp/examples/autopilot_server.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v0.44/en/","text":"v0.44"},{"value":"https://mavsdk.mavlink.io/v0.39/en/","text":"v0.39"},{"value":"https://mavsdk.mavlink.io/v0.38/en/","text":"v0.38"},{"value":"https://mavsdk.mavlink.io/v0.37.0/en/","text":"v0.37.0"},{"value":"https://mavsdk.mavlink.io/v0.36.0/en/","text":"v0.36.0"},{"value":"https://mavsdk.mavlink.io/v0.35.0/en/","text":"v0.35.0"},{"value":"https://mavsdk.mavlink.io/v0.33.0/en/","text":"v0.33.0"},{"value":"https://mavsdk.mavlink.io/v0.29.0/en/","text":"v0.29.0"},{"value":"https://mavsdk.mavlink.io/v0.27.0/en/","text":"v0.27.0"},{"value":"https://mavsdk.mavlink.io/v0.25.0/en/","text":"v0.25.0"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/server_plugins.md","mtime":"2022-01-14T13:02:38.094Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-01-14T13:03:14.025Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

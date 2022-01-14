@@ -534,6 +534,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.2.3.6" data-path="../examples/autopilot_server.html">
+            
+                <a href="../examples/autopilot_server.html">
+            
+                    
+                    Autopilot Server
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -3021,6 +3034,11 @@
 <td>MAVLink <a href="classmavsdk_1_1_system.html">System</a> ID of connected system.</td>
 </tr>
 <tr>
+<td style="text-align:right">std::vector&lt; uint8_t &gt;</td>
+<td><a href="#classmavsdk_1_1_system_1a8ef8d3f5c4b59aa71b6b0e92587185d4">component_ids</a> () const</td>
+<td>MAVLink component IDs of connected system.</td>
+</tr>
+<tr>
 <td style="text-align:right">void</td>
 <td><a href="#classmavsdk_1_1_system_1a4e0a0237d54285ac8b7690f6e42c35fd">subscribe_is_connected</a> (<a href="classmavsdk_1_1_system.html#classmavsdk_1_1_system_1a0e56bb48498100fde0872a3ec376f282">IsConnectedCallback</a> callback)</td>
 <td>Subscribe to callback to be called when system connection state changes.</td>
@@ -3037,7 +3055,7 @@
 </tr>
 <tr>
 <td style="text-align:right">const <a href="classmavsdk_1_1_system.html">System</a> &amp;</td>
-<td><a href="#classmavsdk_1_1_system_1a21284c27829fda2391ee27f5732f916d">operator=</a> (const <a href="classmavsdk_1_1_system.html">System</a> &amp;)=delete</td>
+<td><a href="#classmavsdk_1_1_system_1ace4603ebad199e8619876993a2ad5237">operator=</a> (const <a href="classmavsdk_1_1_system.html">System</a> &amp;)=delete</td>
 <td>Equality operator (object is not copyable).</td>
 </tr>
 <tr>
@@ -3195,6 +3213,15 @@
 </blockquote>
 <p><strong>Returns</strong></p>
 <p>&#x2003;uint8_t - the system ID.</p>
+<h3 id="classmavsdk_1_1_system_1a8ef8d3f5c4b59aa71b6b0e92587185d4"><a name="classmavsdk_1_1_system_1a8ef8d3f5c4b59aa71b6b0e92587185d4" class="plugin-anchor" href="#classmavsdk_1_1_system_1a8ef8d3f5c4b59aa71b6b0e92587185d4"><i class="fa fa-link" aria-hidden="true"></i></a>component_ids() </h3>
+<pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt; <span class="hljs-keyword">uint8_t</span> &gt; mavsdk::System::component_ids() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>MAVLink component IDs of connected system.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> : all components that have been seen at least once will be listed.</p>
+</blockquote>
+<p><strong>Returns</strong></p>
+<p>&#x2003;std::vector&lt; uint8_t &gt; - a list of all component ids</p>
 <h3 id="classmavsdk_1_1_system_1a4e0a0237d54285ac8b7690f6e42c35fd"><a name="classmavsdk_1_1_system_1a4e0a0237d54285ac8b7690f6e42c35fd" class="plugin-anchor" href="#classmavsdk_1_1_system_1a4e0a0237d54285ac8b7690f6e42c35fd"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_is_connected() </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::System::subscribe_is_connected(IsConnectedCallback callback)
 </code></pre>
@@ -3215,8 +3242,8 @@
 <pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::System::enable_timesync()
 </code></pre>
 <p>Enable time synchronization using the TIMESYNC messages.</p>
-<h3 id="classmavsdk_1_1_system_1a21284c27829fda2391ee27f5732f916d"><a name="classmavsdk_1_1_system_1a21284c27829fda2391ee27f5732f916d" class="plugin-anchor" href="#classmavsdk_1_1_system_1a21284c27829fda2391ee27f5732f916d"><i class="fa fa-link" aria-hidden="true"></i></a>operator=() </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">const</span> System&amp; mavsdk::System::<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> System &amp;)=<span class="hljs-keyword">delete</span>
+<h3 id="classmavsdk_1_1_system_1ace4603ebad199e8619876993a2ad5237"><a name="classmavsdk_1_1_system_1ace4603ebad199e8619876993a2ad5237" class="plugin-anchor" href="#classmavsdk_1_1_system_1ace4603ebad199e8619876993a2ad5237"><i class="fa fa-link" aria-hidden="true"></i></a>operator=() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">const</span> System &amp; mavsdk::System::<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> System &amp;)=<span class="hljs-keyword">delete</span>
 </code></pre>
 <p>Equality operator (object is not copyable).</p>
 <p><strong>Parameters</strong></p>
@@ -3300,7 +3327,7 @@
 <p>Get autopilot version data.</p>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="structmavsdk_1_1_system_1_1_autopilot_version.html">AutopilotVersion</a> - <a href="structmavsdk_1_1_system_1_1_autopilot_version.html">AutopilotVersion</a> struct containing autopilot version ids</p>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2021-09-29 08:27:56 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2022-01-14 13:02:38 </span> </footer>
                                 
                                 </section>
                             
@@ -3343,7 +3370,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"class System","level":"1.2.6.25","depth":3,"next":{"title":"struct AutopilotVersion","level":"1.2.6.25.1","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_system_1_1_autopilot_version.md","ref":"cpp/api_reference/structmavsdk_1_1_system_1_1_autopilot_version.md","articles":[]},"previous":{"title":"class Shell","level":"1.2.6.24","depth":3,"path":"cpp/api_reference/classmavsdk_1_1_shell.md","ref":"cpp/api_reference/classmavsdk_1_1_shell.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v0.39/en/","text":"v0.39"},{"value":"https://mavsdk.mavlink.io/v0.38/en/","text":"v0.38"},{"value":"https://mavsdk.mavlink.io/v0.37.0/en/","text":"v0.37.0"},{"value":"https://mavsdk.mavlink.io/v0.36.0/en/","text":"v0.36.0"},{"value":"https://mavsdk.mavlink.io/v0.35.0/en/","text":"v0.35.0"},{"value":"https://mavsdk.mavlink.io/v0.33.0/en/","text":"v0.33.0"},{"value":"https://mavsdk.mavlink.io/v0.29.0/en/","text":"v0.29.0"},{"value":"https://mavsdk.mavlink.io/v0.27.0/en/","text":"v0.27.0"},{"value":"https://mavsdk.mavlink.io/v0.25.0/en/","text":"v0.25.0"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/api_reference/classmavsdk_1_1_system.md","mtime":"2021-09-29T08:27:56.174Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-09-29T08:28:35.560Z"},"basePath":"../..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"class System","level":"1.2.6.25","depth":3,"next":{"title":"struct AutopilotVersion","level":"1.2.6.25.1","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_system_1_1_autopilot_version.md","ref":"cpp/api_reference/structmavsdk_1_1_system_1_1_autopilot_version.md","articles":[]},"previous":{"title":"class Shell","level":"1.2.6.24","depth":3,"path":"cpp/api_reference/classmavsdk_1_1_shell.md","ref":"cpp/api_reference/classmavsdk_1_1_shell.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v0.44/en/","text":"v0.44"},{"value":"https://mavsdk.mavlink.io/v0.39/en/","text":"v0.39"},{"value":"https://mavsdk.mavlink.io/v0.38/en/","text":"v0.38"},{"value":"https://mavsdk.mavlink.io/v0.37.0/en/","text":"v0.37.0"},{"value":"https://mavsdk.mavlink.io/v0.36.0/en/","text":"v0.36.0"},{"value":"https://mavsdk.mavlink.io/v0.35.0/en/","text":"v0.35.0"},{"value":"https://mavsdk.mavlink.io/v0.33.0/en/","text":"v0.33.0"},{"value":"https://mavsdk.mavlink.io/v0.29.0/en/","text":"v0.29.0"},{"value":"https://mavsdk.mavlink.io/v0.27.0/en/","text":"v0.27.0"},{"value":"https://mavsdk.mavlink.io/v0.25.0/en/","text":"v0.25.0"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/api_reference/classmavsdk_1_1_system.md","mtime":"2022-01-14T13:02:38.086Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-01-14T13:03:14.025Z"},"basePath":"../..","book":{"language":"en"}});
         });
     </script>
 </div>
