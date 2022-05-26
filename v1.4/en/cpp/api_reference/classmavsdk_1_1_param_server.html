@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>struct SpeedBody · MAVSDK Guide</title>
+        <title>class ParamServer · MAVSDK Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -85,10 +85,10 @@
     <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="structmavsdk_1_1_mocap_1_1_vision_position_estimate.html" />
+    <link rel="next" href="structmavsdk_1_1_param_server_1_1_all_params.html" />
     
     
-    <link rel="prev" href="structmavsdk_1_1_mocap_1_1_quaternion.html" />
+    <link rel="prev" href="structmavsdk_1_1_param_1_1_int_param.html" />
     
 
     </head>
@@ -1722,7 +1722,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.6.19.8" data-path="structmavsdk_1_1_mocap_1_1_speed_body.html">
+        <li class="chapter " data-level="1.2.6.19.8" data-path="structmavsdk_1_1_mocap_1_1_speed_body.html">
             
                 <a href="structmavsdk_1_1_mocap_1_1_speed_body.html">
             
@@ -1960,7 +1960,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.6.22" data-path="classmavsdk_1_1_param_server.html">
+        <li class="chapter active" data-level="1.2.6.22" data-path="classmavsdk_1_1_param_server.html">
             
                 <a href="classmavsdk_1_1_param_server.html">
             
@@ -3217,7 +3217,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >struct SpeedBody</a>
+        <a href="../.." >class ParamServer</a>
     </h1>
 </div>
 
@@ -3232,27 +3232,280 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="mavsdkmocapspeedbody-struct-reference"><a name="mavsdkmocapspeedbody-struct-reference" class="plugin-anchor" href="#mavsdkmocapspeedbody-struct-reference"><i class="fa fa-link" aria-hidden="true"></i></a>mavsdk::Mocap::SpeedBody Struct Reference</h1>
-<p><code>#include: mocap.h</code></p>
+                                <h1 id="mavsdkparamserver-class-reference"><a name="mavsdkparamserver-class-reference" class="plugin-anchor" href="#mavsdkparamserver-class-reference"><i class="fa fa-link" aria-hidden="true"></i></a>mavsdk::ParamServer Class Reference</h1>
+<p><code>#include: param_server.h</code></p>
 <hr>
-<p>Speed type, represented in the Body (X Y Z) frame and in metres/second. </p>
-<h2 id="data-fields"><a name="data-fields" class="plugin-anchor" href="#data-fields"><i class="fa fa-link" aria-hidden="true"></i></a>Data Fields</h2>
-<p>float <a href="#structmavsdk_1_1_mocap_1_1_speed_body_1ad76e16cb784025edea1f92b860198277">x_m_s</a> {} - Velocity in X in metres/second.</p>
-<p>float <a href="#structmavsdk_1_1_mocap_1_1_speed_body_1ac17f64b0fd5f3815d63fc4c45e7c57c1">y_m_s</a> {} - Velocity in Y in metres/second.</p>
-<p>float <a href="#structmavsdk_1_1_mocap_1_1_speed_body_1a6233dc5ecd99f15e2bc8917662243f2b">z_m_s</a> {} - Velocity in Z in metres/second.</p>
-<h2 id="field-documentation"><a name="field-documentation" class="plugin-anchor" href="#field-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Field Documentation</h2>
-<h3 id="structmavsdk_1_1_mocap_1_1_speed_body_1ad76e16cb784025edea1f92b860198277"><a name="structmavsdk_1_1_mocap_1_1_speed_body_1ad76e16cb784025edea1f92b860198277" class="plugin-anchor" href="#structmavsdk_1_1_mocap_1_1_speed_body_1ad76e16cb784025edea1f92b860198277"><i class="fa fa-link" aria-hidden="true"></i></a>x_m_s </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">float</span> mavsdk::Mocap::SpeedBody::x_m_s {}
+<p>Provide raw access to retrieve and provide server parameters. </p>
+<h2 id="data-structures"><a name="data-structures" class="plugin-anchor" href="#data-structures"><i class="fa fa-link" aria-hidden="true"></i></a>Data Structures</h2>
+<p>struct <a href="structmavsdk_1_1_param_server_1_1_all_params.html">AllParams</a></p>
+<p>struct <a href="structmavsdk_1_1_param_server_1_1_custom_param.html">CustomParam</a></p>
+<p>struct <a href="structmavsdk_1_1_param_server_1_1_float_param.html">FloatParam</a></p>
+<p>struct <a href="structmavsdk_1_1_param_server_1_1_int_param.html">IntParam</a></p>
+<h2 id="public-types"><a name="public-types" class="plugin-anchor" href="#public-types"><i class="fa fa-link" aria-hidden="true"></i></a>Public Types</h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enum <a href="#classmavsdk_1_1_param_server_1a6f7fcc017f43dcf68837dbc35ee4f469">Result</a></td>
+<td>Possible results returned for param requests.</td>
+</tr>
+<tr>
+<td>std::function&lt; void(<a href="classmavsdk_1_1_param_server.html#classmavsdk_1_1_param_server_1a6f7fcc017f43dcf68837dbc35ee4f469">Result</a>)&gt; <a href="#classmavsdk_1_1_param_server_1a669845877bb8e14482fb46542825c625">ResultCallback</a></td>
+<td>Callback type for asynchronous <a href="classmavsdk_1_1_param_server.html">ParamServer</a> calls.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-member-functions"><a name="public-member-functions" class="plugin-anchor" href="#public-member-functions"><i class="fa fa-link" aria-hidden="true"></i></a>Public Member Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Type</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">&#xA0;</td>
+<td><a href="#classmavsdk_1_1_param_server_1a1381f2cd17459a70b04167fe0c230134">ParamServer</a> (<a href="classmavsdk_1_1_system.html">System</a> &amp; system)</td>
+<td>Constructor. Creates the plugin for a specific <a href="classmavsdk_1_1_system.html">System</a>.</td>
+</tr>
+<tr>
+<td style="text-align:right">&#xA0;</td>
+<td><a href="#classmavsdk_1_1_param_server_1a2d57795672afad77a1c55cda9e6d57d6">ParamServer</a> (std::shared_ptr&lt; <a href="classmavsdk_1_1_system.html">System</a> &gt; system)</td>
+<td>Constructor. Creates the plugin for a specific <a href="classmavsdk_1_1_system.html">System</a>.</td>
+</tr>
+<tr>
+<td style="text-align:right">&#xA0;</td>
+<td><a href="#classmavsdk_1_1_param_server_1a6066a31b1b6f6ce29a30617634ba1184">~ParamServer</a> ()</td>
+<td>Destructor (internal use only).</td>
+</tr>
+<tr>
+<td style="text-align:right">&#xA0;</td>
+<td><a href="#classmavsdk_1_1_param_server_1a4cffcb488093838f72414c94e6c40fd0">ParamServer</a> (const <a href="classmavsdk_1_1_param_server.html">ParamServer</a> &amp; other)</td>
+<td>Copy constructor.</td>
+</tr>
+<tr>
+<td style="text-align:right">std::pair&lt; <a href="classmavsdk_1_1_param_server.html#classmavsdk_1_1_param_server_1a6f7fcc017f43dcf68837dbc35ee4f469">Result</a>, int32_t &gt;</td>
+<td><a href="#classmavsdk_1_1_param_server_1a95c445dbdd2b764248c811da0230b0b4">retrieve_param_int</a> (std::string name)const</td>
+<td>Retrieve an int parameter.</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_param_server.html#classmavsdk_1_1_param_server_1a6f7fcc017f43dcf68837dbc35ee4f469">Result</a></td>
+<td><a href="#classmavsdk_1_1_param_server_1a9de5dade4020eda7fb1cc07c6868dad1">provide_param_int</a> (std::string name, int32_t value)const</td>
+<td>Provide an int parameter.</td>
+</tr>
+<tr>
+<td style="text-align:right">std::pair&lt; <a href="classmavsdk_1_1_param_server.html#classmavsdk_1_1_param_server_1a6f7fcc017f43dcf68837dbc35ee4f469">Result</a>, float &gt;</td>
+<td><a href="#classmavsdk_1_1_param_server_1a2845916c07a7e47e7444a49f88b23320">retrieve_param_float</a> (std::string name)const</td>
+<td>Retrieve a float parameter.</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_param_server.html#classmavsdk_1_1_param_server_1a6f7fcc017f43dcf68837dbc35ee4f469">Result</a></td>
+<td><a href="#classmavsdk_1_1_param_server_1a7893e4b00609eb0826835b3d8930db1f">provide_param_float</a> (std::string name, float value)const</td>
+<td>Provide a float parameter.</td>
+</tr>
+<tr>
+<td style="text-align:right">std::pair&lt; <a href="classmavsdk_1_1_param_server.html#classmavsdk_1_1_param_server_1a6f7fcc017f43dcf68837dbc35ee4f469">Result</a>, std::string &gt;</td>
+<td><a href="#classmavsdk_1_1_param_server_1aa6564b8138bc66519f425a350265b50d">retrieve_param_custom</a> (std::string name)const</td>
+<td>Retrieve a custom parameter.</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_param_server.html#classmavsdk_1_1_param_server_1a6f7fcc017f43dcf68837dbc35ee4f469">Result</a></td>
+<td><a href="#classmavsdk_1_1_param_server_1a60487de3470b9b1c39b403d4c9053d73">provide_param_custom</a> (std::string name, std::string value)const</td>
+<td>Provide a custom parameter.</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="structmavsdk_1_1_param_server_1_1_all_params.html">ParamServer::AllParams</a></td>
+<td><a href="#classmavsdk_1_1_param_server_1aaf6b3862213d415ff26730afad95565f">retrieve_all_params</a> () const</td>
+<td>Retrieve all parameters.</td>
+</tr>
+<tr>
+<td style="text-align:right">const <a href="classmavsdk_1_1_param_server.html">ParamServer</a> &amp;</td>
+<td><a href="#classmavsdk_1_1_param_server_1a29ce1d2c4a2b80fbe4a0b7e7470e14af">operator=</a> (const <a href="classmavsdk_1_1_param_server.html">ParamServer</a> &amp;)=delete</td>
+<td>Equality operator (object is not copyable).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="constructor--destructor-documentation"><a name="constructor--destructor-documentation" class="plugin-anchor" href="#constructor--destructor-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Constructor &amp; Destructor Documentation</h2>
+<h3 id="classmavsdk_1_1_param_server_1a1381f2cd17459a70b04167fe0c230134"><a name="classmavsdk_1_1_param_server_1a1381f2cd17459a70b04167fe0c230134" class="plugin-anchor" href="#classmavsdk_1_1_param_server_1a1381f2cd17459a70b04167fe0c230134"><i class="fa fa-link" aria-hidden="true"></i></a>ParamServer() </h3>
+<pre><code class="lang-cpp">mavsdk::ParamServer::ParamServer(System &amp;system)
 </code></pre>
-<p>Velocity in X in metres/second.</p>
-<h3 id="structmavsdk_1_1_mocap_1_1_speed_body_1ac17f64b0fd5f3815d63fc4c45e7c57c1"><a name="structmavsdk_1_1_mocap_1_1_speed_body_1ac17f64b0fd5f3815d63fc4c45e7c57c1" class="plugin-anchor" href="#structmavsdk_1_1_mocap_1_1_speed_body_1ac17f64b0fd5f3815d63fc4c45e7c57c1"><i class="fa fa-link" aria-hidden="true"></i></a>y_m_s </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">float</span> mavsdk::Mocap::SpeedBody::y_m_s {}
+<p>Constructor. Creates the plugin for a specific <a href="classmavsdk_1_1_system.html">System</a>.</p>
+<p>The plugin is typically created as shown below: </p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">auto</span> param_server = ParamServer(system);
 </code></pre>
-<p>Velocity in Y in metres/second.</p>
-<h3 id="structmavsdk_1_1_mocap_1_1_speed_body_1a6233dc5ecd99f15e2bc8917662243f2b"><a name="structmavsdk_1_1_mocap_1_1_speed_body_1a6233dc5ecd99f15e2bc8917662243f2b" class="plugin-anchor" href="#structmavsdk_1_1_mocap_1_1_speed_body_1a6233dc5ecd99f15e2bc8917662243f2b"><i class="fa fa-link" aria-hidden="true"></i></a>z_m_s </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">float</span> mavsdk::Mocap::SpeedBody::z_m_s {}
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_system.html">System</a>&amp; <strong>system</strong> - The specific system associated with this plugin.</li>
+</ul>
+<h3 id="classmavsdk_1_1_param_server_1a2d57795672afad77a1c55cda9e6d57d6"><a name="classmavsdk_1_1_param_server_1a2d57795672afad77a1c55cda9e6d57d6" class="plugin-anchor" href="#classmavsdk_1_1_param_server_1a2d57795672afad77a1c55cda9e6d57d6"><i class="fa fa-link" aria-hidden="true"></i></a>ParamServer() </h3>
+<pre><code class="lang-cpp">mavsdk::ParamServer::ParamServer(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt; System &gt; system)
 </code></pre>
-<p>Velocity in Z in metres/second.</p>
+<p>Constructor. Creates the plugin for a specific <a href="classmavsdk_1_1_system.html">System</a>.</p>
+<p>The plugin is typically created as shown below: </p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">auto</span> param_server = ParamServer(system);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>std::shared_ptr&lt; <a href="classmavsdk_1_1_system.html">System</a> &gt; <strong>system</strong> - The specific system associated with this plugin.</li>
+</ul>
+<h3 id="classmavsdk_1_1_param_server_1a6066a31b1b6f6ce29a30617634ba1184"><a name="classmavsdk_1_1_param_server_1a6066a31b1b6f6ce29a30617634ba1184" class="plugin-anchor" href="#classmavsdk_1_1_param_server_1a6066a31b1b6f6ce29a30617634ba1184"><i class="fa fa-link" aria-hidden="true"></i></a>~ParamServer() </h3>
+<pre><code class="lang-cpp">mavsdk::ParamServer::~ParamServer()
+</code></pre>
+<p>Destructor (internal use only).</p>
+<h3 id="classmavsdk_1_1_param_server_1a4cffcb488093838f72414c94e6c40fd0"><a name="classmavsdk_1_1_param_server_1a4cffcb488093838f72414c94e6c40fd0" class="plugin-anchor" href="#classmavsdk_1_1_param_server_1a4cffcb488093838f72414c94e6c40fd0"><i class="fa fa-link" aria-hidden="true"></i></a>ParamServer() </h3>
+<pre><code class="lang-cpp">mavsdk::ParamServer::ParamServer(<span class="hljs-keyword">const</span> ParamServer &amp;other)
+</code></pre>
+<p>Copy constructor.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classmavsdk_1_1_param_server.html">ParamServer</a>&amp; <strong>other</strong> - </li>
+</ul>
+<h2 id="member-typdef-documentation"><a name="member-typdef-documentation" class="plugin-anchor" href="#member-typdef-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Member Typdef Documentation</h2>
+<h3 id="classmavsdk_1_1_param_server_1a669845877bb8e14482fb46542825c625"><a name="classmavsdk_1_1_param_server_1a669845877bb8e14482fb46542825c625" class="plugin-anchor" href="#classmavsdk_1_1_param_server_1a669845877bb8e14482fb46542825c625"><i class="fa fa-link" aria-hidden="true"></i></a>typedef ResultCallback </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::ParamServer::ResultCallback =  <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(Result)&gt;
+</code></pre>
+<p>Callback type for asynchronous <a href="classmavsdk_1_1_param_server.html">ParamServer</a> calls.</p>
+<h2 id="member-enumeration-documentation"><a name="member-enumeration-documentation" class="plugin-anchor" href="#member-enumeration-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Member Enumeration Documentation</h2>
+<h3 id="classmavsdk_1_1_param_server_1a6f7fcc017f43dcf68837dbc35ee4f469"><a name="classmavsdk_1_1_param_server_1a6f7fcc017f43dcf68837dbc35ee4f469" class="plugin-anchor" href="#classmavsdk_1_1_param_server_1a6f7fcc017f43dcf68837dbc35ee4f469"><i class="fa fa-link" aria-hidden="true"></i></a>enum Result </h3>
+<p>Possible results returned for param requests.</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span id="classmavsdk_1_1_param_server_1a6f7fcc017f43dcf68837dbc35ee4f469a88183b946cc5f0e8c96b2e66e1c74a7e"></span> <code>Unknown</code></td>
+<td>Unknown result. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_param_server_1a6f7fcc017f43dcf68837dbc35ee4f469a505a83f220c02df2f85c3810cd9ceb38"></span> <code>Success</code></td>
+<td>Request succeeded. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_param_server_1a6f7fcc017f43dcf68837dbc35ee4f469a38c300f4fc9ce8a77aad4a30de05cad8"></span> <code>NotFound</code></td>
+<td>Not Found. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_param_server_1a6f7fcc017f43dcf68837dbc35ee4f469afdf152936dcbf201445440856357f6ac"></span> <code>WrongType</code></td>
+<td>Wrong type. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_param_server_1a6f7fcc017f43dcf68837dbc35ee4f469aa2b5cfc4e45ca036892b3dadc483e655"></span> <code>ParamNameTooLong</code></td>
+<td>Parameter name too long (&gt; 16). </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_param_server_1a6f7fcc017f43dcf68837dbc35ee4f469a1119faf72ba0dfb23aeea644fed960ad"></span> <code>NoSystem</code></td>
+<td>No system available. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_param_server_1a6f7fcc017f43dcf68837dbc35ee4f469a1fc93bc695e2e3e1903029eb77228234"></span> <code>ParamValueTooLong</code></td>
+<td>Parameter name too long (&gt; 128). </td>
+</tr>
+</tbody>
+</table>
+<h2 id="member-function-documentation"><a name="member-function-documentation" class="plugin-anchor" href="#member-function-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Member Function Documentation</h2>
+<h3 id="classmavsdk_1_1_param_server_1a95c445dbdd2b764248c811da0230b0b4"><a name="classmavsdk_1_1_param_server_1a95c445dbdd2b764248c811da0230b0b4" class="plugin-anchor" href="#classmavsdk_1_1_param_server_1a95c445dbdd2b764248c811da0230b0b4"><i class="fa fa-link" aria-hidden="true"></i></a>retrieve_param_int() </h3>
+<pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::pair&lt;Result, <span class="hljs-keyword">int32_t</span>&gt; mavsdk::ParamServer::retrieve_param_int(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> name) <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Retrieve an int parameter.</p>
+<p>If the type is wrong, the result will be <code>WRONG_TYPE</code>.</p>
+<p>This function is blocking.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>std::string <strong>name</strong> - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;std::pair&lt; <a href="classmavsdk_1_1_param_server.html#classmavsdk_1_1_param_server_1a6f7fcc017f43dcf68837dbc35ee4f469">Result</a>, int32_t &gt; - Result of request.</p>
+<h3 id="classmavsdk_1_1_param_server_1a9de5dade4020eda7fb1cc07c6868dad1"><a name="classmavsdk_1_1_param_server_1a9de5dade4020eda7fb1cc07c6868dad1" class="plugin-anchor" href="#classmavsdk_1_1_param_server_1a9de5dade4020eda7fb1cc07c6868dad1"><i class="fa fa-link" aria-hidden="true"></i></a>provide_param_int() </h3>
+<pre><code class="lang-cpp">Result mavsdk::ParamServer::provide_param_int(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> name, <span class="hljs-keyword">int32_t</span> value) <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Provide an int parameter.</p>
+<p>If the type is wrong, the result will be <code>WRONG_TYPE</code>.</p>
+<p>This function is blocking.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>std::string <strong>name</strong> - </li>
+<li>int32_t <strong>value</strong> - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_param_server.html#classmavsdk_1_1_param_server_1a6f7fcc017f43dcf68837dbc35ee4f469">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_param_server_1a2845916c07a7e47e7444a49f88b23320"><a name="classmavsdk_1_1_param_server_1a2845916c07a7e47e7444a49f88b23320" class="plugin-anchor" href="#classmavsdk_1_1_param_server_1a2845916c07a7e47e7444a49f88b23320"><i class="fa fa-link" aria-hidden="true"></i></a>retrieve_param_float() </h3>
+<pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::pair&lt;Result, <span class="hljs-keyword">float</span>&gt; mavsdk::ParamServer::retrieve_param_float(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> name) <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Retrieve a float parameter.</p>
+<p>If the type is wrong, the result will be <code>WRONG_TYPE</code>.</p>
+<p>This function is blocking.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>std::string <strong>name</strong> - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;std::pair&lt; <a href="classmavsdk_1_1_param_server.html#classmavsdk_1_1_param_server_1a6f7fcc017f43dcf68837dbc35ee4f469">Result</a>, float &gt; - Result of request.</p>
+<h3 id="classmavsdk_1_1_param_server_1a7893e4b00609eb0826835b3d8930db1f"><a name="classmavsdk_1_1_param_server_1a7893e4b00609eb0826835b3d8930db1f" class="plugin-anchor" href="#classmavsdk_1_1_param_server_1a7893e4b00609eb0826835b3d8930db1f"><i class="fa fa-link" aria-hidden="true"></i></a>provide_param_float() </h3>
+<pre><code class="lang-cpp">Result mavsdk::ParamServer::provide_param_float(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> name, <span class="hljs-keyword">float</span> value) <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Provide a float parameter.</p>
+<p>If the type is wrong, the result will be <code>WRONG_TYPE</code>.</p>
+<p>This function is blocking.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>std::string <strong>name</strong> - </li>
+<li>float <strong>value</strong> - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_param_server.html#classmavsdk_1_1_param_server_1a6f7fcc017f43dcf68837dbc35ee4f469">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_param_server_1aa6564b8138bc66519f425a350265b50d"><a name="classmavsdk_1_1_param_server_1aa6564b8138bc66519f425a350265b50d" class="plugin-anchor" href="#classmavsdk_1_1_param_server_1aa6564b8138bc66519f425a350265b50d"><i class="fa fa-link" aria-hidden="true"></i></a>retrieve_param_custom() </h3>
+<pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::pair&lt;Result, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&gt; mavsdk::ParamServer::retrieve_param_custom(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> name) <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Retrieve a custom parameter.</p>
+<p>If the type is wrong, the result will be <code>WRONG_TYPE</code>.</p>
+<p>This function is blocking.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>std::string <strong>name</strong> - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;std::pair&lt; <a href="classmavsdk_1_1_param_server.html#classmavsdk_1_1_param_server_1a6f7fcc017f43dcf68837dbc35ee4f469">Result</a>, std::string &gt; - Result of request.</p>
+<h3 id="classmavsdk_1_1_param_server_1a60487de3470b9b1c39b403d4c9053d73"><a name="classmavsdk_1_1_param_server_1a60487de3470b9b1c39b403d4c9053d73" class="plugin-anchor" href="#classmavsdk_1_1_param_server_1a60487de3470b9b1c39b403d4c9053d73"><i class="fa fa-link" aria-hidden="true"></i></a>provide_param_custom() </h3>
+<pre><code class="lang-cpp">Result mavsdk::ParamServer::provide_param_custom(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> name, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> value) <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Provide a custom parameter.</p>
+<p>If the type is wrong, the result will be <code>WRONG_TYPE</code>.</p>
+<p>This function is blocking.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>std::string <strong>name</strong> - </li>
+<li>std::string <strong>value</strong> - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_param_server.html#classmavsdk_1_1_param_server_1a6f7fcc017f43dcf68837dbc35ee4f469">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_param_server_1aaf6b3862213d415ff26730afad95565f"><a name="classmavsdk_1_1_param_server_1aaf6b3862213d415ff26730afad95565f" class="plugin-anchor" href="#classmavsdk_1_1_param_server_1aaf6b3862213d415ff26730afad95565f"><i class="fa fa-link" aria-hidden="true"></i></a>retrieve_all_params() </h3>
+<pre><code class="lang-cpp">ParamServer::AllParams mavsdk::ParamServer::retrieve_all_params() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Retrieve all parameters.</p>
+<p>This function is blocking.</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="structmavsdk_1_1_param_server_1_1_all_params.html">ParamServer::AllParams</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_param_server_1a29ce1d2c4a2b80fbe4a0b7e7470e14af"><a name="classmavsdk_1_1_param_server_1a29ce1d2c4a2b80fbe4a0b7e7470e14af" class="plugin-anchor" href="#classmavsdk_1_1_param_server_1a29ce1d2c4a2b80fbe4a0b7e7470e14af"><i class="fa fa-link" aria-hidden="true"></i></a>operator=() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">const</span> ParamServer&amp; mavsdk::ParamServer::<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> ParamServer &amp;)=<span class="hljs-keyword">delete</span>
+</code></pre>
+<p>Equality operator (object is not copyable).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classmavsdk_1_1_param_server.html">ParamServer</a>&amp;  - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;const <a href="classmavsdk_1_1_param_server.html">ParamServer</a> &amp; - </p>
 <footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2022-05-26 20:06:59 </span> </footer>
                                 
                                 </section>
@@ -3280,12 +3533,12 @@
 
             
                 
-                <a href="structmavsdk_1_1_mocap_1_1_quaternion.html" class="navigation navigation-prev " aria-label="Previous page: struct Quaternion">
+                <a href="structmavsdk_1_1_param_1_1_int_param.html" class="navigation navigation-prev " aria-label="Previous page: struct IntParam">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="structmavsdk_1_1_mocap_1_1_vision_position_estimate.html" class="navigation navigation-next " aria-label="Next page: struct VisionPositionEstimate">
+                <a href="structmavsdk_1_1_param_server_1_1_all_params.html" class="navigation navigation-next " aria-label="Next page: struct AllParams">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -3296,7 +3549,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"struct SpeedBody","level":"1.2.6.19.8","depth":4,"next":{"title":"struct VisionPositionEstimate","level":"1.2.6.19.9","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_mocap_1_1_vision_position_estimate.md","ref":"cpp/api_reference/structmavsdk_1_1_mocap_1_1_vision_position_estimate.md","articles":[]},"previous":{"title":"struct Quaternion","level":"1.2.6.19.7","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_mocap_1_1_quaternion.md","ref":"cpp/api_reference/structmavsdk_1_1_mocap_1_1_quaternion.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v1.4/en/","text":"v1.4"},{"value":"https://mavsdk.mavlink.io/v1.0/en/","text":"v1.0"},{"value":"https://mavsdk.mavlink.io/v0.44/en/","text":"v0.44"},{"value":"https://mavsdk.mavlink.io/v0.39/en/","text":"v0.39"},{"value":"https://mavsdk.mavlink.io/v0.38/en/","text":"v0.38"},{"value":"https://mavsdk.mavlink.io/v0.37.0/en/","text":"v0.37.0"},{"value":"https://mavsdk.mavlink.io/v0.36.0/en/","text":"v0.36.0"},{"value":"https://mavsdk.mavlink.io/v0.35.0/en/","text":"v0.35.0"},{"value":"https://mavsdk.mavlink.io/v0.33.0/en/","text":"v0.33.0"},{"value":"https://mavsdk.mavlink.io/v0.29.0/en/","text":"v0.29.0"},{"value":"https://mavsdk.mavlink.io/v0.27.0/en/","text":"v0.27.0"},{"value":"https://mavsdk.mavlink.io/v0.25.0/en/","text":"v0.25.0"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/api_reference/structmavsdk_1_1_mocap_1_1_speed_body.md","mtime":"2022-05-26T20:06:59.310Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-26T20:07:35.679Z"},"basePath":"../..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"class ParamServer","level":"1.2.6.22","depth":3,"next":{"title":"struct AllParams","level":"1.2.6.22.1","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_param_server_1_1_all_params.md","ref":"cpp/api_reference/structmavsdk_1_1_param_server_1_1_all_params.md","articles":[]},"previous":{"title":"struct IntParam","level":"1.2.6.21.4","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_param_1_1_int_param.md","ref":"cpp/api_reference/structmavsdk_1_1_param_1_1_int_param.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v1.4/en/","text":"v1.4"},{"value":"https://mavsdk.mavlink.io/v1.0/en/","text":"v1.0"},{"value":"https://mavsdk.mavlink.io/v0.44/en/","text":"v0.44"},{"value":"https://mavsdk.mavlink.io/v0.39/en/","text":"v0.39"},{"value":"https://mavsdk.mavlink.io/v0.38/en/","text":"v0.38"},{"value":"https://mavsdk.mavlink.io/v0.37.0/en/","text":"v0.37.0"},{"value":"https://mavsdk.mavlink.io/v0.36.0/en/","text":"v0.36.0"},{"value":"https://mavsdk.mavlink.io/v0.35.0/en/","text":"v0.35.0"},{"value":"https://mavsdk.mavlink.io/v0.33.0/en/","text":"v0.33.0"},{"value":"https://mavsdk.mavlink.io/v0.29.0/en/","text":"v0.29.0"},{"value":"https://mavsdk.mavlink.io/v0.27.0/en/","text":"v0.27.0"},{"value":"https://mavsdk.mavlink.io/v0.25.0/en/","text":"v0.25.0"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/api_reference/classmavsdk_1_1_param_server.md","mtime":"2022-05-26T20:06:59.310Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-26T20:07:35.679Z"},"basePath":"../..","book":{"language":"en"}});
         });
     </script>
 </div>
