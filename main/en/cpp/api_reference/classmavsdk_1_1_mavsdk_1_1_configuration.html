@@ -3236,21 +3236,6 @@
 <p><code>#include: mavsdk.h</code></p>
 <hr>
 <p>Possible configurations. </p>
-<h2 id="public-types"><a name="public-types" class="plugin-anchor" href="#public-types"><i class="fa fa-link" aria-hidden="true"></i></a>Public Types</h2>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>enum <a href="#classmavsdk_1_1_mavsdk_1_1_configuration_1a4426913e8669b94b9e88810c500482f8">UsageType</a></td>
-<td>UsageTypes of configurations, used for automatic ID setting.</td>
-</tr>
-</tbody>
-</table>
 <h2 id="public-member-functions"><a name="public-member-functions" class="plugin-anchor" href="#public-member-functions"><i class="fa fa-link" aria-hidden="true"></i></a>Public Member Functions</h2>
 <table>
 <thead>
@@ -3268,8 +3253,8 @@
 </tr>
 <tr>
 <td style="text-align:right">&#xA0;</td>
-<td><a href="#classmavsdk_1_1_mavsdk_1_1_configuration_1afe37b405647f2cdcd7d3e0f6661676e1">Configuration</a> (<a href="classmavsdk_1_1_mavsdk_1_1_configuration.html#classmavsdk_1_1_mavsdk_1_1_configuration_1a4426913e8669b94b9e88810c500482f8">UsageType</a> usage_type)</td>
-<td>Create new <a href="classmavsdk_1_1_mavsdk_1_1_configuration.html">Configuration</a> using a usage type. In this mode, the system and component ID will be automatically chosen.</td>
+<td><a href="#classmavsdk_1_1_mavsdk_1_1_configuration_1abcc015ee6be8abc2da2c967bbbda9fed">Configuration</a> (<a href="classmavsdk_1_1_mavsdk.html#classmavsdk_1_1_mavsdk_1ac9e9d48bbf840dad8705323b224b1746">ComponentType</a> component_type)</td>
+<td>Create new <a href="classmavsdk_1_1_mavsdk_1_1_configuration.html">Configuration</a> using a component type. In this mode, the system and component ID will be automatically chosen.</td>
 </tr>
 <tr>
 <td style="text-align:right">&#xA0;</td>
@@ -3312,14 +3297,14 @@
 <td>Set whether to send heartbeats by default.</td>
 </tr>
 <tr>
-<td style="text-align:right"><a href="classmavsdk_1_1_mavsdk_1_1_configuration.html#classmavsdk_1_1_mavsdk_1_1_configuration_1a4426913e8669b94b9e88810c500482f8">UsageType</a></td>
-<td><a href="#classmavsdk_1_1_mavsdk_1_1_configuration_1a7f2e657d2d86870ca07e1d0520f6c117">get_usage_type</a> () const</td>
-<td>Usage type of this configuration, used for automatic ID set.</td>
+<td style="text-align:right"><a href="classmavsdk_1_1_mavsdk.html#classmavsdk_1_1_mavsdk_1ac9e9d48bbf840dad8705323b224b1746">ComponentType</a></td>
+<td><a href="#classmavsdk_1_1_mavsdk_1_1_configuration_1a81d3645816f8a3072044498c3f539d12">get_component_type</a> () const</td>
+<td>Component type of this configuration, used for automatic ID set.</td>
 </tr>
 <tr>
 <td style="text-align:right">void</td>
-<td><a href="#classmavsdk_1_1_mavsdk_1_1_configuration_1a7664dce33264446e4d2e8410d5e140c6">set_usage_type</a> (<a href="classmavsdk_1_1_mavsdk_1_1_configuration.html#classmavsdk_1_1_mavsdk_1_1_configuration_1a4426913e8669b94b9e88810c500482f8">UsageType</a> usage_type)</td>
-<td>Set the usage type of this configuration.</td>
+<td><a href="#classmavsdk_1_1_mavsdk_1_1_configuration_1a06461b86734eaa9544e80a4a907c9754">set_component_type</a> (<a href="classmavsdk_1_1_mavsdk.html#classmavsdk_1_1_mavsdk_1ac9e9d48bbf840dad8705323b224b1746">ComponentType</a> component_type)</td>
+<td>Set the component type of this configuration.</td>
 </tr>
 </tbody>
 </table>
@@ -3334,13 +3319,13 @@
 <li>uint8_t <strong>component_id</strong> - the component id to store in this configuration</li>
 <li>bool <strong>always_send_heartbeats</strong> - send heartbeats by default even without a system connected</li>
 </ul>
-<h3 id="classmavsdk_1_1_mavsdk_1_1_configuration_1afe37b405647f2cdcd7d3e0f6661676e1"><a name="classmavsdk_1_1_mavsdk_1_1_configuration_1afe37b405647f2cdcd7d3e0f6661676e1" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1_1_configuration_1afe37b405647f2cdcd7d3e0f6661676e1"><i class="fa fa-link" aria-hidden="true"></i></a>Configuration() </h3>
-<pre><code class="lang-cpp">mavsdk::Mavsdk::Configuration::Configuration(UsageType usage_type)
+<h3 id="classmavsdk_1_1_mavsdk_1_1_configuration_1abcc015ee6be8abc2da2c967bbbda9fed"><a name="classmavsdk_1_1_mavsdk_1_1_configuration_1abcc015ee6be8abc2da2c967bbbda9fed" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1_1_configuration_1abcc015ee6be8abc2da2c967bbbda9fed"><i class="fa fa-link" aria-hidden="true"></i></a>Configuration() </h3>
+<pre><code class="lang-cpp">mavsdk::Mavsdk::Configuration::Configuration(ComponentType component_type)
 </code></pre>
-<p>Create new <a href="classmavsdk_1_1_mavsdk_1_1_configuration.html">Configuration</a> using a usage type. In this mode, the system and component ID will be automatically chosen.</p>
+<p>Create new <a href="classmavsdk_1_1_mavsdk_1_1_configuration.html">Configuration</a> using a component type. In this mode, the system and component ID will be automatically chosen.</p>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><a href="classmavsdk_1_1_mavsdk_1_1_configuration.html#classmavsdk_1_1_mavsdk_1_1_configuration_1a4426913e8669b94b9e88810c500482f8">UsageType</a> <strong>usage_type</strong> - the usage type, used for automatically choosing ids.</li>
+<li><a href="classmavsdk_1_1_mavsdk.html#classmavsdk_1_1_mavsdk_1ac9e9d48bbf840dad8705323b224b1746">ComponentType</a> <strong>component_type</strong> - the component type, used for automatically choosing ids.</li>
 </ul>
 <h3 id="classmavsdk_1_1_mavsdk_1_1_configuration_1a1a65e2e31f06bec1f6692a933c95b03c"><a name="classmavsdk_1_1_mavsdk_1_1_configuration_1a1a65e2e31f06bec1f6692a933c95b03c" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1_1_configuration_1a1a65e2e31f06bec1f6692a933c95b03c"><i class="fa fa-link" aria-hidden="true"></i></a>Configuration() </h3>
 <pre><code class="lang-cpp">mavsdk::Mavsdk::Configuration::Configuration()=<span class="hljs-keyword">delete</span>
@@ -3348,40 +3333,6 @@
 <h3 id="classmavsdk_1_1_mavsdk_1_1_configuration_1a31cad2329ee14898752638d9c3759da9"><a name="classmavsdk_1_1_mavsdk_1_1_configuration_1a31cad2329ee14898752638d9c3759da9" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1_1_configuration_1a31cad2329ee14898752638d9c3759da9"><i class="fa fa-link" aria-hidden="true"></i></a>~Configuration() </h3>
 <pre><code class="lang-cpp">mavsdk::Mavsdk::Configuration::~Configuration()=<span class="hljs-keyword">default</span>
 </code></pre>
-<h2 id="member-enumeration-documentation"><a name="member-enumeration-documentation" class="plugin-anchor" href="#member-enumeration-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Member Enumeration Documentation</h2>
-<h3 id="classmavsdk_1_1_mavsdk_1_1_configuration_1a4426913e8669b94b9e88810c500482f8"><a name="classmavsdk_1_1_mavsdk_1_1_configuration_1a4426913e8669b94b9e88810c500482f8" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1_1_configuration_1a4426913e8669b94b9e88810c500482f8"><i class="fa fa-link" aria-hidden="true"></i></a>enum UsageType </h3>
-<p>UsageTypes of configurations, used for automatic ID setting.</p>
-<table>
-<thead>
-<tr>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span id="classmavsdk_1_1_mavsdk_1_1_configuration_1a4426913e8669b94b9e88810c500482f8a6ca1d2b081cc474f42cb95e3d04e6e68"></span> <code>Autopilot</code></td>
-<td>SDK is used as an autopilot. </td>
-</tr>
-<tr>
-<td><span id="classmavsdk_1_1_mavsdk_1_1_configuration_1a4426913e8669b94b9e88810c500482f8af64f82089eddc6133add8c55c65d6687"></span> <code>GroundStation</code></td>
-<td>SDK is used as a ground station. </td>
-</tr>
-<tr>
-<td><span id="classmavsdk_1_1_mavsdk_1_1_configuration_1a4426913e8669b94b9e88810c500482f8a8f2f82e1a7aa48819e9530d5c4977477"></span> <code>CompanionComputer</code></td>
-<td>SDK is used as a companion computer on board the MAV. </td>
-</tr>
-<tr>
-<td><span id="classmavsdk_1_1_mavsdk_1_1_configuration_1a4426913e8669b94b9e88810c500482f8a967d35e40f3f95b1f538bd248640bf3b"></span> <code>Camera</code></td>
-<td></td>
-</tr>
-<tr>
-<td><span id="classmavsdk_1_1_mavsdk_1_1_configuration_1a4426913e8669b94b9e88810c500482f8a90589c47f06eb971d548591f23c285af"></span> <code>Custom</code></td>
-<td>SDK is used as a camera. &lt;</td>
-</tr>
-</tbody>
-</table>
-<p>the SDK is used in a custom configuration, no automatic ID will be provided</p>
 <h2 id="member-function-documentation"><a name="member-function-documentation" class="plugin-anchor" href="#member-function-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Member Function Documentation</h2>
 <h3 id="classmavsdk_1_1_mavsdk_1_1_configuration_1a0497bdda816b674b1418ab07889ca781"><a name="classmavsdk_1_1_mavsdk_1_1_configuration_1a0497bdda816b674b1418ab07889ca781" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1_1_configuration_1a0497bdda816b674b1418ab07889ca781"><i class="fa fa-link" aria-hidden="true"></i></a>get_system_id() </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">uint8_t</span> mavsdk::Mavsdk::Configuration::get_system_id() <span class="hljs-keyword">const</span>
@@ -3425,21 +3376,21 @@
 <ul>
 <li>bool <strong>always_send_heartbeats</strong> - </li>
 </ul>
-<h3 id="classmavsdk_1_1_mavsdk_1_1_configuration_1a7f2e657d2d86870ca07e1d0520f6c117"><a name="classmavsdk_1_1_mavsdk_1_1_configuration_1a7f2e657d2d86870ca07e1d0520f6c117" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1_1_configuration_1a7f2e657d2d86870ca07e1d0520f6c117"><i class="fa fa-link" aria-hidden="true"></i></a>get_usage_type() </h3>
-<pre><code class="lang-cpp">UsageType mavsdk::Mavsdk::Configuration::get_usage_type() <span class="hljs-keyword">const</span>
+<h3 id="classmavsdk_1_1_mavsdk_1_1_configuration_1a81d3645816f8a3072044498c3f539d12"><a name="classmavsdk_1_1_mavsdk_1_1_configuration_1a81d3645816f8a3072044498c3f539d12" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1_1_configuration_1a81d3645816f8a3072044498c3f539d12"><i class="fa fa-link" aria-hidden="true"></i></a>get_component_type() </h3>
+<pre><code class="lang-cpp">ComponentType mavsdk::Mavsdk::Configuration::get_component_type() <span class="hljs-keyword">const</span>
 </code></pre>
-<p>Usage type of this configuration, used for automatic ID set.</p>
+<p>Component type of this configuration, used for automatic ID set.</p>
 <p><strong>Returns</strong></p>
-<p>&#x2003;<a href="classmavsdk_1_1_mavsdk_1_1_configuration.html#classmavsdk_1_1_mavsdk_1_1_configuration_1a4426913e8669b94b9e88810c500482f8">UsageType</a> - </p>
-<h3 id="classmavsdk_1_1_mavsdk_1_1_configuration_1a7664dce33264446e4d2e8410d5e140c6"><a name="classmavsdk_1_1_mavsdk_1_1_configuration_1a7664dce33264446e4d2e8410d5e140c6" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1_1_configuration_1a7664dce33264446e4d2e8410d5e140c6"><i class="fa fa-link" aria-hidden="true"></i></a>set_usage_type() </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Mavsdk::Configuration::set_usage_type(UsageType usage_type)
+<p>&#x2003;<a href="classmavsdk_1_1_mavsdk.html#classmavsdk_1_1_mavsdk_1ac9e9d48bbf840dad8705323b224b1746">ComponentType</a> - </p>
+<h3 id="classmavsdk_1_1_mavsdk_1_1_configuration_1a06461b86734eaa9544e80a4a907c9754"><a name="classmavsdk_1_1_mavsdk_1_1_configuration_1a06461b86734eaa9544e80a4a907c9754" class="plugin-anchor" href="#classmavsdk_1_1_mavsdk_1_1_configuration_1a06461b86734eaa9544e80a4a907c9754"><i class="fa fa-link" aria-hidden="true"></i></a>set_component_type() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Mavsdk::Configuration::set_component_type(ComponentType component_type)
 </code></pre>
-<p>Set the usage type of this configuration.</p>
+<p>Set the component type of this configuration.</p>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><a href="classmavsdk_1_1_mavsdk_1_1_configuration.html#classmavsdk_1_1_mavsdk_1_1_configuration_1a4426913e8669b94b9e88810c500482f8">UsageType</a> <strong>usage_type</strong> - </li>
+<li><a href="classmavsdk_1_1_mavsdk.html#classmavsdk_1_1_mavsdk_1ac9e9d48bbf840dad8705323b224b1746">ComponentType</a> <strong>component_type</strong> - </li>
 </ul>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2023-12-27 01:33:23 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; MAVSDK Development Team 2017-2023. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2023-12-27 03:10:20 </span> </footer>
                                 
                                 </section>
                             
@@ -3482,7 +3433,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"class Mavsdk::Configuration","level":"1.2.6.15.1","depth":4,"next":{"title":"class Mission","level":"1.2.6.16","depth":3,"path":"cpp/api_reference/classmavsdk_1_1_mission.md","ref":"cpp/api_reference/classmavsdk_1_1_mission.md","articles":[{"title":"struct MissionItem","level":"1.2.6.16.1","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_item.md","ref":"cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_item.md","articles":[]},{"title":"struct MissionPlan","level":"1.2.6.16.2","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_plan.md","ref":"cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_plan.md","articles":[]},{"title":"struct MissionProgress","level":"1.2.6.16.3","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_progress.md","ref":"cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_progress.md","articles":[]},{"title":"struct ProgressData","level":"1.2.6.16.4","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_mission_1_1_progress_data.md","ref":"cpp/api_reference/structmavsdk_1_1_mission_1_1_progress_data.md","articles":[]},{"title":"struct ProgressDataOrMission","level":"1.2.6.16.5","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_mission_1_1_progress_data_or_mission.md","ref":"cpp/api_reference/structmavsdk_1_1_mission_1_1_progress_data_or_mission.md","articles":[]}]},"previous":{"title":"class Mavsdk","level":"1.2.6.15","depth":3,"path":"cpp/api_reference/classmavsdk_1_1_mavsdk.md","ref":"cpp/api_reference/classmavsdk_1_1_mavsdk.md","articles":[{"title":"class Mavsdk::Configuration","level":"1.2.6.15.1","depth":4,"path":"cpp/api_reference/classmavsdk_1_1_mavsdk_1_1_configuration.md","ref":"cpp/api_reference/classmavsdk_1_1_mavsdk_1_1_configuration.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v2.0/en/","text":"v2.0"},{"value":"https://mavsdk.mavlink.io/v1.4/en/","text":"v1.4"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/api_reference/classmavsdk_1_1_mavsdk_1_1_configuration.md","mtime":"2023-12-27T01:33:23.810Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-12-27T01:34:03.009Z"},"basePath":"../..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"class Mavsdk::Configuration","level":"1.2.6.15.1","depth":4,"next":{"title":"class Mission","level":"1.2.6.16","depth":3,"path":"cpp/api_reference/classmavsdk_1_1_mission.md","ref":"cpp/api_reference/classmavsdk_1_1_mission.md","articles":[{"title":"struct MissionItem","level":"1.2.6.16.1","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_item.md","ref":"cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_item.md","articles":[]},{"title":"struct MissionPlan","level":"1.2.6.16.2","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_plan.md","ref":"cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_plan.md","articles":[]},{"title":"struct MissionProgress","level":"1.2.6.16.3","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_progress.md","ref":"cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_progress.md","articles":[]},{"title":"struct ProgressData","level":"1.2.6.16.4","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_mission_1_1_progress_data.md","ref":"cpp/api_reference/structmavsdk_1_1_mission_1_1_progress_data.md","articles":[]},{"title":"struct ProgressDataOrMission","level":"1.2.6.16.5","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_mission_1_1_progress_data_or_mission.md","ref":"cpp/api_reference/structmavsdk_1_1_mission_1_1_progress_data_or_mission.md","articles":[]}]},"previous":{"title":"class Mavsdk","level":"1.2.6.15","depth":3,"path":"cpp/api_reference/classmavsdk_1_1_mavsdk.md","ref":"cpp/api_reference/classmavsdk_1_1_mavsdk.md","articles":[{"title":"class Mavsdk::Configuration","level":"1.2.6.15.1","depth":4,"path":"cpp/api_reference/classmavsdk_1_1_mavsdk_1_1_configuration.md","ref":"cpp/api_reference/classmavsdk_1_1_mavsdk_1_1_configuration.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© MAVSDK Development Team 2017-2023. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v2.0/en/","text":"v2.0"},{"value":"https://mavsdk.mavlink.io/v1.4/en/","text":"v1.4"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/api_reference/classmavsdk_1_1_mavsdk_1_1_configuration.md","mtime":"2023-12-27T03:10:20.531Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-12-27T03:11:00.444Z"},"basePath":"../..","book":{"language":"en"}});
         });
     </script>
 </div>

@@ -3246,19 +3246,21 @@
 </thead>
 <tbody>
 <tr>
-<td>enum <a href="#structmavsdk_1_1_follow_me_1_1_config_1ab64f85fc0623306450866b943da9581f">FollowDirection</a></td>
-<td>Direction relative to the target that the vehicle should follow.</td>
+<td>enum <a href="#structmavsdk_1_1_follow_me_1_1_config_1a25f3b39bc6d0eda07891537478bed85b">FollowAltitudeMode</a></td>
+<td>Altitude mode to configure which altitude the follow me will assume the target to be at.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="data-fields"><a name="data-fields" class="plugin-anchor" href="#data-fields"><i class="fa fa-link" aria-hidden="true"></i></a>Data Fields</h2>
-<p>float <a href="#structmavsdk_1_1_follow_me_1_1_config_1ac295180cfc4a22650c578bbdfa4d7a9f">min_height_m</a> {8.0} - Minimum height for the vehicle in meters (recommended minimum 8 meters)</p>
-<p>float <a href="#structmavsdk_1_1_follow_me_1_1_config_1a2f1407099516da129f650875e676a7eb">follow_distance_m</a> {8.0} - Distance from target for vehicle to follow in meters (recommended minimum 1 meter)</p>
-<p><a href="structmavsdk_1_1_follow_me_1_1_config.html#structmavsdk_1_1_follow_me_1_1_config_1ab64f85fc0623306450866b943da9581f">FollowDirection</a> <a href="#structmavsdk_1_1_follow_me_1_1_config_1a910ec3aa11abd18610bca4805ac72632">follow_direction</a> {} - Direction to follow in.</p>
-<p>float <a href="#structmavsdk_1_1_follow_me_1_1_config_1a3b0bced94506c4248cbaa9cc0894616a">responsiveness</a> {0.5} - How responsive the vehicle is to the motion of the target (range 0.0 to 1.0)</p>
+<p>float <a href="#structmavsdk_1_1_follow_me_1_1_config_1a221d2136ba04ffc0e46cd17f992f0d86">follow_height_m</a> { 8.0f} - [m] Follow height in meters (recommended minimum 8 meters)</p>
+<p>float <a href="#structmavsdk_1_1_follow_me_1_1_config_1a2f1407099516da129f650875e676a7eb">follow_distance_m</a> {8.0f} - [m] Follow distance to target in meters (recommended minimum 4 meter)</p>
+<p>float <a href="#structmavsdk_1_1_follow_me_1_1_config_1a3b0bced94506c4248cbaa9cc0894616a">responsiveness</a> {0.1f} - How responsive the vehicle is to the motion of the target, Lower value = More responsive (range 0.0 to 1.0)</p>
+<p><a href="structmavsdk_1_1_follow_me_1_1_config.html#structmavsdk_1_1_follow_me_1_1_config_1a25f3b39bc6d0eda07891537478bed85b">FollowAltitudeMode</a> <a href="#structmavsdk_1_1_follow_me_1_1_config_1a70d86547c8f23e1fbd2b66632b484dcd">altitude_mode</a> {} - Follow Altitude control mode.</p>
+<p>float <a href="#structmavsdk_1_1_follow_me_1_1_config_1aa466aeef1806c3053a9558c9e1ebf8b9">max_tangential_vel_m_s</a> { 8.0f} - [m/s] Maximum orbit tangential velocity relative to the target, in meters per second. Higher value = More aggressive follow angle tracking.</p>
+<p>float <a href="#structmavsdk_1_1_follow_me_1_1_config_1a15d09482cd57a3d4a51ce9896ac37143">follow_angle_deg</a> { 180.0f} - [deg] Follow Angle relative to the target. 0 equals following in front of the target&apos;s direction. Angle increases in Clockwise direction, so following from right would be 90 degrees, from the left is -90 degrees, and so on.</p>
 <h2 id="member-enumeration-documentation"><a name="member-enumeration-documentation" class="plugin-anchor" href="#member-enumeration-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Member Enumeration Documentation</h2>
-<h3 id="structmavsdk_1_1_follow_me_1_1_config_1ab64f85fc0623306450866b943da9581f"><a name="structmavsdk_1_1_follow_me_1_1_config_1ab64f85fc0623306450866b943da9581f" class="plugin-anchor" href="#structmavsdk_1_1_follow_me_1_1_config_1ab64f85fc0623306450866b943da9581f"><i class="fa fa-link" aria-hidden="true"></i></a>enum FollowDirection </h3>
-<p>Direction relative to the target that the vehicle should follow.</p>
+<h3 id="structmavsdk_1_1_follow_me_1_1_config_1a25f3b39bc6d0eda07891537478bed85b"><a name="structmavsdk_1_1_follow_me_1_1_config_1a25f3b39bc6d0eda07891537478bed85b" class="plugin-anchor" href="#structmavsdk_1_1_follow_me_1_1_config_1a25f3b39bc6d0eda07891537478bed85b"><i class="fa fa-link" aria-hidden="true"></i></a>enum FollowAltitudeMode </h3>
+<p>Altitude mode to configure which altitude the follow me will assume the target to be at.</p>
 <table>
 <thead>
 <tr>
@@ -3268,45 +3270,45 @@
 </thead>
 <tbody>
 <tr>
-<td><span id="structmavsdk_1_1_follow_me_1_1_config_1ab64f85fc0623306450866b943da9581fa6adf97f83acf6453d4a6a4b1070f3754"></span> <code>None</code></td>
-<td>Do not follow. </td>
+<td><span id="structmavsdk_1_1_follow_me_1_1_config_1a25f3b39bc6d0eda07891537478bed85bacb17869fe51048b5a5c4c6106551a255"></span> <code>Constant</code></td>
+<td>Target assumed to be mobing at a constant altitude of home position (where the vehicle armed). </td>
 </tr>
 <tr>
-<td><span id="structmavsdk_1_1_follow_me_1_1_config_1ab64f85fc0623306450866b943da9581fa382c70faebc9dd21aff0801c33c5c4eb"></span> <code>Behind</code></td>
-<td>Follow from behind. </td>
+<td><span id="structmavsdk_1_1_follow_me_1_1_config_1a25f3b39bc6d0eda07891537478bed85ba4ccfea7a25fae3c1d31555f0856d2b42"></span> <code>Terrain</code></td>
+<td>Target assumed to be at the terrain level sensed by the distance sensor. </td>
 </tr>
 <tr>
-<td><span id="structmavsdk_1_1_follow_me_1_1_config_1ab64f85fc0623306450866b943da9581fa5835bab1ade0060909e31a06af2e2cde"></span> <code>Front</code></td>
-<td>Follow from front. </td>
-</tr>
-<tr>
-<td><span id="structmavsdk_1_1_follow_me_1_1_config_1ab64f85fc0623306450866b943da9581fa17a1a1897fa234ffd995f32ff31c4075"></span> <code>FrontRight</code></td>
-<td>Follow from front right. </td>
-</tr>
-<tr>
-<td><span id="structmavsdk_1_1_follow_me_1_1_config_1ab64f85fc0623306450866b943da9581fa3a86c1ecef856c6360b14ee920abd2d4"></span> <code>FrontLeft</code></td>
-<td>Follow from front left. </td>
+<td><span id="structmavsdk_1_1_follow_me_1_1_config_1a25f3b39bc6d0eda07891537478bed85ba3ee2c99c1564fda419307854d3417ac7"></span> <code>TargetGps</code></td>
+<td>Target GPS altitude taken into account to do 3D tracking. </td>
 </tr>
 </tbody>
 </table>
 <h2 id="field-documentation"><a name="field-documentation" class="plugin-anchor" href="#field-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Field Documentation</h2>
-<h3 id="structmavsdk_1_1_follow_me_1_1_config_1ac295180cfc4a22650c578bbdfa4d7a9f"><a name="structmavsdk_1_1_follow_me_1_1_config_1ac295180cfc4a22650c578bbdfa4d7a9f" class="plugin-anchor" href="#structmavsdk_1_1_follow_me_1_1_config_1ac295180cfc4a22650c578bbdfa4d7a9f"><i class="fa fa-link" aria-hidden="true"></i></a>min_height_m </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">float</span> mavsdk::FollowMe::Config::min_height_m {<span class="hljs-number">8.0</span>}
+<h3 id="structmavsdk_1_1_follow_me_1_1_config_1a221d2136ba04ffc0e46cd17f992f0d86"><a name="structmavsdk_1_1_follow_me_1_1_config_1a221d2136ba04ffc0e46cd17f992f0d86" class="plugin-anchor" href="#structmavsdk_1_1_follow_me_1_1_config_1a221d2136ba04ffc0e46cd17f992f0d86"><i class="fa fa-link" aria-hidden="true"></i></a>follow_height_m </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">float</span> mavsdk::FollowMe::Config::follow_height_m { <span class="hljs-number">8.0f</span>}
 </code></pre>
-<p>Minimum height for the vehicle in meters (recommended minimum 8 meters)</p>
+<p>[m] Follow height in meters (recommended minimum 8 meters)</p>
 <h3 id="structmavsdk_1_1_follow_me_1_1_config_1a2f1407099516da129f650875e676a7eb"><a name="structmavsdk_1_1_follow_me_1_1_config_1a2f1407099516da129f650875e676a7eb" class="plugin-anchor" href="#structmavsdk_1_1_follow_me_1_1_config_1a2f1407099516da129f650875e676a7eb"><i class="fa fa-link" aria-hidden="true"></i></a>follow_distance_m </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">float</span> mavsdk::FollowMe::Config::follow_distance_m {<span class="hljs-number">8.0</span>}
+<pre><code class="lang-cpp"><span class="hljs-keyword">float</span> mavsdk::FollowMe::Config::follow_distance_m {<span class="hljs-number">8.0f</span>}
 </code></pre>
-<p>Distance from target for vehicle to follow in meters (recommended minimum 1 meter)</p>
-<h3 id="structmavsdk_1_1_follow_me_1_1_config_1a910ec3aa11abd18610bca4805ac72632"><a name="structmavsdk_1_1_follow_me_1_1_config_1a910ec3aa11abd18610bca4805ac72632" class="plugin-anchor" href="#structmavsdk_1_1_follow_me_1_1_config_1a910ec3aa11abd18610bca4805ac72632"><i class="fa fa-link" aria-hidden="true"></i></a>follow_direction </h3>
-<pre><code class="lang-cpp">FollowDirection mavsdk::FollowMe::Config::follow_direction {}
-</code></pre>
-<p>Direction to follow in.</p>
+<p>[m] Follow distance to target in meters (recommended minimum 4 meter)</p>
 <h3 id="structmavsdk_1_1_follow_me_1_1_config_1a3b0bced94506c4248cbaa9cc0894616a"><a name="structmavsdk_1_1_follow_me_1_1_config_1a3b0bced94506c4248cbaa9cc0894616a" class="plugin-anchor" href="#structmavsdk_1_1_follow_me_1_1_config_1a3b0bced94506c4248cbaa9cc0894616a"><i class="fa fa-link" aria-hidden="true"></i></a>responsiveness </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">float</span> mavsdk::FollowMe::Config::responsiveness {<span class="hljs-number">0.5</span>}
+<pre><code class="lang-cpp"><span class="hljs-keyword">float</span> mavsdk::FollowMe::Config::responsiveness {<span class="hljs-number">0.1f</span>}
 </code></pre>
-<p>How responsive the vehicle is to the motion of the target (range 0.0 to 1.0)</p>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2023-12-27 01:33:23 </span> </footer>
+<p>How responsive the vehicle is to the motion of the target, Lower value = More responsive (range 0.0 to 1.0)</p>
+<h3 id="structmavsdk_1_1_follow_me_1_1_config_1a70d86547c8f23e1fbd2b66632b484dcd"><a name="structmavsdk_1_1_follow_me_1_1_config_1a70d86547c8f23e1fbd2b66632b484dcd" class="plugin-anchor" href="#structmavsdk_1_1_follow_me_1_1_config_1a70d86547c8f23e1fbd2b66632b484dcd"><i class="fa fa-link" aria-hidden="true"></i></a>altitude_mode </h3>
+<pre><code class="lang-cpp">FollowAltitudeMode mavsdk::FollowMe::Config::altitude_mode {}
+</code></pre>
+<p>Follow Altitude control mode.</p>
+<h3 id="structmavsdk_1_1_follow_me_1_1_config_1aa466aeef1806c3053a9558c9e1ebf8b9"><a name="structmavsdk_1_1_follow_me_1_1_config_1aa466aeef1806c3053a9558c9e1ebf8b9" class="plugin-anchor" href="#structmavsdk_1_1_follow_me_1_1_config_1aa466aeef1806c3053a9558c9e1ebf8b9"><i class="fa fa-link" aria-hidden="true"></i></a>max_tangential_vel_m_s </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">float</span> mavsdk::FollowMe::Config::max_tangential_vel_m_s { <span class="hljs-number">8.0f</span>}
+</code></pre>
+<p>[m/s] Maximum orbit tangential velocity relative to the target, in meters per second. Higher value = More aggressive follow angle tracking.</p>
+<h3 id="structmavsdk_1_1_follow_me_1_1_config_1a15d09482cd57a3d4a51ce9896ac37143"><a name="structmavsdk_1_1_follow_me_1_1_config_1a15d09482cd57a3d4a51ce9896ac37143" class="plugin-anchor" href="#structmavsdk_1_1_follow_me_1_1_config_1a15d09482cd57a3d4a51ce9896ac37143"><i class="fa fa-link" aria-hidden="true"></i></a>follow_angle_deg </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">float</span> mavsdk::FollowMe::Config::follow_angle_deg { <span class="hljs-number">180.0f</span>}
+</code></pre>
+<p>[deg] Follow Angle relative to the target. 0 equals following in front of the target&apos;s direction. Angle increases in Clockwise direction, so following from right would be 90 degrees, from the left is -90 degrees, and so on.</p>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; MAVSDK Development Team 2017-2023. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2023-12-27 03:10:20 </span> </footer>
                                 
                                 </section>
                             
@@ -3349,7 +3351,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"struct Config","level":"1.2.6.6.1","depth":4,"next":{"title":"struct TargetLocation","level":"1.2.6.6.2","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_follow_me_1_1_target_location.md","ref":"cpp/api_reference/structmavsdk_1_1_follow_me_1_1_target_location.md","articles":[]},"previous":{"title":"class FollowMe","level":"1.2.6.6","depth":3,"path":"cpp/api_reference/classmavsdk_1_1_follow_me.md","ref":"cpp/api_reference/classmavsdk_1_1_follow_me.md","articles":[{"title":"struct Config","level":"1.2.6.6.1","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_follow_me_1_1_config.md","ref":"cpp/api_reference/structmavsdk_1_1_follow_me_1_1_config.md","articles":[]},{"title":"struct TargetLocation","level":"1.2.6.6.2","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_follow_me_1_1_target_location.md","ref":"cpp/api_reference/structmavsdk_1_1_follow_me_1_1_target_location.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v2.0/en/","text":"v2.0"},{"value":"https://mavsdk.mavlink.io/v1.4/en/","text":"v1.4"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/api_reference/structmavsdk_1_1_follow_me_1_1_config.md","mtime":"2023-12-27T01:33:23.814Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-12-27T01:34:03.009Z"},"basePath":"../..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"struct Config","level":"1.2.6.6.1","depth":4,"next":{"title":"struct TargetLocation","level":"1.2.6.6.2","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_follow_me_1_1_target_location.md","ref":"cpp/api_reference/structmavsdk_1_1_follow_me_1_1_target_location.md","articles":[]},"previous":{"title":"class FollowMe","level":"1.2.6.6","depth":3,"path":"cpp/api_reference/classmavsdk_1_1_follow_me.md","ref":"cpp/api_reference/classmavsdk_1_1_follow_me.md","articles":[{"title":"struct Config","level":"1.2.6.6.1","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_follow_me_1_1_config.md","ref":"cpp/api_reference/structmavsdk_1_1_follow_me_1_1_config.md","articles":[]},{"title":"struct TargetLocation","level":"1.2.6.6.2","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_follow_me_1_1_target_location.md","ref":"cpp/api_reference/structmavsdk_1_1_follow_me_1_1_target_location.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© MAVSDK Development Team 2017-2023. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v2.0/en/","text":"v2.0"},{"value":"https://mavsdk.mavlink.io/v1.4/en/","text":"v1.4"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/api_reference/structmavsdk_1_1_follow_me_1_1_config.md","mtime":"2023-12-27T03:10:20.531Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-12-27T03:11:00.444Z"},"basePath":"../..","book":{"language":"en"}});
         });
     </script>
 </div>

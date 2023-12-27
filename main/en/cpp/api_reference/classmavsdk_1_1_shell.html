@@ -3262,6 +3262,10 @@
 <td>std::function&lt; void(std::string)&gt; <a href="#classmavsdk_1_1_shell_1adfa64ede96967ae1ab5a5ecd83032dbb">ReceiveCallback</a></td>
 <td>Callback type for subscribe_receive.</td>
 </tr>
+<tr>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a>&lt; std::string &gt; <a href="#classmavsdk_1_1_shell_1aea7ab47a9a86aa3f91e71306cc9b430b">ReceiveHandle</a></td>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_receive.</td>
+</tr>
 </tbody>
 </table>
 <h2 id="public-member-functions"><a name="public-member-functions" class="plugin-anchor" href="#public-member-functions"><i class="fa fa-link" aria-hidden="true"></i></a>Public Member Functions</h2>
@@ -3286,7 +3290,7 @@
 </tr>
 <tr>
 <td style="text-align:right">&#xA0;</td>
-<td><a href="#classmavsdk_1_1_shell_1a26b0e0d6a00d89c3d22c0f8a580c54c4">~Shell</a> ()</td>
+<td><a href="#classmavsdk_1_1_shell_1aad035d078495e85c700d4c0148c5f4f9">~Shell</a> () override</td>
 <td>Destructor (internal use only).</td>
 </tr>
 <tr>
@@ -3300,9 +3304,14 @@
 <td>Send a command line.</td>
 </tr>
 <tr>
-<td style="text-align:right">void</td>
-<td><a href="#classmavsdk_1_1_shell_1aa7e47ad1ce0f35e82701bd1811598ee1">subscribe_receive</a> (<a href="classmavsdk_1_1_shell.html#classmavsdk_1_1_shell_1adfa64ede96967ae1ab5a5ecd83032dbb">ReceiveCallback</a> callback)</td>
+<td style="text-align:right"><a href="classmavsdk_1_1_shell.html#classmavsdk_1_1_shell_1aea7ab47a9a86aa3f91e71306cc9b430b">ReceiveHandle</a></td>
+<td><a href="#classmavsdk_1_1_shell_1a2794ac389f4df4f1aaa344612bc8c470">subscribe_receive</a> (const <a href="classmavsdk_1_1_shell.html#classmavsdk_1_1_shell_1adfa64ede96967ae1ab5a5ecd83032dbb">ReceiveCallback</a> &amp; callback)</td>
 <td>Receive feedback from a sent command line.</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_shell_1a5b696e1651459dbc3ceef2a393af433d">unsubscribe_receive</a> (<a href="classmavsdk_1_1_shell.html#classmavsdk_1_1_shell_1aea7ab47a9a86aa3f91e71306cc9b430b">ReceiveHandle</a> handle)</td>
+<td>Unsubscribe from subscribe_receive.</td>
 </tr>
 <tr>
 <td style="text-align:right">const <a href="classmavsdk_1_1_shell.html">Shell</a> &amp;</td>
@@ -3334,8 +3343,8 @@
 <ul>
 <li>std::shared_ptr&lt; <a href="classmavsdk_1_1_system.html">System</a> &gt; <strong>system</strong> - The specific system associated with this plugin.</li>
 </ul>
-<h3 id="classmavsdk_1_1_shell_1a26b0e0d6a00d89c3d22c0f8a580c54c4"><a name="classmavsdk_1_1_shell_1a26b0e0d6a00d89c3d22c0f8a580c54c4" class="plugin-anchor" href="#classmavsdk_1_1_shell_1a26b0e0d6a00d89c3d22c0f8a580c54c4"><i class="fa fa-link" aria-hidden="true"></i></a>~Shell() </h3>
-<pre><code class="lang-cpp">mavsdk::Shell::~Shell()
+<h3 id="classmavsdk_1_1_shell_1aad035d078495e85c700d4c0148c5f4f9"><a name="classmavsdk_1_1_shell_1aad035d078495e85c700d4c0148c5f4f9" class="plugin-anchor" href="#classmavsdk_1_1_shell_1aad035d078495e85c700d4c0148c5f4f9"><i class="fa fa-link" aria-hidden="true"></i></a>~Shell() </h3>
+<pre><code class="lang-cpp">mavsdk::Shell::~Shell() override
 </code></pre>
 <p>Destructor (internal use only).</p>
 <h3 id="classmavsdk_1_1_shell_1aa9d95d880297fca1a5cba341633e660e"><a name="classmavsdk_1_1_shell_1aa9d95d880297fca1a5cba341633e660e" class="plugin-anchor" href="#classmavsdk_1_1_shell_1aa9d95d880297fca1a5cba341633e660e"><i class="fa fa-link" aria-hidden="true"></i></a>Shell() </h3>
@@ -3355,6 +3364,10 @@
 <pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::Shell::ReceiveCallback =  <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>)&gt;
 </code></pre>
 <p>Callback type for subscribe_receive.</p>
+<h3 id="classmavsdk_1_1_shell_1aea7ab47a9a86aa3f91e71306cc9b430b"><a name="classmavsdk_1_1_shell_1aea7ab47a9a86aa3f91e71306cc9b430b" class="plugin-anchor" href="#classmavsdk_1_1_shell_1aea7ab47a9a86aa3f91e71306cc9b430b"><i class="fa fa-link" aria-hidden="true"></i></a>typedef ReceiveHandle </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::Shell::ReceiveHandle =  Handle&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&gt;
+</code></pre>
+<p><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_receive.</p>
 <h2 id="member-enumeration-documentation"><a name="member-enumeration-documentation" class="plugin-anchor" href="#member-enumeration-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Member Enumeration Documentation</h2>
 <h3 id="classmavsdk_1_1_shell_1a768bfa296ba3309f936f887fb86c9ba8"><a name="classmavsdk_1_1_shell_1a768bfa296ba3309f936f887fb86c9ba8" class="plugin-anchor" href="#classmavsdk_1_1_shell_1a768bfa296ba3309f936f887fb86c9ba8"><i class="fa fa-link" aria-hidden="true"></i></a>enum Result </h3>
 <p>Possible results returned for shell requests.</p>
@@ -3404,14 +3417,24 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="classmavsdk_1_1_shell.html#classmavsdk_1_1_shell_1a768bfa296ba3309f936f887fb86c9ba8">Result</a> - Result of request.</p>
-<h3 id="classmavsdk_1_1_shell_1aa7e47ad1ce0f35e82701bd1811598ee1"><a name="classmavsdk_1_1_shell_1aa7e47ad1ce0f35e82701bd1811598ee1" class="plugin-anchor" href="#classmavsdk_1_1_shell_1aa7e47ad1ce0f35e82701bd1811598ee1"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_receive() </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Shell::subscribe_receive(ReceiveCallback callback)
+<h3 id="classmavsdk_1_1_shell_1a2794ac389f4df4f1aaa344612bc8c470"><a name="classmavsdk_1_1_shell_1a2794ac389f4df4f1aaa344612bc8c470" class="plugin-anchor" href="#classmavsdk_1_1_shell_1a2794ac389f4df4f1aaa344612bc8c470"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_receive() </h3>
+<pre><code class="lang-cpp">ReceiveHandle mavsdk::Shell::subscribe_receive(<span class="hljs-keyword">const</span> ReceiveCallback &amp;callback)
 </code></pre>
 <p>Receive feedback from a sent command line.</p>
 <p>This subscription needs to be made before a command line is sent, otherwise, no response will be sent.</p>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><a href="classmavsdk_1_1_shell.html#classmavsdk_1_1_shell_1adfa64ede96967ae1ab5a5ecd83032dbb">ReceiveCallback</a> <strong>callback</strong> - </li>
+<li>const <a href="classmavsdk_1_1_shell.html#classmavsdk_1_1_shell_1adfa64ede96967ae1ab5a5ecd83032dbb">ReceiveCallback</a>&amp; <strong>callback</strong> - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_shell.html#classmavsdk_1_1_shell_1aea7ab47a9a86aa3f91e71306cc9b430b">ReceiveHandle</a> - </p>
+<h3 id="classmavsdk_1_1_shell_1a5b696e1651459dbc3ceef2a393af433d"><a name="classmavsdk_1_1_shell_1a5b696e1651459dbc3ceef2a393af433d" class="plugin-anchor" href="#classmavsdk_1_1_shell_1a5b696e1651459dbc3ceef2a393af433d"><i class="fa fa-link" aria-hidden="true"></i></a>unsubscribe_receive() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Shell::unsubscribe_receive(ReceiveHandle handle)
+</code></pre>
+<p>Unsubscribe from subscribe_receive.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_shell.html#classmavsdk_1_1_shell_1aea7ab47a9a86aa3f91e71306cc9b430b">ReceiveHandle</a> <strong>handle</strong> - </li>
 </ul>
 <h3 id="classmavsdk_1_1_shell_1a492f8b2e36ef2468522bfd0f51f4b9b8"><a name="classmavsdk_1_1_shell_1a492f8b2e36ef2468522bfd0f51f4b9b8" class="plugin-anchor" href="#classmavsdk_1_1_shell_1a492f8b2e36ef2468522bfd0f51f4b9b8"><i class="fa fa-link" aria-hidden="true"></i></a>operator=() </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">const</span> Shell&amp; mavsdk::Shell::<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> Shell &amp;)=<span class="hljs-keyword">delete</span>
@@ -3423,7 +3446,7 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;const <a href="classmavsdk_1_1_shell.html">Shell</a> &amp; - </p>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2023-12-27 01:33:23 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; MAVSDK Development Team 2017-2023. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2023-12-27 03:10:20 </span> </footer>
                                 
                                 </section>
                             
@@ -3466,7 +3489,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"class Shell","level":"1.2.6.24","depth":3,"next":{"title":"class System","level":"1.2.6.25","depth":3,"path":"cpp/api_reference/classmavsdk_1_1_system.md","ref":"cpp/api_reference/classmavsdk_1_1_system.md","articles":[{"title":"struct AutopilotVersion","level":"1.2.6.25.1","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_system_1_1_autopilot_version.md","ref":"cpp/api_reference/structmavsdk_1_1_system_1_1_autopilot_version.md","articles":[]}]},"previous":{"title":"class ServerUtility","level":"1.2.6.23","depth":3,"path":"cpp/api_reference/classmavsdk_1_1_server_utility.md","ref":"cpp/api_reference/classmavsdk_1_1_server_utility.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v2.0/en/","text":"v2.0"},{"value":"https://mavsdk.mavlink.io/v1.4/en/","text":"v1.4"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/api_reference/classmavsdk_1_1_shell.md","mtime":"2023-12-27T01:33:23.810Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-12-27T01:34:03.009Z"},"basePath":"../..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"class Shell","level":"1.2.6.24","depth":3,"next":{"title":"class System","level":"1.2.6.25","depth":3,"path":"cpp/api_reference/classmavsdk_1_1_system.md","ref":"cpp/api_reference/classmavsdk_1_1_system.md","articles":[{"title":"struct AutopilotVersion","level":"1.2.6.25.1","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_system_1_1_autopilot_version.md","ref":"cpp/api_reference/structmavsdk_1_1_system_1_1_autopilot_version.md","articles":[]}]},"previous":{"title":"class ServerUtility","level":"1.2.6.23","depth":3,"path":"cpp/api_reference/classmavsdk_1_1_server_utility.md","ref":"cpp/api_reference/classmavsdk_1_1_server_utility.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© MAVSDK Development Team 2017-2023. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v2.0/en/","text":"v2.0"},{"value":"https://mavsdk.mavlink.io/v1.4/en/","text":"v1.4"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/api_reference/classmavsdk_1_1_shell.md","mtime":"2023-12-27T03:10:20.531Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-12-27T03:11:00.444Z"},"basePath":"../..","book":{"language":"en"}});
         });
     </script>
 </div>

@@ -3260,6 +3260,10 @@
 <td>std::function&lt; void(<a href="structmavsdk_1_1_component_information_server_1_1_float_param_update.html">FloatParamUpdate</a>)&gt; <a href="#classmavsdk_1_1_component_information_server_1a6174e3eebb5a10c619c57723623696cf">FloatParamCallback</a></td>
 <td>Callback type for subscribe_float_param.</td>
 </tr>
+<tr>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a>&lt; <a href="structmavsdk_1_1_component_information_server_1_1_float_param_update.html">FloatParamUpdate</a> &gt; <a href="#classmavsdk_1_1_component_information_server_1a0843521587e27f0d630280309712bddb">FloatParamHandle</a></td>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_float_param.</td>
+</tr>
 </tbody>
 </table>
 <h2 id="public-member-functions"><a name="public-member-functions" class="plugin-anchor" href="#public-member-functions"><i class="fa fa-link" aria-hidden="true"></i></a>Public Member Functions</h2>
@@ -3274,17 +3278,12 @@
 <tbody>
 <tr>
 <td style="text-align:right">&#xA0;</td>
-<td><a href="#classmavsdk_1_1_component_information_server_1aec0b2946404466539e22ba3bf85eea15">ComponentInformationServer</a> (<a href="classmavsdk_1_1_system.html">System</a> &amp; system)</td>
-<td>Constructor. Creates the plugin for a specific <a href="classmavsdk_1_1_system.html">System</a>.</td>
+<td><a href="#classmavsdk_1_1_component_information_server_1a89266c1e143f0cffb6596897b92f7b62">ComponentInformationServer</a> (std::shared_ptr&lt; <a href="classmavsdk_1_1_server_component.md">ServerComponent</a> &gt; server_component)</td>
+<td>Constructor. Creates the plugin for a <a href="classmavsdk_1_1_server_component.md">ServerComponent</a> instance.</td>
 </tr>
 <tr>
 <td style="text-align:right">&#xA0;</td>
-<td><a href="#classmavsdk_1_1_component_information_server_1adf569b42ae040e3ce0c788715ba05b9f">ComponentInformationServer</a> (std::shared_ptr&lt; <a href="classmavsdk_1_1_system.html">System</a> &gt; system)</td>
-<td>Constructor. Creates the plugin for a specific <a href="classmavsdk_1_1_system.html">System</a>.</td>
-</tr>
-<tr>
-<td style="text-align:right">&#xA0;</td>
-<td><a href="#classmavsdk_1_1_component_information_server_1a359efc7e3079812d0c40bde8bd98a084">~ComponentInformationServer</a> ()</td>
+<td><a href="#classmavsdk_1_1_component_information_server_1a64a224210755136e130b349db3a8fd10">~ComponentInformationServer</a> () override</td>
 <td>Destructor (internal use only).</td>
 </tr>
 <tr>
@@ -3298,9 +3297,14 @@
 <td>Provide a param of type float.</td>
 </tr>
 <tr>
-<td style="text-align:right">void</td>
-<td><a href="#classmavsdk_1_1_component_information_server_1aadab6186143edb43d1dddfc2188ac1bd">subscribe_float_param</a> (<a href="classmavsdk_1_1_component_information_server.html#classmavsdk_1_1_component_information_server_1a6174e3eebb5a10c619c57723623696cf">FloatParamCallback</a> callback)</td>
+<td style="text-align:right"><a href="classmavsdk_1_1_component_information_server.html#classmavsdk_1_1_component_information_server_1a0843521587e27f0d630280309712bddb">FloatParamHandle</a></td>
+<td><a href="#classmavsdk_1_1_component_information_server_1afb87c280501c677a8f4eaa33394d24e7">subscribe_float_param</a> (const <a href="classmavsdk_1_1_component_information_server.html#classmavsdk_1_1_component_information_server_1a6174e3eebb5a10c619c57723623696cf">FloatParamCallback</a> &amp; callback)</td>
 <td>Subscribe to float param updates.</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_component_information_server_1a56650131d743e441232c5edf844acaeb">unsubscribe_float_param</a> (<a href="classmavsdk_1_1_component_information_server.html#classmavsdk_1_1_component_information_server_1a0843521587e27f0d630280309712bddb">FloatParamHandle</a> handle)</td>
+<td>Unsubscribe from subscribe_float_param.</td>
 </tr>
 <tr>
 <td style="text-align:right">const <a href="classmavsdk_1_1_component_information_server.html">ComponentInformationServer</a> &amp;</td>
@@ -3310,30 +3314,19 @@
 </tbody>
 </table>
 <h2 id="constructor--destructor-documentation"><a name="constructor--destructor-documentation" class="plugin-anchor" href="#constructor--destructor-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Constructor &amp; Destructor Documentation</h2>
-<h3 id="classmavsdk_1_1_component_information_server_1aec0b2946404466539e22ba3bf85eea15"><a name="classmavsdk_1_1_component_information_server_1aec0b2946404466539e22ba3bf85eea15" class="plugin-anchor" href="#classmavsdk_1_1_component_information_server_1aec0b2946404466539e22ba3bf85eea15"><i class="fa fa-link" aria-hidden="true"></i></a>ComponentInformationServer() </h3>
-<pre><code class="lang-cpp">mavsdk::ComponentInformationServer::ComponentInformationServer(System &amp;system)
+<h3 id="classmavsdk_1_1_component_information_server_1a89266c1e143f0cffb6596897b92f7b62"><a name="classmavsdk_1_1_component_information_server_1a89266c1e143f0cffb6596897b92f7b62" class="plugin-anchor" href="#classmavsdk_1_1_component_information_server_1a89266c1e143f0cffb6596897b92f7b62"><i class="fa fa-link" aria-hidden="true"></i></a>ComponentInformationServer() </h3>
+<pre><code class="lang-cpp">mavsdk::ComponentInformationServer::ComponentInformationServer(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt; ServerComponent &gt; server_component)
 </code></pre>
-<p>Constructor. Creates the plugin for a specific <a href="classmavsdk_1_1_system.html">System</a>.</p>
+<p>Constructor. Creates the plugin for a <a href="classmavsdk_1_1_server_component.md">ServerComponent</a> instance.</p>
 <p>The plugin is typically created as shown below: </p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">auto</span> component_information_server = ComponentInformationServer(system);
+<pre><code class="lang-cpp"><span class="hljs-keyword">auto</span> component_information_server = ComponentInformationServer(server_component);
 </code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><a href="classmavsdk_1_1_system.html">System</a>&amp; <strong>system</strong> - The specific system associated with this plugin.</li>
+<li>std::shared_ptr&lt; <a href="classmavsdk_1_1_server_component.md">ServerComponent</a> &gt; <strong>server_component</strong> - The <a href="classmavsdk_1_1_server_component.md">ServerComponent</a> instance associated with this server plugin.</li>
 </ul>
-<h3 id="classmavsdk_1_1_component_information_server_1adf569b42ae040e3ce0c788715ba05b9f"><a name="classmavsdk_1_1_component_information_server_1adf569b42ae040e3ce0c788715ba05b9f" class="plugin-anchor" href="#classmavsdk_1_1_component_information_server_1adf569b42ae040e3ce0c788715ba05b9f"><i class="fa fa-link" aria-hidden="true"></i></a>ComponentInformationServer() </h3>
-<pre><code class="lang-cpp">mavsdk::ComponentInformationServer::ComponentInformationServer(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt; System &gt; system)
-</code></pre>
-<p>Constructor. Creates the plugin for a specific <a href="classmavsdk_1_1_system.html">System</a>.</p>
-<p>The plugin is typically created as shown below: </p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">auto</span> component_information_server = ComponentInformationServer(system);
-</code></pre>
-<p><strong>Parameters</strong></p>
-<ul>
-<li>std::shared_ptr&lt; <a href="classmavsdk_1_1_system.html">System</a> &gt; <strong>system</strong> - The specific system associated with this plugin.</li>
-</ul>
-<h3 id="classmavsdk_1_1_component_information_server_1a359efc7e3079812d0c40bde8bd98a084"><a name="classmavsdk_1_1_component_information_server_1a359efc7e3079812d0c40bde8bd98a084" class="plugin-anchor" href="#classmavsdk_1_1_component_information_server_1a359efc7e3079812d0c40bde8bd98a084"><i class="fa fa-link" aria-hidden="true"></i></a>~ComponentInformationServer() </h3>
-<pre><code class="lang-cpp">mavsdk::ComponentInformationServer::~ComponentInformationServer()
+<h3 id="classmavsdk_1_1_component_information_server_1a64a224210755136e130b349db3a8fd10"><a name="classmavsdk_1_1_component_information_server_1a64a224210755136e130b349db3a8fd10" class="plugin-anchor" href="#classmavsdk_1_1_component_information_server_1a64a224210755136e130b349db3a8fd10"><i class="fa fa-link" aria-hidden="true"></i></a>~ComponentInformationServer() </h3>
+<pre><code class="lang-cpp">mavsdk::ComponentInformationServer::~ComponentInformationServer() override
 </code></pre>
 <p>Destructor (internal use only).</p>
 <h3 id="classmavsdk_1_1_component_information_server_1a7f8fc33e21e00a390da14596465c800d"><a name="classmavsdk_1_1_component_information_server_1a7f8fc33e21e00a390da14596465c800d" class="plugin-anchor" href="#classmavsdk_1_1_component_information_server_1a7f8fc33e21e00a390da14596465c800d"><i class="fa fa-link" aria-hidden="true"></i></a>ComponentInformationServer() </h3>
@@ -3353,6 +3346,10 @@
 <pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::ComponentInformationServer::FloatParamCallback =  <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(FloatParamUpdate)&gt;
 </code></pre>
 <p>Callback type for subscribe_float_param.</p>
+<h3 id="classmavsdk_1_1_component_information_server_1a0843521587e27f0d630280309712bddb"><a name="classmavsdk_1_1_component_information_server_1a0843521587e27f0d630280309712bddb" class="plugin-anchor" href="#classmavsdk_1_1_component_information_server_1a0843521587e27f0d630280309712bddb"><i class="fa fa-link" aria-hidden="true"></i></a>typedef FloatParamHandle </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::ComponentInformationServer::FloatParamHandle =  Handle&lt;FloatParamUpdate&gt;
+</code></pre>
+<p><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_float_param.</p>
 <h2 id="member-enumeration-documentation"><a name="member-enumeration-documentation" class="plugin-anchor" href="#member-enumeration-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Member Enumeration Documentation</h2>
 <h3 id="classmavsdk_1_1_component_information_server_1aca86e47230e256d3f812269dcbaa5cad"><a name="classmavsdk_1_1_component_information_server_1aca86e47230e256d3f812269dcbaa5cad" class="plugin-anchor" href="#classmavsdk_1_1_component_information_server_1aca86e47230e256d3f812269dcbaa5cad"><i class="fa fa-link" aria-hidden="true"></i></a>enum Result </h3>
 <p>Possible results returned for param requests.</p>
@@ -3406,13 +3403,23 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="classmavsdk_1_1_component_information_server.html#classmavsdk_1_1_component_information_server_1aca86e47230e256d3f812269dcbaa5cad">Result</a> - Result of request.</p>
-<h3 id="classmavsdk_1_1_component_information_server_1aadab6186143edb43d1dddfc2188ac1bd"><a name="classmavsdk_1_1_component_information_server_1aadab6186143edb43d1dddfc2188ac1bd" class="plugin-anchor" href="#classmavsdk_1_1_component_information_server_1aadab6186143edb43d1dddfc2188ac1bd"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_float_param() </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::ComponentInformationServer::subscribe_float_param(FloatParamCallback callback)
+<h3 id="classmavsdk_1_1_component_information_server_1afb87c280501c677a8f4eaa33394d24e7"><a name="classmavsdk_1_1_component_information_server_1afb87c280501c677a8f4eaa33394d24e7" class="plugin-anchor" href="#classmavsdk_1_1_component_information_server_1afb87c280501c677a8f4eaa33394d24e7"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_float_param() </h3>
+<pre><code class="lang-cpp">FloatParamHandle mavsdk::ComponentInformationServer::subscribe_float_param(<span class="hljs-keyword">const</span> FloatParamCallback &amp;callback)
 </code></pre>
 <p>Subscribe to float param updates.</p>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><a href="classmavsdk_1_1_component_information_server.html#classmavsdk_1_1_component_information_server_1a6174e3eebb5a10c619c57723623696cf">FloatParamCallback</a> <strong>callback</strong> - </li>
+<li>const <a href="classmavsdk_1_1_component_information_server.html#classmavsdk_1_1_component_information_server_1a6174e3eebb5a10c619c57723623696cf">FloatParamCallback</a>&amp; <strong>callback</strong> - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_component_information_server.html#classmavsdk_1_1_component_information_server_1a0843521587e27f0d630280309712bddb">FloatParamHandle</a> - </p>
+<h3 id="classmavsdk_1_1_component_information_server_1a56650131d743e441232c5edf844acaeb"><a name="classmavsdk_1_1_component_information_server_1a56650131d743e441232c5edf844acaeb" class="plugin-anchor" href="#classmavsdk_1_1_component_information_server_1a56650131d743e441232c5edf844acaeb"><i class="fa fa-link" aria-hidden="true"></i></a>unsubscribe_float_param() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::ComponentInformationServer::unsubscribe_float_param(FloatParamHandle handle)
+</code></pre>
+<p>Unsubscribe from subscribe_float_param.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_component_information_server.html#classmavsdk_1_1_component_information_server_1a0843521587e27f0d630280309712bddb">FloatParamHandle</a> <strong>handle</strong> - </li>
 </ul>
 <h3 id="classmavsdk_1_1_component_information_server_1a850a10c9d195da5f52807984e72d21fa"><a name="classmavsdk_1_1_component_information_server_1a850a10c9d195da5f52807984e72d21fa" class="plugin-anchor" href="#classmavsdk_1_1_component_information_server_1a850a10c9d195da5f52807984e72d21fa"><i class="fa fa-link" aria-hidden="true"></i></a>operator=() </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">const</span> ComponentInformationServer&amp; mavsdk::ComponentInformationServer::<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> ComponentInformationServer &amp;)=<span class="hljs-keyword">delete</span>
@@ -3424,7 +3431,7 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;const <a href="classmavsdk_1_1_component_information_server.html">ComponentInformationServer</a> &amp; - </p>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2023-12-27 01:33:23 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; MAVSDK Development Team 2017-2023. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2023-12-27 03:10:20 </span> </footer>
                                 
                                 </section>
                             
@@ -3467,7 +3474,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"class ComponentInformationServer","level":"1.2.6.4.14","depth":4,"next":{"title":"struct FloatParam","level":"1.2.6.4.14.1","depth":5,"path":"cpp/api_reference/structmavsdk_1_1_component_information_server_1_1_float_param.md","ref":"cpp/api_reference/structmavsdk_1_1_component_information_server_1_1_float_param.md","articles":[]},"previous":{"title":"struct FloatParamUpdate","level":"1.2.6.4.13.2","depth":5,"path":"cpp/api_reference/structmavsdk_1_1_component_information_1_1_float_param_update.md","ref":"cpp/api_reference/structmavsdk_1_1_component_information_1_1_float_param_update.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v2.0/en/","text":"v2.0"},{"value":"https://mavsdk.mavlink.io/v1.4/en/","text":"v1.4"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/api_reference/classmavsdk_1_1_component_information_server.md","mtime":"2023-12-27T01:33:23.810Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-12-27T01:34:03.009Z"},"basePath":"../..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"class ComponentInformationServer","level":"1.2.6.4.14","depth":4,"next":{"title":"struct FloatParam","level":"1.2.6.4.14.1","depth":5,"path":"cpp/api_reference/structmavsdk_1_1_component_information_server_1_1_float_param.md","ref":"cpp/api_reference/structmavsdk_1_1_component_information_server_1_1_float_param.md","articles":[]},"previous":{"title":"struct FloatParamUpdate","level":"1.2.6.4.13.2","depth":5,"path":"cpp/api_reference/structmavsdk_1_1_component_information_1_1_float_param_update.md","ref":"cpp/api_reference/structmavsdk_1_1_component_information_1_1_float_param_update.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© MAVSDK Development Team 2017-2023. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v2.0/en/","text":"v2.0"},{"value":"https://mavsdk.mavlink.io/v1.4/en/","text":"v1.4"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/api_reference/classmavsdk_1_1_component_information_server.md","mtime":"2023-12-27T03:10:20.527Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-12-27T03:11:00.444Z"},"basePath":"../..","book":{"language":"en"}});
         });
     </script>
 </div>

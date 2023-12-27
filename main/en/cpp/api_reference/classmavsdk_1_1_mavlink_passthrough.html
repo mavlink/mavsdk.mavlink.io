@@ -3253,6 +3253,14 @@
 <td>enum <a href="#classmavsdk_1_1_mavlink_passthrough_1a265eacaeea064a31de3fe16d1e357793">Result</a></td>
 <td>Possible results returned for requests.</td>
 </tr>
+<tr>
+<td>std::function&lt; void(const mavlink_message_t &amp;)&gt; <a href="#classmavsdk_1_1_mavlink_passthrough_1a97f94c54e84fcce94d922fd7f4e3d231">MessageCallback</a></td>
+<td>Callback type for message subscriptions.</td>
+</tr>
+<tr>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a>&lt; const mavlink_message_t &amp; &gt; <a href="#classmavsdk_1_1_mavlink_passthrough_1a2e283239c4429eaeb33deb5821833066">MessageHandle</a></td>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_message_async.</td>
+</tr>
 </tbody>
 </table>
 <h2 id="public-member-functions"><a name="public-member-functions" class="plugin-anchor" href="#public-member-functions"><i class="fa fa-link" aria-hidden="true"></i></a>Public Member Functions</h2>
@@ -3286,9 +3294,14 @@
 <td>Copy Constructor (object is not copyable).</td>
 </tr>
 <tr>
+<td style="text-align:right">DEPRECATED <a href="classmavsdk_1_1_mavlink_passthrough.html#classmavsdk_1_1_mavlink_passthrough_1a265eacaeea064a31de3fe16d1e357793">Result</a></td>
+<td><a href="#classmavsdk_1_1_mavlink_passthrough_1a9bbd09d34f7ae1b6e27bcd5c3d4ba667">send_message</a> (mavlink_message_t &amp; message)</td>
+<td>Send message (deprecated).</td>
+</tr>
+<tr>
 <td style="text-align:right"><a href="classmavsdk_1_1_mavlink_passthrough.html#classmavsdk_1_1_mavlink_passthrough_1a265eacaeea064a31de3fe16d1e357793">Result</a></td>
-<td><a href="#classmavsdk_1_1_mavlink_passthrough_1ac66d092318fa6d80c5bffea449f4bbaa">send_message</a> (mavlink_message_t &amp; message)</td>
-<td>Send message.</td>
+<td><a href="#classmavsdk_1_1_mavlink_passthrough_1aa95592bc4da7d56d444b8b5cb5bce814">queue_message</a> (std::function&lt; mavlink_message_t(<a href="struct_mavlink_address.md">MavlinkAddress</a> mavlink_address, uint8_t channel)&gt; fun)</td>
+<td>Send message by queueing it.</td>
 </tr>
 <tr>
 <td style="text-align:right"><a href="classmavsdk_1_1_mavlink_passthrough.html#classmavsdk_1_1_mavlink_passthrough_1a265eacaeea064a31de3fe16d1e357793">Result</a></td>
@@ -3301,9 +3314,29 @@
 <td>Send a MAVLink command_long.</td>
 </tr>
 <tr>
-<td style="text-align:right">void</td>
-<td><a href="#classmavsdk_1_1_mavlink_passthrough_1a6dfb4fedba830dff881deb2e375da571">subscribe_message_async</a> (uint16_t message_id, std::function&lt; void(const mavlink_message_t &amp;)&gt; callback)</td>
+<td style="text-align:right">mavlink_message_t</td>
+<td><a href="#classmavsdk_1_1_mavlink_passthrough_1aa08cb5d2f9aed795367cf7e05d58bdcc">make_command_ack_message</a> (const uint8_t target_sysid, const uint8_t target_compid, const uint16_t command, MAV_RESULT result)</td>
+<td>Create a command_ack.</td>
+</tr>
+<tr>
+<td style="text-align:right">std::pair&lt; <a href="classmavsdk_1_1_mavlink_passthrough.html#classmavsdk_1_1_mavlink_passthrough_1a265eacaeea064a31de3fe16d1e357793">Result</a>, int32_t &gt;</td>
+<td><a href="#classmavsdk_1_1_mavlink_passthrough_1a19887d34580a7f1f9ef4bbea6cd3441b">get_param_int</a> (const std::string &amp; name, std::optional&lt; uint8_t &gt; maybe_component_id, bool extended)</td>
+<td>Request param (int).</td>
+</tr>
+<tr>
+<td style="text-align:right">std::pair&lt; <a href="classmavsdk_1_1_mavlink_passthrough.html#classmavsdk_1_1_mavlink_passthrough_1a265eacaeea064a31de3fe16d1e357793">Result</a>, float &gt;</td>
+<td><a href="#classmavsdk_1_1_mavlink_passthrough_1aa91c943be90e319d01b75d2cd0aa39ab">get_param_float</a> (const std::string &amp; name, std::optional&lt; uint8_t &gt; maybe_component_id, bool extended)</td>
+<td>Request param (float).</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_mavlink_passthrough.html#classmavsdk_1_1_mavlink_passthrough_1a2e283239c4429eaeb33deb5821833066">MessageHandle</a></td>
+<td><a href="#classmavsdk_1_1_mavlink_passthrough_1ae2ab2426bc0d844e931c266aa26c3607">subscribe_message</a> (uint16_t message_id, const <a href="classmavsdk_1_1_mavlink_passthrough.html#classmavsdk_1_1_mavlink_passthrough_1a97f94c54e84fcce94d922fd7f4e3d231">MessageCallback</a> &amp; callback)</td>
 <td>Subscribe to messages using message ID.</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_mavlink_passthrough_1af4e722ae613e799b60020c30193656be">unsubscribe_message</a> (uint16_t message_id, <a href="classmavsdk_1_1_mavlink_passthrough.html#classmavsdk_1_1_mavlink_passthrough_1a2e283239c4429eaeb33deb5821833066">MessageHandle</a> handle)</td>
+<td>Unsubscribe from subscribe_message.</td>
 </tr>
 <tr>
 <td style="text-align:right">uint8_t</td>
@@ -3324,16 +3357,6 @@
 <td style="text-align:right">uint8_t</td>
 <td><a href="#classmavsdk_1_1_mavlink_passthrough_1a22ecab3905237a2f227f77bbab9afd17">get_target_compid</a> () const</td>
 <td>Get target component ID.</td>
-</tr>
-<tr>
-<td style="text-align:right">void</td>
-<td><a href="#classmavsdk_1_1_mavlink_passthrough_1a06f6c1d181f966bc9d67c4a69e4aae7a">intercept_incoming_messages_async</a> (std::function&lt; bool(mavlink_message_t &amp;)&gt; callback)</td>
-<td>Intercept incoming messages.</td>
-</tr>
-<tr>
-<td style="text-align:right">void</td>
-<td><a href="#classmavsdk_1_1_mavlink_passthrough_1ad06c4f286f8b785a2fc09ee18dfb43c3">intercept_outgoing_messages_async</a> (std::function&lt; bool(mavlink_message_t &amp;)&gt; callback)</td>
-<td>Intercept outgoing messages.</td>
 </tr>
 <tr>
 <td style="text-align:right">const <a href="classmavsdk_1_1_mavlink_passthrough.html">MavlinkPassthrough</a> &amp;</td>
@@ -3377,6 +3400,15 @@
 <ul>
 <li>const <a href="classmavsdk_1_1_mavlink_passthrough.html">MavlinkPassthrough</a>&amp;  - </li>
 </ul>
+<h2 id="member-typdef-documentation"><a name="member-typdef-documentation" class="plugin-anchor" href="#member-typdef-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Member Typdef Documentation</h2>
+<h3 id="classmavsdk_1_1_mavlink_passthrough_1a97f94c54e84fcce94d922fd7f4e3d231"><a name="classmavsdk_1_1_mavlink_passthrough_1a97f94c54e84fcce94d922fd7f4e3d231" class="plugin-anchor" href="#classmavsdk_1_1_mavlink_passthrough_1a97f94c54e84fcce94d922fd7f4e3d231"><i class="fa fa-link" aria-hidden="true"></i></a>typedef MessageCallback </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::MavlinkPassthrough::MessageCallback =  <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(<span class="hljs-keyword">const</span> <span class="hljs-keyword">mavlink_message_t</span>&amp;)&gt;
+</code></pre>
+<p>Callback type for message subscriptions.</p>
+<h3 id="classmavsdk_1_1_mavlink_passthrough_1a2e283239c4429eaeb33deb5821833066"><a name="classmavsdk_1_1_mavlink_passthrough_1a2e283239c4429eaeb33deb5821833066" class="plugin-anchor" href="#classmavsdk_1_1_mavlink_passthrough_1a2e283239c4429eaeb33deb5821833066"><i class="fa fa-link" aria-hidden="true"></i></a>typedef MessageHandle </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::MavlinkPassthrough::MessageHandle =  Handle&lt;<span class="hljs-keyword">const</span> <span class="hljs-keyword">mavlink_message_t</span>&amp;&gt;
+</code></pre>
+<p><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_message_async.</p>
 <h2 id="member-enumeration-documentation"><a name="member-enumeration-documentation" class="plugin-anchor" href="#member-enumeration-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Member Enumeration Documentation</h2>
 <h3 id="classmavsdk_1_1_mavlink_passthrough_1a265eacaeea064a31de3fe16d1e357793"><a name="classmavsdk_1_1_mavlink_passthrough_1a265eacaeea064a31de3fe16d1e357793" class="plugin-anchor" href="#classmavsdk_1_1_mavlink_passthrough_1a265eacaeea064a31de3fe16d1e357793"><i class="fa fa-link" aria-hidden="true"></i></a>enum Result </h3>
 <p>Possible results returned for requests.</p>
@@ -3420,19 +3452,64 @@
 <td><span id="classmavsdk_1_1_mavlink_passthrough_1a265eacaeea064a31de3fe16d1e357793a309bc1cd528bc8f9a548616ae0a13a17"></span> <code>CommandTimeout</code></td>
 <td>A timeout happened. </td>
 </tr>
+<tr>
+<td><span id="classmavsdk_1_1_mavlink_passthrough_1a265eacaeea064a31de3fe16d1e357793a3ecbc4a65a301906f20d9136f1e28a54"></span> <code>CommandTemporarilyRejected</code></td>
+<td>Command has been rejected for now. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_mavlink_passthrough_1a265eacaeea064a31de3fe16d1e357793a205ab53602b765b27a17d0aa2b118986"></span> <code>CommandFailed</code></td>
+<td>Command has failed. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_mavlink_passthrough_1a265eacaeea064a31de3fe16d1e357793aa5b149d9ae2ac3629f0cefb36bbacd1e"></span> <code>ParamWrongType</code></td>
+<td>Wrong type for requested param. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_mavlink_passthrough_1a265eacaeea064a31de3fe16d1e357793aa2b5cfc4e45ca036892b3dadc483e655"></span> <code>ParamNameTooLong</code></td>
+<td><a href="classmavsdk_1_1_param.html">Param</a> name too long. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_mavlink_passthrough_1a265eacaeea064a31de3fe16d1e357793a1fc93bc695e2e3e1903029eb77228234"></span> <code>ParamValueTooLong</code></td>
+<td><a href="classmavsdk_1_1_param.html">Param</a> value too long. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_mavlink_passthrough_1a265eacaeea064a31de3fe16d1e357793a2f49c4dd8da12dcbec351df940ba3a6f"></span> <code>ParamNotFound</code></td>
+<td><a href="classmavsdk_1_1_param.html">Param</a> not found. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_mavlink_passthrough_1a265eacaeea064a31de3fe16d1e357793aa6201b129c022880743d84f6e579ea8c"></span> <code>ParamValueUnsupported</code></td>
+<td><a href="classmavsdk_1_1_param.html">Param</a> value unsupported. </td>
+</tr>
 </tbody>
 </table>
 <h2 id="member-function-documentation"><a name="member-function-documentation" class="plugin-anchor" href="#member-function-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Member Function Documentation</h2>
-<h3 id="classmavsdk_1_1_mavlink_passthrough_1ac66d092318fa6d80c5bffea449f4bbaa"><a name="classmavsdk_1_1_mavlink_passthrough_1ac66d092318fa6d80c5bffea449f4bbaa" class="plugin-anchor" href="#classmavsdk_1_1_mavlink_passthrough_1ac66d092318fa6d80c5bffea449f4bbaa"><i class="fa fa-link" aria-hidden="true"></i></a>send_message() </h3>
-<pre><code class="lang-cpp">Result mavsdk::MavlinkPassthrough::send_message(<span class="hljs-keyword">mavlink_message_t</span> &amp;message)
+<h3 id="classmavsdk_1_1_mavlink_passthrough_1a9bbd09d34f7ae1b6e27bcd5c3d4ba667"><a name="classmavsdk_1_1_mavlink_passthrough_1a9bbd09d34f7ae1b6e27bcd5c3d4ba667" class="plugin-anchor" href="#classmavsdk_1_1_mavlink_passthrough_1a9bbd09d34f7ae1b6e27bcd5c3d4ba667"><i class="fa fa-link" aria-hidden="true"></i></a>send_message() </h3>
+<pre><code class="lang-cpp">DEPRECATED Result mavsdk::MavlinkPassthrough::send_message(<span class="hljs-keyword">mavlink_message_t</span> &amp;message)
 </code></pre>
-<p>Send message.</p>
+<p>Send message (deprecated).</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> This interface is deprecated. Instead the method <a href="classmavsdk_1_1_mavlink_passthrough.html#classmavsdk_1_1_mavlink_passthrough_1aa95592bc4da7d56d444b8b5cb5bce814">queue_message()</a> should be used.</p>
+</blockquote>
 <p><strong>Parameters</strong></p>
 <ul>
 <li>mavlink_message_t&amp; <strong>message</strong> - </li>
 </ul>
 <p><strong>Returns</strong></p>
-<p>&#x2003;<a href="classmavsdk_1_1_mavlink_passthrough.html#classmavsdk_1_1_mavlink_passthrough_1a265eacaeea064a31de3fe16d1e357793">Result</a> - result of the request.</p>
+<p>&#x2003;DEPRECATED <a href="classmavsdk_1_1_mavlink_passthrough.html#classmavsdk_1_1_mavlink_passthrough_1a265eacaeea064a31de3fe16d1e357793">Result</a> - result of the request.</p>
+<h3 id="classmavsdk_1_1_mavlink_passthrough_1aa95592bc4da7d56d444b8b5cb5bce814"><a name="classmavsdk_1_1_mavlink_passthrough_1aa95592bc4da7d56d444b8b5cb5bce814" class="plugin-anchor" href="#classmavsdk_1_1_mavlink_passthrough_1aa95592bc4da7d56d444b8b5cb5bce814"><i class="fa fa-link" aria-hidden="true"></i></a>queue_message() </h3>
+<pre><code class="lang-cpp">Result mavsdk::MavlinkPassthrough::queue_message(<span class="hljs-built_in">std</span>::function&lt; <span class="hljs-keyword">mavlink_message_t</span>(MavlinkAddress mavlink_address, <span class="hljs-keyword">uint8_t</span> channel)&gt; fun)
+</code></pre>
+<p>Send message by queueing it.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> This interface replaces the previous send_message method.</p>
+</blockquote>
+<p>The interface changed in order to prevent accessing the internal MAVLink status from different threads and to make sure the seq numbers are not unique to<a href="classmavsdk_1_1_mavsdk.html">Mavsdk</a> instances and server components.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>std::function&lt; mavlink_message_t(<a href="struct_mavlink_address.md">MavlinkAddress</a> mavlink_address, uint8_t channel)&gt; <strong>fun</strong> - Function which is (immediately) executed to send a message. It is passed the mavlink_address and channel, both data required to send a message using mavlink_message_xx_pack_chan().</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_mavlink_passthrough.html#classmavsdk_1_1_mavlink_passthrough_1a265eacaeea064a31de3fe16d1e357793">Result</a> - result of request</p>
 <h3 id="classmavsdk_1_1_mavlink_passthrough_1a7e258aa16b92195e5329e861fb18f8e9"><a name="classmavsdk_1_1_mavlink_passthrough_1a7e258aa16b92195e5329e861fb18f8e9" class="plugin-anchor" href="#classmavsdk_1_1_mavlink_passthrough_1a7e258aa16b92195e5329e861fb18f8e9"><i class="fa fa-link" aria-hidden="true"></i></a>send_command_long() </h3>
 <pre><code class="lang-cpp">Result mavsdk::MavlinkPassthrough::send_command_long(<span class="hljs-keyword">const</span> CommandLong &amp;command)
 </code></pre>
@@ -3453,15 +3530,63 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="classmavsdk_1_1_mavlink_passthrough.html#classmavsdk_1_1_mavlink_passthrough_1a265eacaeea064a31de3fe16d1e357793">Result</a> - result of the request.</p>
-<h3 id="classmavsdk_1_1_mavlink_passthrough_1a6dfb4fedba830dff881deb2e375da571"><a name="classmavsdk_1_1_mavlink_passthrough_1a6dfb4fedba830dff881deb2e375da571" class="plugin-anchor" href="#classmavsdk_1_1_mavlink_passthrough_1a6dfb4fedba830dff881deb2e375da571"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_message_async() </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::MavlinkPassthrough::subscribe_message_async(<span class="hljs-keyword">uint16_t</span> message_id, <span class="hljs-built_in">std</span>::function&lt; <span class="hljs-keyword">void</span>(<span class="hljs-keyword">const</span> <span class="hljs-keyword">mavlink_message_t</span> &amp;)&gt; callback)
+<h3 id="classmavsdk_1_1_mavlink_passthrough_1aa08cb5d2f9aed795367cf7e05d58bdcc"><a name="classmavsdk_1_1_mavlink_passthrough_1aa08cb5d2f9aed795367cf7e05d58bdcc" class="plugin-anchor" href="#classmavsdk_1_1_mavlink_passthrough_1aa08cb5d2f9aed795367cf7e05d58bdcc"><i class="fa fa-link" aria-hidden="true"></i></a>make_command_ack_message() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">mavlink_message_t</span> mavsdk::MavlinkPassthrough::make_command_ack_message(<span class="hljs-keyword">const</span> <span class="hljs-keyword">uint8_t</span> target_sysid, <span class="hljs-keyword">const</span> <span class="hljs-keyword">uint8_t</span> target_compid, <span class="hljs-keyword">const</span> <span class="hljs-keyword">uint16_t</span> command, MAV_RESULT result)
+</code></pre>
+<p>Create a command_ack.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const uint8_t <strong>target_sysid</strong> - Target system ID where to send command_ack to.</li>
+<li>const uint8_t <strong>target_compid</strong> - Target component ID where to send command_ack to.</li>
+<li>const uint16_t <strong>command</strong> - Command to respond to.</li>
+<li>MAV_RESULT <strong>result</strong> - Result of command.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;mavlink_message_t - message to send.</p>
+<h3 id="classmavsdk_1_1_mavlink_passthrough_1a19887d34580a7f1f9ef4bbea6cd3441b"><a name="classmavsdk_1_1_mavlink_passthrough_1a19887d34580a7f1f9ef4bbea6cd3441b" class="plugin-anchor" href="#classmavsdk_1_1_mavlink_passthrough_1a19887d34580a7f1f9ef4bbea6cd3441b"><i class="fa fa-link" aria-hidden="true"></i></a>get_param_int() </h3>
+<pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::pair&lt;Result, <span class="hljs-keyword">int32_t</span>&gt; mavsdk::MavlinkPassthrough::get_param_int(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;name, <span class="hljs-built_in">std</span>::optional&lt; <span class="hljs-keyword">uint8_t</span> &gt; maybe_component_id, <span class="hljs-keyword">bool</span> extended)
+</code></pre>
+<p>Request param (int).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const std::string&amp; <strong>name</strong> - </li>
+<li>std::optional&lt; uint8_t &gt; <strong>maybe_component_id</strong> - </li>
+<li>bool <strong>extended</strong> - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;std::pair&lt; <a href="classmavsdk_1_1_mavlink_passthrough.html#classmavsdk_1_1_mavlink_passthrough_1a265eacaeea064a31de3fe16d1e357793">Result</a>, int32_t &gt; - </p>
+<h3 id="classmavsdk_1_1_mavlink_passthrough_1aa91c943be90e319d01b75d2cd0aa39ab"><a name="classmavsdk_1_1_mavlink_passthrough_1aa91c943be90e319d01b75d2cd0aa39ab" class="plugin-anchor" href="#classmavsdk_1_1_mavlink_passthrough_1aa91c943be90e319d01b75d2cd0aa39ab"><i class="fa fa-link" aria-hidden="true"></i></a>get_param_float() </h3>
+<pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::pair&lt;Result, <span class="hljs-keyword">float</span>&gt; mavsdk::MavlinkPassthrough::get_param_float(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;name, <span class="hljs-built_in">std</span>::optional&lt; <span class="hljs-keyword">uint8_t</span> &gt; maybe_component_id, <span class="hljs-keyword">bool</span> extended)
+</code></pre>
+<p>Request param (float).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const std::string&amp; <strong>name</strong> - </li>
+<li>std::optional&lt; uint8_t &gt; <strong>maybe_component_id</strong> - </li>
+<li>bool <strong>extended</strong> - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;std::pair&lt; <a href="classmavsdk_1_1_mavlink_passthrough.html#classmavsdk_1_1_mavlink_passthrough_1a265eacaeea064a31de3fe16d1e357793">Result</a>, float &gt; - </p>
+<h3 id="classmavsdk_1_1_mavlink_passthrough_1ae2ab2426bc0d844e931c266aa26c3607"><a name="classmavsdk_1_1_mavlink_passthrough_1ae2ab2426bc0d844e931c266aa26c3607" class="plugin-anchor" href="#classmavsdk_1_1_mavlink_passthrough_1ae2ab2426bc0d844e931c266aa26c3607"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_message() </h3>
+<pre><code class="lang-cpp">MessageHandle mavsdk::MavlinkPassthrough::subscribe_message(<span class="hljs-keyword">uint16_t</span> message_id, <span class="hljs-keyword">const</span> MessageCallback &amp;callback)
 </code></pre>
 <p>Subscribe to messages using message ID.</p>
 <p>This means that all future messages being received will trigger the callback to be called. To stop the subscription, call this method with <code>nullptr</code> as the argument.</p>
 <p><strong>Parameters</strong></p>
 <ul>
 <li>uint16_t <strong>message_id</strong> - The MAVLink message ID.</li>
-<li>std::function&lt; void(const mavlink_message_t &amp;)&gt; <strong>callback</strong> - Callback to be called for message subscription.</li>
+<li>const <a href="classmavsdk_1_1_mavlink_passthrough.html#classmavsdk_1_1_mavlink_passthrough_1a97f94c54e84fcce94d922fd7f4e3d231">MessageCallback</a>&amp; <strong>callback</strong> - Callback to be called for message subscription.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_mavlink_passthrough.html#classmavsdk_1_1_mavlink_passthrough_1a2e283239c4429eaeb33deb5821833066">MessageHandle</a> - </p>
+<h3 id="classmavsdk_1_1_mavlink_passthrough_1af4e722ae613e799b60020c30193656be"><a name="classmavsdk_1_1_mavlink_passthrough_1af4e722ae613e799b60020c30193656be" class="plugin-anchor" href="#classmavsdk_1_1_mavlink_passthrough_1af4e722ae613e799b60020c30193656be"><i class="fa fa-link" aria-hidden="true"></i></a>unsubscribe_message() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::MavlinkPassthrough::unsubscribe_message(<span class="hljs-keyword">uint16_t</span> message_id, MessageHandle handle)
+</code></pre>
+<p>Unsubscribe from subscribe_message.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>uint16_t <strong>message_id</strong> - The MAVLink message ID.</li>
+<li><a href="classmavsdk_1_1_mavlink_passthrough.html#classmavsdk_1_1_mavlink_passthrough_1a2e283239c4429eaeb33deb5821833066">MessageHandle</a> <strong>handle</strong> - The handle returned from subscribe_message.</li>
 </ul>
 <h3 id="classmavsdk_1_1_mavlink_passthrough_1a985b269c1b78ec3e4e9d9468e46e19be"><a name="classmavsdk_1_1_mavlink_passthrough_1a985b269c1b78ec3e4e9d9468e46e19be" class="plugin-anchor" href="#classmavsdk_1_1_mavlink_passthrough_1a985b269c1b78ec3e4e9d9468e46e19be"><i class="fa fa-link" aria-hidden="true"></i></a>get_our_sysid() </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">uint8_t</span> mavsdk::MavlinkPassthrough::get_our_sysid() <span class="hljs-keyword">const</span>
@@ -3488,30 +3613,6 @@
 <p>This defaults to the component ID of the autopilot (1) if available and otherwise to all components (0).</p>
 <p><strong>Returns</strong></p>
 <p>&#x2003;uint8_t - component ID of target.</p>
-<h3 id="classmavsdk_1_1_mavlink_passthrough_1a06f6c1d181f966bc9d67c4a69e4aae7a"><a name="classmavsdk_1_1_mavlink_passthrough_1a06f6c1d181f966bc9d67c4a69e4aae7a" class="plugin-anchor" href="#classmavsdk_1_1_mavlink_passthrough_1a06f6c1d181f966bc9d67c4a69e4aae7a"><i class="fa fa-link" aria-hidden="true"></i></a>intercept_incoming_messages_async() </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::MavlinkPassthrough::intercept_incoming_messages_async(<span class="hljs-built_in">std</span>::function&lt; <span class="hljs-keyword">bool</span>(<span class="hljs-keyword">mavlink_message_t</span> &amp;)&gt; callback)
-</code></pre>
-<p>Intercept incoming messages.</p>
-<p>This is a hook which allows to change or drop MAVLink messages as they are received before they get forwarded to the core and the other plugins.</p>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> This functioniality is provided primarily for testing in order to simulate packet drops or actors not adhering to the MAVLink protocols.</p>
-</blockquote>
-<p><strong>Parameters</strong></p>
-<ul>
-<li>std::function&lt; bool(mavlink_message_t &amp;)&gt; <strong>callback</strong> - Callback to be called for each incoming message. To drop a message, return &apos;false&apos; from the callback.</li>
-</ul>
-<h3 id="classmavsdk_1_1_mavlink_passthrough_1ad06c4f286f8b785a2fc09ee18dfb43c3"><a name="classmavsdk_1_1_mavlink_passthrough_1ad06c4f286f8b785a2fc09ee18dfb43c3" class="plugin-anchor" href="#classmavsdk_1_1_mavlink_passthrough_1ad06c4f286f8b785a2fc09ee18dfb43c3"><i class="fa fa-link" aria-hidden="true"></i></a>intercept_outgoing_messages_async() </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::MavlinkPassthrough::intercept_outgoing_messages_async(<span class="hljs-built_in">std</span>::function&lt; <span class="hljs-keyword">bool</span>(<span class="hljs-keyword">mavlink_message_t</span> &amp;)&gt; callback)
-</code></pre>
-<p>Intercept outgoing messages.</p>
-<p>This is a hook which allows to change or drop MAVLink messages before they are sent.</p>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> This functioniality is provided primarily for testing in order to simulate packet drops or actors not adhering to the MAVLink protocols.</p>
-</blockquote>
-<p><strong>Parameters</strong></p>
-<ul>
-<li>std::function&lt; bool(mavlink_message_t &amp;)&gt; <strong>callback</strong> - Callback to be called for each outgoing message. To drop a message, return &apos;false&apos; from the callback.</li>
-</ul>
 <h3 id="classmavsdk_1_1_mavlink_passthrough_1aa7f49a131a8facf4d05449ec03ce3643"><a name="classmavsdk_1_1_mavlink_passthrough_1aa7f49a131a8facf4d05449ec03ce3643" class="plugin-anchor" href="#classmavsdk_1_1_mavlink_passthrough_1aa7f49a131a8facf4d05449ec03ce3643"><i class="fa fa-link" aria-hidden="true"></i></a>operator=() </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">const</span> MavlinkPassthrough&amp; mavsdk::MavlinkPassthrough::<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> MavlinkPassthrough &amp;)=<span class="hljs-keyword">delete</span>
 </code></pre>
@@ -3522,7 +3623,7 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;const <a href="classmavsdk_1_1_mavlink_passthrough.html">MavlinkPassthrough</a> &amp; - </p>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2023-12-27 01:33:23 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; MAVSDK Development Team 2017-2023. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2023-12-27 03:10:20 </span> </footer>
                                 
                                 </section>
                             
@@ -3565,7 +3666,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"class MavlinkPassthrough","level":"1.2.6.14","depth":3,"next":{"title":"struct CommandInt","level":"1.2.6.14.1","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_mavlink_passthrough_1_1_command_int.md","ref":"cpp/api_reference/structmavsdk_1_1_mavlink_passthrough_1_1_command_int.md","articles":[]},"previous":{"title":"class ManualControl","level":"1.2.6.13","depth":3,"path":"cpp/api_reference/classmavsdk_1_1_manual_control.md","ref":"cpp/api_reference/classmavsdk_1_1_manual_control.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v2.0/en/","text":"v2.0"},{"value":"https://mavsdk.mavlink.io/v1.4/en/","text":"v1.4"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/api_reference/classmavsdk_1_1_mavlink_passthrough.md","mtime":"2023-12-27T01:33:23.810Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-12-27T01:34:03.009Z"},"basePath":"../..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"class MavlinkPassthrough","level":"1.2.6.14","depth":3,"next":{"title":"struct CommandInt","level":"1.2.6.14.1","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_mavlink_passthrough_1_1_command_int.md","ref":"cpp/api_reference/structmavsdk_1_1_mavlink_passthrough_1_1_command_int.md","articles":[]},"previous":{"title":"class ManualControl","level":"1.2.6.13","depth":3,"path":"cpp/api_reference/classmavsdk_1_1_manual_control.md","ref":"cpp/api_reference/classmavsdk_1_1_manual_control.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© MAVSDK Development Team 2017-2023. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v2.0/en/","text":"v2.0"},{"value":"https://mavsdk.mavlink.io/v1.4/en/","text":"v1.4"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/api_reference/classmavsdk_1_1_mavlink_passthrough.md","mtime":"2023-12-27T03:10:20.531Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-12-27T03:11:00.444Z"},"basePath":"../..","book":{"language":"en"}});
         });
     </script>
 </div>

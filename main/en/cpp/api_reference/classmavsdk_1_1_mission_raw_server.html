@@ -3262,12 +3262,24 @@
 <td>Callback type for subscribe_incoming_mission.</td>
 </tr>
 <tr>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a>&lt; <a href="classmavsdk_1_1_mission_raw_server.html#classmavsdk_1_1_mission_raw_server_1a14f2cae8b098b7221d8aae547b70f7bd">Result</a>, <a href="structmavsdk_1_1_mission_raw_server_1_1_mission_plan.html">MissionPlan</a> &gt; <a href="#classmavsdk_1_1_mission_raw_server_1a71173397d112f738fd05014ccc0952ff">IncomingMissionHandle</a></td>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_incoming_mission.</td>
+</tr>
+<tr>
 <td>std::function&lt; void(<a href="structmavsdk_1_1_mission_raw_server_1_1_mission_item.html">MissionItem</a>)&gt; <a href="#classmavsdk_1_1_mission_raw_server_1aca7ac64b6e39e612d05ff6497cd572b1">CurrentItemChangedCallback</a></td>
 <td>Callback type for subscribe_current_item_changed.</td>
 </tr>
 <tr>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a>&lt; <a href="structmavsdk_1_1_mission_raw_server_1_1_mission_item.html">MissionItem</a> &gt; <a href="#classmavsdk_1_1_mission_raw_server_1a490cab4b8b06fd5d6eb8e759427f5b47">CurrentItemChangedHandle</a></td>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_current_item_changed.</td>
+</tr>
+<tr>
 <td>std::function&lt; void(uint32_t)&gt; <a href="#classmavsdk_1_1_mission_raw_server_1ae9d7d9d863d1552274440d091e2ec869">ClearAllCallback</a></td>
 <td>Callback type for subscribe_clear_all.</td>
+</tr>
+<tr>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a>&lt; uint32_t &gt; <a href="#classmavsdk_1_1_mission_raw_server_1a59022e22386a18e9d51f88e6ed3cf120">ClearAllHandle</a></td>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_clear_all.</td>
 </tr>
 </tbody>
 </table>
@@ -3283,17 +3295,12 @@
 <tbody>
 <tr>
 <td style="text-align:right">&#xA0;</td>
-<td><a href="#classmavsdk_1_1_mission_raw_server_1a409bf742aa4e227b83877476641e938e">MissionRawServer</a> (<a href="classmavsdk_1_1_system.html">System</a> &amp; system)</td>
-<td>Constructor. Creates the plugin for a specific <a href="classmavsdk_1_1_system.html">System</a>.</td>
+<td><a href="#classmavsdk_1_1_mission_raw_server_1a8a899f742cf7b52c27185cee5e5b29e8">MissionRawServer</a> (std::shared_ptr&lt; <a href="classmavsdk_1_1_server_component.md">ServerComponent</a> &gt; server_component)</td>
+<td>Constructor. Creates the plugin for a <a href="classmavsdk_1_1_server_component.md">ServerComponent</a> instance.</td>
 </tr>
 <tr>
 <td style="text-align:right">&#xA0;</td>
-<td><a href="#classmavsdk_1_1_mission_raw_server_1ac742e0088f8b72d349b2808f00bdf24b">MissionRawServer</a> (std::shared_ptr&lt; <a href="classmavsdk_1_1_system.html">System</a> &gt; system)</td>
-<td>Constructor. Creates the plugin for a specific <a href="classmavsdk_1_1_system.html">System</a>.</td>
-</tr>
-<tr>
-<td style="text-align:right">&#xA0;</td>
-<td><a href="#classmavsdk_1_1_mission_raw_server_1a547fd04a550429c4d395b528da554175">~MissionRawServer</a> ()</td>
+<td><a href="#classmavsdk_1_1_mission_raw_server_1a7e14a210c0e7ac4b19633cf8dbd4bbec">~MissionRawServer</a> () override</td>
 <td>Destructor (internal use only).</td>
 </tr>
 <tr>
@@ -3302,9 +3309,14 @@
 <td>Copy constructor.</td>
 </tr>
 <tr>
-<td style="text-align:right">void</td>
-<td><a href="#classmavsdk_1_1_mission_raw_server_1a31b14a826e6bb8727c26105f05e53550">subscribe_incoming_mission</a> (<a href="classmavsdk_1_1_mission_raw_server.html#classmavsdk_1_1_mission_raw_server_1ac8bb83c581ff08945314e51973728693">IncomingMissionCallback</a> callback)</td>
+<td style="text-align:right"><a href="classmavsdk_1_1_mission_raw_server.html#classmavsdk_1_1_mission_raw_server_1a71173397d112f738fd05014ccc0952ff">IncomingMissionHandle</a></td>
+<td><a href="#classmavsdk_1_1_mission_raw_server_1aede616f945d7c59d2da6afad830f377b">subscribe_incoming_mission</a> (const <a href="classmavsdk_1_1_mission_raw_server.html#classmavsdk_1_1_mission_raw_server_1ac8bb83c581ff08945314e51973728693">IncomingMissionCallback</a> &amp; callback)</td>
 <td>Subscribe to when a new mission is uploaded (asynchronous).</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_mission_raw_server_1a93107d6ee73d03edc0050401c5a5f169">unsubscribe_incoming_mission</a> (<a href="classmavsdk_1_1_mission_raw_server.html#classmavsdk_1_1_mission_raw_server_1a71173397d112f738fd05014ccc0952ff">IncomingMissionHandle</a> handle)</td>
+<td>Unsubscribe from subscribe_incoming_mission.</td>
 </tr>
 <tr>
 <td style="text-align:right"><a href="structmavsdk_1_1_mission_raw_server_1_1_mission_plan.html">MissionPlan</a></td>
@@ -3312,9 +3324,14 @@
 <td>Poll for &apos;<a href="structmavsdk_1_1_mission_raw_server_1_1_mission_plan.html">MissionPlan</a>&apos; (blocking).</td>
 </tr>
 <tr>
-<td style="text-align:right">void</td>
-<td><a href="#classmavsdk_1_1_mission_raw_server_1a60ea84204d2679b41a607d87cd9a1082">subscribe_current_item_changed</a> (<a href="classmavsdk_1_1_mission_raw_server.html#classmavsdk_1_1_mission_raw_server_1aca7ac64b6e39e612d05ff6497cd572b1">CurrentItemChangedCallback</a> callback)</td>
+<td style="text-align:right"><a href="classmavsdk_1_1_mission_raw_server.html#classmavsdk_1_1_mission_raw_server_1a490cab4b8b06fd5d6eb8e759427f5b47">CurrentItemChangedHandle</a></td>
+<td><a href="#classmavsdk_1_1_mission_raw_server_1a287af1e5ca18de2e84345b4f5f8fa386">subscribe_current_item_changed</a> (const <a href="classmavsdk_1_1_mission_raw_server.html#classmavsdk_1_1_mission_raw_server_1aca7ac64b6e39e612d05ff6497cd572b1">CurrentItemChangedCallback</a> &amp; callback)</td>
 <td>Subscribe to when a new current item is set.</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_mission_raw_server_1a8c693a86be890f78a5a10cee9a36dc6c">unsubscribe_current_item_changed</a> (<a href="classmavsdk_1_1_mission_raw_server.html#classmavsdk_1_1_mission_raw_server_1a490cab4b8b06fd5d6eb8e759427f5b47">CurrentItemChangedHandle</a> handle)</td>
+<td>Unsubscribe from subscribe_current_item_changed.</td>
 </tr>
 <tr>
 <td style="text-align:right"><a href="structmavsdk_1_1_mission_raw_server_1_1_mission_item.html">MissionItem</a></td>
@@ -3327,9 +3344,14 @@
 <td>Set Current item as completed.</td>
 </tr>
 <tr>
-<td style="text-align:right">void</td>
-<td><a href="#classmavsdk_1_1_mission_raw_server_1a990002711e49d62b854a608bd30126a9">subscribe_clear_all</a> (<a href="classmavsdk_1_1_mission_raw_server.html#classmavsdk_1_1_mission_raw_server_1ae9d7d9d863d1552274440d091e2ec869">ClearAllCallback</a> callback)</td>
+<td style="text-align:right"><a href="classmavsdk_1_1_mission_raw_server.html#classmavsdk_1_1_mission_raw_server_1a59022e22386a18e9d51f88e6ed3cf120">ClearAllHandle</a></td>
+<td><a href="#classmavsdk_1_1_mission_raw_server_1a9b08ba6c1607618e67fd1ec723883415">subscribe_clear_all</a> (const <a href="classmavsdk_1_1_mission_raw_server.html#classmavsdk_1_1_mission_raw_server_1ae9d7d9d863d1552274440d091e2ec869">ClearAllCallback</a> &amp; callback)</td>
 <td>Subscribe when a MISSION_CLEAR_ALL is received.</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_mission_raw_server_1af337c8126b52d78436605a3b2e558397">unsubscribe_clear_all</a> (<a href="classmavsdk_1_1_mission_raw_server.html#classmavsdk_1_1_mission_raw_server_1a59022e22386a18e9d51f88e6ed3cf120">ClearAllHandle</a> handle)</td>
+<td>Unsubscribe from subscribe_clear_all.</td>
 </tr>
 <tr>
 <td style="text-align:right">uint32_t</td>
@@ -3344,30 +3366,19 @@
 </tbody>
 </table>
 <h2 id="constructor--destructor-documentation"><a name="constructor--destructor-documentation" class="plugin-anchor" href="#constructor--destructor-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Constructor &amp; Destructor Documentation</h2>
-<h3 id="classmavsdk_1_1_mission_raw_server_1a409bf742aa4e227b83877476641e938e"><a name="classmavsdk_1_1_mission_raw_server_1a409bf742aa4e227b83877476641e938e" class="plugin-anchor" href="#classmavsdk_1_1_mission_raw_server_1a409bf742aa4e227b83877476641e938e"><i class="fa fa-link" aria-hidden="true"></i></a>MissionRawServer() </h3>
-<pre><code class="lang-cpp">mavsdk::MissionRawServer::MissionRawServer(System &amp;system)
+<h3 id="classmavsdk_1_1_mission_raw_server_1a8a899f742cf7b52c27185cee5e5b29e8"><a name="classmavsdk_1_1_mission_raw_server_1a8a899f742cf7b52c27185cee5e5b29e8" class="plugin-anchor" href="#classmavsdk_1_1_mission_raw_server_1a8a899f742cf7b52c27185cee5e5b29e8"><i class="fa fa-link" aria-hidden="true"></i></a>MissionRawServer() </h3>
+<pre><code class="lang-cpp">mavsdk::MissionRawServer::MissionRawServer(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt; ServerComponent &gt; server_component)
 </code></pre>
-<p>Constructor. Creates the plugin for a specific <a href="classmavsdk_1_1_system.html">System</a>.</p>
+<p>Constructor. Creates the plugin for a <a href="classmavsdk_1_1_server_component.md">ServerComponent</a> instance.</p>
 <p>The plugin is typically created as shown below: </p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">auto</span> mission_raw_server = MissionRawServer(system);
+<pre><code class="lang-cpp"><span class="hljs-keyword">auto</span> mission_raw_server = MissionRawServer(server_component);
 </code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><a href="classmavsdk_1_1_system.html">System</a>&amp; <strong>system</strong> - The specific system associated with this plugin.</li>
+<li>std::shared_ptr&lt; <a href="classmavsdk_1_1_server_component.md">ServerComponent</a> &gt; <strong>server_component</strong> - The <a href="classmavsdk_1_1_server_component.md">ServerComponent</a> instance associated with this server plugin.</li>
 </ul>
-<h3 id="classmavsdk_1_1_mission_raw_server_1ac742e0088f8b72d349b2808f00bdf24b"><a name="classmavsdk_1_1_mission_raw_server_1ac742e0088f8b72d349b2808f00bdf24b" class="plugin-anchor" href="#classmavsdk_1_1_mission_raw_server_1ac742e0088f8b72d349b2808f00bdf24b"><i class="fa fa-link" aria-hidden="true"></i></a>MissionRawServer() </h3>
-<pre><code class="lang-cpp">mavsdk::MissionRawServer::MissionRawServer(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">shared_ptr</span>&lt; System &gt; system)
-</code></pre>
-<p>Constructor. Creates the plugin for a specific <a href="classmavsdk_1_1_system.html">System</a>.</p>
-<p>The plugin is typically created as shown below: </p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">auto</span> mission_raw_server = MissionRawServer(system);
-</code></pre>
-<p><strong>Parameters</strong></p>
-<ul>
-<li>std::shared_ptr&lt; <a href="classmavsdk_1_1_system.html">System</a> &gt; <strong>system</strong> - The specific system associated with this plugin.</li>
-</ul>
-<h3 id="classmavsdk_1_1_mission_raw_server_1a547fd04a550429c4d395b528da554175"><a name="classmavsdk_1_1_mission_raw_server_1a547fd04a550429c4d395b528da554175" class="plugin-anchor" href="#classmavsdk_1_1_mission_raw_server_1a547fd04a550429c4d395b528da554175"><i class="fa fa-link" aria-hidden="true"></i></a>~MissionRawServer() </h3>
-<pre><code class="lang-cpp">mavsdk::MissionRawServer::~MissionRawServer()
+<h3 id="classmavsdk_1_1_mission_raw_server_1a7e14a210c0e7ac4b19633cf8dbd4bbec"><a name="classmavsdk_1_1_mission_raw_server_1a7e14a210c0e7ac4b19633cf8dbd4bbec" class="plugin-anchor" href="#classmavsdk_1_1_mission_raw_server_1a7e14a210c0e7ac4b19633cf8dbd4bbec"><i class="fa fa-link" aria-hidden="true"></i></a>~MissionRawServer() </h3>
+<pre><code class="lang-cpp">mavsdk::MissionRawServer::~MissionRawServer() override
 </code></pre>
 <p>Destructor (internal use only).</p>
 <h3 id="classmavsdk_1_1_mission_raw_server_1a14b11b78ba44bdda6fb718ed13e1ab77"><a name="classmavsdk_1_1_mission_raw_server_1a14b11b78ba44bdda6fb718ed13e1ab77" class="plugin-anchor" href="#classmavsdk_1_1_mission_raw_server_1a14b11b78ba44bdda6fb718ed13e1ab77"><i class="fa fa-link" aria-hidden="true"></i></a>MissionRawServer() </h3>
@@ -3387,14 +3398,26 @@
 <pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::MissionRawServer::IncomingMissionCallback =  <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(Result, MissionPlan)&gt;
 </code></pre>
 <p>Callback type for subscribe_incoming_mission.</p>
+<h3 id="classmavsdk_1_1_mission_raw_server_1a71173397d112f738fd05014ccc0952ff"><a name="classmavsdk_1_1_mission_raw_server_1a71173397d112f738fd05014ccc0952ff" class="plugin-anchor" href="#classmavsdk_1_1_mission_raw_server_1a71173397d112f738fd05014ccc0952ff"><i class="fa fa-link" aria-hidden="true"></i></a>typedef IncomingMissionHandle </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::MissionRawServer::IncomingMissionHandle =  Handle&lt;Result, MissionPlan&gt;
+</code></pre>
+<p><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_incoming_mission.</p>
 <h3 id="classmavsdk_1_1_mission_raw_server_1aca7ac64b6e39e612d05ff6497cd572b1"><a name="classmavsdk_1_1_mission_raw_server_1aca7ac64b6e39e612d05ff6497cd572b1" class="plugin-anchor" href="#classmavsdk_1_1_mission_raw_server_1aca7ac64b6e39e612d05ff6497cd572b1"><i class="fa fa-link" aria-hidden="true"></i></a>typedef CurrentItemChangedCallback </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::MissionRawServer::CurrentItemChangedCallback =  <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(MissionItem)&gt;
 </code></pre>
 <p>Callback type for subscribe_current_item_changed.</p>
+<h3 id="classmavsdk_1_1_mission_raw_server_1a490cab4b8b06fd5d6eb8e759427f5b47"><a name="classmavsdk_1_1_mission_raw_server_1a490cab4b8b06fd5d6eb8e759427f5b47" class="plugin-anchor" href="#classmavsdk_1_1_mission_raw_server_1a490cab4b8b06fd5d6eb8e759427f5b47"><i class="fa fa-link" aria-hidden="true"></i></a>typedef CurrentItemChangedHandle </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::MissionRawServer::CurrentItemChangedHandle =  Handle&lt;MissionItem&gt;
+</code></pre>
+<p><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_current_item_changed.</p>
 <h3 id="classmavsdk_1_1_mission_raw_server_1ae9d7d9d863d1552274440d091e2ec869"><a name="classmavsdk_1_1_mission_raw_server_1ae9d7d9d863d1552274440d091e2ec869" class="plugin-anchor" href="#classmavsdk_1_1_mission_raw_server_1ae9d7d9d863d1552274440d091e2ec869"><i class="fa fa-link" aria-hidden="true"></i></a>typedef ClearAllCallback </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::MissionRawServer::ClearAllCallback =  <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(<span class="hljs-keyword">uint32_t</span>)&gt;
 </code></pre>
 <p>Callback type for subscribe_clear_all.</p>
+<h3 id="classmavsdk_1_1_mission_raw_server_1a59022e22386a18e9d51f88e6ed3cf120"><a name="classmavsdk_1_1_mission_raw_server_1a59022e22386a18e9d51f88e6ed3cf120" class="plugin-anchor" href="#classmavsdk_1_1_mission_raw_server_1a59022e22386a18e9d51f88e6ed3cf120"><i class="fa fa-link" aria-hidden="true"></i></a>typedef ClearAllHandle </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::MissionRawServer::ClearAllHandle =  Handle&lt;<span class="hljs-keyword">uint32_t</span>&gt;
+</code></pre>
+<p><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_clear_all.</p>
 <h2 id="member-enumeration-documentation"><a name="member-enumeration-documentation" class="plugin-anchor" href="#member-enumeration-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Member Enumeration Documentation</h2>
 <h3 id="classmavsdk_1_1_mission_raw_server_1a14f2cae8b098b7221d8aae547b70f7bd"><a name="classmavsdk_1_1_mission_raw_server_1a14f2cae8b098b7221d8aae547b70f7bd" class="plugin-anchor" href="#classmavsdk_1_1_mission_raw_server_1a14f2cae8b098b7221d8aae547b70f7bd"><i class="fa fa-link" aria-hidden="true"></i></a>enum Result </h3>
 <p>Possible results returned for action requests.</p>
@@ -3461,13 +3484,23 @@
 </tbody>
 </table>
 <h2 id="member-function-documentation"><a name="member-function-documentation" class="plugin-anchor" href="#member-function-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Member Function Documentation</h2>
-<h3 id="classmavsdk_1_1_mission_raw_server_1a31b14a826e6bb8727c26105f05e53550"><a name="classmavsdk_1_1_mission_raw_server_1a31b14a826e6bb8727c26105f05e53550" class="plugin-anchor" href="#classmavsdk_1_1_mission_raw_server_1a31b14a826e6bb8727c26105f05e53550"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_incoming_mission() </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::MissionRawServer::subscribe_incoming_mission(IncomingMissionCallback callback)
+<h3 id="classmavsdk_1_1_mission_raw_server_1aede616f945d7c59d2da6afad830f377b"><a name="classmavsdk_1_1_mission_raw_server_1aede616f945d7c59d2da6afad830f377b" class="plugin-anchor" href="#classmavsdk_1_1_mission_raw_server_1aede616f945d7c59d2da6afad830f377b"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_incoming_mission() </h3>
+<pre><code class="lang-cpp">IncomingMissionHandle mavsdk::MissionRawServer::subscribe_incoming_mission(<span class="hljs-keyword">const</span> IncomingMissionCallback &amp;callback)
 </code></pre>
 <p>Subscribe to when a new mission is uploaded (asynchronous).</p>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><a href="classmavsdk_1_1_mission_raw_server.html#classmavsdk_1_1_mission_raw_server_1ac8bb83c581ff08945314e51973728693">IncomingMissionCallback</a> <strong>callback</strong> - </li>
+<li>const <a href="classmavsdk_1_1_mission_raw_server.html#classmavsdk_1_1_mission_raw_server_1ac8bb83c581ff08945314e51973728693">IncomingMissionCallback</a>&amp; <strong>callback</strong> - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_mission_raw_server.html#classmavsdk_1_1_mission_raw_server_1a71173397d112f738fd05014ccc0952ff">IncomingMissionHandle</a> - </p>
+<h3 id="classmavsdk_1_1_mission_raw_server_1a93107d6ee73d03edc0050401c5a5f169"><a name="classmavsdk_1_1_mission_raw_server_1a93107d6ee73d03edc0050401c5a5f169" class="plugin-anchor" href="#classmavsdk_1_1_mission_raw_server_1a93107d6ee73d03edc0050401c5a5f169"><i class="fa fa-link" aria-hidden="true"></i></a>unsubscribe_incoming_mission() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::MissionRawServer::unsubscribe_incoming_mission(IncomingMissionHandle handle)
+</code></pre>
+<p>Unsubscribe from subscribe_incoming_mission.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_mission_raw_server.html#classmavsdk_1_1_mission_raw_server_1a71173397d112f738fd05014ccc0952ff">IncomingMissionHandle</a> <strong>handle</strong> - </li>
 </ul>
 <h3 id="classmavsdk_1_1_mission_raw_server_1ae7c20d621170e5454953513526241577"><a name="classmavsdk_1_1_mission_raw_server_1ae7c20d621170e5454953513526241577" class="plugin-anchor" href="#classmavsdk_1_1_mission_raw_server_1ae7c20d621170e5454953513526241577"><i class="fa fa-link" aria-hidden="true"></i></a>incoming_mission() </h3>
 <pre><code class="lang-cpp">MissionPlan mavsdk::MissionRawServer::incoming_mission() <span class="hljs-keyword">const</span>
@@ -3475,13 +3508,23 @@
 <p>Poll for &apos;<a href="structmavsdk_1_1_mission_raw_server_1_1_mission_plan.html">MissionPlan</a>&apos; (blocking).</p>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="structmavsdk_1_1_mission_raw_server_1_1_mission_plan.html">MissionPlan</a> - One <a href="structmavsdk_1_1_mission_raw_server_1_1_mission_plan.html">MissionPlan</a> update.</p>
-<h3 id="classmavsdk_1_1_mission_raw_server_1a60ea84204d2679b41a607d87cd9a1082"><a name="classmavsdk_1_1_mission_raw_server_1a60ea84204d2679b41a607d87cd9a1082" class="plugin-anchor" href="#classmavsdk_1_1_mission_raw_server_1a60ea84204d2679b41a607d87cd9a1082"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_current_item_changed() </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::MissionRawServer::subscribe_current_item_changed(CurrentItemChangedCallback callback)
+<h3 id="classmavsdk_1_1_mission_raw_server_1a287af1e5ca18de2e84345b4f5f8fa386"><a name="classmavsdk_1_1_mission_raw_server_1a287af1e5ca18de2e84345b4f5f8fa386" class="plugin-anchor" href="#classmavsdk_1_1_mission_raw_server_1a287af1e5ca18de2e84345b4f5f8fa386"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_current_item_changed() </h3>
+<pre><code class="lang-cpp">CurrentItemChangedHandle mavsdk::MissionRawServer::subscribe_current_item_changed(<span class="hljs-keyword">const</span> CurrentItemChangedCallback &amp;callback)
 </code></pre>
 <p>Subscribe to when a new current item is set.</p>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><a href="classmavsdk_1_1_mission_raw_server.html#classmavsdk_1_1_mission_raw_server_1aca7ac64b6e39e612d05ff6497cd572b1">CurrentItemChangedCallback</a> <strong>callback</strong> - </li>
+<li>const <a href="classmavsdk_1_1_mission_raw_server.html#classmavsdk_1_1_mission_raw_server_1aca7ac64b6e39e612d05ff6497cd572b1">CurrentItemChangedCallback</a>&amp; <strong>callback</strong> - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_mission_raw_server.html#classmavsdk_1_1_mission_raw_server_1a490cab4b8b06fd5d6eb8e759427f5b47">CurrentItemChangedHandle</a> - </p>
+<h3 id="classmavsdk_1_1_mission_raw_server_1a8c693a86be890f78a5a10cee9a36dc6c"><a name="classmavsdk_1_1_mission_raw_server_1a8c693a86be890f78a5a10cee9a36dc6c" class="plugin-anchor" href="#classmavsdk_1_1_mission_raw_server_1a8c693a86be890f78a5a10cee9a36dc6c"><i class="fa fa-link" aria-hidden="true"></i></a>unsubscribe_current_item_changed() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::MissionRawServer::unsubscribe_current_item_changed(CurrentItemChangedHandle handle)
+</code></pre>
+<p>Unsubscribe from subscribe_current_item_changed.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_mission_raw_server.html#classmavsdk_1_1_mission_raw_server_1a490cab4b8b06fd5d6eb8e759427f5b47">CurrentItemChangedHandle</a> <strong>handle</strong> - </li>
 </ul>
 <h3 id="classmavsdk_1_1_mission_raw_server_1af2bbab99a8a2e1dd1dfebceb439f2ad1"><a name="classmavsdk_1_1_mission_raw_server_1af2bbab99a8a2e1dd1dfebceb439f2ad1" class="plugin-anchor" href="#classmavsdk_1_1_mission_raw_server_1af2bbab99a8a2e1dd1dfebceb439f2ad1"><i class="fa fa-link" aria-hidden="true"></i></a>current_item_changed() </h3>
 <pre><code class="lang-cpp">MissionItem mavsdk::MissionRawServer::current_item_changed() <span class="hljs-keyword">const</span>
@@ -3494,13 +3537,23 @@
 </code></pre>
 <p>Set Current item as completed.</p>
 <p>This function is blocking.</p>
-<h3 id="classmavsdk_1_1_mission_raw_server_1a990002711e49d62b854a608bd30126a9"><a name="classmavsdk_1_1_mission_raw_server_1a990002711e49d62b854a608bd30126a9" class="plugin-anchor" href="#classmavsdk_1_1_mission_raw_server_1a990002711e49d62b854a608bd30126a9"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_clear_all() </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::MissionRawServer::subscribe_clear_all(ClearAllCallback callback)
+<h3 id="classmavsdk_1_1_mission_raw_server_1a9b08ba6c1607618e67fd1ec723883415"><a name="classmavsdk_1_1_mission_raw_server_1a9b08ba6c1607618e67fd1ec723883415" class="plugin-anchor" href="#classmavsdk_1_1_mission_raw_server_1a9b08ba6c1607618e67fd1ec723883415"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_clear_all() </h3>
+<pre><code class="lang-cpp">ClearAllHandle mavsdk::MissionRawServer::subscribe_clear_all(<span class="hljs-keyword">const</span> ClearAllCallback &amp;callback)
 </code></pre>
 <p>Subscribe when a MISSION_CLEAR_ALL is received.</p>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><a href="classmavsdk_1_1_mission_raw_server.html#classmavsdk_1_1_mission_raw_server_1ae9d7d9d863d1552274440d091e2ec869">ClearAllCallback</a> <strong>callback</strong> - </li>
+<li>const <a href="classmavsdk_1_1_mission_raw_server.html#classmavsdk_1_1_mission_raw_server_1ae9d7d9d863d1552274440d091e2ec869">ClearAllCallback</a>&amp; <strong>callback</strong> - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_mission_raw_server.html#classmavsdk_1_1_mission_raw_server_1a59022e22386a18e9d51f88e6ed3cf120">ClearAllHandle</a> - </p>
+<h3 id="classmavsdk_1_1_mission_raw_server_1af337c8126b52d78436605a3b2e558397"><a name="classmavsdk_1_1_mission_raw_server_1af337c8126b52d78436605a3b2e558397" class="plugin-anchor" href="#classmavsdk_1_1_mission_raw_server_1af337c8126b52d78436605a3b2e558397"><i class="fa fa-link" aria-hidden="true"></i></a>unsubscribe_clear_all() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::MissionRawServer::unsubscribe_clear_all(ClearAllHandle handle)
+</code></pre>
+<p>Unsubscribe from subscribe_clear_all.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_mission_raw_server.html#classmavsdk_1_1_mission_raw_server_1a59022e22386a18e9d51f88e6ed3cf120">ClearAllHandle</a> <strong>handle</strong> - </li>
 </ul>
 <h3 id="classmavsdk_1_1_mission_raw_server_1a307e0f39d704ae9aeb227a27092bf435"><a name="classmavsdk_1_1_mission_raw_server_1a307e0f39d704ae9aeb227a27092bf435" class="plugin-anchor" href="#classmavsdk_1_1_mission_raw_server_1a307e0f39d704ae9aeb227a27092bf435"><i class="fa fa-link" aria-hidden="true"></i></a>clear_all() </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">uint32_t</span> mavsdk::MissionRawServer::clear_all() <span class="hljs-keyword">const</span>
@@ -3518,7 +3571,7 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;const <a href="classmavsdk_1_1_mission_raw_server.html">MissionRawServer</a> &amp; - </p>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2023-12-27 01:33:23 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; MAVSDK Development Team 2017-2023. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2023-12-27 03:10:20 </span> </footer>
                                 
                                 </section>
                             
@@ -3561,7 +3614,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"class MissionRawServer","level":"1.2.6.18","depth":3,"next":{"title":"struct MissionItem","level":"1.2.6.18.1","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_mission_raw_server_1_1_mission_item.md","ref":"cpp/api_reference/structmavsdk_1_1_mission_raw_server_1_1_mission_item.md","articles":[]},"previous":{"title":"struct MissionProgress","level":"1.2.6.17.3","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_mission_raw_1_1_mission_progress.md","ref":"cpp/api_reference/structmavsdk_1_1_mission_raw_1_1_mission_progress.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v2.0/en/","text":"v2.0"},{"value":"https://mavsdk.mavlink.io/v1.4/en/","text":"v1.4"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/api_reference/classmavsdk_1_1_mission_raw_server.md","mtime":"2023-12-27T01:33:23.810Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-12-27T01:34:03.009Z"},"basePath":"../..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"class MissionRawServer","level":"1.2.6.18","depth":3,"next":{"title":"struct MissionItem","level":"1.2.6.18.1","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_mission_raw_server_1_1_mission_item.md","ref":"cpp/api_reference/structmavsdk_1_1_mission_raw_server_1_1_mission_item.md","articles":[]},"previous":{"title":"struct MissionProgress","level":"1.2.6.17.3","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_mission_raw_1_1_mission_progress.md","ref":"cpp/api_reference/structmavsdk_1_1_mission_raw_1_1_mission_progress.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© MAVSDK Development Team 2017-2023. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v2.0/en/","text":"v2.0"},{"value":"https://mavsdk.mavlink.io/v1.4/en/","text":"v1.4"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/api_reference/classmavsdk_1_1_mission_raw_server.md","mtime":"2023-12-27T03:10:20.531Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-12-27T03:11:00.444Z"},"basePath":"../..","book":{"language":"en"}});
         });
     </script>
 </div>

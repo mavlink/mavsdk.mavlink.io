@@ -3283,28 +3283,56 @@
 <td>Callback type for subscribe_mode.</td>
 </tr>
 <tr>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a>&lt; <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a02bb5ce37d125ba4c65d43f172cc2d65">Mode</a> &gt; <a href="#classmavsdk_1_1_camera_1ac6759725ac9696f9572b05524fde2354">ModeHandle</a></td>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_mode.</td>
+</tr>
+<tr>
 <td>std::function&lt; void(<a href="structmavsdk_1_1_camera_1_1_information.html">Information</a>)&gt; <a href="#classmavsdk_1_1_camera_1af13455249eebaf152a71d59e32fcbf65">InformationCallback</a></td>
 <td>Callback type for subscribe_information.</td>
+</tr>
+<tr>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a>&lt; <a href="structmavsdk_1_1_camera_1_1_information.html">Information</a> &gt; <a href="#classmavsdk_1_1_camera_1a0dcacb795da7de566fb6dce091ca4605">InformationHandle</a></td>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_information.</td>
 </tr>
 <tr>
 <td>std::function&lt; void(<a href="structmavsdk_1_1_camera_1_1_video_stream_info.html">VideoStreamInfo</a>)&gt; <a href="#classmavsdk_1_1_camera_1acd9baf073b816e46c22dbd6b599ece66">VideoStreamInfoCallback</a></td>
 <td>Callback type for subscribe_video_stream_info.</td>
 </tr>
 <tr>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a>&lt; <a href="structmavsdk_1_1_camera_1_1_video_stream_info.html">VideoStreamInfo</a> &gt; <a href="#classmavsdk_1_1_camera_1aebf91f740cc85682c6b7a0955635f848">VideoStreamInfoHandle</a></td>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_video_stream_info.</td>
+</tr>
+<tr>
 <td>std::function&lt; void(<a href="structmavsdk_1_1_camera_1_1_capture_info.html">CaptureInfo</a>)&gt; <a href="#classmavsdk_1_1_camera_1a9bf5c20ea0b03ab019057829d1a3441e">CaptureInfoCallback</a></td>
 <td>Callback type for subscribe_capture_info.</td>
+</tr>
+<tr>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a>&lt; <a href="structmavsdk_1_1_camera_1_1_capture_info.html">CaptureInfo</a> &gt; <a href="#classmavsdk_1_1_camera_1a789f1fccde8eb44bc07694751b3a1b40">CaptureInfoHandle</a></td>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_capture_info.</td>
 </tr>
 <tr>
 <td>std::function&lt; void(<a href="structmavsdk_1_1_camera_1_1_status.html">Status</a>)&gt; <a href="#classmavsdk_1_1_camera_1aea925914ce854b81b67e3213840c97ad">StatusCallback</a></td>
 <td>Callback type for subscribe_status.</td>
 </tr>
 <tr>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a>&lt; <a href="structmavsdk_1_1_camera_1_1_status.html">Status</a> &gt; <a href="#classmavsdk_1_1_camera_1a902bc3a824040a37714bb2c1c41a9601">StatusHandle</a></td>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_status.</td>
+</tr>
+<tr>
 <td>std::function&lt; void(std::vector&lt; <a href="structmavsdk_1_1_camera_1_1_setting.html">Setting</a> &gt;)&gt; <a href="#classmavsdk_1_1_camera_1a77484487381b2579460c36d97d367fe6">CurrentSettingsCallback</a></td>
 <td>Callback type for subscribe_current_settings.</td>
 </tr>
 <tr>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a>&lt; std::vector&lt; <a href="structmavsdk_1_1_camera_1_1_setting.html">Setting</a> &gt; &gt; <a href="#classmavsdk_1_1_camera_1a19960e47f1c2b3fb5117ba2f7f3cfbe6">CurrentSettingsHandle</a></td>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_current_settings.</td>
+</tr>
+<tr>
 <td>std::function&lt; void(std::vector&lt; <a href="structmavsdk_1_1_camera_1_1_setting_options.html">SettingOptions</a> &gt;)&gt; <a href="#classmavsdk_1_1_camera_1a78e25614c29cd8bc1bbf26adcf417c2a">PossibleSettingOptionsCallback</a></td>
 <td>Callback type for subscribe_possible_setting_options.</td>
+</tr>
+<tr>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a>&lt; std::vector&lt; <a href="structmavsdk_1_1_camera_1_1_setting_options.html">SettingOptions</a> &gt; &gt; <a href="#classmavsdk_1_1_camera_1a1144be14cd9f15724397ad6b5253b8a9">PossibleSettingOptionsHandle</a></td>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_possible_setting_options.</td>
 </tr>
 <tr>
 <td>std::function&lt; void(<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a>, <a href="structmavsdk_1_1_camera_1_1_setting.html">Setting</a>)&gt; <a href="#classmavsdk_1_1_camera_1ac233f5688f0b7f1e712bb31dfaeadd85">GetSettingCallback</a></td>
@@ -3334,7 +3362,7 @@
 </tr>
 <tr>
 <td style="text-align:right">&#xA0;</td>
-<td><a href="#classmavsdk_1_1_camera_1abd845e6fb2adc386dba7c8860a67f761">~Camera</a> ()</td>
+<td><a href="#classmavsdk_1_1_camera_1afc23a58baf97868b1d9a9b983d7c2087">~Camera</a> () override</td>
 <td>Destructor (internal use only).</td>
 </tr>
 <tr>
@@ -3404,12 +3432,12 @@
 </tr>
 <tr>
 <td style="text-align:right"><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a></td>
-<td><a href="#classmavsdk_1_1_camera_1a8714183c1b03ec4251287911db1492c3">start_video_streaming</a> () const</td>
+<td><a href="#classmavsdk_1_1_camera_1a6e062242a02389e2fc839f5e9ec03d7d">start_video_streaming</a> (int32_t stream_id)const</td>
 <td>Start video streaming.</td>
 </tr>
 <tr>
 <td style="text-align:right"><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a></td>
-<td><a href="#classmavsdk_1_1_camera_1a9f6ec4e37cdd287f0cbeed40a2602416">stop_video_streaming</a> () const</td>
+<td><a href="#classmavsdk_1_1_camera_1ae495e8c52984ad76b27b72fc58987d9d">stop_video_streaming</a> (int32_t stream_id)const</td>
 <td>Stop current video streaming.</td>
 </tr>
 <tr>
@@ -3433,9 +3461,14 @@
 <td>List photos available on the camera.</td>
 </tr>
 <tr>
-<td style="text-align:right">void</td>
-<td><a href="#classmavsdk_1_1_camera_1a002b03af2331606752aba43da0216503">subscribe_mode</a> (<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a33a7257ab95d9277b786e6de86604931">ModeCallback</a> callback)</td>
+<td style="text-align:right"><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1ac6759725ac9696f9572b05524fde2354">ModeHandle</a></td>
+<td><a href="#classmavsdk_1_1_camera_1a1963bfcfcc8c9e96451648f96fd618cd">subscribe_mode</a> (const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a33a7257ab95d9277b786e6de86604931">ModeCallback</a> &amp; callback)</td>
 <td>Subscribe to camera mode updates.</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_camera_1ab9437b41565d8957050e09cf4143f5d1">unsubscribe_mode</a> (<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1ac6759725ac9696f9572b05524fde2354">ModeHandle</a> handle)</td>
+<td>Unsubscribe from subscribe_mode.</td>
 </tr>
 <tr>
 <td style="text-align:right"><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a02bb5ce37d125ba4c65d43f172cc2d65">Mode</a></td>
@@ -3443,9 +3476,14 @@
 <td>Poll for &apos;Mode&apos; (blocking).</td>
 </tr>
 <tr>
-<td style="text-align:right">void</td>
-<td><a href="#classmavsdk_1_1_camera_1a64a8d8ac28784b0d304d5a7b1519657a">subscribe_information</a> (<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1af13455249eebaf152a71d59e32fcbf65">InformationCallback</a> callback)</td>
+<td style="text-align:right"><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a0dcacb795da7de566fb6dce091ca4605">InformationHandle</a></td>
+<td><a href="#classmavsdk_1_1_camera_1af4b5c713813df8c407a09963295c33a2">subscribe_information</a> (const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1af13455249eebaf152a71d59e32fcbf65">InformationCallback</a> &amp; callback)</td>
 <td>Subscribe to camera information updates.</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_camera_1a90b70deaf25dff027714afb856653ea5">unsubscribe_information</a> (<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a0dcacb795da7de566fb6dce091ca4605">InformationHandle</a> handle)</td>
+<td>Unsubscribe from subscribe_information.</td>
 </tr>
 <tr>
 <td style="text-align:right"><a href="structmavsdk_1_1_camera_1_1_information.html">Information</a></td>
@@ -3453,9 +3491,14 @@
 <td>Poll for &apos;<a href="structmavsdk_1_1_camera_1_1_information.html">Information</a>&apos; (blocking).</td>
 </tr>
 <tr>
-<td style="text-align:right">void</td>
-<td><a href="#classmavsdk_1_1_camera_1a23a43693897e77995d8be6d1b15fe62c">subscribe_video_stream_info</a> (<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1acd9baf073b816e46c22dbd6b599ece66">VideoStreamInfoCallback</a> callback)</td>
+<td style="text-align:right"><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1aebf91f740cc85682c6b7a0955635f848">VideoStreamInfoHandle</a></td>
+<td><a href="#classmavsdk_1_1_camera_1a4dcf0ebeb1f9f5e5b2b71f59c9b7eeb9">subscribe_video_stream_info</a> (const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1acd9baf073b816e46c22dbd6b599ece66">VideoStreamInfoCallback</a> &amp; callback)</td>
 <td>Subscribe to video stream info updates.</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_camera_1abc370783800fb90dda20d2843f990036">unsubscribe_video_stream_info</a> (<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1aebf91f740cc85682c6b7a0955635f848">VideoStreamInfoHandle</a> handle)</td>
+<td>Unsubscribe from subscribe_video_stream_info.</td>
 </tr>
 <tr>
 <td style="text-align:right"><a href="structmavsdk_1_1_camera_1_1_video_stream_info.html">VideoStreamInfo</a></td>
@@ -3463,14 +3506,24 @@
 <td>Poll for &apos;<a href="structmavsdk_1_1_camera_1_1_video_stream_info.html">VideoStreamInfo</a>&apos; (blocking).</td>
 </tr>
 <tr>
-<td style="text-align:right">void</td>
-<td><a href="#classmavsdk_1_1_camera_1a26901f1812df6253a39457d7bc230895">subscribe_capture_info</a> (<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a9bf5c20ea0b03ab019057829d1a3441e">CaptureInfoCallback</a> callback)</td>
+<td style="text-align:right"><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a789f1fccde8eb44bc07694751b3a1b40">CaptureInfoHandle</a></td>
+<td><a href="#classmavsdk_1_1_camera_1a8822ab1d802984a1acc9b53cd9810e8f">subscribe_capture_info</a> (const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a9bf5c20ea0b03ab019057829d1a3441e">CaptureInfoCallback</a> &amp; callback)</td>
 <td>Subscribe to capture info updates.</td>
 </tr>
 <tr>
 <td style="text-align:right">void</td>
-<td><a href="#classmavsdk_1_1_camera_1ab62186cc3fc79459bde0e4704eb1e768">subscribe_status</a> (<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1aea925914ce854b81b67e3213840c97ad">StatusCallback</a> callback)</td>
+<td><a href="#classmavsdk_1_1_camera_1a9b7f729dfa30a6cb0d041533bd272793">unsubscribe_capture_info</a> (<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a789f1fccde8eb44bc07694751b3a1b40">CaptureInfoHandle</a> handle)</td>
+<td>Unsubscribe from subscribe_capture_info.</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a902bc3a824040a37714bb2c1c41a9601">StatusHandle</a></td>
+<td><a href="#classmavsdk_1_1_camera_1a1bf71cdb27a9b8d3fefe15463c9b9bf1">subscribe_status</a> (const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1aea925914ce854b81b67e3213840c97ad">StatusCallback</a> &amp; callback)</td>
 <td>Subscribe to camera status updates.</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_camera_1a402cf21219f9b303fca0a269dab15b63">unsubscribe_status</a> (<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a902bc3a824040a37714bb2c1c41a9601">StatusHandle</a> handle)</td>
+<td>Unsubscribe from subscribe_status.</td>
 </tr>
 <tr>
 <td style="text-align:right"><a href="structmavsdk_1_1_camera_1_1_status.html">Status</a></td>
@@ -3478,14 +3531,24 @@
 <td>Poll for &apos;<a href="structmavsdk_1_1_camera_1_1_status.html">Status</a>&apos; (blocking).</td>
 </tr>
 <tr>
-<td style="text-align:right">void</td>
-<td><a href="#classmavsdk_1_1_camera_1a460cf8f9810417e63ce2643df9ed014a">subscribe_current_settings</a> (<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a77484487381b2579460c36d97d367fe6">CurrentSettingsCallback</a> callback)</td>
+<td style="text-align:right"><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a19960e47f1c2b3fb5117ba2f7f3cfbe6">CurrentSettingsHandle</a></td>
+<td><a href="#classmavsdk_1_1_camera_1a906c431b63dde866b691ab4c839858ff">subscribe_current_settings</a> (const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a77484487381b2579460c36d97d367fe6">CurrentSettingsCallback</a> &amp; callback)</td>
 <td>Get the list of current camera settings.</td>
 </tr>
 <tr>
 <td style="text-align:right">void</td>
-<td><a href="#classmavsdk_1_1_camera_1abd8c5e18e165b319aaae9815c735b683">subscribe_possible_setting_options</a> (<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a78e25614c29cd8bc1bbf26adcf417c2a">PossibleSettingOptionsCallback</a> callback)</td>
+<td><a href="#classmavsdk_1_1_camera_1a117e76672b39c9cd751fa64a42741c17">unsubscribe_current_settings</a> (<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a19960e47f1c2b3fb5117ba2f7f3cfbe6">CurrentSettingsHandle</a> handle)</td>
+<td>Unsubscribe from subscribe_current_settings.</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a1144be14cd9f15724397ad6b5253b8a9">PossibleSettingOptionsHandle</a></td>
+<td><a href="#classmavsdk_1_1_camera_1aef7c545aaa05e36b212255120557967b">subscribe_possible_setting_options</a> (const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a78e25614c29cd8bc1bbf26adcf417c2a">PossibleSettingOptionsCallback</a> &amp; callback)</td>
 <td>Get the list of settings that can be changed.</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_camera_1a191cc00bb6b1c834fc93b19f4bff1c29">unsubscribe_possible_setting_options</a> (<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a1144be14cd9f15724397ad6b5253b8a9">PossibleSettingOptionsHandle</a> handle)</td>
+<td>Unsubscribe from subscribe_possible_setting_options.</td>
 </tr>
 <tr>
 <td style="text-align:right">std::vector&lt; <a href="structmavsdk_1_1_camera_1_1_setting_options.html">SettingOptions</a> &gt;</td>
@@ -3514,18 +3577,28 @@
 </tr>
 <tr>
 <td style="text-align:right">void</td>
-<td><a href="#classmavsdk_1_1_camera_1a20455726797ece508d49fe05442fe0c1">format_storage_async</a> (const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a8d6d59cd8d0a3584ef60b16255b6301f">ResultCallback</a> callback)</td>
+<td><a href="#classmavsdk_1_1_camera_1afd1074b185776167e7355438ac69d955">format_storage_async</a> (int32_t storage_id, const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a8d6d59cd8d0a3584ef60b16255b6301f">ResultCallback</a> callback)</td>
 <td>Format storage (e.g. SD card) in camera.</td>
 </tr>
 <tr>
 <td style="text-align:right"><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a></td>
-<td><a href="#classmavsdk_1_1_camera_1a1e2d39b44251f39a395527b0170e223a">format_storage</a> () const</td>
+<td><a href="#classmavsdk_1_1_camera_1a942f9bad2e2bede982d404ce552090a5">format_storage</a> (int32_t storage_id)const</td>
 <td>Format storage (e.g. SD card) in camera.</td>
 </tr>
 <tr>
 <td style="text-align:right"><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a></td>
 <td><a href="#classmavsdk_1_1_camera_1ab3348f98003f71f2399dd15505effae3">select_camera</a> (int32_t camera_id)const</td>
 <td>Select current camera .</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_camera_1ab2316e20104a5efa94bf2719dc3dd994">reset_settings_async</a> (const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a8d6d59cd8d0a3584ef60b16255b6301f">ResultCallback</a> callback)</td>
+<td>Reset all settings in camera.</td>
+</tr>
+<tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a></td>
+<td><a href="#classmavsdk_1_1_camera_1a49c84f20f1100848e3951f5e14b569dc">reset_settings</a> () const</td>
+<td>Reset all settings in camera.</td>
 </tr>
 <tr>
 <td style="text-align:right">const <a href="classmavsdk_1_1_camera.html">Camera</a> &amp;</td>
@@ -3557,8 +3630,8 @@
 <ul>
 <li>std::shared_ptr&lt; <a href="classmavsdk_1_1_system.html">System</a> &gt; <strong>system</strong> - The specific system associated with this plugin.</li>
 </ul>
-<h3 id="classmavsdk_1_1_camera_1abd845e6fb2adc386dba7c8860a67f761"><a name="classmavsdk_1_1_camera_1abd845e6fb2adc386dba7c8860a67f761" class="plugin-anchor" href="#classmavsdk_1_1_camera_1abd845e6fb2adc386dba7c8860a67f761"><i class="fa fa-link" aria-hidden="true"></i></a>~Camera() </h3>
-<pre><code class="lang-cpp">mavsdk::Camera::~Camera()
+<h3 id="classmavsdk_1_1_camera_1afc23a58baf97868b1d9a9b983d7c2087"><a name="classmavsdk_1_1_camera_1afc23a58baf97868b1d9a9b983d7c2087" class="plugin-anchor" href="#classmavsdk_1_1_camera_1afc23a58baf97868b1d9a9b983d7c2087"><i class="fa fa-link" aria-hidden="true"></i></a>~Camera() </h3>
+<pre><code class="lang-cpp">mavsdk::Camera::~Camera() override
 </code></pre>
 <p>Destructor (internal use only).</p>
 <h3 id="classmavsdk_1_1_camera_1a1b83c38c360d70b56222a94999d862fd"><a name="classmavsdk_1_1_camera_1a1b83c38c360d70b56222a94999d862fd" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a1b83c38c360d70b56222a94999d862fd"><i class="fa fa-link" aria-hidden="true"></i></a>Camera() </h3>
@@ -3582,30 +3655,58 @@
 <pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::Camera::ModeCallback =  <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(Mode)&gt;
 </code></pre>
 <p>Callback type for subscribe_mode.</p>
+<h3 id="classmavsdk_1_1_camera_1ac6759725ac9696f9572b05524fde2354"><a name="classmavsdk_1_1_camera_1ac6759725ac9696f9572b05524fde2354" class="plugin-anchor" href="#classmavsdk_1_1_camera_1ac6759725ac9696f9572b05524fde2354"><i class="fa fa-link" aria-hidden="true"></i></a>typedef ModeHandle </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::Camera::ModeHandle =  Handle&lt;Mode&gt;
+</code></pre>
+<p><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_mode.</p>
 <h3 id="classmavsdk_1_1_camera_1af13455249eebaf152a71d59e32fcbf65"><a name="classmavsdk_1_1_camera_1af13455249eebaf152a71d59e32fcbf65" class="plugin-anchor" href="#classmavsdk_1_1_camera_1af13455249eebaf152a71d59e32fcbf65"><i class="fa fa-link" aria-hidden="true"></i></a>typedef InformationCallback </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::Camera::InformationCallback =  <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(Information)&gt;
 </code></pre>
 <p>Callback type for subscribe_information.</p>
+<h3 id="classmavsdk_1_1_camera_1a0dcacb795da7de566fb6dce091ca4605"><a name="classmavsdk_1_1_camera_1a0dcacb795da7de566fb6dce091ca4605" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a0dcacb795da7de566fb6dce091ca4605"><i class="fa fa-link" aria-hidden="true"></i></a>typedef InformationHandle </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::Camera::InformationHandle =  Handle&lt;Information&gt;
+</code></pre>
+<p><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_information.</p>
 <h3 id="classmavsdk_1_1_camera_1acd9baf073b816e46c22dbd6b599ece66"><a name="classmavsdk_1_1_camera_1acd9baf073b816e46c22dbd6b599ece66" class="plugin-anchor" href="#classmavsdk_1_1_camera_1acd9baf073b816e46c22dbd6b599ece66"><i class="fa fa-link" aria-hidden="true"></i></a>typedef VideoStreamInfoCallback </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::Camera::VideoStreamInfoCallback =  <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(VideoStreamInfo)&gt;
 </code></pre>
 <p>Callback type for subscribe_video_stream_info.</p>
+<h3 id="classmavsdk_1_1_camera_1aebf91f740cc85682c6b7a0955635f848"><a name="classmavsdk_1_1_camera_1aebf91f740cc85682c6b7a0955635f848" class="plugin-anchor" href="#classmavsdk_1_1_camera_1aebf91f740cc85682c6b7a0955635f848"><i class="fa fa-link" aria-hidden="true"></i></a>typedef VideoStreamInfoHandle </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::Camera::VideoStreamInfoHandle =  Handle&lt;VideoStreamInfo&gt;
+</code></pre>
+<p><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_video_stream_info.</p>
 <h3 id="classmavsdk_1_1_camera_1a9bf5c20ea0b03ab019057829d1a3441e"><a name="classmavsdk_1_1_camera_1a9bf5c20ea0b03ab019057829d1a3441e" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a9bf5c20ea0b03ab019057829d1a3441e"><i class="fa fa-link" aria-hidden="true"></i></a>typedef CaptureInfoCallback </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::Camera::CaptureInfoCallback =  <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(CaptureInfo)&gt;
 </code></pre>
 <p>Callback type for subscribe_capture_info.</p>
+<h3 id="classmavsdk_1_1_camera_1a789f1fccde8eb44bc07694751b3a1b40"><a name="classmavsdk_1_1_camera_1a789f1fccde8eb44bc07694751b3a1b40" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a789f1fccde8eb44bc07694751b3a1b40"><i class="fa fa-link" aria-hidden="true"></i></a>typedef CaptureInfoHandle </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::Camera::CaptureInfoHandle =  Handle&lt;CaptureInfo&gt;
+</code></pre>
+<p><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_capture_info.</p>
 <h3 id="classmavsdk_1_1_camera_1aea925914ce854b81b67e3213840c97ad"><a name="classmavsdk_1_1_camera_1aea925914ce854b81b67e3213840c97ad" class="plugin-anchor" href="#classmavsdk_1_1_camera_1aea925914ce854b81b67e3213840c97ad"><i class="fa fa-link" aria-hidden="true"></i></a>typedef StatusCallback </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::Camera::StatusCallback =  <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(Status)&gt;
 </code></pre>
 <p>Callback type for subscribe_status.</p>
+<h3 id="classmavsdk_1_1_camera_1a902bc3a824040a37714bb2c1c41a9601"><a name="classmavsdk_1_1_camera_1a902bc3a824040a37714bb2c1c41a9601" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a902bc3a824040a37714bb2c1c41a9601"><i class="fa fa-link" aria-hidden="true"></i></a>typedef StatusHandle </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::Camera::StatusHandle =  Handle&lt;Status&gt;
+</code></pre>
+<p><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_status.</p>
 <h3 id="classmavsdk_1_1_camera_1a77484487381b2579460c36d97d367fe6"><a name="classmavsdk_1_1_camera_1a77484487381b2579460c36d97d367fe6" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a77484487381b2579460c36d97d367fe6"><i class="fa fa-link" aria-hidden="true"></i></a>typedef CurrentSettingsCallback </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::Camera::CurrentSettingsCallback =  <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;Setting&gt;)&gt;
 </code></pre>
 <p>Callback type for subscribe_current_settings.</p>
+<h3 id="classmavsdk_1_1_camera_1a19960e47f1c2b3fb5117ba2f7f3cfbe6"><a name="classmavsdk_1_1_camera_1a19960e47f1c2b3fb5117ba2f7f3cfbe6" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a19960e47f1c2b3fb5117ba2f7f3cfbe6"><i class="fa fa-link" aria-hidden="true"></i></a>typedef CurrentSettingsHandle </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::Camera::CurrentSettingsHandle =  Handle&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;Setting&gt; &gt;
+</code></pre>
+<p><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_current_settings.</p>
 <h3 id="classmavsdk_1_1_camera_1a78e25614c29cd8bc1bbf26adcf417c2a"><a name="classmavsdk_1_1_camera_1a78e25614c29cd8bc1bbf26adcf417c2a" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a78e25614c29cd8bc1bbf26adcf417c2a"><i class="fa fa-link" aria-hidden="true"></i></a>typedef PossibleSettingOptionsCallback </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::Camera::PossibleSettingOptionsCallback =  <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;SettingOptions&gt;)&gt;
 </code></pre>
 <p>Callback type for subscribe_possible_setting_options.</p>
+<h3 id="classmavsdk_1_1_camera_1a1144be14cd9f15724397ad6b5253b8a9"><a name="classmavsdk_1_1_camera_1a1144be14cd9f15724397ad6b5253b8a9" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a1144be14cd9f15724397ad6b5253b8a9"><i class="fa fa-link" aria-hidden="true"></i></a>typedef PossibleSettingOptionsHandle </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::Camera::PossibleSettingOptionsHandle =  Handle&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;SettingOptions&gt; &gt;
+</code></pre>
+<p><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_possible_setting_options.</p>
 <h3 id="classmavsdk_1_1_camera_1ac233f5688f0b7f1e712bb31dfaeadd85"><a name="classmavsdk_1_1_camera_1ac233f5688f0b7f1e712bb31dfaeadd85" class="plugin-anchor" href="#classmavsdk_1_1_camera_1ac233f5688f0b7f1e712bb31dfaeadd85"><i class="fa fa-link" aria-hidden="true"></i></a>typedef GetSettingCallback </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::Camera::GetSettingCallback =  <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(Result, Setting)&gt;
 </code></pre>
@@ -3700,6 +3801,10 @@
 <tr>
 <td><span id="classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcfa1119faf72ba0dfb23aeea644fed960ad"></span> <code>NoSystem</code></td>
 <td>No system connected. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcfacb4221c88cb5b30c3380aad8569a80c1"></span> <code>ProtocolUnsupported</code></td>
+<td>Definition file protocol not supported. </td>
 </tr>
 </tbody>
 </table>
@@ -3805,18 +3910,26 @@
 <p>This function is blocking. See &apos;stop_video_async&apos; for the non-blocking counterpart.</p>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a> - Result of request.</p>
-<h3 id="classmavsdk_1_1_camera_1a8714183c1b03ec4251287911db1492c3"><a name="classmavsdk_1_1_camera_1a8714183c1b03ec4251287911db1492c3" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a8714183c1b03ec4251287911db1492c3"><i class="fa fa-link" aria-hidden="true"></i></a>start_video_streaming() </h3>
-<pre><code class="lang-cpp">Result mavsdk::Camera::start_video_streaming() <span class="hljs-keyword">const</span>
+<h3 id="classmavsdk_1_1_camera_1a6e062242a02389e2fc839f5e9ec03d7d"><a name="classmavsdk_1_1_camera_1a6e062242a02389e2fc839f5e9ec03d7d" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a6e062242a02389e2fc839f5e9ec03d7d"><i class="fa fa-link" aria-hidden="true"></i></a>start_video_streaming() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Camera::start_video_streaming(<span class="hljs-keyword">int32_t</span> stream_id) <span class="hljs-keyword">const</span>
 </code></pre>
 <p>Start video streaming.</p>
 <p>This function is blocking.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>int32_t <strong>stream_id</strong> - </li>
+</ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a> - Result of request.</p>
-<h3 id="classmavsdk_1_1_camera_1a9f6ec4e37cdd287f0cbeed40a2602416"><a name="classmavsdk_1_1_camera_1a9f6ec4e37cdd287f0cbeed40a2602416" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a9f6ec4e37cdd287f0cbeed40a2602416"><i class="fa fa-link" aria-hidden="true"></i></a>stop_video_streaming() </h3>
-<pre><code class="lang-cpp">Result mavsdk::Camera::stop_video_streaming() <span class="hljs-keyword">const</span>
+<h3 id="classmavsdk_1_1_camera_1ae495e8c52984ad76b27b72fc58987d9d"><a name="classmavsdk_1_1_camera_1ae495e8c52984ad76b27b72fc58987d9d" class="plugin-anchor" href="#classmavsdk_1_1_camera_1ae495e8c52984ad76b27b72fc58987d9d"><i class="fa fa-link" aria-hidden="true"></i></a>stop_video_streaming() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Camera::stop_video_streaming(<span class="hljs-keyword">int32_t</span> stream_id) <span class="hljs-keyword">const</span>
 </code></pre>
 <p>Stop current video streaming.</p>
 <p>This function is blocking.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>int32_t <strong>stream_id</strong> - </li>
+</ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a> - Result of request.</p>
 <h3 id="classmavsdk_1_1_camera_1a76d98d04885d38d0438da7c8696ef6ab"><a name="classmavsdk_1_1_camera_1a76d98d04885d38d0438da7c8696ef6ab" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a76d98d04885d38d0438da7c8696ef6ab"><i class="fa fa-link" aria-hidden="true"></i></a>set_mode_async() </h3>
@@ -3861,13 +3974,23 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;std::pair&lt; <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a>, std::vector&lt; <a href="structmavsdk_1_1_camera_1_1_capture_info.html">Camera::CaptureInfo</a> &gt; &gt; - Result of request.</p>
-<h3 id="classmavsdk_1_1_camera_1a002b03af2331606752aba43da0216503"><a name="classmavsdk_1_1_camera_1a002b03af2331606752aba43da0216503" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a002b03af2331606752aba43da0216503"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_mode() </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::subscribe_mode(ModeCallback callback)
+<h3 id="classmavsdk_1_1_camera_1a1963bfcfcc8c9e96451648f96fd618cd"><a name="classmavsdk_1_1_camera_1a1963bfcfcc8c9e96451648f96fd618cd" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a1963bfcfcc8c9e96451648f96fd618cd"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_mode() </h3>
+<pre><code class="lang-cpp">ModeHandle mavsdk::Camera::subscribe_mode(<span class="hljs-keyword">const</span> ModeCallback &amp;callback)
 </code></pre>
 <p>Subscribe to camera mode updates.</p>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a33a7257ab95d9277b786e6de86604931">ModeCallback</a> <strong>callback</strong> - </li>
+<li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a33a7257ab95d9277b786e6de86604931">ModeCallback</a>&amp; <strong>callback</strong> - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1ac6759725ac9696f9572b05524fde2354">ModeHandle</a> - </p>
+<h3 id="classmavsdk_1_1_camera_1ab9437b41565d8957050e09cf4143f5d1"><a name="classmavsdk_1_1_camera_1ab9437b41565d8957050e09cf4143f5d1" class="plugin-anchor" href="#classmavsdk_1_1_camera_1ab9437b41565d8957050e09cf4143f5d1"><i class="fa fa-link" aria-hidden="true"></i></a>unsubscribe_mode() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::unsubscribe_mode(ModeHandle handle)
+</code></pre>
+<p>Unsubscribe from subscribe_mode.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1ac6759725ac9696f9572b05524fde2354">ModeHandle</a> <strong>handle</strong> - </li>
 </ul>
 <h3 id="classmavsdk_1_1_camera_1a222bce91e70d1ca53bcf5d885bacd418"><a name="classmavsdk_1_1_camera_1a222bce91e70d1ca53bcf5d885bacd418" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a222bce91e70d1ca53bcf5d885bacd418"><i class="fa fa-link" aria-hidden="true"></i></a>mode() </h3>
 <pre><code class="lang-cpp">Mode mavsdk::Camera::mode() <span class="hljs-keyword">const</span>
@@ -3875,13 +3998,23 @@
 <p>Poll for &apos;Mode&apos; (blocking).</p>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a02bb5ce37d125ba4c65d43f172cc2d65">Mode</a> - One Mode update.</p>
-<h3 id="classmavsdk_1_1_camera_1a64a8d8ac28784b0d304d5a7b1519657a"><a name="classmavsdk_1_1_camera_1a64a8d8ac28784b0d304d5a7b1519657a" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a64a8d8ac28784b0d304d5a7b1519657a"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_information() </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::subscribe_information(InformationCallback callback)
+<h3 id="classmavsdk_1_1_camera_1af4b5c713813df8c407a09963295c33a2"><a name="classmavsdk_1_1_camera_1af4b5c713813df8c407a09963295c33a2" class="plugin-anchor" href="#classmavsdk_1_1_camera_1af4b5c713813df8c407a09963295c33a2"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_information() </h3>
+<pre><code class="lang-cpp">InformationHandle mavsdk::Camera::subscribe_information(<span class="hljs-keyword">const</span> InformationCallback &amp;callback)
 </code></pre>
 <p>Subscribe to camera information updates.</p>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1af13455249eebaf152a71d59e32fcbf65">InformationCallback</a> <strong>callback</strong> - </li>
+<li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1af13455249eebaf152a71d59e32fcbf65">InformationCallback</a>&amp; <strong>callback</strong> - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a0dcacb795da7de566fb6dce091ca4605">InformationHandle</a> - </p>
+<h3 id="classmavsdk_1_1_camera_1a90b70deaf25dff027714afb856653ea5"><a name="classmavsdk_1_1_camera_1a90b70deaf25dff027714afb856653ea5" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a90b70deaf25dff027714afb856653ea5"><i class="fa fa-link" aria-hidden="true"></i></a>unsubscribe_information() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::unsubscribe_information(InformationHandle handle)
+</code></pre>
+<p>Unsubscribe from subscribe_information.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a0dcacb795da7de566fb6dce091ca4605">InformationHandle</a> <strong>handle</strong> - </li>
 </ul>
 <h3 id="classmavsdk_1_1_camera_1a7feb16f3d913b91d05efc803ce4e396b"><a name="classmavsdk_1_1_camera_1a7feb16f3d913b91d05efc803ce4e396b" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a7feb16f3d913b91d05efc803ce4e396b"><i class="fa fa-link" aria-hidden="true"></i></a>information() </h3>
 <pre><code class="lang-cpp">Information mavsdk::Camera::information() <span class="hljs-keyword">const</span>
@@ -3889,13 +4022,23 @@
 <p>Poll for &apos;<a href="structmavsdk_1_1_camera_1_1_information.html">Information</a>&apos; (blocking).</p>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="structmavsdk_1_1_camera_1_1_information.html">Information</a> - One <a href="structmavsdk_1_1_camera_1_1_information.html">Information</a> update.</p>
-<h3 id="classmavsdk_1_1_camera_1a23a43693897e77995d8be6d1b15fe62c"><a name="classmavsdk_1_1_camera_1a23a43693897e77995d8be6d1b15fe62c" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a23a43693897e77995d8be6d1b15fe62c"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_video_stream_info() </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::subscribe_video_stream_info(VideoStreamInfoCallback callback)
+<h3 id="classmavsdk_1_1_camera_1a4dcf0ebeb1f9f5e5b2b71f59c9b7eeb9"><a name="classmavsdk_1_1_camera_1a4dcf0ebeb1f9f5e5b2b71f59c9b7eeb9" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a4dcf0ebeb1f9f5e5b2b71f59c9b7eeb9"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_video_stream_info() </h3>
+<pre><code class="lang-cpp">VideoStreamInfoHandle mavsdk::Camera::subscribe_video_stream_info(<span class="hljs-keyword">const</span> VideoStreamInfoCallback &amp;callback)
 </code></pre>
 <p>Subscribe to video stream info updates.</p>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1acd9baf073b816e46c22dbd6b599ece66">VideoStreamInfoCallback</a> <strong>callback</strong> - </li>
+<li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1acd9baf073b816e46c22dbd6b599ece66">VideoStreamInfoCallback</a>&amp; <strong>callback</strong> - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1aebf91f740cc85682c6b7a0955635f848">VideoStreamInfoHandle</a> - </p>
+<h3 id="classmavsdk_1_1_camera_1abc370783800fb90dda20d2843f990036"><a name="classmavsdk_1_1_camera_1abc370783800fb90dda20d2843f990036" class="plugin-anchor" href="#classmavsdk_1_1_camera_1abc370783800fb90dda20d2843f990036"><i class="fa fa-link" aria-hidden="true"></i></a>unsubscribe_video_stream_info() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::unsubscribe_video_stream_info(VideoStreamInfoHandle handle)
+</code></pre>
+<p>Unsubscribe from subscribe_video_stream_info.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1aebf91f740cc85682c6b7a0955635f848">VideoStreamInfoHandle</a> <strong>handle</strong> - </li>
 </ul>
 <h3 id="classmavsdk_1_1_camera_1ad466621feff2d4f0f11124a36dda656c"><a name="classmavsdk_1_1_camera_1ad466621feff2d4f0f11124a36dda656c" class="plugin-anchor" href="#classmavsdk_1_1_camera_1ad466621feff2d4f0f11124a36dda656c"><i class="fa fa-link" aria-hidden="true"></i></a>video_stream_info() </h3>
 <pre><code class="lang-cpp">VideoStreamInfo mavsdk::Camera::video_stream_info() <span class="hljs-keyword">const</span>
@@ -3903,21 +4046,41 @@
 <p>Poll for &apos;<a href="structmavsdk_1_1_camera_1_1_video_stream_info.html">VideoStreamInfo</a>&apos; (blocking).</p>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="structmavsdk_1_1_camera_1_1_video_stream_info.html">VideoStreamInfo</a> - One <a href="structmavsdk_1_1_camera_1_1_video_stream_info.html">VideoStreamInfo</a> update.</p>
-<h3 id="classmavsdk_1_1_camera_1a26901f1812df6253a39457d7bc230895"><a name="classmavsdk_1_1_camera_1a26901f1812df6253a39457d7bc230895" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a26901f1812df6253a39457d7bc230895"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_capture_info() </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::subscribe_capture_info(CaptureInfoCallback callback)
+<h3 id="classmavsdk_1_1_camera_1a8822ab1d802984a1acc9b53cd9810e8f"><a name="classmavsdk_1_1_camera_1a8822ab1d802984a1acc9b53cd9810e8f" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a8822ab1d802984a1acc9b53cd9810e8f"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_capture_info() </h3>
+<pre><code class="lang-cpp">CaptureInfoHandle mavsdk::Camera::subscribe_capture_info(<span class="hljs-keyword">const</span> CaptureInfoCallback &amp;callback)
 </code></pre>
 <p>Subscribe to capture info updates.</p>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a9bf5c20ea0b03ab019057829d1a3441e">CaptureInfoCallback</a> <strong>callback</strong> - </li>
+<li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a9bf5c20ea0b03ab019057829d1a3441e">CaptureInfoCallback</a>&amp; <strong>callback</strong> - </li>
 </ul>
-<h3 id="classmavsdk_1_1_camera_1ab62186cc3fc79459bde0e4704eb1e768"><a name="classmavsdk_1_1_camera_1ab62186cc3fc79459bde0e4704eb1e768" class="plugin-anchor" href="#classmavsdk_1_1_camera_1ab62186cc3fc79459bde0e4704eb1e768"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_status() </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::subscribe_status(StatusCallback callback)
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a789f1fccde8eb44bc07694751b3a1b40">CaptureInfoHandle</a> - </p>
+<h3 id="classmavsdk_1_1_camera_1a9b7f729dfa30a6cb0d041533bd272793"><a name="classmavsdk_1_1_camera_1a9b7f729dfa30a6cb0d041533bd272793" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a9b7f729dfa30a6cb0d041533bd272793"><i class="fa fa-link" aria-hidden="true"></i></a>unsubscribe_capture_info() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::unsubscribe_capture_info(CaptureInfoHandle handle)
+</code></pre>
+<p>Unsubscribe from subscribe_capture_info.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a789f1fccde8eb44bc07694751b3a1b40">CaptureInfoHandle</a> <strong>handle</strong> - </li>
+</ul>
+<h3 id="classmavsdk_1_1_camera_1a1bf71cdb27a9b8d3fefe15463c9b9bf1"><a name="classmavsdk_1_1_camera_1a1bf71cdb27a9b8d3fefe15463c9b9bf1" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a1bf71cdb27a9b8d3fefe15463c9b9bf1"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_status() </h3>
+<pre><code class="lang-cpp">StatusHandle mavsdk::Camera::subscribe_status(<span class="hljs-keyword">const</span> StatusCallback &amp;callback)
 </code></pre>
 <p>Subscribe to camera status updates.</p>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1aea925914ce854b81b67e3213840c97ad">StatusCallback</a> <strong>callback</strong> - </li>
+<li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1aea925914ce854b81b67e3213840c97ad">StatusCallback</a>&amp; <strong>callback</strong> - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a902bc3a824040a37714bb2c1c41a9601">StatusHandle</a> - </p>
+<h3 id="classmavsdk_1_1_camera_1a402cf21219f9b303fca0a269dab15b63"><a name="classmavsdk_1_1_camera_1a402cf21219f9b303fca0a269dab15b63" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a402cf21219f9b303fca0a269dab15b63"><i class="fa fa-link" aria-hidden="true"></i></a>unsubscribe_status() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::unsubscribe_status(StatusHandle handle)
+</code></pre>
+<p>Unsubscribe from subscribe_status.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a902bc3a824040a37714bb2c1c41a9601">StatusHandle</a> <strong>handle</strong> - </li>
 </ul>
 <h3 id="classmavsdk_1_1_camera_1a0bb78c2b665c28b314f00f11a0f676b1"><a name="classmavsdk_1_1_camera_1a0bb78c2b665c28b314f00f11a0f676b1" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a0bb78c2b665c28b314f00f11a0f676b1"><i class="fa fa-link" aria-hidden="true"></i></a>status() </h3>
 <pre><code class="lang-cpp">Status mavsdk::Camera::status() <span class="hljs-keyword">const</span>
@@ -3925,21 +4088,41 @@
 <p>Poll for &apos;<a href="structmavsdk_1_1_camera_1_1_status.html">Status</a>&apos; (blocking).</p>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="structmavsdk_1_1_camera_1_1_status.html">Status</a> - One <a href="structmavsdk_1_1_camera_1_1_status.html">Status</a> update.</p>
-<h3 id="classmavsdk_1_1_camera_1a460cf8f9810417e63ce2643df9ed014a"><a name="classmavsdk_1_1_camera_1a460cf8f9810417e63ce2643df9ed014a" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a460cf8f9810417e63ce2643df9ed014a"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_current_settings() </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::subscribe_current_settings(CurrentSettingsCallback callback)
+<h3 id="classmavsdk_1_1_camera_1a906c431b63dde866b691ab4c839858ff"><a name="classmavsdk_1_1_camera_1a906c431b63dde866b691ab4c839858ff" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a906c431b63dde866b691ab4c839858ff"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_current_settings() </h3>
+<pre><code class="lang-cpp">CurrentSettingsHandle mavsdk::Camera::subscribe_current_settings(<span class="hljs-keyword">const</span> CurrentSettingsCallback &amp;callback)
 </code></pre>
 <p>Get the list of current camera settings.</p>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a77484487381b2579460c36d97d367fe6">CurrentSettingsCallback</a> <strong>callback</strong> - </li>
+<li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a77484487381b2579460c36d97d367fe6">CurrentSettingsCallback</a>&amp; <strong>callback</strong> - </li>
 </ul>
-<h3 id="classmavsdk_1_1_camera_1abd8c5e18e165b319aaae9815c735b683"><a name="classmavsdk_1_1_camera_1abd8c5e18e165b319aaae9815c735b683" class="plugin-anchor" href="#classmavsdk_1_1_camera_1abd8c5e18e165b319aaae9815c735b683"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_possible_setting_options() </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::subscribe_possible_setting_options(PossibleSettingOptionsCallback callback)
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a19960e47f1c2b3fb5117ba2f7f3cfbe6">CurrentSettingsHandle</a> - </p>
+<h3 id="classmavsdk_1_1_camera_1a117e76672b39c9cd751fa64a42741c17"><a name="classmavsdk_1_1_camera_1a117e76672b39c9cd751fa64a42741c17" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a117e76672b39c9cd751fa64a42741c17"><i class="fa fa-link" aria-hidden="true"></i></a>unsubscribe_current_settings() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::unsubscribe_current_settings(CurrentSettingsHandle handle)
+</code></pre>
+<p>Unsubscribe from subscribe_current_settings.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a19960e47f1c2b3fb5117ba2f7f3cfbe6">CurrentSettingsHandle</a> <strong>handle</strong> - </li>
+</ul>
+<h3 id="classmavsdk_1_1_camera_1aef7c545aaa05e36b212255120557967b"><a name="classmavsdk_1_1_camera_1aef7c545aaa05e36b212255120557967b" class="plugin-anchor" href="#classmavsdk_1_1_camera_1aef7c545aaa05e36b212255120557967b"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_possible_setting_options() </h3>
+<pre><code class="lang-cpp">PossibleSettingOptionsHandle mavsdk::Camera::subscribe_possible_setting_options(<span class="hljs-keyword">const</span> PossibleSettingOptionsCallback &amp;callback)
 </code></pre>
 <p>Get the list of settings that can be changed.</p>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a78e25614c29cd8bc1bbf26adcf417c2a">PossibleSettingOptionsCallback</a> <strong>callback</strong> - </li>
+<li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a78e25614c29cd8bc1bbf26adcf417c2a">PossibleSettingOptionsCallback</a>&amp; <strong>callback</strong> - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a1144be14cd9f15724397ad6b5253b8a9">PossibleSettingOptionsHandle</a> - </p>
+<h3 id="classmavsdk_1_1_camera_1a191cc00bb6b1c834fc93b19f4bff1c29"><a name="classmavsdk_1_1_camera_1a191cc00bb6b1c834fc93b19f4bff1c29" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a191cc00bb6b1c834fc93b19f4bff1c29"><i class="fa fa-link" aria-hidden="true"></i></a>unsubscribe_possible_setting_options() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::unsubscribe_possible_setting_options(PossibleSettingOptionsHandle handle)
+</code></pre>
+<p>Unsubscribe from subscribe_possible_setting_options.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a1144be14cd9f15724397ad6b5253b8a9">PossibleSettingOptionsHandle</a> <strong>handle</strong> - </li>
 </ul>
 <h3 id="classmavsdk_1_1_camera_1a5416dc30ec436707420db715ee56ce08"><a name="classmavsdk_1_1_camera_1a5416dc30ec436707420db715ee56ce08" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a5416dc30ec436707420db715ee56ce08"><i class="fa fa-link" aria-hidden="true"></i></a>possible_setting_options() </h3>
 <pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;SettingOptions&gt; mavsdk::Camera::possible_setting_options() <span class="hljs-keyword">const</span>
@@ -3993,22 +4176,27 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;std::pair&lt; <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a>, <a href="structmavsdk_1_1_camera_1_1_setting.html">Camera::Setting</a> &gt; - Result of request.</p>
-<h3 id="classmavsdk_1_1_camera_1a20455726797ece508d49fe05442fe0c1"><a name="classmavsdk_1_1_camera_1a20455726797ece508d49fe05442fe0c1" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a20455726797ece508d49fe05442fe0c1"><i class="fa fa-link" aria-hidden="true"></i></a>format_storage_async() </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::format_storage_async(<span class="hljs-keyword">const</span> ResultCallback callback)
+<h3 id="classmavsdk_1_1_camera_1afd1074b185776167e7355438ac69d955"><a name="classmavsdk_1_1_camera_1afd1074b185776167e7355438ac69d955" class="plugin-anchor" href="#classmavsdk_1_1_camera_1afd1074b185776167e7355438ac69d955"><i class="fa fa-link" aria-hidden="true"></i></a>format_storage_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::format_storage_async(<span class="hljs-keyword">int32_t</span> storage_id, <span class="hljs-keyword">const</span> ResultCallback callback)
 </code></pre>
 <p>Format storage (e.g. SD card) in camera.</p>
 <p>This will delete all content of the camera storage!</p>
 <p>This function is non-blocking. See &apos;format_storage&apos; for the blocking counterpart.</p>
 <p><strong>Parameters</strong></p>
 <ul>
+<li>int32_t <strong>storage_id</strong> - </li>
 <li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a8d6d59cd8d0a3584ef60b16255b6301f">ResultCallback</a> <strong>callback</strong> - </li>
 </ul>
-<h3 id="classmavsdk_1_1_camera_1a1e2d39b44251f39a395527b0170e223a"><a name="classmavsdk_1_1_camera_1a1e2d39b44251f39a395527b0170e223a" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a1e2d39b44251f39a395527b0170e223a"><i class="fa fa-link" aria-hidden="true"></i></a>format_storage() </h3>
-<pre><code class="lang-cpp">Result mavsdk::Camera::format_storage() <span class="hljs-keyword">const</span>
+<h3 id="classmavsdk_1_1_camera_1a942f9bad2e2bede982d404ce552090a5"><a name="classmavsdk_1_1_camera_1a942f9bad2e2bede982d404ce552090a5" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a942f9bad2e2bede982d404ce552090a5"><i class="fa fa-link" aria-hidden="true"></i></a>format_storage() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Camera::format_storage(<span class="hljs-keyword">int32_t</span> storage_id) <span class="hljs-keyword">const</span>
 </code></pre>
 <p>Format storage (e.g. SD card) in camera.</p>
 <p>This will delete all content of the camera storage!</p>
 <p>This function is blocking. See &apos;format_storage_async&apos; for the non-blocking counterpart.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>int32_t <strong>storage_id</strong> - </li>
+</ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a> - Result of request.</p>
 <h3 id="classmavsdk_1_1_camera_1ab3348f98003f71f2399dd15505effae3"><a name="classmavsdk_1_1_camera_1ab3348f98003f71f2399dd15505effae3" class="plugin-anchor" href="#classmavsdk_1_1_camera_1ab3348f98003f71f2399dd15505effae3"><i class="fa fa-link" aria-hidden="true"></i></a>select_camera() </h3>
@@ -4023,6 +4211,24 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_camera_1ab2316e20104a5efa94bf2719dc3dd994"><a name="classmavsdk_1_1_camera_1ab2316e20104a5efa94bf2719dc3dd994" class="plugin-anchor" href="#classmavsdk_1_1_camera_1ab2316e20104a5efa94bf2719dc3dd994"><i class="fa fa-link" aria-hidden="true"></i></a>reset_settings_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Camera::reset_settings_async(<span class="hljs-keyword">const</span> ResultCallback callback)
+</code></pre>
+<p>Reset all settings in camera.</p>
+<p>This will reset all camera settings to default value</p>
+<p>This function is non-blocking. See &apos;reset_settings&apos; for the blocking counterpart.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>const <a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a8d6d59cd8d0a3584ef60b16255b6301f">ResultCallback</a> <strong>callback</strong> - </li>
+</ul>
+<h3 id="classmavsdk_1_1_camera_1a49c84f20f1100848e3951f5e14b569dc"><a name="classmavsdk_1_1_camera_1a49c84f20f1100848e3951f5e14b569dc" class="plugin-anchor" href="#classmavsdk_1_1_camera_1a49c84f20f1100848e3951f5e14b569dc"><i class="fa fa-link" aria-hidden="true"></i></a>reset_settings() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Camera::reset_settings() <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Reset all settings in camera.</p>
+<p>This will reset all camera settings to default value</p>
+<p>This function is blocking. See &apos;reset_settings_async&apos; for the non-blocking counterpart.</p>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_camera.html#classmavsdk_1_1_camera_1a2a84df3938372f4f302576227b308bcf">Result</a> - Result of request.</p>
 <h3 id="classmavsdk_1_1_camera_1aeff295155b6a665f5c942e473f1fe894"><a name="classmavsdk_1_1_camera_1aeff295155b6a665f5c942e473f1fe894" class="plugin-anchor" href="#classmavsdk_1_1_camera_1aeff295155b6a665f5c942e473f1fe894"><i class="fa fa-link" aria-hidden="true"></i></a>operator=() </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">const</span> Camera&amp; mavsdk::Camera::<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> Camera &amp;)=<span class="hljs-keyword">delete</span>
 </code></pre>
@@ -4033,7 +4239,7 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;const <a href="classmavsdk_1_1_camera.html">Camera</a> &amp; - </p>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2023-12-27 01:33:23 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; MAVSDK Development Team 2017-2023. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2023-12-27 03:10:20 </span> </footer>
                                 
                                 </section>
                             
@@ -4076,7 +4282,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"class Camera","level":"1.2.6.4","depth":3,"next":{"title":"struct Information","level":"1.2.6.4.1","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_camera_1_1_information.md","ref":"cpp/api_reference/structmavsdk_1_1_camera_1_1_information.md","articles":[]},"previous":{"title":"struct ProgressData","level":"1.2.6.3.1","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_calibration_1_1_progress_data.md","ref":"cpp/api_reference/structmavsdk_1_1_calibration_1_1_progress_data.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v2.0/en/","text":"v2.0"},{"value":"https://mavsdk.mavlink.io/v1.4/en/","text":"v1.4"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/api_reference/classmavsdk_1_1_camera.md","mtime":"2023-12-27T01:33:23.810Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-12-27T01:34:03.009Z"},"basePath":"../..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"class Camera","level":"1.2.6.4","depth":3,"next":{"title":"struct Information","level":"1.2.6.4.1","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_camera_1_1_information.md","ref":"cpp/api_reference/structmavsdk_1_1_camera_1_1_information.md","articles":[]},"previous":{"title":"struct ProgressData","level":"1.2.6.3.1","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_calibration_1_1_progress_data.md","ref":"cpp/api_reference/structmavsdk_1_1_calibration_1_1_progress_data.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© MAVSDK Development Team 2017-2023. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v2.0/en/","text":"v2.0"},{"value":"https://mavsdk.mavlink.io/v1.4/en/","text":"v1.4"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/api_reference/classmavsdk_1_1_camera.md","mtime":"2023-12-27T03:10:20.527Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-12-27T03:11:00.444Z"},"basePath":"../..","book":{"language":"en"}});
         });
     </script>
 </div>

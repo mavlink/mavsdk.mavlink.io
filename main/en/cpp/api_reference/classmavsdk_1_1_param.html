@@ -3251,6 +3251,10 @@
 </thead>
 <tbody>
 <tr>
+<td>enum <a href="#classmavsdk_1_1_param_1a37807968ecb40a732b4fec83792bd5c8">ProtocolVersion</a></td>
+<td>Parameter version.</td>
+</tr>
+<tr>
 <td>enum <a href="#classmavsdk_1_1_param_1afde69c8b60c41e2f21db148d211881df">Result</a></td>
 <td>Possible results returned for param requests.</td>
 </tr>
@@ -3282,7 +3286,7 @@
 </tr>
 <tr>
 <td style="text-align:right">&#xA0;</td>
-<td><a href="#classmavsdk_1_1_param_1afe3db48e33da2ff7245e41fe0636fdc3">~Param</a> ()</td>
+<td><a href="#classmavsdk_1_1_param_1a33f67b5c3daea8ca3af8c573f4e07153">~Param</a> () override</td>
 <td>Destructor (internal use only).</td>
 </tr>
 <tr>
@@ -3326,6 +3330,11 @@
 <td>Get all parameters.</td>
 </tr>
 <tr>
+<td style="text-align:right"><a href="classmavsdk_1_1_param.html#classmavsdk_1_1_param_1afde69c8b60c41e2f21db148d211881df">Result</a></td>
+<td><a href="#classmavsdk_1_1_param_1a2ef2e607225d54c6fedd21a9b483937f">select_component</a> (int32_t component_id, <a href="classmavsdk_1_1_param.html#classmavsdk_1_1_param_1a37807968ecb40a732b4fec83792bd5c8">ProtocolVersion</a> protocol_version)const</td>
+<td>Select component ID of parameter component to talk to and param protocol version.</td>
+</tr>
+<tr>
 <td style="text-align:right">const <a href="classmavsdk_1_1_param.html">Param</a> &amp;</td>
 <td><a href="#classmavsdk_1_1_param_1a4d75b066cb985d3a38cc8221e18aa608">operator=</a> (const <a href="classmavsdk_1_1_param.html">Param</a> &amp;)=delete</td>
 <td>Equality operator (object is not copyable).</td>
@@ -3355,8 +3364,8 @@
 <ul>
 <li>std::shared_ptr&lt; <a href="classmavsdk_1_1_system.html">System</a> &gt; <strong>system</strong> - The specific system associated with this plugin.</li>
 </ul>
-<h3 id="classmavsdk_1_1_param_1afe3db48e33da2ff7245e41fe0636fdc3"><a name="classmavsdk_1_1_param_1afe3db48e33da2ff7245e41fe0636fdc3" class="plugin-anchor" href="#classmavsdk_1_1_param_1afe3db48e33da2ff7245e41fe0636fdc3"><i class="fa fa-link" aria-hidden="true"></i></a>~Param() </h3>
-<pre><code class="lang-cpp">mavsdk::Param::~Param()
+<h3 id="classmavsdk_1_1_param_1a33f67b5c3daea8ca3af8c573f4e07153"><a name="classmavsdk_1_1_param_1a33f67b5c3daea8ca3af8c573f4e07153" class="plugin-anchor" href="#classmavsdk_1_1_param_1a33f67b5c3daea8ca3af8c573f4e07153"><i class="fa fa-link" aria-hidden="true"></i></a>~Param() </h3>
+<pre><code class="lang-cpp">mavsdk::Param::~Param() override
 </code></pre>
 <p>Destructor (internal use only).</p>
 <h3 id="classmavsdk_1_1_param_1ab7a03a825118c944d31c562594826f72"><a name="classmavsdk_1_1_param_1ab7a03a825118c944d31c562594826f72" class="plugin-anchor" href="#classmavsdk_1_1_param_1ab7a03a825118c944d31c562594826f72"><i class="fa fa-link" aria-hidden="true"></i></a>Param() </h3>
@@ -3373,6 +3382,26 @@
 </code></pre>
 <p>Callback type for asynchronous <a href="classmavsdk_1_1_param.html">Param</a> calls.</p>
 <h2 id="member-enumeration-documentation"><a name="member-enumeration-documentation" class="plugin-anchor" href="#member-enumeration-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Member Enumeration Documentation</h2>
+<h3 id="classmavsdk_1_1_param_1a37807968ecb40a732b4fec83792bd5c8"><a name="classmavsdk_1_1_param_1a37807968ecb40a732b4fec83792bd5c8" class="plugin-anchor" href="#classmavsdk_1_1_param_1a37807968ecb40a732b4fec83792bd5c8"><i class="fa fa-link" aria-hidden="true"></i></a>enum ProtocolVersion </h3>
+<p>Parameter version.</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span id="classmavsdk_1_1_param_1a37807968ecb40a732b4fec83792bd5c8ab4daca084ad9eabfc8de231929477ed6"></span> <code>V1</code></td>
+<td>Original v1 version. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_param_1a37807968ecb40a732b4fec83792bd5c8a84ab79217fad62904ab3f60586129611"></span> <code>Ext</code></td>
+<td>Extended param version. </td>
+</tr>
+</tbody>
+</table>
 <h3 id="classmavsdk_1_1_param_1afde69c8b60c41e2f21db148d211881df"><a name="classmavsdk_1_1_param_1afde69c8b60c41e2f21db148d211881df" class="plugin-anchor" href="#classmavsdk_1_1_param_1afde69c8b60c41e2f21db148d211881df"><i class="fa fa-link" aria-hidden="true"></i></a>enum Result </h3>
 <p>Possible results returned for param requests.</p>
 <table>
@@ -3414,6 +3443,10 @@
 <tr>
 <td><span id="classmavsdk_1_1_param_1afde69c8b60c41e2f21db148d211881dfa1fc93bc695e2e3e1903029eb77228234"></span> <code>ParamValueTooLong</code></td>
 <td><a href="classmavsdk_1_1_param.html">Param</a> value too long (&gt; 128). </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_param_1afde69c8b60c41e2f21db148d211881dfad7c8c85bf79bbe1b7188497c32c3b0ca"></span> <code>Failed</code></td>
+<td>Operation failed.. </td>
 </tr>
 </tbody>
 </table>
@@ -3500,6 +3533,19 @@
 <p>This function is blocking.</p>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="structmavsdk_1_1_param_1_1_all_params.html">Param::AllParams</a> - Result of request.</p>
+<h3 id="classmavsdk_1_1_param_1a2ef2e607225d54c6fedd21a9b483937f"><a name="classmavsdk_1_1_param_1a2ef2e607225d54c6fedd21a9b483937f" class="plugin-anchor" href="#classmavsdk_1_1_param_1a2ef2e607225d54c6fedd21a9b483937f"><i class="fa fa-link" aria-hidden="true"></i></a>select_component() </h3>
+<pre><code class="lang-cpp">Result mavsdk::Param::select_component(<span class="hljs-keyword">int32_t</span> component_id, ProtocolVersion protocol_version) <span class="hljs-keyword">const</span>
+</code></pre>
+<p>Select component ID of parameter component to talk to and param protocol version.</p>
+<p>Default is the autopilot component (1), and Version (0).</p>
+<p>This function is blocking.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>int32_t <strong>component_id</strong> - </li>
+<li><a href="classmavsdk_1_1_param.html#classmavsdk_1_1_param_1a37807968ecb40a732b4fec83792bd5c8">ProtocolVersion</a> <strong>protocol_version</strong> - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_param.html#classmavsdk_1_1_param_1afde69c8b60c41e2f21db148d211881df">Result</a> - Result of request.</p>
 <h3 id="classmavsdk_1_1_param_1a4d75b066cb985d3a38cc8221e18aa608"><a name="classmavsdk_1_1_param_1a4d75b066cb985d3a38cc8221e18aa608" class="plugin-anchor" href="#classmavsdk_1_1_param_1a4d75b066cb985d3a38cc8221e18aa608"><i class="fa fa-link" aria-hidden="true"></i></a>operator=() </h3>
 <pre><code class="lang-cpp"><span class="hljs-keyword">const</span> Param&amp; mavsdk::Param::<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> Param &amp;)=<span class="hljs-keyword">delete</span>
 </code></pre>
@@ -3510,7 +3556,7 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;const <a href="classmavsdk_1_1_param.html">Param</a> &amp; - </p>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2023-12-27 01:33:23 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; MAVSDK Development Team 2017-2023. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2023-12-27 03:10:20 </span> </footer>
                                 
                                 </section>
                             
@@ -3553,7 +3599,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"class Param","level":"1.2.6.21","depth":3,"next":{"title":"struct AllParams","level":"1.2.6.21.1","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_param_1_1_all_params.md","ref":"cpp/api_reference/structmavsdk_1_1_param_1_1_all_params.md","articles":[]},"previous":{"title":"struct PositionGlobalYaw","level":"1.2.6.20.9","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_offboard_1_1_position_global_yaw.md","ref":"cpp/api_reference/structmavsdk_1_1_offboard_1_1_position_global_yaw.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v2.0/en/","text":"v2.0"},{"value":"https://mavsdk.mavlink.io/v1.4/en/","text":"v1.4"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/api_reference/classmavsdk_1_1_param.md","mtime":"2023-12-27T01:33:23.810Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-12-27T01:34:03.009Z"},"basePath":"../..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"class Param","level":"1.2.6.21","depth":3,"next":{"title":"struct AllParams","level":"1.2.6.21.1","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_param_1_1_all_params.md","ref":"cpp/api_reference/structmavsdk_1_1_param_1_1_all_params.md","articles":[]},"previous":{"title":"struct PositionGlobalYaw","level":"1.2.6.20.9","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_offboard_1_1_position_global_yaw.md","ref":"cpp/api_reference/structmavsdk_1_1_offboard_1_1_position_global_yaw.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© MAVSDK Development Team 2017-2023. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v2.0/en/","text":"v2.0"},{"value":"https://mavsdk.mavlink.io/v1.4/en/","text":"v1.4"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/api_reference/classmavsdk_1_1_param.md","mtime":"2023-12-27T03:10:20.531Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-12-27T03:11:00.444Z"},"basePath":"../..","book":{"language":"en"}});
         });
     </script>
 </div>

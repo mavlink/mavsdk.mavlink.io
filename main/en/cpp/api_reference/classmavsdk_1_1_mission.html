@@ -3275,6 +3275,10 @@
 <td>std::function&lt; void(<a href="structmavsdk_1_1_mission_1_1_mission_progress.html">MissionProgress</a>)&gt; <a href="#classmavsdk_1_1_mission_1a67e8d00b1b20affca59fd4338c34c0e2">MissionProgressCallback</a></td>
 <td>Callback type for subscribe_mission_progress.</td>
 </tr>
+<tr>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a>&lt; <a href="structmavsdk_1_1_mission_1_1_mission_progress.html">MissionProgress</a> &gt; <a href="#classmavsdk_1_1_mission_1aded0ba06c787ad2f30f401a30b240c8a">MissionProgressHandle</a></td>
+<td><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_mission_progress.</td>
+</tr>
 </tbody>
 </table>
 <h2 id="public-member-functions"><a name="public-member-functions" class="plugin-anchor" href="#public-member-functions"><i class="fa fa-link" aria-hidden="true"></i></a>Public Member Functions</h2>
@@ -3299,7 +3303,7 @@
 </tr>
 <tr>
 <td style="text-align:right">&#xA0;</td>
-<td><a href="#classmavsdk_1_1_mission_1a0a0e9ee6ff15fc2231277d929add95ef">~Mission</a> ()</td>
+<td><a href="#classmavsdk_1_1_mission_1ab8ddd47439bbc63a0a6b175fdad0368e">~Mission</a> () override</td>
 <td>Destructor (internal use only).</td>
 </tr>
 <tr>
@@ -3319,7 +3323,7 @@
 </tr>
 <tr>
 <td style="text-align:right">void</td>
-<td><a href="#classmavsdk_1_1_mission_1a0742dbcc599c6d66b46dd0ff0c8b07a2">upload_mission_with_progress_async</a> (<a href="structmavsdk_1_1_mission_1_1_mission_plan.html">MissionPlan</a> mission_plan, <a href="classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a559c82c81b3b7694973da8a65af24837">UploadMissionWithProgressCallback</a> callback)</td>
+<td><a href="#classmavsdk_1_1_mission_1a0faa587e80a59e8c40d7fc135650749c">upload_mission_with_progress_async</a> (<a href="structmavsdk_1_1_mission_1_1_mission_plan.html">MissionPlan</a> mission_plan, const <a href="classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a559c82c81b3b7694973da8a65af24837">UploadMissionWithProgressCallback</a> &amp; callback)</td>
 <td>Upload a list of mission items to the system and report upload progress.</td>
 </tr>
 <tr>
@@ -3339,7 +3343,7 @@
 </tr>
 <tr>
 <td style="text-align:right">void</td>
-<td><a href="#classmavsdk_1_1_mission_1a98e4d4336f1a38ffc1778e254c0a999a">download_mission_with_progress_async</a> (<a href="classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1ae73dbe775ceaba81183cebdaa1b6779e">DownloadMissionWithProgressCallback</a> callback)</td>
+<td><a href="#classmavsdk_1_1_mission_1a5b6b93482f2599c08d75d27a31a4f1d9">download_mission_with_progress_async</a> (const <a href="classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1ae73dbe775ceaba81183cebdaa1b6779e">DownloadMissionWithProgressCallback</a> &amp; callback)</td>
 <td>Download a list of mission items from the system (asynchronous) and report progress.</td>
 </tr>
 <tr>
@@ -3393,9 +3397,14 @@
 <td>Check if the mission has been finished.</td>
 </tr>
 <tr>
-<td style="text-align:right">void</td>
-<td><a href="#classmavsdk_1_1_mission_1a6dd32b92e593c1a692fe59e5bfb670fb">subscribe_mission_progress</a> (<a href="classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a67e8d00b1b20affca59fd4338c34c0e2">MissionProgressCallback</a> callback)</td>
+<td style="text-align:right"><a href="classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1aded0ba06c787ad2f30f401a30b240c8a">MissionProgressHandle</a></td>
+<td><a href="#classmavsdk_1_1_mission_1ac6d3e78de0ea2e6c1db2eaa5f3418660">subscribe_mission_progress</a> (const <a href="classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a67e8d00b1b20affca59fd4338c34c0e2">MissionProgressCallback</a> &amp; callback)</td>
 <td>Subscribe to mission progress updates.</td>
+</tr>
+<tr>
+<td style="text-align:right">void</td>
+<td><a href="#classmavsdk_1_1_mission_1a2b8bc4dd210506a703afa926f8406880">unsubscribe_mission_progress</a> (<a href="classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1aded0ba06c787ad2f30f401a30b240c8a">MissionProgressHandle</a> handle)</td>
+<td>Unsubscribe from subscribe_mission_progress.</td>
 </tr>
 <tr>
 <td style="text-align:right"><a href="structmavsdk_1_1_mission_1_1_mission_progress.html">MissionProgress</a></td>
@@ -3442,8 +3451,8 @@
 <ul>
 <li>std::shared_ptr&lt; <a href="classmavsdk_1_1_system.html">System</a> &gt; <strong>system</strong> - The specific system associated with this plugin.</li>
 </ul>
-<h3 id="classmavsdk_1_1_mission_1a0a0e9ee6ff15fc2231277d929add95ef"><a name="classmavsdk_1_1_mission_1a0a0e9ee6ff15fc2231277d929add95ef" class="plugin-anchor" href="#classmavsdk_1_1_mission_1a0a0e9ee6ff15fc2231277d929add95ef"><i class="fa fa-link" aria-hidden="true"></i></a>~Mission() </h3>
-<pre><code class="lang-cpp">mavsdk::Mission::~Mission()
+<h3 id="classmavsdk_1_1_mission_1ab8ddd47439bbc63a0a6b175fdad0368e"><a name="classmavsdk_1_1_mission_1ab8ddd47439bbc63a0a6b175fdad0368e" class="plugin-anchor" href="#classmavsdk_1_1_mission_1ab8ddd47439bbc63a0a6b175fdad0368e"><i class="fa fa-link" aria-hidden="true"></i></a>~Mission() </h3>
+<pre><code class="lang-cpp">mavsdk::Mission::~Mission() override
 </code></pre>
 <p>Destructor (internal use only).</p>
 <h3 id="classmavsdk_1_1_mission_1ab4a4a26254fdff0e3f3872f32479fe1c"><a name="classmavsdk_1_1_mission_1ab4a4a26254fdff0e3f3872f32479fe1c" class="plugin-anchor" href="#classmavsdk_1_1_mission_1ab4a4a26254fdff0e3f3872f32479fe1c"><i class="fa fa-link" aria-hidden="true"></i></a>Mission() </h3>
@@ -3475,6 +3484,10 @@
 <pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::Mission::MissionProgressCallback =  <span class="hljs-built_in">std</span>::function&lt;<span class="hljs-keyword">void</span>(MissionProgress)&gt;
 </code></pre>
 <p>Callback type for subscribe_mission_progress.</p>
+<h3 id="classmavsdk_1_1_mission_1aded0ba06c787ad2f30f401a30b240c8a"><a name="classmavsdk_1_1_mission_1aded0ba06c787ad2f30f401a30b240c8a" class="plugin-anchor" href="#classmavsdk_1_1_mission_1aded0ba06c787ad2f30f401a30b240c8a"><i class="fa fa-link" aria-hidden="true"></i></a>typedef MissionProgressHandle </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">using</span> mavsdk::Mission::MissionProgressHandle =  Handle&lt;MissionProgress&gt;
+</code></pre>
+<p><a href="classmavsdk_1_1_handle.md">Handle</a> type for subscribe_mission_progress.</p>
 <h2 id="member-enumeration-documentation"><a name="member-enumeration-documentation" class="plugin-anchor" href="#member-enumeration-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Member Enumeration Documentation</h2>
 <h3 id="classmavsdk_1_1_mission_1ab3114c63db76bdc37460939a1f3316f6"><a name="classmavsdk_1_1_mission_1ab3114c63db76bdc37460939a1f3316f6" class="plugin-anchor" href="#classmavsdk_1_1_mission_1ab3114c63db76bdc37460939a1f3316f6"><i class="fa fa-link" aria-hidden="true"></i></a>enum Result </h3>
 <p>Possible results returned for action requests.</p>
@@ -3538,6 +3551,18 @@
 <td><span id="classmavsdk_1_1_mission_1ab3114c63db76bdc37460939a1f3316f6a10ac3d04253ef7e1ddc73e6091c0cd55"></span> <code>Next</code></td>
 <td>Intermediate message showing progress. </td>
 </tr>
+<tr>
+<td><span id="classmavsdk_1_1_mission_1ab3114c63db76bdc37460939a1f3316f6a58d036b9b7f0e7eb38cfb90f1cc70a73"></span> <code>Denied</code></td>
+<td>Request denied. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_mission_1ab3114c63db76bdc37460939a1f3316f6aca3da8f495e4e628912a7798655da6c2"></span> <code>ProtocolError</code></td>
+<td>There was a protocol error. </td>
+</tr>
+<tr>
+<td><span id="classmavsdk_1_1_mission_1ab3114c63db76bdc37460939a1f3316f6a3f5f527103f3b11c1c271363c542432b"></span> <code>IntMessagesNotSupported</code></td>
+<td>The system does not support the MISSION_INT protocol. </td>
+</tr>
 </tbody>
 </table>
 <h2 id="member-function-documentation"><a name="member-function-documentation" class="plugin-anchor" href="#member-function-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Member Function Documentation</h2>
@@ -3564,15 +3589,15 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;<a href="classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1ab3114c63db76bdc37460939a1f3316f6">Result</a> - Result of request.</p>
-<h3 id="classmavsdk_1_1_mission_1a0742dbcc599c6d66b46dd0ff0c8b07a2"><a name="classmavsdk_1_1_mission_1a0742dbcc599c6d66b46dd0ff0c8b07a2" class="plugin-anchor" href="#classmavsdk_1_1_mission_1a0742dbcc599c6d66b46dd0ff0c8b07a2"><i class="fa fa-link" aria-hidden="true"></i></a>upload_mission_with_progress_async() </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Mission::upload_mission_with_progress_async(MissionPlan mission_plan, UploadMissionWithProgressCallback callback)
+<h3 id="classmavsdk_1_1_mission_1a0faa587e80a59e8c40d7fc135650749c"><a name="classmavsdk_1_1_mission_1a0faa587e80a59e8c40d7fc135650749c" class="plugin-anchor" href="#classmavsdk_1_1_mission_1a0faa587e80a59e8c40d7fc135650749c"><i class="fa fa-link" aria-hidden="true"></i></a>upload_mission_with_progress_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Mission::upload_mission_with_progress_async(MissionPlan mission_plan, <span class="hljs-keyword">const</span> UploadMissionWithProgressCallback &amp;callback)
 </code></pre>
 <p>Upload a list of mission items to the system and report upload progress.</p>
 <p>The mission items are uploaded to a drone. Once uploaded the mission can be started and executed even if the connection is lost.</p>
 <p><strong>Parameters</strong></p>
 <ul>
 <li><a href="structmavsdk_1_1_mission_1_1_mission_plan.html">MissionPlan</a> <strong>mission_plan</strong> - </li>
-<li><a href="classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a559c82c81b3b7694973da8a65af24837">UploadMissionWithProgressCallback</a> <strong>callback</strong> - </li>
+<li>const <a href="classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a559c82c81b3b7694973da8a65af24837">UploadMissionWithProgressCallback</a>&amp; <strong>callback</strong> - </li>
 </ul>
 <h3 id="classmavsdk_1_1_mission_1ab82609426bef51202b2107d33412378c"><a name="classmavsdk_1_1_mission_1ab82609426bef51202b2107d33412378c" class="plugin-anchor" href="#classmavsdk_1_1_mission_1ab82609426bef51202b2107d33412378c"><i class="fa fa-link" aria-hidden="true"></i></a>cancel_mission_upload() </h3>
 <pre><code class="lang-cpp">Result mavsdk::Mission::cancel_mission_upload() <span class="hljs-keyword">const</span>
@@ -3599,14 +3624,14 @@
 <p>This function is blocking. See &apos;download_mission_async&apos; for the non-blocking counterpart.</p>
 <p><strong>Returns</strong></p>
 <p>&#x2003;std::pair&lt; <a href="classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1ab3114c63db76bdc37460939a1f3316f6">Result</a>, <a href="structmavsdk_1_1_mission_1_1_mission_plan.html">Mission::MissionPlan</a> &gt; - Result of request.</p>
-<h3 id="classmavsdk_1_1_mission_1a98e4d4336f1a38ffc1778e254c0a999a"><a name="classmavsdk_1_1_mission_1a98e4d4336f1a38ffc1778e254c0a999a" class="plugin-anchor" href="#classmavsdk_1_1_mission_1a98e4d4336f1a38ffc1778e254c0a999a"><i class="fa fa-link" aria-hidden="true"></i></a>download_mission_with_progress_async() </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Mission::download_mission_with_progress_async(DownloadMissionWithProgressCallback callback)
+<h3 id="classmavsdk_1_1_mission_1a5b6b93482f2599c08d75d27a31a4f1d9"><a name="classmavsdk_1_1_mission_1a5b6b93482f2599c08d75d27a31a4f1d9" class="plugin-anchor" href="#classmavsdk_1_1_mission_1a5b6b93482f2599c08d75d27a31a4f1d9"><i class="fa fa-link" aria-hidden="true"></i></a>download_mission_with_progress_async() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Mission::download_mission_with_progress_async(<span class="hljs-keyword">const</span> DownloadMissionWithProgressCallback &amp;callback)
 </code></pre>
 <p>Download a list of mission items from the system (asynchronous) and report progress.</p>
 <p>Will fail if any of the downloaded mission items are not supported by the MAVSDK API.</p>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><a href="classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1ae73dbe775ceaba81183cebdaa1b6779e">DownloadMissionWithProgressCallback</a> <strong>callback</strong> - </li>
+<li>const <a href="classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1ae73dbe775ceaba81183cebdaa1b6779e">DownloadMissionWithProgressCallback</a>&amp; <strong>callback</strong> - </li>
 </ul>
 <h3 id="classmavsdk_1_1_mission_1a0eaaeffe0354156b5abed892f0950bcc"><a name="classmavsdk_1_1_mission_1a0eaaeffe0354156b5abed892f0950bcc" class="plugin-anchor" href="#classmavsdk_1_1_mission_1a0eaaeffe0354156b5abed892f0950bcc"><i class="fa fa-link" aria-hidden="true"></i></a>cancel_mission_download() </h3>
 <pre><code class="lang-cpp">Result mavsdk::Mission::cancel_mission_download() <span class="hljs-keyword">const</span>
@@ -3699,13 +3724,23 @@
 <p>This function is blocking.</p>
 <p><strong>Returns</strong></p>
 <p>&#x2003;std::pair&lt; <a href="classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1ab3114c63db76bdc37460939a1f3316f6">Result</a>, bool &gt; - Result of request.</p>
-<h3 id="classmavsdk_1_1_mission_1a6dd32b92e593c1a692fe59e5bfb670fb"><a name="classmavsdk_1_1_mission_1a6dd32b92e593c1a692fe59e5bfb670fb" class="plugin-anchor" href="#classmavsdk_1_1_mission_1a6dd32b92e593c1a692fe59e5bfb670fb"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_mission_progress() </h3>
-<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Mission::subscribe_mission_progress(MissionProgressCallback callback)
+<h3 id="classmavsdk_1_1_mission_1ac6d3e78de0ea2e6c1db2eaa5f3418660"><a name="classmavsdk_1_1_mission_1ac6d3e78de0ea2e6c1db2eaa5f3418660" class="plugin-anchor" href="#classmavsdk_1_1_mission_1ac6d3e78de0ea2e6c1db2eaa5f3418660"><i class="fa fa-link" aria-hidden="true"></i></a>subscribe_mission_progress() </h3>
+<pre><code class="lang-cpp">MissionProgressHandle mavsdk::Mission::subscribe_mission_progress(<span class="hljs-keyword">const</span> MissionProgressCallback &amp;callback)
 </code></pre>
 <p>Subscribe to mission progress updates.</p>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><a href="classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a67e8d00b1b20affca59fd4338c34c0e2">MissionProgressCallback</a> <strong>callback</strong> - </li>
+<li>const <a href="classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1a67e8d00b1b20affca59fd4338c34c0e2">MissionProgressCallback</a>&amp; <strong>callback</strong> - </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>&#x2003;<a href="classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1aded0ba06c787ad2f30f401a30b240c8a">MissionProgressHandle</a> - </p>
+<h3 id="classmavsdk_1_1_mission_1a2b8bc4dd210506a703afa926f8406880"><a name="classmavsdk_1_1_mission_1a2b8bc4dd210506a703afa926f8406880" class="plugin-anchor" href="#classmavsdk_1_1_mission_1a2b8bc4dd210506a703afa926f8406880"><i class="fa fa-link" aria-hidden="true"></i></a>unsubscribe_mission_progress() </h3>
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> mavsdk::Mission::unsubscribe_mission_progress(MissionProgressHandle handle)
+</code></pre>
+<p>Unsubscribe from subscribe_mission_progress.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><a href="classmavsdk_1_1_mission.html#classmavsdk_1_1_mission_1aded0ba06c787ad2f30f401a30b240c8a">MissionProgressHandle</a> <strong>handle</strong> - </li>
 </ul>
 <h3 id="classmavsdk_1_1_mission_1a5570443e7c1f08cff1759980ff44b40e"><a name="classmavsdk_1_1_mission_1a5570443e7c1f08cff1759980ff44b40e" class="plugin-anchor" href="#classmavsdk_1_1_mission_1a5570443e7c1f08cff1759980ff44b40e"><i class="fa fa-link" aria-hidden="true"></i></a>mission_progress() </h3>
 <pre><code class="lang-cpp">MissionProgress mavsdk::Mission::mission_progress() <span class="hljs-keyword">const</span>
@@ -3743,7 +3778,7 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>&#x2003;const <a href="classmavsdk_1_1_mission.html">Mission</a> &amp; - </p>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2023-12-27 01:33:23 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; MAVSDK Development Team 2017-2023. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2023-12-27 03:10:20 </span> </footer>
                                 
                                 </section>
                             
@@ -3786,7 +3821,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"class Mission","level":"1.2.6.16","depth":3,"next":{"title":"struct MissionItem","level":"1.2.6.16.1","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_item.md","ref":"cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_item.md","articles":[]},"previous":{"title":"class Mavsdk::Configuration","level":"1.2.6.15.1","depth":4,"path":"cpp/api_reference/classmavsdk_1_1_mavsdk_1_1_configuration.md","ref":"cpp/api_reference/classmavsdk_1_1_mavsdk_1_1_configuration.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v2.0/en/","text":"v2.0"},{"value":"https://mavsdk.mavlink.io/v1.4/en/","text":"v1.4"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/api_reference/classmavsdk_1_1_mission.md","mtime":"2023-12-27T01:33:23.810Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-12-27T01:34:03.009Z"},"basePath":"../..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"class Mission","level":"1.2.6.16","depth":3,"next":{"title":"struct MissionItem","level":"1.2.6.16.1","depth":4,"path":"cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_item.md","ref":"cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_item.md","articles":[]},"previous":{"title":"class Mavsdk::Configuration","level":"1.2.6.15.1","depth":4,"path":"cpp/api_reference/classmavsdk_1_1_mavsdk_1_1_configuration.md","ref":"cpp/api_reference/classmavsdk_1_1_mavsdk_1_1_configuration.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© MAVSDK Development Team 2017-2023. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v2.0/en/","text":"v2.0"},{"value":"https://mavsdk.mavlink.io/v1.4/en/","text":"v1.4"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/api_reference/classmavsdk_1_1_mission.md","mtime":"2023-12-27T03:10:20.531Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-12-27T03:11:00.444Z"},"basePath":"../..","book":{"language":"en"}});
         });
     </script>
 </div>
