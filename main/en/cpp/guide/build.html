@@ -3235,7 +3235,7 @@
                                 <h1 id="building-mavsdk-library-from-source"><a name="building-mavsdk-library-from-source" class="plugin-anchor" href="#building-mavsdk-library-from-source"><i class="fa fa-link" aria-hidden="true"></i></a>Building MAVSDK Library from Source</h1>
 <p>This section explains how to build and install the MAVSDK C++ library from source for all our target platforms.</p>
 <p>Note that there are separate instructions to <a href="build_mavsdk_server.html">build the mavsdk_server</a>.</p>
-<h2 id="build_sdk_cpp"><a name="build_sdk_cpp" class="plugin-anchor" href="#build_sdk_cpp"><i class="fa fa-link" aria-hidden="true"></i></a>Build the C++ Library </h2>
+<h2 id="build_mavsdk_cpp_library"><a name="build_mavsdk_cpp_library" class="plugin-anchor" href="#build_mavsdk_cpp_library"><i class="fa fa-link" aria-hidden="true"></i></a>Build the C++ Library </h2>
 <p>This section explains how to build the library along with its unit and integration tests.</p>
 <h3 id="requirements"><a name="requirements" class="plugin-anchor" href="#requirements"><i class="fa fa-link" aria-hidden="true"></i></a>Requirements </h3>
 <p>The build requirements are git, cmake, and a compiler such as GCC, Clang, or MSVC.</p>
@@ -3275,10 +3275,44 @@ Make sure to tick &quot;add to PATH&quot; during the installation.</li>
 </code></pre>
 <p>Make sure to get all the submodules as well:</p>
 <pre><code>git submodule update --init --recursive
-</code></pre><h3 id="building"><a name="building" class="plugin-anchor" href="#building"><i class="fa fa-link" aria-hidden="true"></i></a>Building</h3>
+</code></pre><h3 id="building-fundamentals"><a name="building-fundamentals" class="plugin-anchor" href="#building-fundamentals"><i class="fa fa-link" aria-hidden="true"></i></a>Building Fundamentals</h3>
+<p>Building the MAVSDK with CMake is broken down into two steps: <strong>Configuration</strong> and <strong>Build</strong>.</p>
+<h4 id="configuration_step"><a name="configuration_step" class="plugin-anchor" href="#configuration_step"><i class="fa fa-link" aria-hidden="true"></i></a>Build Configuration Step </h4>
+<p>For configuration, you specify the type of build you want to execute in the <a href="#build_step">build step</a>. You can checkout the <a href="https://cmake.org/cmake/help/latest/manual/cmake-buildsystem.7.html#build-configurations" target="_blank">CMake Documentation on Build Configuration</a> for more context.</p>
+<p>A typical configuration command example would be:</p>
+<p><code>cmake -DCMAKE_BUILD_TYPE=Debug -Bbuild/default -H.</code></p>
+<ul>
+<li>Build type is set to <code>Debug</code></li>
+<li>Build directory is set to <code>build/default</code></li>
+<li>Chose the directory using the <code>H.</code> flag</li>
+</ul>
+<p>During the configure step you can set more flags using <code>-DFLAG=Value</code>:</p>
+<ul>
+<li><code>CMAKE_BUILD_TYPE</code>: as documented above, to chose between <code>Debug</code> and <code>Release</code> build.</li>
+<li><code>CMAKE_INSTALL_PREFIX</code>: as documented above, to specify directory to install library artifacts.</li>
+<li><code>BUILD_SHARED_LIBS</code>: set to <code>ON</code> to build dynamic libraries (such as .so on Linux, .dylib on macOS, .dll on Windows). Set to <code>OFF</code> to build static libraries (such as .a on Linux and macOS, .lib on Windows).</li>
+<li><code>SUPERBUILD</code>: set to <code>OFF</code> to use system dependencies instead of <a href="https://github.com/mavlink/MAVSDK/tree/main/third_party" target="_blank">third party dependencies</a> downloaded and built using cmake.</li>
+<li><code>CMAKE_PREFIX_PATH</code>: can be used to set the path where the dependencies can be found if <code>SUPERBUILD</code> is set to <code>OFF</code>.</li>
+<li><code>BUILD_MAVSDK_SERVER</code>: set to <code>ON</code> to build mavsdk_server, see instruction to <a href="build_mavsdk_server.html">build mavsdk_server</a>.</li>
+<li><code>ASAN</code>: set to <code>ON</code> to enable address sanitizer.</li>
+<li><code>UBSAN</code>: set to <code>ON</code> to enable undefined behavior sanitizer.</li>
+<li><code>LSAN</code>: set to <code>ON</code> to enable leak sanitizer.</li>
+<li><code>WERROR</code>: set to <code>ON</code> to error on warnings, mostly used for CI.</li>
+</ul>
+<p>After the configuration step, everything that will be build in the <a href="#build_step">build step</a> have been specified, and if you want to change your build configuration (e.g. If you want to build <code>Debug</code> build instead of <code>Release</code> build), you must execute the <a href="#configuration_step">configuration step</a> again!</p>
+<h4 id="build_step"><a name="build_step" class="plugin-anchor" href="#build_step"><i class="fa fa-link" aria-hidden="true"></i></a>Build Step </h4>
+<p>In the build step, we finally build the library and binaries and link them.</p>
+<p>The stripped down version of the build command would be:</p>
+<p><code>cmake --build build/default</code></p>
+<ul>
+<li>The <code>--build</code> signals the CMake to execute the build</li>
+<li>It uses the build configuration built from the <a href="#configuration_step">configuration step</a>, located at <code>build/default</code> folder</li>
+</ul>
+<p>Additionally, you can install it in the system with the <code>--target install</code> command added as well, which is explained in detail in the <a href="#install_mavsdk_cpp_library">Installing the C++ Library</a> section below.</p>
+<h3 id="building"><a name="building" class="plugin-anchor" href="#building"><i class="fa fa-link" aria-hidden="true"></i></a>Building</h3>
 <h4 id="debug"><a name="debug" class="plugin-anchor" href="#debug"><i class="fa fa-link" aria-hidden="true"></i></a>Debug</h4>
 <p>To build the MAVSDK C++ Library for development, use the debug build.</p>
-<p>Configure first, then build:</p>
+<p>There are 2 steps in building a library: Configure and build.</p>
 <pre><code class="lang-bash">cmake -DCMAKE_BUILD_TYPE=Debug -Bbuild/default -H.
 cmake --build build/default -j8
 </code></pre>
@@ -3295,10 +3329,10 @@ cmake --build build/default -j8 --config Release
 <blockquote>
 <p>Note: It is not usual to use CMAKE_BUILD_TYPE on Windows (with MSVC), however, our build requires it for the dependencies which are built at configure time.</p>
 </blockquote>
-<h2 id="build_sdk_cpp"><a name="build_sdk_cpp" class="plugin-anchor" href="#build_sdk_cpp"><i class="fa fa-link" aria-hidden="true"></i></a>Installing the C++ Library </h2>
+<h2 id="install_mavsdk_cpp_library"><a name="install_mavsdk_cpp_library" class="plugin-anchor" href="#install_mavsdk_cpp_library"><i class="fa fa-link" aria-hidden="true"></i></a>Installing the C++ Library </h2>
 <p><em>Installing</em> builds the SDK <strong>and</strong> copies the libraries and header files into a &quot;public&quot; location so that they can be referenced by C++ applications (see <a href="toolchain.html">Building C++ Apps</a>).</p>
 <h3 id="sdk_system_wide_install"><a name="sdk_system_wide_install" class="plugin-anchor" href="#sdk_system_wide_install"><i class="fa fa-link" aria-hidden="true"></i></a>System-wide Install </h3>
-<p>By default (when <code>CMAKE_INSTALL_PREFIX</code> is not set, cmake tries to install system-wide. For Linux/macOS that&apos;s <code>/usr/local</code>, for Windows it is somewhere in <code>C:\Program Files</code>.</p>
+<p>You can configure to install system wide by not setting the <code>CMAKE_INSTALL_PREFIX</code> in the <a href="#configuration_step">configuration step</a>, since CMake tries to install system wide by default. For Linux/macOS that&apos;s <code>/usr/local</code>, for Windows it is somewhere in <code>C:\Program Files</code>.</p>
 <p>To install system-wide the command needs to be run with sudo on Linux/macOS:</p>
 <pre><code class="lang-bash">sudo cmake --build build/default --target install
 </code></pre>
@@ -3311,61 +3345,16 @@ The mavsdk library installed via a .deb or .rpm file will be installed in <code>
 It&apos;s recommended to only have one installed at any time to prevent conflicts.</p>
 </blockquote>
 <h3 id="sdk_local_install"><a name="sdk_local_install" class="plugin-anchor" href="#sdk_local_install"><i class="fa fa-link" aria-hidden="true"></i></a>Local Install </h3>
-<p>The install path can be set in the configure call using <code>CMAKE_INSTALL_PREFIX</code>:</p>
+<p>The install path can be set in the <a href="#configuration_step">configuration step</a> using <code>CMAKE_INSTALL_PREFIX</code>:</p>
 <p>For example, to install into the <code>MAVSDK/install/</code> folder you would set the <code>CMAKE_INSTALL_PREFIX</code> variable to specify a path relative to the folder from which you call <code>cmake</code> (or an absolute path).</p>
-<pre><code>cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=install -Bbuild/default -H.
+<pre><code class="lang-bash">cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=install -Bbuild/default -H.
 cmake --build build/default --target install
-</code></pre><blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+</code></pre>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> If you already have run <em>cmake</em> without setting <code>CMAKE_INSTALL_PREFIX</code>, you may need to clean the build first:</p>
 <pre><code class="lang-sh">  rm -rf build/default
 </code></pre>
 </blockquote>
-<p>Once installed locally, you can then use the installed headers and library from the local folder by setting it using <code>CMAKE_PREFIX_PATH</code>.</p>
-<p>For instance, to build the examples, you would do:</p>
-<pre><code>cd examples
-cmake -DCMAKE_PREFIX_PATH=$(pwd)/../install -Bbuild -H.
-cmake --build build -j8
-</code></pre><h2 id="mavlink-headers-and-dialects"><a name="mavlink-headers-and-dialects" class="plugin-anchor" href="#mavlink-headers-and-dialects"><i class="fa fa-link" aria-hidden="true"></i></a>MAVLink headers and dialects</h2>
-<p>MAVSDK uses the dialect <a href="https://mavlink.io/en/messages/common.html" target="_blank">common.xml</a> by default.
-It does so by checking out the <a href="https://github.com/mavlink/mavlink/" target="_blank">mavlink/mavlink</a> repository at configure time and using <a href="https://github.com/ArduPilot/pymavlink" target="_blank">Pymavlink</a> to generate the C headers.</p>
-<p>There are two options to change the default mentioned above.</p>
-<h3 id="change-dialect"><a name="change-dialect" class="plugin-anchor" href="#change-dialect"><i class="fa fa-link" aria-hidden="true"></i></a>Change dialect</h3>
-<p>If you need to build with a dialect other than <code>common</code>, you can specify that during the configure step:</p>
-<pre><code class="lang-sh">cmake -Bbuild/default -DMAVLINK_DIALECT=mydialect -H.
-</code></pre>
-<p>If you also want to swap out the repository and git commit, you can do so in <a href="https://github.com/mavlink/MAVSDK/blob/bbdb9e96f5567a488925093f641d249f8e01b2de/third_party/mavlink/CMakeLists.txt#L20-L21" target="_blank">third_party/mavlink/CMakeLists.txt</a>.</p>
-<h3 id="provide-c-headers-manually"><a name="provide-c-headers-manually" class="plugin-anchor" href="#provide-c-headers-manually"><i class="fa fa-link" aria-hidden="true"></i></a>Provide C headers manually</h3>
-<p>Instead of depending on the generation of the MAVLink C headers as part of the cmake configure step, you can provide the generated C headers manually.
-This can be useful if you already have the headers generated in your worspace or CI, or if you don&apos;t have Python available during the configure step (e.g. as is the case for the dockcross images).</p>
-<p>To provide the generated C headers manually, you have to set the path during the configure step:</p>
-<p>Let&apos;s say the mavlink headers are &quot;next to&quot; the MAVSDK directory:</p>
-<pre><code class="lang-sh">cmake -Bbuild/default -DMAVLINK_DIALECT=mydialect -DMAVLINK_HEADERS=../mavlink-headers -H.
-</code></pre>
-<p>Note that the structure of the headers needs to be like this:</p>
-<pre><code class="lang-sh">mavlink-headers <span class="hljs-comment"># &lt;-- This is the directory referenced</span>
-&#x2514;&#x2500;&#x2500; mavlink
-    &#x2514;&#x2500;&#x2500; v2.0
-        &#x251C;&#x2500;&#x2500; checksum.h
-        &#x251C;&#x2500;&#x2500; mydialect
-        &#x2502;   &#x251C;&#x2500;&#x2500; mydialect.h
-        &#x2502;   &#x251C;&#x2500;&#x2500; mavlink.h
-        &#x2502;   &#x251C;&#x2500;&#x2500; mavlink_msg_...
-</code></pre>
-<h2 id="other-build-flags"><a name="other-build-flags" class="plugin-anchor" href="#other-build-flags"><i class="fa fa-link" aria-hidden="true"></i></a>Other build flags</h2>
-<p>During the configure step, there are various flags that an be set using <code>-DFLAG=Value</code>:</p>
-<ul>
-<li><code>CMAKE_BUILD_TYPE</code>: as documented above, to choose between <code>Debug</code> and <code>Release</code> build.</li>
-<li><code>CMAKE_INSTALL_PREFIX</code>: as documented above, to specify the directory in which to install library artefacts.</li>
-<li><code>BUILD_SHARED_LIBS</code>: set to <code>ON</code> to build dynamic libraries (such as <code>.so</code> on Linux, <code>.dylib</code> on macOS, <code>.dll</code> on Windows).
-Set to <code>OFF</code> to build static libraries (such as <code>.a</code> on Linux and macOS, <code>.lib</code> on Windows).</li>
-<li><code>SUPERBUILD</code>: set to <code>OFF</code> to use system dependencies instead of dependencies downloaded and built using cmake.</li>
-<li><code>CMAKE_PREFIX_PATH</code>: can be used to set the path where the dependencies can be found if <code>SUPERBUILD</code> is set to <code>OFF</code>.</li>
-<li><code>BUILD_MAVSDK_SERVER</code>: set to <code>ON</code> to build mavsdk_server, see instruction to <a href="build_mavsdk_server.html">build mavsdk_server</a>.</li>
-<li><code>ASAN</code>: set to <code>ON</code> to enable address sanitizer.</li>
-<li><code>UBSAN</code>: set to <code>ON</code> to enable undefined behavior sanitizer.</li>
-<li><code>LSAN</code>: set to <code>ON</code> to enable leak sanitizer.</li>
-<li><code>WERROR</code>: set to <code>ON</code> to error on warnings, mostly used for CI.</li>
-</ul>
 <h2 id="troubleshooting"><a name="troubleshooting" class="plugin-anchor" href="#troubleshooting"><i class="fa fa-link" aria-hidden="true"></i></a>Troubleshooting</h2>
 <h3 id="git-submodules-out-of-date"><a name="git-submodules-out-of-date" class="plugin-anchor" href="#git-submodules-out-of-date"><i class="fa fa-link" aria-hidden="true"></i></a>Git submodules out of date</h3>
 <p>Some common build issues can be resolved by updating submodules and cleaning the distribution:</p>
@@ -3378,7 +3367,7 @@ rm -rf build
 <h3 id="undefined-reference-to-mavsdk"><a name="undefined-reference-to-mavsdk" class="plugin-anchor" href="#undefined-reference-to-mavsdk"><i class="fa fa-link" aria-hidden="true"></i></a>Undefined reference to mavsdk...</h3>
 <p>If you only just built the library and installed it system-wide may also need to <a href="http://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html" target="_blank">update the linker cache</a>.</p>
 <p>On Linux this is done with <code>sudo ldconfig</code>.</p>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2023-03-09 01:10:03 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; Dronecode 2017-2020. License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> Updated:  2023-12-27 01:33:23 </span> </footer>
                                 
                                 </section>
                             
@@ -3421,7 +3410,7 @@ rm -rf build
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Building library from Source","level":"1.2.2.16","depth":3,"next":{"title":"Building mavsdk_server from Source","level":"1.2.2.17","depth":3,"path":"cpp/guide/build_mavsdk_server.md","ref":"cpp/guide/build_mavsdk_server.md","articles":[]},"previous":{"title":"Testing","level":"1.2.2.15","depth":3,"path":"cpp/guide/test.md","ref":"cpp/guide/test.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v1.4/en/","text":"v1.4"},{"value":"https://mavsdk.mavlink.io/v1.0/en/","text":"v1.0"},{"value":"https://mavsdk.mavlink.io/v0.44/en/","text":"v0.44"},{"value":"https://mavsdk.mavlink.io/v0.39/en/","text":"v0.39"},{"value":"https://mavsdk.mavlink.io/v0.38/en/","text":"v0.38"},{"value":"https://mavsdk.mavlink.io/v0.37.0/en/","text":"v0.37.0"},{"value":"https://mavsdk.mavlink.io/v0.36.0/en/","text":"v0.36.0"},{"value":"https://mavsdk.mavlink.io/v0.35.0/en/","text":"v0.35.0"},{"value":"https://mavsdk.mavlink.io/v0.33.0/en/","text":"v0.33.0"},{"value":"https://mavsdk.mavlink.io/v0.29.0/en/","text":"v0.29.0"},{"value":"https://mavsdk.mavlink.io/v0.27.0/en/","text":"v0.27.0"},{"value":"https://mavsdk.mavlink.io/v0.25.0/en/","text":"v0.25.0"},{"value":"https://mavsdk.mavlink.io/v0.24.0/en/","text":"v0.24.0"},{"value":"https://mavsdk.mavlink.io/v0.21.1/en/","text":"v0.21.1"},{"value":"https://mavsdk.mavlink.io/v0.19.0/en/","text":"v0.19.0"},{"value":"https://mavsdk.mavlink.io/v0.18.0/en/","text":"v0.18.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/guide/build.md","mtime":"2023-03-09T01:10:03.782Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-03-09T01:10:38.648Z"},"basePath":"../..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Building library from Source","level":"1.2.2.16","depth":3,"next":{"title":"Building mavsdk_server from Source","level":"1.2.2.17","depth":3,"path":"cpp/guide/build_mavsdk_server.md","ref":"cpp/guide/build_mavsdk_server.md","articles":[]},"previous":{"title":"Testing","level":"1.2.2.15","depth":3,"path":"cpp/guide/test.md","ref":"cpp/guide/test.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","language-picker","collapsible-menu","page-toc-button","page-footer-ex","custom-favicon","anchors","theme-dronecode@git+https://github.com/Dronecode/theme-dronecode.git","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"page-footer-ex":{"copyright":"© Dronecode 2017-2020. License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"Updated: "},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"./assets/site/favicon.png","page-toc-button":{},"theme-api":{"split":false},"custom-favicon":{},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/mavlink/MAVSDK-docs/main/book.json","options":[{"value":"https://mavsdk.mavlink.io/main/en/","text":"main"},{"value":"https://mavsdk.mavlink.io/v2.0/en/","text":"v2.0"},{"value":"https://mavsdk.mavlink.io/v1.4/en/","text":"v1.4"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/mavlink/MAVSDK-docs"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/mavlink/MAVSDK-docs/edit/main/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/sdk_logo_full.png","github_branch":"main"},"title":"MAVSDK Guide","language":"en","gitbook":"*"},"file":{"path":"cpp/guide/build.md","mtime":"2023-12-27T01:33:23.818Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-12-27T01:34:03.009Z"},"basePath":"../..","book":{"language":"en"}});
         });
     </script>
 </div>
