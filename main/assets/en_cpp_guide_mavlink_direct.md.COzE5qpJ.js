@@ -90,7 +90,7 @@ import{_ as i,o as a,c as n,ag as t}from"./chunks/framework.BpToWd9i.js";const g
 <span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">// Create MavlinkDirect plugin instance</span></span>
 <span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">auto</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> mavlink_direct </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> MavlinkDirect{system.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">value</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">()};</span></span>
 <span class="line"></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">// Create a HEARTBEAT message</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">// Create an OBSTACLE_DISTANCE message</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">MavlinkDirect</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">::MavlinkMessage obstacle_distance{};</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">obstacle_distance.message_name </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &quot;OBSTACLE_DISTANCE&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">;</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">obstacle_distance.system_id </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> config.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">get_system_id</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">();</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // Your component&#39;s system ID</span></span>
@@ -110,17 +110,17 @@ import{_ as i,o as a,c as n,ag as t}from"./chunks/framework.BpToWd9i.js";const g
 <span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;sensor_type&quot;: 3,</span></span>
 <span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;distances&quot;: [</span></span>
 <span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        2000,   2000,  2000,  1000,   800,   700,  2000,  2000,</span></span>
-<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        65536, 65536, 65536, 65536, 65536, 65536, 65536, 65536,</span></span>
-<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        65536, 65536, 65536, 65536, 65536, 65536, 65536, 65536,</span></span>
-<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        65536, 65536, 65536, 65536, 65536, 65536, 65536, 65536,</span></span>
-<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        65536, 65536, 65536, 65536, 65536, 65536, 65536, 65536,</span></span>
-<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        65536, 65536, 65536, 65536, 65536, 65536, 65536, 65536,</span></span>
-<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        65536, 65536, 65536, 65536, 65536, 65536, 65536, 65536,</span></span>
-<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        65536, 65536, 65536, 65536, 65536, 65536, 65536, 65536,</span></span>
-<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        65536, 65536, 65536, 65536, 65536, 65536, 65536, 65536</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535,</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535,</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535,</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535,</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535,</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535,</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535,</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535</span></span>
 <span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    ],</span></span>
 <span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;increment&quot;: 0,</span></span>
-<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;min_distance&quot;: 000,</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;min_distance&quot;: 20,</span></span>
 <span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;max_distance&quot;: 2000,</span></span>
 <span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;increment_f&quot;: 10.0,</span></span>
 <span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;angle_offset&quot;: -40.0,</span></span>
